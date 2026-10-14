@@ -1,0 +1,32 @@
+{
+  "search_plan": "/workspace/simpler_law/multi-moe-scaling-laws/outputs/law_search/law_search_v1/plan.json",
+  "coverage_plan": "/workspace/simpler_law/multi-moe-scaling-laws/outputs/law_search/law_improvement_round3_v1/plan.json",
+  "output_root": "../../outputs/paper_refit/full_20260926_inputs",
+  "expected_inventory": {
+    "largest_N_act": {
+      "rows": 18936,
+      "configurations": 48,
+      "languages": 200,
+      "test_rows": 7364
+    },
+    "E32": {
+      "rows": 19725,
+      "configurations": 48,
+      "languages": 200,
+      "test_rows": 6575
+    },
+    "K200_common_languages": {
+      "rows": 6300,
+      "configurations": 48,
+      "languages": 50,
+      "test_rows": 5000
+    },
+    "all_grid": {
+      "rows": 26300,
+      "configurations": 64,
+      "languages": 200,
+      "test_rows": 0
+    }
+  },
+  "scope": "paper_full_refit_20260926_v1"
+}

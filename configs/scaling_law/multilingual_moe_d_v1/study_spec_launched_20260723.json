@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "study_id": "multilingual_moe_d_v1",
+  "inherits": {
+    "spec_path": "../multilingual_moe_ab_v2/study_spec.json",
+    "spec_sha256": "fb7f389b36ac2d9f46b33897bc1579ed7ee038063e27aac667f990491f296711",
+    "historical_spec_sha256": "f629380f3afa48d1e06b5e04d01f7a6fc85c34601d3c3b9d5bcb3a4de0123028"
+  },
+  "axes": {
+    "experts": [
+      1,
+      4,
+      16,
+      32
+    ],
+    "language_counts": [
+      1,
+      12,
+      50,
+      200
+    ],
+    "ladders": [
+      {
+        "id": "D",
+        "num_attention_heads": 20,
+        "num_layers": 20,
+        "hidden_size": 1280,
+        "ffn_hidden_size": 3840,
+        "N_act": 589824000,
+        "N_act_nonembed": 425984000,
+        "D_max_tokens": 32000000000
+      }
+    ]
+  },
+  "training_policy": {
+    "peak_learning_rate": 0.0002,
+    "warmup_tokens": 130000000,
+    "schedule": "warmup, stable, then linear decay to zero over the final 20% of D_max",
+    "checkpoint_horizons_tokens": {
+      "D": [
+        500000000,
+        1000000000,
+        2000000000,
+        4000000000,
+        8000000000,
+        16000000000,
+        32000000000
+      ]
+    }
+  },
+  "execution_policy": {
+    "status": "sentinel_only_unmeasured",
+    "production_generation_enabled": false,
+    "rule": "Do not inherit C throughput, microbatch, GPU-layout, storage, or cost measurements. Promote a D layout only from passing D-specific evidence.",
+    "microbatch_candidates": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "required_sentinels": [
+      {
+        "id": "sentinel_early_correctness_d_e1_k050_gbs32",
+        "E": 1,
+        "K": 50,
+        "global_batch_sequences": 32,
+        "tokens": 16777216
+      },
+      {
+        "id": "sentinel_early_correctness_d_e32_k050_gbs32",
+        "E": 32,
+        "K": 50,
+        "global_batch_sequences": 32,
+        "tokens": 16777216
+      },
+      {
+        "id": "sentinel_mid_ramp_d_e32_k050_gbs64",
+        "E": 32,
+        "K": 50,
+        "global_batch_sequences": 64,
+        "tokens": 16777216
+      },
+      {
+        "id": "sentinel_plateau_memory_perf_d_e4_k050_gbs128",
+        "E": 4,
+        "K": 50,
+        "global_batch_sequences": 128,
+        "tokens": 16777216
+      },
+      {
+        "id": "sentinel_plateau_memory_perf_d_e16_k050_gbs128",
+        "E": 16,
+        "K": 50,
+        "global_batch_sequences": 128,
+        "tokens": 16777216
+      },
+      {
+        "id": "sentinel_plateau_memory_perf_d_e32_k050_gbs128",
+        "E": 32,
+        "K": 50,
+        "global_batch_sequences": 128,
+        "tokens": 16777216
+      }
+    ],
+    "required_evaluator_sentinels": [
+      "sentinel_eval_d_e1_eng",
+      "sentinel_eval_d_e4_eng",
+      "sentinel_eval_d_e16_eng",
+      "sentinel_eval_d_e32_eng"
+    ],
+    "required_fixed_lr_probes": [
+      {
+        "id": "fixed_lr_schedule_probe_d_e1_k001",
+        "E": 1,
+        "K": 1,
+        "tokens": 167772160
+      },
+      {
+        "id": "fixed_lr_schedule_probe_d_e32_k200",
+        "E": 32,
+        "K": 200,
+        "tokens": 167772160
+      }
+    ],
+    "required_long_throughput_probes": [
+      {
+        "id": "sentinel_long_gbs32_d_e1_k050_gbs32",
+        "E": 1,
+        "K": 50,
+        "global_batch_sequences": 32,
+        "tokens": 134217728
+      },
+      {
+        "id": "sentinel_long_gbs64_d_e1_k050_gbs64",
+        "E": 1,
+        "K": 50,
+        "global_batch_sequences": 64,
+        "tokens": 134217728
+      },
+      {
+        "id": "sentinel_long_gbs128_d_e1_k050_gbs128",
+        "E": 1,
+        "K": 50,
+        "global_batch_sequences": 128,
+        "tokens": 134217728
+      },
+      {
+        "id": "sentinel_long_gbs32_d_e4_k050_gbs32",
+        "E": 4,
+        "K": 50,
+        "global_batch_sequences": 32,
+        "tokens": 134217728
+      },
+      {
+        "id": "sentinel_long_gbs64_d_e4_k050_gbs64",
+        "E": 4,
+        "K": 50,
+        "global_batch_sequences": 64,
+        "tokens": 134217728
+      },
+      {
+        "id": "sentinel_long_gbs128_d_e4_k050_gbs128",
+        "E": 4,
+        "K": 50,
+        "global_batch_sequences": 128,
+        "tokens": 134217728
+      },
+      {
+        "id": "sentinel_long_gbs32_d_e16_k050_gbs32",
+        "E": 16,
+        "K": 50,
+        "global_batch_sequences": 32,
+        "tokens": 134217728
+      },
+      {
+        "id": "sentinel_long_gbs64_d_e16_k050_gbs64",
+        "E": 16,
+        "K": 50,
+        "global_batch_sequences": 64,
+        "tokens": 134217728
+      },
+      {
+        "id": "sentinel_long_gbs128_d_e16_k050_gbs128",
+        "E": 16,
+        "K": 50,
+        "global_batch_sequences": 128,
+        "tokens": 134217728
+      },
+      {
+        "id": "sentinel_long_gbs32_d_e32_k050_gbs32",
+        "E": 32,
+        "K": 50,
+        "global_batch_sequences": 32,
+        "tokens": 134217728
+      },
+      {
+        "id": "sentinel_long_gbs64_d_e32_k050_gbs64",
+        "E": 32,
+        "K": 50,
+        "global_batch_sequences": 64,
+        "tokens": 134217728
+      },
+      {
+        "id": "sentinel_long_gbs128_d_e32_k050_gbs128",
+        "E": 32,
+        "K": 50,
+        "global_batch_sequences": 128,
+        "tokens": 134217728
+      }
+    ],
+    "required_storage_gate": {
+      "retained_data_and_other_artifacts_reserve_bytes": 3298534883328,
+      "required_post_allocation_free_headroom_bytes": 3298534883328
+    },
+    "long_probe_step_time_cv_limit_pct": 5.0,
+    "long_probe_step_time_cv_limit_pct_overrides": {
+      "sentinel_long_gbs32_d_e16_k050_gbs32": 8.0,
+      "sentinel_long_gbs128_d_e16_k050_gbs128": 12.0,
+      "sentinel_long_gbs32_d_e32_k050_gbs32": 10.0,
+      "sentinel_long_gbs64_d_e32_k050_gbs64": 8.0,
+      "sentinel_long_gbs128_d_e32_k050_gbs128": 12.0
+    },
+    "long_probe_p99_to_median_limit_overrides": {
+      "sentinel_long_gbs32_d_e16_k050_gbs32": 1.35,
+      "sentinel_long_gbs128_d_e16_k050_gbs128": 1.35,
+      "sentinel_long_gbs32_d_e32_k050_gbs32": 1.35,
+      "sentinel_long_gbs64_d_e32_k050_gbs64": 1.35,
+      "sentinel_long_gbs128_d_e32_k050_gbs128": 1.35
+    },
+    "stability_amendment": "Before D production outcomes, repeated D pilot runs showed configuration-specific bounded runtime cadence or settling in E16 at GBS32/128 and E32 at GBS32/64/128. All affected 134,217,728-token probes retained finite loss and gradients, exact token and full-state checkpoint accounting, zero skipped or NaN iterations, zero dropped tokens, safe allocated and observed VRAM, and p99/median step-time ratios below 1.28. Scoped 8%, 10%, or 12% CV limits plus a stricter p99/median below 1.35 guard distinguish bounded system cadence from hangs or pathological stalls without weakening any correctness, memory, token-accounting, checkpoint, or MoE-routing gate.",
+    "gpu_hour_limit": 3200.0,
+    "gpu_hour_limit_amendment": "Before D production outcomes, the clean 2026-07-23 R5 D preflight measured the complete frozen grid at 3036.88 conservative H100-hours after the 0.90 throughput safety factor, all seven mandatory 20% cooldown branches, evaluation, checkpoint, and control overhead. The D-only launch cap is therefore corrected from 2500 to 3200 H100-hours. This cost-only amendment remains below the six-node reservation's gross capacity and changes no model, data, token, learning-rate, checkpoint, evaluation, or ladder-cell contract."
+  },
+  "run_validity_policy": {
+    "invalid_if": [
+      "target token accounting is incomplete",
+      "required full-state checkpoint is missing or corrupt",
+      "loss or gradient is non-finite",
+      "any required per-language evaluation is missing",
+      "any token is dropped by MoE routing",
+      "configuration or artifact hashes differ from the frozen plan",
+      "expert-parallel routing replicas disagree during validation"
+    ]
+  }
+}

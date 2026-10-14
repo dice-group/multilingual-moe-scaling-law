@@ -1,0 +1,98 @@
+{
+  "inherits": {
+    "spec_path": "study_spec_jointmoe_x1_production_v1.json",
+    "spec_sha256": "788105aff6f93fa2f0e4a501c864f216c2ac783da2d5e1b0bcbb9fe7a4863585",
+    "historical_spec_sha256": "9cb33c326755e9e45fa8f70a32200a2c2067c2bad2b7cbd82b56e8940924e80e"
+  },
+  "status_date": "2026-08-23",
+  "scope": "Predeclared Stage-1 B-ladder seed-confirmation side study for the JointMoE x1 main-grid prescription",
+  "seed_confirmation_design": {
+    "status": "predeclared_before_launch",
+    "ladder": "B",
+    "model_size_label": "approximately 190M active parameters including embeddings",
+    "jointmoe_lr_N_act_nonembed": 92012544,
+    "experts": [
+      1,
+      16,
+      32
+    ],
+    "language_counts": [
+      1,
+      12,
+      200
+    ],
+    "checkpoint_horizons_tokens": [
+      500000000,
+      1000000000,
+      2000000000,
+      4000000000,
+      8000000000,
+      16000000000
+    ],
+    "seeds": {
+      "corpus_construction": 42,
+      "existing_primary_training": 1234,
+      "new_training": [
+        5678,
+        91011
+      ],
+      "complete_panel": [
+        1234,
+        5678,
+        91011
+      ],
+      "training_seed_scope": "model initialization and deterministic training-data ordering; corpus membership, tokenizer, language mixture, and held-out validation remain fixed"
+    },
+    "trajectory_counts": {
+      "reused_primary": 9,
+      "new": 18,
+      "complete": 27,
+      "readouts_per_trajectory": 6,
+      "complete_readouts": 162
+    },
+    "new_job_counts": {
+      "training_trunks": 18,
+      "cooldown_branches": 108,
+      "heldout_evaluations": 108,
+      "gpu_jobs": 234,
+      "cpu_summaries": 1
+    },
+    "learning_rate_contract": {
+      "rule": "JointMoE printed rounded-coefficient x1 law",
+      "factor": 1.0,
+      "constant_across_K": true,
+      "automatic_selection_or_adaptation": false
+    },
+    "baseline_reuse": {
+      "output_root": "outputs/pipeline_runs/stage1_ab_jointmoe_x1_production_v1",
+      "launch_manifest_path": "outputs/pipeline_runs/stage1_ab_jointmoe_x1_production_v1/control/launch_manifest.json",
+      "launch_manifest_file_sha256": "e743d1ef772eef3be167a0c996a49dcf3af0860eae0d1b3560032696198a3d87",
+      "workflow_manifest_sha256": "188548a71e12a36d9878cf01f13c6a5f50d8be1142ac8a6671966844935bed34",
+      "reuse_policy": "consume the nine canonical seed-1234 B trajectories after their hash-valid receipts complete; never recompute them for this side study"
+    },
+    "frozen_factors": [
+      "model architecture and B ladder",
+      "JointMoE x1 learning-rate law and WSD schedule",
+      "optimizer, batch ramp, precision, routing, and checkpoint horizons",
+      "sealed corpus, tokenizer, language maps, and alpha-0.3 sampling policy",
+      "held-out per-language validation corpus and adjusted-loss definition"
+    ],
+    "analysis_contract": {
+      "primary_metric": "equal-language adjusted held-out loss",
+      "replication_unit": "independent training seed within a fixed E/K cell",
+      "required_reporting": [
+        "per-cell and per-readout mean, sample standard deviation, and range across the three seeds",
+        "seed-wise E32-minus-E1 and K200-minus-K1 contrasts at matched cells",
+        "whether the qualitative E and K conclusions are directionally stable across seeds"
+      ],
+      "significance_policy": "three seeds provide bounded descriptive robustness evidence; do not turn checkpoints, readouts, or language rows into independent seed replicates",
+      "inference_scope": "selected B-ladder anchors only",
+      "forbidden_claims": [
+        "full-grid seed invariance",
+        "C/D seed robustness",
+        "JointMoE x1 compute optimality",
+        "statistical significance inferred from nested readouts or language rows"
+      ]
+    }
+  }
+}

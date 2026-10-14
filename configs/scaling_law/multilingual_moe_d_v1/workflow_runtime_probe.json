@@ -1,0 +1,326 @@
+{
+  "inherits": "../multilingual_moe_c_v1/workflow_runtime_full.json",
+  "schema_version": 1,
+  "study_id": "multilingual_moe_d_v1",
+  "output_root": "outputs/pipeline_runs/h100_d_v1_probe",
+  "workflow_profile_name": "d_v1_probe_job",
+  "workflow_attempt_id": "d_v1_probe",
+  "workflow_tag": "multilingual-moe-d-v1-probe-20260723",
+  "workflow_job_prefix": "dv1probe",
+  "probe_only_unmeasured": true,
+  "resources": {
+    "h100_2": {
+      "mem": "256G"
+    },
+    "h100_4": {
+      "partition": "gpu_h100",
+      "gres": "gpu:h100:4",
+      "cpus_per_task": 64,
+      "mem": "512G",
+      "time": "72:00:00",
+      "module_init": "/etc/profile.d/z00_lmod.sh",
+      "modules": [
+        "toolchain/foss/2024a",
+        "system/CUDA/12.6.0",
+        "lib/NCCL/2.22.3-GCCcore-13.3.0-CUDA-12.6.0"
+      ],
+      "conda_base": "/opt/software/cluster/EB-SW/software/Miniforge3/25.3.0-3",
+      "conda_env": "/opt/conda/envs/bridge-train",
+      "extra_sbatch_flags": [
+        "--export=NIL",
+        "--nodes=1",
+        "--ntasks-per-node=1",
+        "--account=research-project"
+      ]
+    }
+  },
+  "training": {
+    "cuda_graph_impl_by_experts": {
+      "__replace__": {
+        "1": "none",
+        "4": "none",
+        "16": "none",
+        "32": "none"
+      }
+    },
+    "runtime_env": {
+      "BRIDGE_THROUGHPUT_WINDOW_SIZE": "32"
+    },
+    "micro_batch_size": {
+      "__replace__": {
+        "D": {
+          "1": 16,
+          "4": 16,
+          "16": 8,
+          "32": 8
+        }
+      }
+    },
+    "evaluation_micro_batch_size": {
+      "__replace__": {
+        "D": {
+          "1": 16,
+          "4": 16,
+          "16": 8,
+          "32": 8
+        }
+      }
+    },
+    "checkpoint_horizons_tokens": {
+      "__replace__": {
+        "D": [
+          500000000,
+          1000000000,
+          2000000000,
+          4000000000,
+          8000000000,
+          16000000000,
+          32000000000
+        ]
+      }
+    },
+    "data_parallel_size_by_ladder_and_experts": {
+      "__replace__": {
+        "D": {
+          "1": 1,
+          "4": 1,
+          "16": 2,
+          "32": 4
+        }
+      }
+    },
+    "sentinels": {
+      "__replace__": [
+        {
+          "kind": "early_correctness",
+          "ladder": "D",
+          "experts": 1,
+          "language_count": 50,
+          "tokens": 16777216,
+          "global_batch_size": 32
+        },
+        {
+          "kind": "early_correctness",
+          "ladder": "D",
+          "experts": 32,
+          "language_count": 50,
+          "tokens": 16777216,
+          "global_batch_size": 32
+        },
+        {
+          "kind": "mid_ramp",
+          "ladder": "D",
+          "experts": 32,
+          "language_count": 50,
+          "tokens": 16777216,
+          "global_batch_size": 64
+        },
+        {
+          "kind": "plateau_memory_perf",
+          "ladder": "D",
+          "experts": 4,
+          "language_count": 50,
+          "tokens": 16777216,
+          "global_batch_size": 128
+        },
+        {
+          "kind": "plateau_memory_perf",
+          "ladder": "D",
+          "experts": 16,
+          "language_count": 50,
+          "tokens": 16777216,
+          "global_batch_size": 128
+        },
+        {
+          "kind": "plateau_memory_perf",
+          "ladder": "D",
+          "experts": 32,
+          "language_count": 50,
+          "tokens": 16777216,
+          "global_batch_size": 128
+        },
+        {
+          "kind": "long_gbs32",
+          "ladder": "D",
+          "experts": 1,
+          "language_count": 50,
+          "tokens": 134217728,
+          "global_batch_size": 32
+        },
+        {
+          "kind": "long_gbs64",
+          "ladder": "D",
+          "experts": 1,
+          "language_count": 50,
+          "tokens": 134217728,
+          "global_batch_size": 64
+        },
+        {
+          "kind": "long_gbs128",
+          "ladder": "D",
+          "experts": 1,
+          "language_count": 50,
+          "tokens": 134217728,
+          "global_batch_size": 128
+        },
+        {
+          "kind": "long_gbs32",
+          "ladder": "D",
+          "experts": 4,
+          "language_count": 50,
+          "tokens": 134217728,
+          "global_batch_size": 32
+        },
+        {
+          "kind": "long_gbs64",
+          "ladder": "D",
+          "experts": 4,
+          "language_count": 50,
+          "tokens": 134217728,
+          "global_batch_size": 64
+        },
+        {
+          "kind": "long_gbs128",
+          "ladder": "D",
+          "experts": 4,
+          "language_count": 50,
+          "tokens": 134217728,
+          "global_batch_size": 128
+        },
+        {
+          "kind": "long_gbs32",
+          "ladder": "D",
+          "experts": 16,
+          "language_count": 50,
+          "tokens": 134217728,
+          "global_batch_size": 32
+        },
+        {
+          "kind": "long_gbs64",
+          "ladder": "D",
+          "experts": 16,
+          "language_count": 50,
+          "tokens": 134217728,
+          "global_batch_size": 64
+        },
+        {
+          "kind": "long_gbs128",
+          "ladder": "D",
+          "experts": 16,
+          "language_count": 50,
+          "tokens": 134217728,
+          "global_batch_size": 128
+        },
+        {
+          "kind": "long_gbs32",
+          "ladder": "D",
+          "experts": 32,
+          "language_count": 50,
+          "tokens": 134217728,
+          "global_batch_size": 32
+        },
+        {
+          "kind": "long_gbs64",
+          "ladder": "D",
+          "experts": 32,
+          "language_count": 50,
+          "tokens": 134217728,
+          "global_batch_size": 64
+        },
+        {
+          "kind": "long_gbs128",
+          "ladder": "D",
+          "experts": 32,
+          "language_count": 50,
+          "tokens": 134217728,
+          "global_batch_size": 128
+        }
+      ]
+    },
+    "integration_sentinel_cells": {
+      "__replace__": [
+        [
+          "D",
+          1
+        ],
+        [
+          "D",
+          4
+        ],
+        [
+          "D",
+          16
+        ],
+        [
+          "D",
+          32
+        ]
+      ]
+    }
+  },
+  "throughput_tokens_per_second": {
+    "__replace__": {
+      "D": {
+        "1": 200000.0,
+        "4": 200000.0,
+        "16": 200000.0,
+        "32": 200000.0
+      }
+    }
+  },
+  "training_throughput_tokens_per_second_by_global_batch_size": {
+    "__replace__": {
+      "32": {
+        "D": {
+          "1": 200000.0,
+          "4": 200000.0,
+          "16": 200000.0,
+          "32": 200000.0
+        }
+      },
+      "64": {
+        "D": {
+          "1": 200000.0,
+          "4": 200000.0,
+          "16": 200000.0,
+          "32": 200000.0
+        }
+      },
+      "128": {
+        "D": {
+          "1": 200000.0,
+          "4": 200000.0,
+          "16": 200000.0,
+          "32": 200000.0
+        }
+      }
+    }
+  },
+  "evaluation_throughput_tokens_per_second": {
+    "__replace__": {
+      "D": {
+        "1": 250000.0,
+        "4": 250000.0,
+        "16": 250000.0,
+        "32": 250000.0
+      }
+    }
+  },
+  "performance_budget": {
+    "__replace__": {
+      "training_noncheckpoint_overhead_seconds_per_job": 120.0,
+      "checkpoint_overhead_seconds": {
+        "D": 90.0
+      },
+      "evaluation_setup_seconds": {
+        "D": 8.0
+      },
+      "evaluation_residual_seconds_per_language": {
+        "D": 1.5
+      },
+      "evidence": "probe-only conservative placeholders; production remains disabled until D-specific promotion"
+    }
+  },
+  "sentinel_throughput_safety_factor": 0.9,
+  "gpu_hour_limit": 10000.0
+}

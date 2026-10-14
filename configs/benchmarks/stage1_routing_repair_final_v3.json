@@ -1,0 +1,211 @@
+{
+  "source": {
+    "release_name": "stage1_abcd_jointmoe_x1_v1",
+    "release_status": "analysis_ready",
+    "release_manifest": "../../result_analysis/stage1_abcd_jointmoe_x1_v1/release_manifest.json",
+    "release_manifest_sha256": "807b2476ff15c71f1164b92b4c8c12136c7ca9f610ce85acc24ea4a99723e806"
+  },
+  "selection": {
+    "checkpoint_policy": "final_only",
+    "canonical_release": {
+      "ladders": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "experts": [
+        1,
+        4,
+        16,
+        32
+      ],
+      "languages": [
+        1,
+        12,
+        50,
+        200
+      ],
+      "seed": 1234
+    },
+    "b_seed_replication": {
+      "ladder": "B",
+      "experts": [
+        1,
+        16,
+        32
+      ],
+      "languages": [
+        1,
+        12,
+        200
+      ],
+      "additional_seeds": [
+        5678,
+        91011
+      ],
+      "replication_role": "additional_independent_training_seed"
+    }
+  },
+  "learning_rate_contract": {
+    "name": "jointmoe_x1",
+    "formula": "exp(8.39 - 0.81 * ln(N_act_nonembed) - 0.25 * ln(E))",
+    "relative_tolerance": 1e-12
+  },
+  "runtime_estimation": {
+    "policy": "largest_ladder_per_expert_and_request_set",
+    "ladder": "D",
+    "english_language_count": 1,
+    "multilingual_language_count": 12,
+    "safety_factor": 1.25
+  },
+  "schema": "stage1_routing_repair_profile/v3",
+  "campaign_id": "stage1_routing_repair_final_v3",
+  "repo_root": "../..",
+  "output_root": "../../outputs/pipeline_runs/stage1_routing_repair_final_v3",
+  "bridge_root": "../../external/Megatron-Bridge",
+  "bridge_commit": "snapshot-f35ef541d8fbee40",
+  "python": "/opt/conda/envs/bridge-train/bin/python",
+  "resources": {
+    "cpu": {
+      "partition": "normal",
+      "gres": "none",
+      "cpus_per_task": 8,
+      "mem": "64G",
+      "time": "01:00:00",
+      "module_init": "/etc/profile.d/z00_lmod.sh",
+      "modules": [
+        "toolchain/foss/2024a"
+      ],
+      "conda_base": "/opt/software/cluster/EB-SW/software/Miniforge3/25.3.0-3",
+      "conda_env": "/opt/conda/envs/bridge-train",
+      "extra_sbatch_flags": [
+        "--export=NIL"
+      ]
+    },
+    "h100": {
+      "partition": "gpu_h100",
+      "gres": "gpu:h100:1",
+      "cpus_per_task": 32,
+      "mem": "128G",
+      "time": "01:00:00",
+      "module_init": "/etc/profile.d/z00_lmod.sh",
+      "modules": [
+        "toolchain/foss/2024a",
+        "system/CUDA/12.6.0",
+        "lib/NCCL/2.22.3-GCCcore-13.3.0-CUDA-12.6.0"
+      ],
+      "conda_base": "/opt/software/cluster/EB-SW/software/Miniforge3/25.3.0-3",
+      "conda_env": "/opt/conda/envs/bridge-train",
+      "extra_sbatch_flags": [
+        "--export=NIL",
+        "--nodes=1",
+        "--ntasks-per-node=1"
+      ]
+    }
+  },
+  "environment": {
+    "BRIDGE_LOG_THROUGHPUT": "1",
+    "BRIDGE_THROUGHPUT_WINDOW_SIZE": "12",
+    "BRIDGE_MOE_TOKEN_DROP_METRICS": "1",
+    "BRIDGE_PREFER_VENV_CUDA_LIBS": "0",
+    "PROOF_ENABLE_BRIDGE_OPTIONAL_DEP_SHIMS": "1",
+    "PROOF_REQUIRE_REAL_MODELOPT": "1",
+    "PROOF_GPU_MONITOR_INTERVAL_SECONDS": "10",
+    "PROOF_DATASET_BUILDER_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+    "CUDA_DEVICE_MAX_CONNECTIONS": "8",
+    "NVTE_FLASH_ATTN": "0",
+    "NVTE_FUSED_ATTN": "1",
+    "NVTE_UNFUSED_ATTN": "0",
+    "LD_LIBRARY_PATH": "${CONDA_PREFIX}/lib",
+    "TMPDIR": "/scratch/shared_cache/tmp",
+    "TMP": "/scratch/shared_cache/tmp",
+    "TEMP": "/scratch/shared_cache/tmp"
+  },
+  "account": "research-project",
+  "qos": "nocont",
+  "retries": {
+    "maximum_attempts": 3,
+    "allowed_scheduler_states": [
+      "NODE_FAIL",
+      "BOOT_FAIL",
+      "PREEMPTED"
+    ]
+  },
+  "parity": {
+    "raw_nll_abs_tolerance": 1e-06,
+    "nll_sum_relative_tolerance": 1e-07
+  },
+  "budget": {
+    "historical_gpu_hours": 38.796162,
+    "planning_gpu_hours": 50,
+    "concurrency_cap": null
+  },
+  "analysis": {
+    "block_sequences": 128,
+    "bootstrap_replicates": 1000,
+    "seed": 20260907
+  },
+  "gate_policy": "fixed_execution_v3",
+  "cpu_time_limits": {
+    "seal": "01:00:00",
+    "controls": "00:15:00",
+    "complete": "00:10:00",
+    "pilots": "00:10:00",
+    "collect": "02:00:00"
+  },
+  "pilot_time_minutes": {
+    "B": 45,
+    "C": 20,
+    "D": 20
+  },
+  "task_resources": {
+    "C/2": {
+      "gres": "gpu:h100:2"
+    },
+    "D/2": {
+      "gres": "gpu:h100:2",
+      "mem": "256G"
+    },
+    "D/4": {
+      "gres": "gpu:h100:4",
+      "mem": "256G",
+      "cpus_per_task": 64
+    }
+  },
+  "slurm_commands": {
+    "sbatch": "/opt/software/slurm/25.11.5-1/bin/sbatch",
+    "sacct": "/opt/software/slurm/25.11.5-1/bin/sacct",
+    "squeue": "/opt/software/slurm/25.11.5-1/bin/squeue",
+    "scontrol": "/opt/software/slurm/25.11.5-1/bin/scontrol"
+  },
+  "recovery": {
+    "base_campaign": {
+      "path": "../../outputs/pipeline_runs/stage1_routing_repair_final_v2/campaign.json",
+      "sha256": "b65f5ea350ee50b30fa66b775dede785c3085c1c2015ab8321d26fe8a2216594"
+    },
+    "control_manifest": {
+      "path": "../../outputs/pipeline_runs/stage1_routing_batch_diagnosis_v1/diagnosis.json",
+      "sha256": "d368c86290c4d2ef61ae4677b8f90be1fb1ea5ba93f409f95fc136babccc3983"
+    },
+    "collector_test": {
+      "path": "../../outputs/pipeline_runs/stage1_routing_batch_diagnosis_v1/test_frozen_collector.py",
+      "sha256": "ce92066708fe2a3909e73a640fa47483892e1d7516e30be622ee28749528dad7"
+    },
+    "wait_for_jobs": [],
+    "source_overlays": [
+      "src/multilingual_megatron/experiments/scaling/stage1_routing_repair/__init__.py",
+      "src/multilingual_megatron/experiments/scaling/stage1_routing_repair/__main__.py",
+      "src/multilingual_megatron/experiments/scaling/stage1_routing_repair/analysis.py",
+      "src/multilingual_megatron/experiments/scaling/stage1_routing_repair/campaign.py",
+      "src/multilingual_megatron/experiments/scaling/stage1_routing_repair/execution.py",
+      "src/multilingual_megatron/experiments/scaling/stage1_routing_repair/recovery.py",
+      "src/multilingual_megatron/experiments/scaling/stage1_routing_repair/scheduler.py",
+      "src/multilingual_megatron/pipeline/executor.py",
+      "configs/benchmarks/stage1_routing_repair_final_v3.json"
+    ],
+    "policy": "Reuse V2 execution sources and original production batch/topology. Require C/D controls and fixed-assignment collector checks before new pilots. All historical loss tolerances and padding invariance gates remain unchanged."
+  }
+}

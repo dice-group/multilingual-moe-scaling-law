@@ -1,0 +1,10 @@
+{
+  "tokenization": {
+    "backend": "megatron_gpt",
+    "eval_fraction": 0.02,
+    "max_length": 512,
+    "model_name": "hf-internal-testing/tiny-random-LlamaForCausalLM",
+    "num_proc": 4,
+    "output_dir": "outputs/pipeline_runs/default/tokenized"
+  }
+}

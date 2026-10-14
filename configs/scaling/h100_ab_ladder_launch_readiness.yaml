@@ -1,0 +1,284 @@
+schema_version: 1
+hardware: h100_ab_ladder_launch_readiness
+peak_tflops_per_gpu: 989.5
+mfu_gate_pct: 35.0
+
+tokenizer_id_by_family:
+  scaling_dense: scaling_fw2_k200_64k
+  scaling_switch_moe: scaling_fw2_k200_64k
+
+defaults:
+  hardware: h100_local
+  peak_tflops_per_gpu: 989.5
+  mfu_gate_pct: 35.0
+  seq_length: 2048
+  global_batch_size: 128
+  micro_batch_size: 1
+  train_iters: 160
+  warmup_iters: 32
+  log_interval: 8
+  eval_interval: 160
+  eval_iters: 0
+  time: "00:20:00"
+  max_gpus_per_node: 4
+  env:
+    BRIDGE_LOG_THROUGHPUT: "1"
+    BRIDGE_THROUGHPUT_WINDOW_SIZE: "12"
+    BRIDGE_MOE_TOKEN_DROP_METRICS: "1"
+    BRIDGE_PREFER_VENV_CUDA_LIBS: "0"
+    PROOF_ENABLE_BRIDGE_OPTIONAL_DEP_SHIMS: "1"
+    PROOF_GPU_MONITOR_INTERVAL_SECONDS: "5"
+    PROOF_DATASET_BUILDER_THREADS: "1"
+    OMP_NUM_THREADS: "1"
+    PYTORCH_CUDA_ALLOC_CONF: "expandable_segments:True"
+    CUDA_DEVICE_MAX_CONNECTIONS: "8"
+    NVTE_FLASH_ATTN: "0"
+    NVTE_FUSED_ATTN: "1"
+    NVTE_UNFUSED_ATTN: "0"
+    LD_LIBRARY_PATH: "/opt/conda/envs/bridge-train/lib:${LD_LIBRARY_PATH}"
+    TRITON_CACHE_DIR: "/scratch/shared_cache/tmp/triton_cache_h100"
+    TRITON_HOME: "/scratch/shared_cache/tmp/triton_home_h100"
+  overrides:
+    - mixed_precision=bf16_mixed
+    - model.transformer_impl=transformer_engine
+    - model.attention_backend=auto
+    - model.sequence_parallel=false
+    - model.tensor_model_parallel_size=1
+    - model.pipeline_model_parallel_size=1
+    - model.context_parallel_size=1
+    - model.expert_tensor_parallel_size=1
+    - model.virtual_pipeline_model_parallel_size=null
+    - model.gradient_accumulation_fusion=true
+    - model.cross_entropy_loss_fusion=true
+    - model.cross_entropy_fusion_impl=te
+    - model.apply_rope_fusion=true
+    - model.bias_dropout_fusion=true
+    - model.persist_layer_norm=true
+    - model.masked_softmax_fusion=true
+    - model.share_embeddings_and_output_weights=false
+    - model.should_pad_vocab=false
+    - model.moe_router_topk=1
+    - model.moe_router_pre_softmax=true
+    - model.moe_layer_freq=1
+    - model.moe_aux_loss_coeff=0.01
+    - model.moe_z_loss_coeff=0.001
+    - model.moe_router_dtype=fp32
+    - model.moe_expert_capacity_factor=null
+    - model.moe_pad_expert_input_to_capacity=false
+    - model.moe_grouped_gemm=true
+    - model.moe_permute_fusion=true
+    - model.moe_router_fusion=true
+    - model.moe_shared_expert_overlap=false
+    - model.use_transformer_engine_op_fuser=true
+    - model.use_te_activation_func=true
+    - model.use_te_rng_tracker=true
+    - rng.te_rng_tracker=true
+    - model.cuda_graph_impl=transformer_engine
+    - model.cuda_graph_scope=attn
+    - model.cuda_graph_warmup_steps=5
+    - dist.distributed_backend=nccl
+    - profiling.record_memory_history=false
+    - profiling.use_pytorch_profiler=false
+    - profiling.use_nsys_profiler=false
+    - checkpoint.save=null
+    - checkpoint.save_interval=0
+    - checkpoint.async_save=false
+    - dataset.split='1,0,0'
+    - dataset.num_dataset_builder_threads=2
+    - dataset.num_workers=2
+    - dataset.persistent_workers=true
+    - dataset.pin_memory=true
+    - validation.eval_iters=0
+
+stages:
+  h100_ab_ladder_real_training_confirm:
+    families: [scaling_dense, scaling_switch_moe]
+    scales: [scaling_a, scaling_b]
+    gpus: [1]
+    train_iters: 480
+    warmup_iters: 32
+    log_interval: 8
+    global_batch_size: 128
+    token_budget_tokens: 125829120
+    save_interval_tokens: 125829120
+    time: "00:50:00"
+    pipeline_start_at: train
+    pipeline_stop_after: cooldown_readout
+    extra_sbatch_flags:
+      - "--exclusive"
+    env:
+      NCCL_GRAPH_REGISTER: "0"
+    overrides:
+      - model.cuda_graph_impl=none
+    variant_ordered: true
+    launch:
+      nsys_profile: false
+    profile_overrides:
+      training:
+        train:
+          batch_policy:
+            enabled: true
+            mode: token_ramp
+            target_global_batch_size: 128
+            schedule:
+              - {start_tokens: 0, end_tokens: 1048576, global_batch_size: 32}
+              - {start_tokens: 1048576, end_tokens: 2097152, global_batch_size: 64}
+              - {start_tokens: 2097152, end_tokens: 0, global_batch_size: 128}
+      cooldown_readout:
+        enabled: true
+        output_dir: "{row_root}/cooldown_readouts"
+        horizons_tokens_by_scale:
+          scaling_a: [125829120]
+          scaling_b: [125829120]
+        cooldown_fraction: 0.01
+        cooldown_max_tokens: 65536
+        eval_iters: 1
+        require_training_complete: true
+        require_checkpoint: true
+        run_forks: true
+        strict: true
+    variants:
+      - label: confirm_a_e1_dense_gbs128_mbs64_real_train
+        family: scaling_dense
+        scale: scaling_a
+        gpus: [1]
+        global_batch_size: 128
+        micro_batch_size: 64
+        overrides:
+          - model.use_transformer_engine_op_fuser=false
+        parallelism: {tp: 1, pp: 1, cp: 1, ep: 1, etp: 1}
+      - label: confirm_a_e4_ep1_ag_gbs128_mbs64_real_train
+        family: scaling_switch_moe
+        scale: scaling_a
+        gpus: [1]
+        global_batch_size: 128
+        micro_batch_size: 64
+        overrides:
+          - model.num_moe_experts=4
+          - model.moe_token_dispatcher_type=allgather
+          - model.overlap_moe_expert_parallel_comm=false
+          - model.delay_wgrad_compute=false
+        parallelism: {tp: 1, pp: 1, cp: 1, ep: 1, etp: 1}
+      - label: confirm_a_e16_ep1_ag_gbs128_mbs64_real_train
+        family: scaling_switch_moe
+        scale: scaling_a
+        gpus: [1]
+        global_batch_size: 128
+        micro_batch_size: 64
+        overrides:
+          - model.num_moe_experts=16
+          - model.moe_token_dispatcher_type=allgather
+          - model.overlap_moe_expert_parallel_comm=false
+          - model.delay_wgrad_compute=false
+        parallelism: {tp: 1, pp: 1, cp: 1, ep: 1, etp: 1}
+      - label: confirm_a_e32_ep1_ag_gbs128_mbs64_real_train
+        family: scaling_switch_moe
+        scale: scaling_a
+        gpus: [1]
+        global_batch_size: 128
+        micro_batch_size: 64
+        overrides:
+          - model.num_moe_experts=32
+          - model.moe_token_dispatcher_type=allgather
+          - model.overlap_moe_expert_parallel_comm=false
+          - model.delay_wgrad_compute=false
+        parallelism: {tp: 1, pp: 1, cp: 1, ep: 1, etp: 1}
+      - label: confirm_b_e1_dense_gbs128_mbs64_real_train
+        family: scaling_dense
+        scale: scaling_b
+        gpus: [1]
+        global_batch_size: 128
+        micro_batch_size: 64
+        overrides:
+          - model.use_transformer_engine_op_fuser=false
+        parallelism: {tp: 1, pp: 1, cp: 1, ep: 1, etp: 1}
+      - label: confirm_b_e4_ep1_ag_gbs128_mbs64_real_train
+        family: scaling_switch_moe
+        scale: scaling_b
+        gpus: [1]
+        global_batch_size: 128
+        micro_batch_size: 64
+        overrides:
+          - model.num_moe_experts=4
+          - model.moe_token_dispatcher_type=allgather
+          - model.overlap_moe_expert_parallel_comm=false
+          - model.delay_wgrad_compute=false
+        parallelism: {tp: 1, pp: 1, cp: 1, ep: 1, etp: 1}
+      - label: confirm_b_e16_ep1_ag_gbs128_mbs64_real_train
+        family: scaling_switch_moe
+        scale: scaling_b
+        gpus: [1]
+        global_batch_size: 128
+        micro_batch_size: 64
+        overrides:
+          - model.num_moe_experts=16
+          - model.moe_token_dispatcher_type=allgather
+          - model.overlap_moe_expert_parallel_comm=false
+          - model.delay_wgrad_compute=false
+        parallelism: {tp: 1, pp: 1, cp: 1, ep: 1, etp: 1}
+      - label: confirm_b_e32_ep1_ag_gbs128_mbs32_no_graph_real_train
+        family: scaling_switch_moe
+        scale: scaling_b
+        gpus: [1]
+        global_batch_size: 128
+        micro_batch_size: 32
+        overrides:
+          - model.cuda_graph_impl=none
+          - model.num_moe_experts=32
+          - model.moe_token_dispatcher_type=allgather
+          - model.overlap_moe_expert_parallel_comm=false
+          - model.delay_wgrad_compute=false
+        parallelism: {tp: 1, pp: 1, cp: 1, ep: 1, etp: 1}
+
+  h100_ab_ladder_segment_checkpoint_smoke:
+    families: [scaling_switch_moe]
+    scales: [scaling_a]
+    gpus: [1]
+    env:
+      NCCL_GRAPH_REGISTER: "0"
+    train_iters: 4
+    warmup_iters: 0
+    log_interval: 1
+    global_batch_size: 128
+    token_budget_tokens: 524288
+    time: "00:20:00"
+    pipeline_start_at: train
+    pipeline_stop_after: cooldown_readout
+    launch:
+      nsys_profile: false
+    profile_overrides:
+      training:
+        train:
+          batch_policy:
+            enabled: true
+            mode: token_ramp
+            target_global_batch_size: 128
+            schedule:
+              - {start_tokens: 0, end_tokens: 131072, global_batch_size: 32}
+              - {start_tokens: 131072, end_tokens: 262144, global_batch_size: 64}
+              - {start_tokens: 262144, end_tokens: 0, global_batch_size: 128}
+      cooldown_readout:
+        enabled: true
+        output_dir: "{row_root}/cooldown_readouts"
+        horizons_tokens_by_scale:
+          scaling_a: [131072, 262144, 524288]
+        cooldown_fraction: 0.01
+        cooldown_max_tokens: 65536
+        eval_iters: 1
+        require_training_complete: true
+        require_checkpoint: true
+        run_forks: true
+        strict: true
+    variants:
+      - label: ready_a_e4_segment_checkpoint_cooldown_smoke
+        family: scaling_switch_moe
+        scale: scaling_a
+        gpus: [1]
+        global_batch_size: 128
+        micro_batch_size: 64
+        overrides:
+          - model.num_moe_experts=4
+          - model.moe_token_dispatcher_type=allgather
+          - model.overlap_moe_expert_parallel_comm=false
+          - model.delay_wgrad_compute=false
+        parallelism: {tp: 1, pp: 1, cp: 1, ep: 1, etp: 1}

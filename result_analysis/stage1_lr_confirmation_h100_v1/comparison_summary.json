@@ -1,0 +1,95 @@
+{
+  "agreement": {
+    "cell_count": 9,
+    "cell_rank_spearman": {
+      "B/E1/K1": 0.37142857142857144,
+      "B/E1/K12": 0.9428571428571428,
+      "B/E1/K200": 1.0,
+      "B/E16/K1": 0.9428571428571428,
+      "B/E16/K12": 1.0,
+      "B/E16/K200": 0.8857142857142857,
+      "B/E32/K1": 0.8857142857142857,
+      "B/E32/K12": 0.8857142857142857,
+      "B/E32/K200": 1.0
+    },
+    "exact_cell_winner_agreement_fraction": 0.5555555555555556,
+    "exact_cell_winner_agreements": 5,
+    "h100_winner_counts": {
+      "x050": 2,
+      "x100": 5,
+      "x200": 1,
+      "x400": 1
+    },
+    "maximum_cell_rank_spearman": 1.0,
+    "mean_cell_rank_spearman": 0.8793650793650793,
+    "minimum_cell_rank_spearman": 0.37142857142857144,
+    "a100_winner_counts": {
+      "x050": 2,
+      "x100": 6,
+      "x200": 1
+    },
+    "pooled_within_cell_rank_spearman": 0.8793650793650793,
+    "x1_beats_fixed_h100_cells": 9,
+    "x1_beats_fixed_a100_cells": 9,
+    "x1_h100_top_two_cells": 8,
+    "x1_h100_wins": 5,
+    "x1_a100_top_two_cells": 9,
+    "x1_a100_wins": 6
+  },
+  "h100_boundary_diagnostic": {
+    "all_training_health_ok": true,
+    "cell": "B/E1/K1",
+    "raw_nll_agrees_with_primary_winner": true,
+    "runner_up": "x050",
+    "winner": "x400",
+    "winner_margin_over_runner_up": 0.00416207876329544,
+    "x1_regret": 0.007262704851989099
+  },
+  "schema": "stage1_lr_confirmation_cross_cluster_analysis/v1",
+  "scientific_conclusion": {
+    "aggregate_leader_h100": "x100",
+    "aggregate_leader_a100": "x100",
+    "h100_boundary_cells": [
+      "B/E1/K1"
+    ],
+    "h100_preregistered_decision": "inconclusive_boundary",
+    "interpretation": "JointMoE x1 is the equal-cell aggregate leader on both clusters, but the H100 preregistered decision is inconclusive because x4 wins the E1/K1 outer-boundary cell."
+  },
+  "scope": {
+    "inference_limit": "Cross-cluster agreement is a robustness check with seed and hardware jointly changed; it does not isolate a hardware effect or estimate seed variance.",
+    "intentionally_different": {
+      "h100_seed": 1234,
+      "hardware_topology": "H100 versus A100 8x A100-40GB TP4/EP2/DP2",
+      "a100_seed": 1729
+    },
+    "matched": [
+      "B architecture and E/K cells",
+      "2B nominal WSD endpoint",
+      "five JointMoE factors plus fixed 2e-4 control",
+      "tokenizer, corpus, validation data, and primary metric"
+    ]
+  },
+  "sources": {
+    "h100_gate": {
+      "gate_sha256": "28fc9ff3d31a6af060d14a7ef020a8956fbd9aab576b3a775dc8e479e9a02a41",
+      "path": "/workspace/multi-moe-scaling-laws/outputs/pipeline_runs/stage1_lr_confirmation_h100_v1/control/lr_confirmation_gate.json",
+      "sha256": "d039f107198f9eceed53ddfee1c34f386d7954d3e3fcea3fc291d7bafc96297e"
+    },
+    "matched_data_identity": {
+      "h100_data_reuse_evidence_path": "/workspace/multi-moe-scaling-laws/outputs/pipeline_runs/stage1_lr_confirmation_h100_v1/control/data_reuse_evidence.json",
+      "h100_data_reuse_evidence_sha256": "af7dac6809cb524f42186f0abbf754b42d5106330706108ab4e15fb3d75a773a",
+      "a100_runtime_blob": "snapshot-98f6516274e26ae6",
+      "a100_runtime_path": "configs/scaling_law/stage1_lr_seed_v1/workflow_runtime_a100.json",
+      "source_data_seal_payload_sha256": "a40e5046c0dca317d56ab5c54eabe219b95797dc37965ad969c33afb3ada769a",
+      "status": "exact_source_seal_payload_match"
+    },
+    "a100_reference": {
+      "blob": "snapshot-7dcc60e9e69654d4",
+      "commit": "snapshot-6b0fdbd56975f24e",
+      "git_ref": "origin/stage1/lr-calibration-v1",
+      "path": "result_analysis/stage1_lr_seed_v1_a100_screen_results.csv",
+      "source_collection_report_sha256": "f078c02012de574170d3cbf7dc836c2d77e9b43f84b8a96e36429dd53dd57941"
+    }
+  },
+  "status": "complete"
+}

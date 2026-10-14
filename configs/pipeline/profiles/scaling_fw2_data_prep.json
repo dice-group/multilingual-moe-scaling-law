@@ -1,0 +1,334 @@
+{
+  "scaling_fw2_data_prep_base": {
+    "output_root": "outputs/pipeline_runs/scaling_fw2_data_prep_base",
+    "language_map_path": "configs/language_groupings/scaling_fw2_k200.json",
+    "executor": {
+      "type": "slurm",
+      "partition": "normal",
+      "gres": "none",
+      "cpus_per_task": 64,
+      "mem": "256G",
+      "time": "24:00:00",
+      "modules": [
+        "compiler/GCC/13.2.0",
+        "system/CUDA/13.0.0"
+      ],
+      "conda_base": "/home/user/miniconda3",
+      "conda_env": "bridge-train",
+      "poll_interval_seconds": 30,
+      "extra_sbatch_flags": [
+        "--signal=USR1@300"
+      ]
+    },
+    "runtime": {
+      "env": {
+        "TMPDIR": "/scratch/shared_cache/tmp",
+        "TMP": "/scratch/shared_cache/tmp",
+        "TEMP": "/scratch/shared_cache/tmp",
+        "HF_HOME": "/scratch/shared_cache/huggingface",
+        "HF_DATASETS_CACHE": "/scratch/shared_cache/huggingface/datasets",
+        "TRANSFORMERS_CACHE": "/scratch/shared_cache/huggingface/hub",
+        "TOKENIZERS_PARALLELISM": "false"
+      }
+    },
+    "stage_executors": {
+      "sample": {
+        "type": "slurm",
+        "partition": "normal",
+        "gres": "none",
+        "cpus_per_task": 64,
+        "mem": "256G",
+        "time": "24:00:00"
+      },
+      "tokenizer_train": {
+        "type": "slurm",
+        "partition": "normal",
+        "gres": "none",
+        "cpus_per_task": 64,
+        "mem": "224G",
+        "time": "12:00:00"
+      },
+      "tokenize": {
+        "type": "slurm",
+        "partition": "normal",
+        "gres": "none",
+        "cpus_per_task": 64,
+        "mem": "256G",
+        "time": "02:00:00"
+      }
+    },
+    "sample": {
+      "enabled": true,
+      "source_type": "fineweb_datatrove",
+      "availability_csv": "configs/data_sources/fineweb2-language-distribution.csv",
+      "output_dir": "outputs/pipeline_runs/scaling_fw2_data_prep_base/sampled",
+      "fairness_policy": "alpha_smoothing",
+      "alpha": 0.3,
+      "target_train_tokens": 32000000000,
+      "target_total_tokens": 35555555556,
+      "token_to_word_ratio": 1.3,
+      "english_policy": "median_non_english",
+      "english_subset": "eng_Latn",
+      "target_docs_per_language": 12000,
+      "num_proc": 24,
+      "datatrove_internal_slurm_enabled": false,
+      "datatrove_tasks_per_subset": 1,
+      "datatrove_target_docs_per_task": 250000,
+      "datatrove_max_tasks_per_subset": 256,
+      "datatrove_array_concurrency": 8,
+      "datatrove_random_delay_limit": 180,
+      "datatrove_slurm_cpus_per_task": 4,
+      "datatrove_slurm_mem_per_cpu_gb": 6,
+      "datatrove_slurm_partition": "normal",
+      "datatrove_slurm_time": "01:00:00",
+      "datatrove_manifest_enabled": false,
+      "datatrove_global_array_concurrency": 0,
+      "datatrove_manifest_api_window_requests": 800,
+      "datatrove_manifest_api_window_seconds": 300,
+      "require_hf_auth": false,
+      "seed": 42,
+      "availability_split": "train",
+      "auto_adjust_target_to_min_available": false,
+      "allow_upsample": false,
+      "fail_on_missing": true
+    },
+    "tokenizer_training": {
+      "enabled": false,
+      "output_dir": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k/tokenizers",
+      "vocab_size": 64000,
+      "num_threads": 64,
+      "tokenizers": [
+        {
+          "id": "scaling_fw2_k200_64k",
+          "mode": "train_unigram",
+          "vocab_size": 64000,
+          "normalizer": "nfkc",
+          "pre_tokenizer": "metaspace",
+          "tokenizer_type": "SentencePieceTokenizer",
+          "max_sample_fraction": 0.01
+        }
+      ]
+    },
+    "tokenization": {
+      "enabled": true,
+      "backend": "megatron_gpt",
+      "output_dir": "outputs/pipeline_runs/scaling_fw2_data_prep_base/tokenized_megatron",
+      "model_name": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k/tokenizers/scaling_fw2_k200_64k/tokenizer.model",
+      "tokenizer_type": "SentencePieceTokenizer",
+      "launcher": "python",
+      "python_executable": "python3",
+      "workers": 64,
+      "workers_per_language": 8,
+      "partitions_per_language": 4,
+      "language_jobs": 8,
+      "append_eod": true,
+      "blend_weight_policy": "proportional_documents",
+      "physical_split_enabled": true,
+      "train_fraction": 0.9,
+      "valid_fraction": 0.1,
+      "split_seed": 42,
+      "megatron_slurm_array_enabled": true,
+      "megatron_slurm_array_ranks": 256,
+      "megatron_slurm_array_concurrency": 32,
+      "language_metadata": "configs/language_groupings/scaling_fw2_language_sets.tsv"
+    },
+    "audit": {
+      "enabled": true
+    },
+    "training": {
+      "enabled": false
+    },
+    "benchmark": {
+      "enabled": false
+    },
+    "baseline_eval": {
+      "enabled": false
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/scaling_fw2_data_prep_base/summary.csv",
+      "gate_json": "outputs/pipeline_runs/scaling_fw2_data_prep_base/gate.json"
+    }
+  },
+  "scaling_fw2_k200_tokenizer_64k": {
+    "extends": "scaling_fw2_data_prep_base",
+    "output_root": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k",
+    "logs_dir": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k/logs",
+    "language_map_path": "configs/language_groupings/scaling_fw2_k200.json",
+    "run_naming": {
+      "experiment_tag": "scaling-fw2-k200-tokenizer-64k",
+      "language_count_hint": 200
+    },
+    "sample": {
+      "language_set_id": "k200",
+      "output_dir": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k/sampled"
+    },
+    "tokenizer_training": {
+      "enabled": true,
+      "output_dir": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k/tokenizers"
+    },
+    "tokenization": {
+      "language_set_id": "k200",
+      "output_dir": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k/tokenized_megatron",
+      "megatron_slurm_array_ranks": 64
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k/summary.csv",
+      "gate_json": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k/gate.json"
+    }
+  },
+  "scaling_fw2_k200_tokenizer_64k_manifest": {
+    "extends": "scaling_fw2_k200_tokenizer_64k",
+    "output_root": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k_manifest",
+    "logs_dir": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k_manifest/logs",
+    "run_naming": {
+      "experiment_tag": "scaling-fw2-k200-tokenizer-64k-manifest",
+      "language_count_hint": 200
+    },
+    "sample": {
+      "language_set_id": "k200",
+      "output_dir": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k_manifest/sampled",
+      "datatrove_manifest_enabled": true,
+      "datatrove_global_array_concurrency": 96,
+      "datatrove_manifest_api_window_requests": 800,
+      "datatrove_manifest_api_window_seconds": 300,
+      "require_hf_auth": true
+    },
+    "tokenizer_training": {
+      "enabled": true,
+      "output_dir": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k_manifest/tokenizers"
+    },
+    "tokenization": {
+      "language_set_id": "k200",
+      "output_dir": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k_manifest/tokenized_megatron",
+      "model_name": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k_manifest/tokenizers/scaling_fw2_k200_64k/tokenizer.model",
+      "megatron_slurm_array_ranks": 256
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k_manifest/summary.csv",
+      "gate_json": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k_manifest/gate.json"
+    }
+  },
+  "scaling_fw2_k001_sample_tokenize": {
+    "extends": "scaling_fw2_data_prep_base",
+    "output_root": "outputs/pipeline_runs/scaling_fw2_k001_sample_tokenize",
+    "logs_dir": "outputs/pipeline_runs/scaling_fw2_k001_sample_tokenize/logs",
+    "language_map_path": "configs/language_groupings/scaling_fw2_k001.json",
+    "run_naming": {
+      "experiment_tag": "scaling-fw2-k001-sample-tokenize",
+      "language_count_hint": 1
+    },
+    "stage_executors": {
+      "tokenize": {
+        "type": "slurm",
+        "partition": "normal",
+        "gres": "none",
+        "cpus_per_task": 16,
+        "mem": "64G",
+        "time": "04:00:00"
+      }
+    },
+    "sample": {
+      "language_set_id": "k001",
+      "output_dir": "outputs/pipeline_runs/scaling_fw2_k001_sample_tokenize/sampled",
+      "datatrove_manifest_enabled": true,
+      "datatrove_global_array_concurrency": 24,
+      "datatrove_slurm_time": "02:00:00",
+      "require_hf_auth": true
+    },
+    "tokenization": {
+      "language_set_id": "k001",
+      "output_dir": "outputs/pipeline_runs/scaling_fw2_k001_sample_tokenize/tokenized_megatron",
+      "model_name": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k_manifest/tokenizers/scaling_fw2_k200_64k/tokenizer.model",
+      "workers": 16,
+      "workers_per_language": 8,
+      "language_jobs": 2,
+      "megatron_slurm_array_ranks": 256
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/scaling_fw2_k001_sample_tokenize/summary.csv",
+      "gate_json": "outputs/pipeline_runs/scaling_fw2_k001_sample_tokenize/gate.json"
+    }
+  },
+  "scaling_fw2_k050_sample_tokenize": {
+    "extends": "scaling_fw2_data_prep_base",
+    "output_root": "outputs/pipeline_runs/scaling_fw2_k050_sample_tokenize",
+    "logs_dir": "outputs/pipeline_runs/scaling_fw2_k050_sample_tokenize/logs",
+    "language_map_path": "configs/language_groupings/scaling_fw2_k050.json",
+    "run_naming": {
+      "experiment_tag": "scaling-fw2-k050-sample-tokenize",
+      "language_count_hint": 50
+    },
+    "stage_executors": {
+      "tokenize": {
+        "type": "slurm",
+        "partition": "normal",
+        "gres": "none",
+        "cpus_per_task": 16,
+        "mem": "64G",
+        "time": "08:00:00"
+      }
+    },
+    "sample": {
+      "language_set_id": "k050",
+      "output_dir": "outputs/pipeline_runs/scaling_fw2_k050_sample_tokenize/sampled",
+      "datatrove_manifest_enabled": true,
+      "datatrove_global_array_concurrency": 24,
+      "datatrove_slurm_time": "02:00:00",
+      "require_hf_auth": true
+    },
+    "tokenization": {
+      "language_set_id": "k050",
+      "output_dir": "outputs/pipeline_runs/scaling_fw2_k050_sample_tokenize/tokenized_megatron",
+      "model_name": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k_manifest/tokenizers/scaling_fw2_k200_64k/tokenizer.model",
+      "workers": 16,
+      "workers_per_language": 8,
+      "language_jobs": 2,
+      "megatron_slurm_array_ranks": 256
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/scaling_fw2_k050_sample_tokenize/summary.csv",
+      "gate_json": "outputs/pipeline_runs/scaling_fw2_k050_sample_tokenize/gate.json"
+    }
+  },
+  "scaling_fw2_k200_sample_tokenize": {
+    "extends": "scaling_fw2_data_prep_base",
+    "output_root": "outputs/pipeline_runs/scaling_fw2_k200_sample_tokenize",
+    "logs_dir": "outputs/pipeline_runs/scaling_fw2_k200_sample_tokenize/logs",
+    "language_map_path": "configs/language_groupings/scaling_fw2_k200.json",
+    "run_naming": {
+      "experiment_tag": "scaling-fw2-k200-sample-tokenize",
+      "language_count_hint": 200
+    },
+    "stage_executors": {
+      "tokenize": {
+        "type": "slurm",
+        "partition": "normal",
+        "gres": "none",
+        "cpus_per_task": 16,
+        "mem": "64G",
+        "time": "12:00:00"
+      }
+    },
+    "sample": {
+      "language_set_id": "k200",
+      "output_dir": "outputs/pipeline_runs/scaling_fw2_k200_sample_tokenize/sampled",
+      "datatrove_manifest_enabled": true,
+      "datatrove_global_array_concurrency": 24,
+      "datatrove_slurm_time": "02:00:00",
+      "require_hf_auth": true
+    },
+    "tokenization": {
+      "language_set_id": "k200",
+      "output_dir": "outputs/pipeline_runs/scaling_fw2_k200_sample_tokenize/tokenized_megatron",
+      "model_name": "outputs/pipeline_runs/scaling_fw2_k200_tokenizer_64k_manifest/tokenizers/scaling_fw2_k200_64k/tokenizer.model",
+      "workers": 16,
+      "workers_per_language": 8,
+      "language_jobs": 2,
+      "megatron_slurm_array_ranks": 256
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/scaling_fw2_k200_sample_tokenize/summary.csv",
+      "gate_json": "outputs/pipeline_runs/scaling_fw2_k200_sample_tokenize/gate.json"
+    }
+  }
+}

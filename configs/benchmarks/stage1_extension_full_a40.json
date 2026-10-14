@@ -1,0 +1,195 @@
+{
+  "schema": "stage1_extension_full_profile/v1",
+  "repo_root": "../..",
+  "coverage_audit": "outputs/benchmark_review/full_final_scaling_20260920_v2/candidate_audit_20260920",
+  "source_campaign": "outputs/stage1_benchmark_jointmoe/stage1_full_final_h100_20260920/campaign.json",
+  "python": "/opt/conda/envs/bridge-train-a40-cu126/bin/python",
+  "bridge_root": "external/Megatron-Bridge",
+  "harness_root": "external/lm-evaluation-harness",
+  "module_init": "/etc/profile.d/z00_lmod.sh",
+  "modules": [
+    "toolchain/foss/2024a",
+    "system/CUDA/12.6.0",
+    "lib/NCCL/2.22.3-GCCcore-13.3.0-CUDA-12.6.0"
+  ],
+  "selection": {
+    "all_final": true,
+    "expected_models": 82
+  },
+  "tokenizer": {
+    "model": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenizer/sp_unigram_64k/tokenizer.model",
+    "sha256": "54a25a061df0cfba143ca8af3380e4d6c4caccf2ea1c80d25ff011c407c187e8",
+    "context_token_id": 2,
+    "pad_token_id": 3,
+    "vocab_size": 64000
+  },
+  "protocol": {
+    "version": "stage1_extension_likelihood_v1",
+    "scope": "All available released language variants and complete valid evaluation splits, all 82 final checkpoints; main contrasts on conservatively mapped study cohorts",
+    "flores_mono": "Original source sentences, empty context, EOD=2 prefix only, all 1012 devtest sentences per variety",
+    "ntrex_mono": "Original 123 news documents per primary reference variety, join sentences with newline, 2048-token windows, stride 1024, each target scored once; original bytes counted once per document",
+    "arc_easy_eu20": "Existing ARC Question/Answer template; character-normalized answer likelihood primary; all 20 complete test translations",
+    "sib200": "DICE label likelihood with three fixed label-diverse English training demonstrations; raw label likelihood primary; full test",
+    "taxi1500": "DICE label likelihood with three fixed label-diverse official English training demonstrations; all available valid test verse IDs; one maximal-coverage edition per observed ISO/script",
+    "metrics": "Accuracy, character/token/byte sensitivities, macro/weighted F1 for classification; raw NLL, frozen training-unigram adjusted loss, BPB and derived token/byte perplexity for text",
+    "batching": "Frozen A40 reference batch sizes, length sorting and CPU token caches; combined longest-input startup checks per architecture; no automatic score-changing enlargement",
+    "ties": "Classification ties use first argmax; explicitly count ties",
+    "selection_rule": "Only mechanically invalid or unavailable rows excluded with IDs; no score-based filtering"
+  },
+  "batches": {
+    "A_E1": 32,
+    "A_E4": 32,
+    "A_E16": 32,
+    "A_E32": 32,
+    "B_E1": 16,
+    "B_E4": 16,
+    "B_E16": 16,
+    "B_E32": 16,
+    "C_E1": 8,
+    "C_E4": 8,
+    "C_E16": 8,
+    "C_E32": 8,
+    "D_E1": 4,
+    "D_E4": 4,
+    "D_E16": 4,
+    "D_E32": 4
+  },
+  "slurm": {
+    "bin": "/opt/software/slurm/25.11.5-1/bin",
+    "account": "research-project",
+    "partition": "gpu_a40",
+    "gpu_type": "a40",
+    "cpus_per_task": 16,
+    "memory": "96G",
+    "smoke_minutes": 30,
+    "minutes_by_ladder": {
+      "A": 180,
+      "B": 240,
+      "C": 360,
+      "D": 480
+    },
+    "aggregation": {
+      "partition": "normal",
+      "cpus_per_task": 4,
+      "memory": "96G",
+      "time": "04:00:00"
+    }
+  },
+  "environment": {
+    "BRIDGE_PREFER_VENV_CUDA_LIBS": "0",
+    "BRIDGE_SKIP_JIT_WARMUP": "1",
+    "PROOF_APPEND_LD_LIBRARY_PATH": "0",
+    "PROOF_ENABLE_BRIDGE_OPTIONAL_DEP_SHIMS": "1",
+    "PROOF_REQUIRE_REAL_MODELOPT": "1",
+    "PROOF_DATASET_BUILDER_THREADS": "1",
+    "PROOF_BIND_LOCAL_RANK_CPUS": "none",
+    "PROOF_INSPECT_TE_GROUPED_MLP": "1",
+    "PROOF_ISOLATE_TRITON_CACHE": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+    "CUDA_DEVICE_MAX_CONNECTIONS": "8",
+    "NCCL_GRAPH_REGISTER": "0",
+    "NVTE_FLASH_ATTN": "0",
+    "NVTE_FUSED_ATTN": "0",
+    "NVTE_UNFUSED_ATTN": "1",
+    "WANDB_MODE": "disabled",
+    "TRANSFORMERS_OFFLINE": "1",
+    "HF_HUB_OFFLINE": "1"
+  },
+  "benchmarks": [
+    "flores_mono",
+    "ntrex_mono",
+    "arc_easy_eu20",
+    "sib200",
+    "taxi1500"
+  ],
+  "extension_protocol": true,
+  "data_root": "outputs/stage1_benchmark_jointmoe/stage1_extension_full_a40_20260921/data",
+  "reporting_cohorts": [
+    "all_available",
+    "study_K200",
+    "common12",
+    "trained_at_K"
+  ],
+  "sources": {
+    "sib200": {
+      "repo": "Davlan/sib200",
+      "revision": "38977a667f6fc264d5c26ec57a01e16db040b358",
+      "metadata": "outputs/benchmark_review/full_final_scaling_20260920_v2/candidate_audit_20260920/sources/sib200_api.json",
+      "metadata_sha256": "bbcda57727a93b9d87329fc883e3840f946db29168501557b98f498e88b84f8d"
+    },
+    "arc_easy_eu20": {
+      "repo": "Eurolingua/arcx",
+      "revision": "f2e35fbebdb572a9653eda706b00083b0892ed43",
+      "metadata": "outputs/benchmark_review/candidate_extensions_20260921/sources/eu20_arcx_api.json",
+      "metadata_sha256": "59e952a38901041caba33cbc956be4cb058d252cebdf6ce00266d6084a39f1e7"
+    },
+    "ntrex_mono": {
+      "repo": "MicrosoftTranslator/NTREX",
+      "revision": "468c6b69c7f6a75d31d4743d9daba2af566cc18d",
+      "metadata": "outputs/benchmark_review/candidate_extensions_20260921/sources/ntrex_tree.json",
+      "metadata_sha256": "16ee1817d5ee06936f72ae8b4acd139faec75e1b1d04dd7f519386d412edb4ad"
+    }
+  },
+  "local_sources": {
+    "flores_archive": {
+      "path": "outputs/benchmark_sources/flores200_dataset.tar.gz",
+      "sha256": "b8b0b76783024b85797e5cc75064eb83fc5288b41e9654dabc7be6ae944011f6"
+    },
+    "candidate_mapping": {
+      "path": "outputs/benchmark_review/full_final_scaling_20260920_v2/candidate_audit_20260920/language_mapping.csv",
+      "sha256": "8936447eae3b61d35db645388aa5c71089195c24cbccb121c6728722ff886916"
+    },
+    "training_languages": {
+      "path": "outputs/benchmark_review/full_final_scaling_20260920_v2/candidate_audit_20260920/training_languages.json",
+      "sha256": "68bb415c6a642f2c99823b55f7a96b9389cae8ed2e95fad583a89846d43e501a"
+    },
+    "extension_mapping": {
+      "path": "outputs/benchmark_review/candidate_extensions_20260921/language_mapping.csv",
+      "sha256": "8bb285a897ccc1422a664e09f5f2e912d434d12ee72bfcaf541ca6aac49d139b"
+    },
+    "ntrex_mapping": {
+      "path": "outputs/benchmark_review/candidate_extensions_20260921/ntrex_language_mapping.csv",
+      "sha256": "a33ca7d5d12fe18a0ea885d615f0d6fb38e5a9e819d3e3e2e777b50b6d13136e"
+    },
+    "ntrex_document_ids": {
+      "path": "outputs/benchmark_review/candidate_extensions_20260921/sources/ntrex_document_ids.tsv",
+      "sha256": "88a8b0ff1eae47e83f60dcde01075b8c87d75ced59ca09e0af1eb539958e05d5"
+    },
+    "corpus_manifest": {
+      "path": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/release_32b/corpus_manifest.json",
+      "sha256": "4ffb120fb52ef81798899f060ed8e825d5df7e0e01ea7dec0e546de1e0f2bd28"
+    },
+    "validation_release": {
+      "path": "result_analysis/stage1_abcd_jointmoe_x1_v1/release_manifest.json",
+      "sha256": "807b2476ff15c71f1164b92b4c8c12136c7ca9f610ce85acc24ea4a99723e806"
+    },
+    "taxi_archive": {
+      "path": "/home/user/.cache/moe-study/taxi1500/raw/Taxi1500-c_v3.0.zip",
+      "sha256": "6dc1a1bea09b0413d006535384c371a57f984218dd0b274cb71bd926a5adfbff",
+      "url": "https://cis.lmu.de/~yehao/data/Taxi1500-c_v3.0.zip"
+    },
+    "taxi_train": {
+      "path": "outputs/benchmark_review/candidate_extensions_20260921/sources/taxi_eng_train.txt",
+      "sha256": "95e5c23304c5d39edf94f6009d74f6ecdeea73e89ffaf812f42737e703dbc26b"
+    },
+    "taxi_dev": {
+      "path": "outputs/benchmark_review/candidate_extensions_20260921/sources/taxi_eng_dev.txt",
+      "sha256": "92a5279175c4cf1cd67b3a8071a5e254e0897100dbff5b463b6b3c415f6cafa1"
+    },
+    "taxi_test": {
+      "path": "outputs/benchmark_review/candidate_extensions_20260921/sources/taxi_eng_test.txt",
+      "sha256": "853be6179dfc2c669ec361ed89c85f412e74177f136482d09ef6729ce7d8d95d"
+    }
+  },
+  "corpus_manifest": {
+    "path": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/release_32b/corpus_manifest.json",
+    "sha256": "4ffb120fb52ef81798899f060ed8e825d5df7e0e01ea7dec0e546de1e0f2bd28"
+  },
+  "validation_loss_table": {
+    "path": "result_analysis/stage1_abcd_jointmoe_x1_v1/tables/validation_language.parquet",
+    "sha256": "43c7e13f56f400ae055666127f47295bd95359014387adcd4dfbef9b33ef6b81"
+  },
+  "smoke_languages_per_family": 8
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "source_lock_id": "fineweb2_v2_1_1",
+  "status_date": "2026-07-12",
+  "non_english_corpus": {
+    "dataset": "HuggingFaceFW/fineweb-2",
+    "dataset_revision": "af9c13333eb981300149d5ca60a8e9d659b276b9",
+    "language_inventory": {
+      "url": "https://raw.githubusercontent.com/huggingface/fineweb-2/d0defb24f193bb9a5a11b8b14524a03c4858e1b6/fineweb2-language-distribution.csv",
+      "sha256": "0c6e6fbcef62cb034aff493187dee8d327c6bb2c08bb14a81a9c7221b091e0a5"
+    },
+    "rehydration": {
+      "enabled": true,
+      "code_and_metadata_revision": "d0defb24f193bb9a5a11b8b14524a03c4858e1b6",
+      "weights_policy": "up_to_10_reps",
+      "weights_url": "https://raw.githubusercontent.com/huggingface/fineweb-2/d0defb24f193bb9a5a11b8b14524a03c4858e1b6/misc/rehydration/weights/up_to_10_reps.json",
+      "weights_sha256": "bf4db6767b9766ef32a27b5888dd9c287fc03d06e69d64c21c8410d002ab0c55",
+      "missing_weights_policy": "fail_closed_except_explicit_identity_overrides",
+      "identity_overrides": {
+        "hau_Latn": {
+          "thresholds": {
+            "1": 1
+          },
+          "upstream_weights_present": false,
+          "upstream_distribution_present": false,
+          "weights_generation_commit": "995a1ca51271271ce6382685b217d2ce33e68602",
+          "inventory_addition_commit": "d0defb24f193bb9a5a11b8b14524a03c4858e1b6",
+          "reason": "Hausa was added to the released inventory after the upstream per-language rehydration weights and distributions were generated; preserve the fixed ATLAS language without inventing quality weights."
+        }
+      }
+    }
+  },
+  "english_corpus": {
+    "dataset": "HuggingFaceFW/fineweb",
+    "dataset_revision": "9bb295ddab0e05d785b879661af7260fed5140fc",
+    "subset": "eng_Latn",
+    "availability": {
+      "reported_words": 18500000000000,
+      "reported_documents": 25900000000,
+      "reported_parquet_bytes": 54800000000000,
+      "utf8_bytes_rule": "derive from the frozen 1000-document tokenizer calibration as reported_words * calibration_utf8_bytes / calibration_words",
+      "source": "FineWeb dataset card at dataset_revision"
+    },
+    "rehydration": {
+      "enabled": false,
+      "reason": "FineWeb2 rehydration applies to the non-English FineWeb2 corpus, not the English FineWeb source"
+    }
+  },
+  "atlas_mapping_resolutions": {
+    "ha": {
+      "subset": "hau_Latn",
+      "status": "verified_in_pinned_release",
+      "train_documents": 570004,
+      "evidence": "non_english_corpus.language_inventory"
+    }
+  },
+  "materialization_policy": {
+    "location": "v2 output root",
+    "download_pinned_artifacts": true,
+    "verify_sha256_before_data_access": true,
+    "vendor_external_artifacts_in_git": false,
+    "failure_policy": "fail closed before sampling; never replace an unresolved language"
+  }
+}

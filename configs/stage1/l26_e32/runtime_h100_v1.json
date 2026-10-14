@@ -1,0 +1,27 @@
+{
+  "schema": "stage2_l26_e32_h100_runtime/v1",
+  "state": "observed_two_node_h100_runtime_for_sealed_systems_baseline",
+  "architecture_authority": "configs/stage1/l26_e32/architecture_stage1_l26_e32_v1.json",
+  "systems_authority": "configs/stage1/l26_e32/winner_pp4_ep2_mbs8_v1.json",
+  "hardware": {
+    "nodes": 2,
+    "gpus_per_node": 4,
+    "gpu_type": "H100",
+    "world_size": 8
+  },
+  "module_runtime": {
+    "module_init": "/etc/profile.d/z00_lmod.sh",
+    "modules": [
+      "toolchain/foss/2024a",
+      "system/CUDA/12.6.0",
+      "lib/NCCL/2.22.3-GCCcore-13.3.0-CUDA-12.6.0"
+    ],
+    "conda_env": "/opt/conda/envs/bridge-train",
+    "portable": false
+  },
+  "operational_guardrails": [
+    "When using --export=NIL, preserve the Slurm binary directory in PATH; otherwise the launcher cannot find srun.",
+    "Use the recorded Conda environment and runtime exports; module names alone are not a complete runtime identity.",
+    "Nsight and short startup runs are diagnostic-only and cannot promote throughput or MFU."
+  ]
+}

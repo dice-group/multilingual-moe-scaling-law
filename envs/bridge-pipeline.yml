@@ -1,0 +1,25 @@
+name: bridge-pipeline
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - pip
+  - git
+  - zstd
+  - pip:
+      - uv
+      - datasets
+      - transformers
+      - numpy==2.4.4
+      - pandas==3.0.2
+      - matplotlib==3.11.0
+      - pyarrow==24.0.0
+      - scipy==1.17.1
+      - datatrove
+      - orjson
+      - omegaconf
+      - pyyaml
+      - sentencepiece
+      - tiktoken
+      - tqdm
+      - openpyxl==3.1.5

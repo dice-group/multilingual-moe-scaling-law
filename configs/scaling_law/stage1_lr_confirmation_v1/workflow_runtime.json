@@ -1,0 +1,52 @@
+{
+  "inherits": {
+    "spec_path": "../multilingual_moe_ab_v2/workflow_runtime_jointmoe_paper_lr_v1.json",
+    "spec_sha256": "92d6a9d3e0c1c0aef736d284704aa64c4892eaf1bcf7cb75ae31ac54bce1ad70"
+  },
+  "output_root": "outputs/pipeline_runs/stage1_lr_confirmation_h100_v1",
+  "workflow_attempt_id": "stage1_lr_confirmation_h100_v1",
+  "training": {
+    "sentinels": {
+      "__replace__": [
+        {"kind": "early_correctness", "ladder": "B", "experts": 1, "language_count": 50, "tokens": 16777216, "global_batch_size": 32},
+        {"kind": "mid_ramp", "ladder": "B", "experts": 1, "language_count": 50, "tokens": 16777216, "global_batch_size": 64},
+        {"kind": "plateau_memory_perf", "ladder": "B", "experts": 1, "language_count": 50, "tokens": 16777216, "global_batch_size": 128},
+        {"kind": "early_correctness", "ladder": "B", "experts": 16, "language_count": 50, "tokens": 16777216, "global_batch_size": 32},
+        {"kind": "mid_ramp", "ladder": "B", "experts": 16, "language_count": 50, "tokens": 16777216, "global_batch_size": 64},
+        {"kind": "plateau_memory_perf", "ladder": "B", "experts": 16, "language_count": 50, "tokens": 16777216, "global_batch_size": 128},
+        {"kind": "early_correctness", "ladder": "B", "experts": 32, "language_count": 50, "tokens": 16777216, "global_batch_size": 32},
+        {"kind": "mid_ramp", "ladder": "B", "experts": 32, "language_count": 50, "tokens": 16777216, "global_batch_size": 64},
+        {"kind": "plateau_memory_perf", "ladder": "B", "experts": 32, "language_count": 50, "tokens": 16777216, "global_batch_size": 128}
+      ]
+    },
+    "integration_sentinel_cells": {
+      "__replace__": [["B", 1], ["B", 16], ["B", 32]]
+    },
+    "learning_rate_diagnostics": {
+      "__replace__": {
+        "protocol": "stage1_jointmoe_lr_confirmation_v1",
+        "horizon_tokens": 2000000000,
+        "ladder": "B",
+        "experts": [1, 16, 32],
+        "language_counts": [1, 12, 200],
+        "multipliers": [0.25, 0.5, 1.0, 2.0, 4.0],
+        "fixed_control_peak_lr": 0.0002,
+        "training_seed": 1234,
+        "tie_absolute_tolerance": 1e-12,
+        "minimum_x1_cell_wins_or_ties": 5
+      }
+    }
+  },
+  "scheduling": {
+    "mode": "ordinary_queue_forecast",
+    "predicted_time_multiplier": 2.0,
+    "additive_safety_hours": 1.0,
+    "minimum_job_hours": 2.0,
+    "maximum_job_hours": 6.0,
+    "walltime_rounding_minutes": 15
+  },
+  "storage": {
+    "enforcement": "informational_soft_limit",
+    "retain_confirmation_final_checkpoints": true
+  }
+}

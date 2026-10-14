@@ -1,0 +1,409 @@
+{
+  "stage1_l26_e32_k200_jointmoe_lr_smoke_v1": {
+    "extends": "stage1_l26_e32_k200_lr_smoke_v1",
+    "output_root": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/smoke",
+    "logs_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/smoke/logs",
+    "run_naming": {
+      "experiment_tag": "stage1-l26-e32-k200-jointmoe-lr-smoke-v1",
+      "language_count_hint": 200
+    },
+    "wandb": {
+      "project": "stage1_scaling_laws"
+    },
+    "sample": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/smoke/disabled_sample"
+    },
+    "tokenization": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/smoke/disabled_tokenization"
+    },
+    "training": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/smoke/runs",
+      "runs": [
+        {
+          "id": "stage1_l26_e32_k200_jointmoe_lr_smoke",
+          "kind": "megatron_bridge",
+          "backend": "megatron_bridge",
+          "recipe": "scaling_switch_moe_scale_scaling_l26_pretrain_config",
+          "data_manifest": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenized/tiers/K200/megatron_data_manifest.json",
+          "data_manifest_sha256": "feb0a43aa5d8b9842d5fb2d3d41924cef5ed6a425c5a8a712522f76ca0a342f6",
+          "overrides": [
+            "optimizer.lr=0.00010017337354820424",
+            "logger.wandb_project=stage1_scaling_laws",
+            "logger.wandb_exp_name=stage1-l26-e32-k200-jointmoe-lr-smoke-v1",
+            "logger.wandb_save_dir=outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/smoke/wandb"
+          ]
+        }
+      ]
+    },
+    "benchmark": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/smoke/benchmarks"
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/smoke/summary.csv",
+      "gate_json": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/smoke/gate.json"
+    }
+  },
+  "stage1_l26_e32_k200_jointmoe_lr_confirm_r1_v1": {
+    "extends": "stage1_l26_e32_k200_jointmoe_lr_smoke_v1",
+    "output_root": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r1",
+    "logs_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r1/logs",
+    "run_naming": {
+      "experiment_tag": "stage1-l26-e32-k200-jointmoe-lr-confirm-r1-v1",
+      "language_count_hint": 200
+    },
+    "executor": {
+      "time": "01:30:00"
+    },
+    "runtime": {
+      "env": {
+        "BRIDGE_THROUGHPUT_WINDOW_SIZE": "128"
+      }
+    },
+    "sample": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r1/disabled_sample"
+    },
+    "tokenization": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r1/disabled_tokenization"
+    },
+    "training": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r1/runs",
+      "train": {
+        "log_interval": 8,
+        "token_budget_tokens": 134217728
+      },
+      "runs": [
+        {
+          "id": "stage1_l26_e32_k200_jointmoe_lr_confirm_r1",
+          "kind": "megatron_bridge",
+          "backend": "megatron_bridge",
+          "recipe": "scaling_switch_moe_scale_scaling_l26_pretrain_config",
+          "data_manifest": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenized/tiers/K200/megatron_data_manifest.json",
+          "data_manifest_sha256": "feb0a43aa5d8b9842d5fb2d3d41924cef5ed6a425c5a8a712522f76ca0a342f6",
+          "overrides": [
+            "optimizer.lr=0.00010017337354820424",
+            "logger.wandb_project=stage1_scaling_laws",
+            "logger.wandb_exp_name=stage1-l26-e32-k200-jointmoe-lr-confirm-r1-v1",
+            "logger.wandb_save_dir=outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r1/wandb"
+          ]
+        }
+      ]
+    },
+    "benchmark": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r1/benchmarks"
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r1/summary.csv",
+      "gate_json": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r1/gate.json"
+    }
+  },
+  "stage1_l26_e32_k200_jointmoe_lr_confirm_r2_v1": {
+    "extends": "stage1_l26_e32_k200_jointmoe_lr_confirm_r1_v1",
+    "output_root": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r2",
+    "logs_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r2/logs",
+    "run_naming": {
+      "experiment_tag": "stage1-l26-e32-k200-jointmoe-lr-confirm-r2-v1",
+      "language_count_hint": 200
+    },
+    "sample": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r2/disabled_sample"
+    },
+    "tokenization": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r2/disabled_tokenization"
+    },
+    "training": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r2/runs",
+      "runs": [
+        {
+          "id": "stage1_l26_e32_k200_jointmoe_lr_confirm_r2",
+          "kind": "megatron_bridge",
+          "backend": "megatron_bridge",
+          "recipe": "scaling_switch_moe_scale_scaling_l26_pretrain_config",
+          "data_manifest": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenized/tiers/K200/megatron_data_manifest.json",
+          "data_manifest_sha256": "feb0a43aa5d8b9842d5fb2d3d41924cef5ed6a425c5a8a712522f76ca0a342f6",
+          "overrides": [
+            "optimizer.lr=0.00010017337354820424",
+            "logger.wandb_project=stage1_scaling_laws",
+            "logger.wandb_exp_name=stage1-l26-e32-k200-jointmoe-lr-confirm-r2-v1",
+            "logger.wandb_save_dir=outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r2/wandb"
+          ]
+        }
+      ]
+    },
+    "benchmark": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r2/benchmarks"
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r2/summary.csv",
+      "gate_json": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/confirm_r2/gate.json"
+    }
+  },
+  "stage1_l26_e32_k200_jointmoe_lr_ramp_gbs32_v1": {
+    "extends": "stage1_l26_e32_k200_jointmoe_lr_smoke_v1",
+    "output_root": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs32",
+    "logs_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs32/logs",
+    "run_naming": {
+      "experiment_tag": "stage1-l26-e32-k200-jointmoe-lr-ramp-gbs32-v1",
+      "language_count_hint": 200
+    },
+    "executor": {
+      "time": "01:30:00"
+    },
+    "runtime": {
+      "env": {
+        "BRIDGE_THROUGHPUT_WINDOW_SIZE": "128"
+      }
+    },
+    "sample": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs32/disabled_sample"
+    },
+    "tokenization": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs32/disabled_tokenization"
+    },
+    "training": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs32/runs",
+      "train": {
+        "global_batch_size": 32,
+        "micro_batch_size": 8,
+        "log_interval": 8,
+        "token_budget_tokens": 33554432
+      },
+      "runs": [
+        {
+          "id": "stage1_l26_e32_k200_jointmoe_lr_ramp_gbs32",
+          "kind": "megatron_bridge",
+          "backend": "megatron_bridge",
+          "recipe": "scaling_switch_moe_scale_scaling_l26_pretrain_config",
+          "data_manifest": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenized/tiers/K200/megatron_data_manifest.json",
+          "data_manifest_sha256": "feb0a43aa5d8b9842d5fb2d3d41924cef5ed6a425c5a8a712522f76ca0a342f6",
+          "overrides": [
+            "optimizer.lr=0.00010017337354820424",
+            "logger.wandb_project=stage1_scaling_laws",
+            "logger.wandb_exp_name=stage1-l26-e32-k200-jointmoe-lr-ramp-gbs32-v1",
+            "logger.wandb_save_dir=outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs32/wandb"
+          ]
+        }
+      ]
+    },
+    "benchmark": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs32/benchmarks"
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs32/summary.csv",
+      "gate_json": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs32/gate.json"
+    }
+  },
+  "stage1_l26_e32_k200_jointmoe_lr_ramp_gbs64_v1": {
+    "extends": "stage1_l26_e32_k200_jointmoe_lr_ramp_gbs32_v1",
+    "output_root": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs64",
+    "logs_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs64/logs",
+    "run_naming": {
+      "experiment_tag": "stage1-l26-e32-k200-jointmoe-lr-ramp-gbs64-v1",
+      "language_count_hint": 200
+    },
+    "sample": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs64/disabled_sample"
+    },
+    "tokenization": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs64/disabled_tokenization"
+    },
+    "training": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs64/runs",
+      "train": {
+        "global_batch_size": 64,
+        "token_budget_tokens": 67108864
+      },
+      "runs": [
+        {
+          "id": "stage1_l26_e32_k200_jointmoe_lr_ramp_gbs64",
+          "kind": "megatron_bridge",
+          "backend": "megatron_bridge",
+          "recipe": "scaling_switch_moe_scale_scaling_l26_pretrain_config",
+          "data_manifest": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenized/tiers/K200/megatron_data_manifest.json",
+          "data_manifest_sha256": "feb0a43aa5d8b9842d5fb2d3d41924cef5ed6a425c5a8a712522f76ca0a342f6",
+          "overrides": [
+            "optimizer.lr=0.00010017337354820424",
+            "logger.wandb_project=stage1_scaling_laws",
+            "logger.wandb_exp_name=stage1-l26-e32-k200-jointmoe-lr-ramp-gbs64-v1",
+            "logger.wandb_save_dir=outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs64/wandb"
+          ]
+        }
+      ]
+    },
+    "benchmark": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs64/benchmarks"
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs64/summary.csv",
+      "gate_json": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/ramp_gbs64/gate.json"
+    }
+  },
+  "stage1_l26_e32_k200_jointmoe_lr_checkpoint_resume_v1": {
+    "extends": "stage1_l26_e32_k200_jointmoe_lr_smoke_v1",
+    "output_root": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/checkpoint_resume",
+    "logs_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/checkpoint_resume/logs",
+    "run_naming": {
+      "experiment_tag": "stage1-l26-e32-k200-jointmoe-lr-checkpoint-resume-v1",
+      "language_count_hint": 200
+    },
+    "executor": {
+      "time": "01:30:00"
+    },
+    "runtime": {
+      "env": {
+        "BRIDGE_THROUGHPUT_WINDOW_SIZE": "128"
+      }
+    },
+    "sample": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/checkpoint_resume/disabled_sample"
+    },
+    "tokenization": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/checkpoint_resume/disabled_tokenization"
+    },
+    "training": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/checkpoint_resume/runs",
+      "train": {
+        "global_batch_size": 128,
+        "micro_batch_size": 8,
+        "log_interval": 8,
+        "token_budget_tokens": 134217728,
+        "batch_policy": {
+          "enabled": true,
+          "mode": "token_ramp",
+          "planning_method": "",
+          "target_global_batch_size": 128,
+          "schedule": [
+            {"start_tokens": 0, "end_tokens": 67108864, "global_batch_size": 128},
+            {"start_tokens": 67108864, "end_tokens": 0, "global_batch_size": 128}
+          ],
+          "seq_length": 2048,
+          "data_parallel_size": 2,
+          "require_full_state_checkpoint": true
+        }
+      },
+      "runs": [
+        {
+          "id": "stage1_l26_e32_k200_jointmoe_lr_checkpoint_resume",
+          "kind": "megatron_bridge",
+          "backend": "megatron_bridge",
+          "recipe": "scaling_switch_moe_scale_scaling_l26_pretrain_config",
+          "data_manifest": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenized/tiers/K200/megatron_data_manifest.json",
+          "data_manifest_sha256": "feb0a43aa5d8b9842d5fb2d3d41924cef5ed6a425c5a8a712522f76ca0a342f6",
+          "overrides": [
+            "optimizer.lr=0.00010017337354820424",
+            "logger.wandb_project=stage1_scaling_laws",
+            "logger.wandb_exp_name=stage1-l26-e32-k200-jointmoe-lr-checkpoint-resume-v1",
+            "logger.wandb_save_dir=outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/checkpoint_resume/wandb"
+          ]
+        }
+      ]
+    },
+    "benchmark": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/checkpoint_resume/benchmarks"
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/checkpoint_resume/summary.csv",
+      "gate_json": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/checkpoint_resume/gate.json"
+    }
+  },
+  "stage1_l26_e32_k200_jointmoe_lr_trunk_production_v1": {
+    "extends": "stage1_l26_e32_k200_law_trunk_production_v1",
+    "output_root": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/trunk",
+    "logs_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/trunk/logs",
+    "run_naming": {
+      "experiment_tag": "stage1-l26-e32-k200-jointmoe-lr-trunk-production-v1",
+      "language_count_hint": 200
+    },
+    "wandb": {
+      "project": "stage1_scaling_laws"
+    },
+    "sample": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/trunk/disabled_sample"
+    },
+    "tokenization": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/trunk/disabled_tokenization"
+    },
+    "training": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/trunk/runs",
+      "train": {
+        "batch_policy": {
+          "readout_horizons_tokens": [17170614784, 34341308928, 43579525633, 51512003072]
+        }
+      },
+      "runs": [
+        {
+          "id": "stage1_l26_e32_k200_jointmoe_lr_trunk",
+          "kind": "megatron_bridge",
+          "backend": "megatron_bridge",
+          "recipe": "scaling_switch_moe_scale_scaling_l26_pretrain_config",
+          "data_manifest": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenized/tiers/K200/megatron_data_manifest.json",
+          "data_manifest_sha256": "feb0a43aa5d8b9842d5fb2d3d41924cef5ed6a425c5a8a712522f76ca0a342f6",
+          "overrides": [
+            "optimizer.lr=0.00010017337354820424",
+            "logger.wandb_project=stage1_scaling_laws",
+            "logger.wandb_exp_name=stage1-l26-e32-k200-jointmoe-lr-trunk-production-v1",
+            "logger.wandb_save_dir=outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/trunk/wandb"
+          ]
+        }
+      ]
+    },
+    "benchmark": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/trunk/benchmarks"
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/trunk/summary.csv",
+      "gate_json": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/trunk/gate.json"
+    }
+  },
+  "stage1_l26_e32_k200_jointmoe_lr_cooldown_production_v1": {
+    "extends": "stage1_l26_e32_k200_jointmoe_lr_trunk_production_v1",
+    "output_root": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/cooldown",
+    "logs_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/cooldown/logs",
+    "run_naming": {
+      "experiment_tag": "stage1-l26-e32-k200-jointmoe-lr-cooldown-production-v1",
+      "language_count_hint": 200
+    },
+    "executor": {
+      "time": "48:00:00"
+    },
+    "sample": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/cooldown/disabled_sample"
+    },
+    "tokenization": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/cooldown/disabled_tokenization"
+    },
+    "training": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/cooldown/runs",
+      "train": {
+        "token_budget_tokens": 68682514430,
+        "batch_policy": {
+          "plan_role": "branch",
+          "branch_target_tokens": 68682514430,
+          "branch_parent_checkpoint_root": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/trunk/runs/stage1_l26_e32_k200_jointmoe_lr_trunk/segments/06_gbs128/checkpoints"
+        }
+      },
+      "runs": [
+        {
+          "id": "stage1_l26_e32_k200_jointmoe_lr_cooldown",
+          "kind": "megatron_bridge",
+          "backend": "megatron_bridge",
+          "recipe": "scaling_switch_moe_scale_scaling_l26_pretrain_config",
+          "data_manifest": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenized/tiers/K200/megatron_data_manifest.json",
+          "data_manifest_sha256": "feb0a43aa5d8b9842d5fb2d3d41924cef5ed6a425c5a8a712522f76ca0a342f6",
+          "overrides": [
+            "optimizer.lr=0.00010017337354820424",
+            "logger.wandb_project=stage1_scaling_laws",
+            "logger.wandb_exp_name=stage1-l26-e32-k200-jointmoe-lr-cooldown-production-v1",
+            "logger.wandb_save_dir=outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/cooldown/wandb"
+          ]
+        }
+      ]
+    },
+    "benchmark": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/cooldown/benchmarks"
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/cooldown/summary.csv",
+      "gate_json": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/cooldown/gate.json"
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "experts": [
+    1,
+    4,
+    16,
+    32
+  ],
+  "fixed_variables": {
+    "active_experts": "one expert active per token",
+    "architecture_family": "decoder-only Transformer",
+    "context_length": 2048,
+    "expert_granularity": 1,
+    "expert_hidden_size": "3 * d_model, SwiGLU",
+    "language_counts": [
+      1,
+      16,
+      50,
+      200
+    ],
+    "language_sampling": "uniform over active K",
+    "load_balancing_loss": 0.01,
+    "moe_placement": "replace every FFN with MoE FFN",
+    "moe_type": "Switch MoE feed-forward layers",
+    "precision": "BF16 mixed precision",
+    "router_z_loss": 0.001,
+    "routing": "top-1",
+    "target_hardware": "H100",
+    "tokenizer": "64k multilingual SentencePiece"
+  },
+  "h100_optimization_policy": {
+    "default": "optimize one systems config per (ladder,E); K variants reuse the locked shape unless corpus throughput changes materially",
+    "gpus_per_run": "1-4",
+    "mfu_gate_pct": 35.0,
+    "routing_gate": {
+      "max_dropped_assignment_rate": 0.05,
+      "min_capacity_factor": 1.0,
+      "require_zero_kept_tokens": true
+    },
+    "strategy": "shape-first local H100 optimization",
+    "target_hardware": "H100"
+  },
+  "ladders": [
+    {
+      "N_act": 92798976,
+      "N_act_nonembed": 27262976,
+      "hidden_size": 512,
+      "ladder": "A",
+      "num_attention_heads": 8,
+      "num_layers": 8,
+      "token_checkpoints": [
+        500000000,
+        1000000000,
+        2000000000,
+        4000000000,
+        8000000000
+      ]
+    },
+    {
+      "N_act": 190316544,
+      "N_act_nonembed": 92012544,
+      "hidden_size": 768,
+      "ladder": "B",
+      "num_attention_heads": 12,
+      "num_layers": 12,
+      "token_checkpoints": [
+        500000000,
+        1000000000,
+        2000000000,
+        4000000000,
+        8000000000,
+        16000000000
+      ]
+    },
+    {
+      "N_act": 349175808,
+      "N_act_nonembed": 218103808,
+      "hidden_size": 1024,
+      "ladder": "C",
+      "num_attention_heads": 16,
+      "num_layers": 16,
+      "token_checkpoints": [
+        500000000,
+        1000000000,
+        2000000000,
+        4000000000,
+        8000000000,
+        16000000000,
+        32000000000
+      ]
+    },
+    {
+      "N_act": 589824000,
+      "N_act_nonembed": 425984000,
+      "hidden_size": 1280,
+      "ladder": "D",
+      "num_attention_heads": 20,
+      "num_layers": 20,
+      "token_checkpoints": [
+        500000000,
+        1000000000,
+        2000000000,
+        4000000000,
+        8000000000,
+        16000000000,
+        32000000000
+      ]
+    }
+  ],
+  "language_counts": [
+    1,
+    16,
+    50,
+    200
+  ],
+  "parameter_counting": {
+    "F_train": "6*N_act*D",
+    "N_act": "2*d_model*d_vocab + 13*N_blocks*d_model^2",
+    "N_act_nonembed": "13*N_blocks*d_model^2",
+    "N_total": "2*d_model*d_vocab + (4+9E)*N_blocks*d_model^2",
+    "d_vocab": 64000
+  },
+  "routing_gate": {
+    "max_dropped_assignment_rate": 0.05,
+    "min_capacity_factor": 1.0,
+    "require_zero_kept_tokens": true
+  },
+  "schema_version": 1,
+  "status_date": "2026-06-02",
+  "study_id": "multilingual_moe_v1"
+}

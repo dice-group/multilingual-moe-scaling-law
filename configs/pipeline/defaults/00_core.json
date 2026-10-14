@@ -1,0 +1,16 @@
+{
+  "executor": {
+    "type": "local"
+  },
+  "language_map_path": "configs/language_groupings/bridge_smoke_4lang.json",
+  "output_root": "outputs/pipeline_runs/default",
+  "wandb": {
+    "enabled": false,
+    "entity": "",
+    "eval_prefix": "eval/benchmark",
+    "mode": "disabled",
+    "project": "multilingual-megatron-study",
+    "train_prefix": "train"
+  },
+  "wandb_mode": "disabled"
+}

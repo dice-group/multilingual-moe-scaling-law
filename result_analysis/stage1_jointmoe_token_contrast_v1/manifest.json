@@ -1,0 +1,12 @@
+{
+  "files": {
+    "coefficients.json": "614fd82bdb77f6990614541e78d4b5663fd5191e87d5d05a678f0efda30e4e67",
+    "comparison.csv": "196b63d0da323799ef700bad2e04014630413c49c98e38fe4f360a18d73aba7e",
+    "metrics.csv": "3bdf8cdfe6ffb053359ecbde70925f4ee2c6c3eaf0290a52f09a6a5d2dcc36a3",
+    "predictions.parquet": "023c997b70fc43ae3f8cc4b845cb5f6ac31a16888051161c5483ee57342d1d68",
+    "protocol.json": "c0f67a61042b728688c0c325906007058cbfafab10dc67bf4860390df53ff2e9",
+    "source_hashes.json": "c4b213d63c01afe7d81150de22d722d078c8ec945a0b8ea6fdf4a73cab51435a",
+    "verification.json": "d30f4a58f966d9419c6e5b400a43b531681ae8146b32d0ff0548000287e1bad7"
+  },
+  "certified_language_fits": 1300
+}

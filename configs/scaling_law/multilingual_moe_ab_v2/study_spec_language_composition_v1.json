@@ -1,0 +1,120 @@
+{
+  "inherits": {
+    "spec_path": "study_spec_jointmoe_x1_production_v1.json",
+    "spec_sha256": "788105aff6f93fa2f0e4a501c864f216c2ac783da2d5e1b0bcbb9fe7a4863585",
+    "historical_spec_sha256": "9cb33c326755e9e45fa8f70a32200a2c2067c2bad2b7cbd82b56e8940924e80e"
+  },
+  "status_date": "2026-08-31",
+  "scope": "Predeclared Stage-1 K12 language-composition sensitivity side study",
+  "language_composition_design": {
+    "status": "predeclared_before_new_training",
+    "design_id": "stage1_language_composition_v1",
+    "selection": {
+      "method": "equal-weight mean across the frozen typology, genealogy, geography, and script distance matrices",
+      "selection_identity_sha256": "20671b754c795dc37fbaca5608a19c1175477a6d2c12b4f8a398ee991dc30319",
+      "compact_language_set_sha256": "552d8faf4ce09a5999741c1632c9685560d3a53b7336202d081abb43d634d5f9",
+      "diverse_language_set_sha256": "4491080d0787499774ebe9a7c0132459b43c5c3de6c6430853da19297bba5591",
+      "sampling_alpha": 0.3,
+      "english_probability_absolute_tolerance": 0.005,
+      "effective_language_count_absolute_tolerance": 0.25,
+      "geography_included": true
+    },
+    "arms": [
+      "reference",
+      "compact",
+      "diverse"
+    ],
+    "new_training_arms": [
+      "compact",
+      "diverse"
+    ],
+    "experts": [
+      1,
+      16,
+      32
+    ],
+    "seeds": [
+      1234,
+      5678,
+      91011
+    ],
+    "checkpoint_horizons_tokens": [
+      500000000,
+      1000000000,
+      2000000000,
+      4000000000,
+      8000000000,
+      16000000000
+    ],
+    "trajectory_counts": {
+      "reused_reference": 9,
+      "new_compact": 9,
+      "new_diverse": 9,
+      "complete": 27,
+      "readouts_per_trajectory": 6
+    },
+    "new_job_counts": {
+      "training_trunks": 18,
+      "cooldown_branches": 108,
+      "new_arm_evaluations": 108,
+      "reference_reevaluations": 54,
+      "trajectory_cleanups": 18,
+      "production_gpu_jobs": 288,
+      "bounded_smoke_gpu_jobs": 4
+    },
+    "data_contract": {
+      "release": "one common physical K200 successor release shared by compact and diverse",
+      "physical_capacity": "elementwise maximum across reference, compact, and diverse exposure requirements",
+      "canonical_nested_tiers_unchanged": [
+        1,
+        12,
+        50,
+        200
+      ],
+      "sampling_policy": "document-level alpha=0.3 sampling with exact largest-remainder 32B exposure quotas"
+    },
+    "evaluation_contract": {
+      "eligible_frame": "K196",
+      "excluded_languages": [
+        "hyw_Armn",
+        "epo_Latn",
+        "ido_Latn",
+        "srd_Latn"
+      ],
+      "primary_cohort": "unseen_177",
+      "primary_metric": "equal-language mean ATLAS-Tao unigram-adjusted held-out loss",
+      "secondary_cohorts": [
+        "reference_only",
+        "compact_only",
+        "diverse_only",
+        "reference_compact",
+        "reference_diverse",
+        "compact_diverse",
+        "all_three",
+        "k196"
+      ]
+    },
+    "analysis_contract": {
+      "moe_gain": "loss(E1)-loss(E32) within an arm, seed, and horizon",
+      "primary_contrast": "moe_gain(diverse)-moe_gain(compact) at 16B on unseen_177",
+      "replication_unit": "independent training seed",
+      "reporting": "three seedwise contrasts plus mean, sample standard deviation, and range",
+      "nested_readouts": "descriptive trajectory readouts only",
+      "significance_policy": "no significance inference from languages or nested checkpoint readouts"
+    },
+    "execution_contract": {
+      "wave_order": [
+        "compact/1234",
+        "diverse/1234",
+        "compact/5678",
+        "diverse/5678",
+        "compact/91011",
+        "diverse/91011"
+      ],
+      "parallelism": "E1, E16, and E32 trajectories are dependency-eligible together within one arm/seed wave",
+      "retention": "after all six K196 evaluations, remove each trunk and five nonterminal branches; retain only its 16B branch",
+      "production_authorization": "explicit hash-bound authorization file required after four real-data smokes"
+    },
+    "claim_boundary": "This is a three-seed B-ladder sensitivity study of the frozen K12 compositions, not a language-level significance test, a full-grid invariance claim, or a new LR-selection experiment."
+  }
+}

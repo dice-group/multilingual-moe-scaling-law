@@ -1,0 +1,46 @@
+{
+  "campaign": "/workspace/multi-moe-scaling-laws/outputs/paper_refit/full_lbfgsb_20260926",
+  "input_sha256": "9d33ed3b5539549ab0a0ffb404ab6165b911ed62efc36e46f3b11d53493d97a8",
+  "runner_sha256": "7e8307f88d5299f6196603165216bf15ff20703fd953bb09737c17e92da22246",
+  "workers": 16,
+  "threads_per_worker": 1,
+  "tokens": [
+    "D",
+    "Dt"
+  ],
+  "folds": [
+    "largest_N_act",
+    "E32",
+    "K200_common_languages",
+    "all_grid"
+  ],
+  "settings": {
+    "initial_starts": 16,
+    "escalated_starts": 64,
+    "seed": 20260906,
+    "gradient_tolerance": 1e-08,
+    "objective_tolerance": 1e-06,
+    "prediction_tolerance": 0.0001,
+    "near_optimal_tolerances": [
+      1e-06,
+      1e-05
+    ],
+    "inner_kkt": 1e-11,
+    "rank_relative": 1e-07,
+    "maxiter": 2000,
+    "direct_max_nfev": 4000,
+    "objective_scale": 10000.0,
+    "deduplicate_domain": "exact D/U rows only; never training responses",
+    "audit_seed_refinement_rounds": 2,
+    "kkt_multiplier_solver": "bvls",
+    "inner_physical_kkt": 1e-08
+  },
+  "expert_transform": {
+    "E_start": 2.0732,
+    "E_max": 290.4521,
+    "fitted": false
+  },
+  "coefficient_scope": "nine per language, identical in both arms",
+  "changed": "Only scalar exposure D_total versus D_t; original immutable native kernels",
+  "selection": "training objectives and numerical certification only; no evaluation-based selection"
+}

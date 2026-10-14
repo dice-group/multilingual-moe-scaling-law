@@ -1,0 +1,151 @@
+{
+  "source": {
+    "release_name": "stage1_abcd_jointmoe_x1_v1",
+    "release_status": "analysis_ready",
+    "release_manifest": "../../result_analysis/stage1_abcd_jointmoe_x1_v1/release_manifest.json",
+    "release_manifest_sha256": "807b2476ff15c71f1164b92b4c8c12136c7ca9f610ce85acc24ea4a99723e806"
+  },
+  "selection": {
+    "checkpoint_policy": "final_only",
+    "canonical_release": {
+      "ladders": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "experts": [
+        1,
+        4,
+        16,
+        32
+      ],
+      "languages": [
+        1,
+        12,
+        50,
+        200
+      ],
+      "seed": 1234
+    },
+    "b_seed_replication": {
+      "ladder": "B",
+      "experts": [
+        1,
+        16,
+        32
+      ],
+      "languages": [
+        1,
+        12,
+        200
+      ],
+      "additional_seeds": [
+        5678,
+        91011
+      ],
+      "replication_role": "additional_independent_training_seed"
+    }
+  },
+  "learning_rate_contract": {
+    "name": "jointmoe_x1",
+    "formula": "exp(8.39 - 0.81 * ln(N_act_nonembed) - 0.25 * ln(E))",
+    "relative_tolerance": 1e-12
+  },
+  "runtime_estimation": {
+    "policy": "largest_ladder_per_expert_and_request_set",
+    "ladder": "D",
+    "english_language_count": 1,
+    "multilingual_language_count": 12,
+    "safety_factor": 1.25
+  },
+  "schema": "stage1_routing_repair_profile/v2",
+  "campaign_id": "stage1_routing_repair_final_v2",
+  "repo_root": "../..",
+  "output_root": "../../outputs/pipeline_runs/stage1_routing_repair_final_v2",
+  "bridge_root": "../../external/Megatron-Bridge",
+  "bridge_commit": "snapshot-f35ef541d8fbee40",
+  "python": "/opt/conda/envs/bridge-train/bin/python",
+  "resources": {
+    "cpu": {
+      "partition": "normal",
+      "gres": "none",
+      "cpus_per_task": 8,
+      "mem": "64G",
+      "time": "24:00:00",
+      "module_init": "/etc/profile.d/z00_lmod.sh",
+      "modules": [
+        "toolchain/foss/2024a"
+      ],
+      "conda_base": "/opt/software/cluster/EB-SW/software/Miniforge3/25.3.0-3",
+      "conda_env": "/opt/conda/envs/bridge-train",
+      "extra_sbatch_flags": [
+        "--export=NIL"
+      ]
+    },
+    "h100": {
+      "partition": "gpu_h100",
+      "gres": "gpu:h100:1",
+      "cpus_per_task": 32,
+      "mem": "128G",
+      "time": "72:00:00",
+      "module_init": "/etc/profile.d/z00_lmod.sh",
+      "modules": [
+        "toolchain/foss/2024a",
+        "system/CUDA/12.6.0",
+        "lib/NCCL/2.22.3-GCCcore-13.3.0-CUDA-12.6.0"
+      ],
+      "conda_base": "/opt/software/cluster/EB-SW/software/Miniforge3/25.3.0-3",
+      "conda_env": "/opt/conda/envs/bridge-train",
+      "extra_sbatch_flags": [
+        "--export=NIL",
+        "--nodes=1",
+        "--ntasks-per-node=1"
+      ]
+    }
+  },
+  "environment": {
+    "BRIDGE_LOG_THROUGHPUT": "1",
+    "BRIDGE_THROUGHPUT_WINDOW_SIZE": "12",
+    "BRIDGE_MOE_TOKEN_DROP_METRICS": "1",
+    "BRIDGE_PREFER_VENV_CUDA_LIBS": "0",
+    "PROOF_ENABLE_BRIDGE_OPTIONAL_DEP_SHIMS": "1",
+    "PROOF_REQUIRE_REAL_MODELOPT": "1",
+    "PROOF_GPU_MONITOR_INTERVAL_SECONDS": "10",
+    "PROOF_DATASET_BUILDER_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+    "CUDA_DEVICE_MAX_CONNECTIONS": "8",
+    "NVTE_FLASH_ATTN": "0",
+    "NVTE_FUSED_ATTN": "1",
+    "NVTE_UNFUSED_ATTN": "0",
+    "LD_LIBRARY_PATH": "${CONDA_PREFIX}/lib",
+    "TMPDIR": "/scratch/shared_cache/tmp",
+    "TMP": "/scratch/shared_cache/tmp",
+    "TEMP": "/scratch/shared_cache/tmp"
+  },
+  "account": "research-project",
+  "qos": "nocont",
+  "retries": {
+    "maximum_attempts": 3,
+    "allowed_scheduler_states": [
+      "NODE_FAIL",
+      "BOOT_FAIL",
+      "PREEMPTED"
+    ]
+  },
+  "parity": {
+    "raw_nll_abs_tolerance": 1e-06,
+    "nll_sum_relative_tolerance": 1e-07
+  },
+  "budget": {
+    "historical_gpu_hours": 38.796162,
+    "planning_gpu_hours": 50,
+    "concurrency_cap": null
+  },
+  "analysis": {
+    "block_sequences": 128,
+    "bootstrap_replicates": 1000,
+    "seed": 20260907
+  }
+}

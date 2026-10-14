@@ -1,0 +1,265 @@
+{
+  "schema_version": 1,
+  "id": "stage1_l26_e32_k200_jointmoe_lr_production_v1",
+  "status": "production_authorized_pending_committed_amendment_source_seal",
+  "authorities": {
+    "architecture": {
+      "path": "configs/stage1/architectures/stage1_l26_e32_v1.json",
+      "sha256": "addf4dd1411e4ca5b37eeeb017f95f5d60bc93dac74ba15470f2e2160d1eea07",
+      "historical_sha256": "5fafa18bd307a3b54abccf0371e9cf18a0fc638524bee06d9ddeda9ef13a8f13"
+    },
+    "systems": {
+      "path": "configs/stage1/l26_e32/winner_pp4_ep2_mbs8_v1.json",
+      "sha256": "7057969f0dbdab35af2b7242b848af54304a88f9c1d9b7b9dfe69655764cdfd3",
+      "historical_sha256": "e4a10ea2202d7be7e4c6236f366232295c46a18509b366ac3cf3a8e278f895ea"
+    },
+    "historical_production_contract": "configs/stage1/production/stage1_l26_e32_k200_law_production_v1.json",
+    "historical_production_profile": "stage1_l26_e32_k200_law_trunk_production_v1",
+    "learning_rate_specification": {
+      "path": "configs/scaling_law/multilingual_moe_ab_v2/study_spec_jointmoe_paper_lr_v1.json",
+      "sha256": "2e68e2690fbbe6639df963c152a7ac61c5d7ef9d57c459fdea0988e16e6a643d",
+      "historical_sha256": "16298630e3579671692dc0cf4f7555fc86673782b536fd799b055cbde21231f9"
+    },
+    "learning_rate_confirmation": {
+      "path": "result_analysis/stage1_lr_confirmation_h100_v1/comparison_summary.json",
+      "sha256": "141e479adca5900ab0d50c47a07780c18c08a59e0852a092ef47fd94f8198c9b"
+    },
+    "pipeline_profiles": [
+      "stage1_l26_e32_k200_jointmoe_lr_smoke_v1",
+      "stage1_l26_e32_k200_jointmoe_lr_confirm_r1_v1",
+      "stage1_l26_e32_k200_jointmoe_lr_confirm_r2_v1",
+      "stage1_l26_e32_k200_jointmoe_lr_ramp_gbs32_v1",
+      "stage1_l26_e32_k200_jointmoe_lr_ramp_gbs64_v1",
+      "stage1_l26_e32_k200_jointmoe_lr_checkpoint_resume_v1",
+      "stage1_l26_e32_k200_jointmoe_lr_trunk_production_v1",
+      "stage1_l26_e32_k200_jointmoe_lr_cooldown_production_v1"
+    ]
+  },
+  "controlled_change": {
+    "parameter": "optimizer.lr",
+    "historical_value": 0.0002,
+    "new_value": 0.00010017337354820424,
+    "multiplier": 1.0,
+    "formula": "exp(8.39 - 0.81 * ln(N_act_nonembed) - 0.25 * ln(E))",
+    "active_parameters_including_embeddings": 1148878848,
+    "embedding_and_output_parameters": 212992000,
+    "N_act_nonembed": 935886848,
+    "experts": 32,
+    "all_other_scientific_and_systems_settings_frozen": true,
+    "evidence_boundary": "JointMoE x1 was the equal-cell aggregate leader on both confirmation clusters and beat the historical fixed 2e-4 control in all nine cells on both clusters. It is the best-supported global transfer policy, not a claim that x1 is optimal for every cell or that this single L26/E32 trajectory is a replication study."
+  },
+  "model": {
+    "recipe": "scaling_switch_moe_scale_scaling_l26_pretrain_config",
+    "layers": 26,
+    "hidden_size": 1664,
+    "attention_heads": 26,
+    "ffn_hidden_size": 4992,
+    "experts": 32,
+    "top_k": 1,
+    "active_parameters": 1148878848,
+    "total_parameters": 21234450432,
+    "sequence_length": 2048,
+    "global_batch_size": 128,
+    "micro_batch_size": 8,
+    "data_parallel_size": 2,
+    "seed": 1234
+  },
+  "systems_contract": {
+    "parallelism": "TP1 PP4 CP1 EP2 ETP1; dense-DP2; expert-DP1",
+    "pipeline_model_parallel_layout": "Et*6|t*7|t*7|t*6L",
+    "dispatcher": "alltoall",
+    "router_fusion": true,
+    "transformer_engine_operation_fuser": true,
+    "activation_recomputation": "selective core_attn only",
+    "cuda_graph_impl": "none",
+    "parameter_gather_overlap": false,
+    "gradient_reduce_overlap": false,
+    "moe_expert_parallel_overlap": false,
+    "production_gpu_count": 8,
+    "production_nodes": 2,
+    "reservation_or_nodelist": "resolved only at submission time; no stale reservation or physical node is embedded in the profiles"
+  },
+  "observability": {
+    "wandb_project": "stage1_scaling_laws",
+    "scope": "all calibration, trunk, and cooldown runs",
+    "mode": "online",
+    "offline_fallback_authorized": false,
+    "run_identity": "Each profile has a distinct immutable logger.wandb_exp_name and campaign-owned save directory."
+  },
+  "data": {
+    "manifest": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenized/tiers/K200/megatron_data_manifest.json",
+    "manifest_file_sha256": "feb0a43aa5d8b9842d5fb2d3d41924cef5ed6a425c5a8a712522f76ca0a342f6",
+    "manifest_payload_sha256": "2b9274e417b45a000162e63fa3076d486d84cf8a3bd1b323373aa1852db243ef",
+    "languages": 200,
+    "physical_tokens_including_eod": 86889763655,
+    "tokenizer_model_sha256": "54a25a061df0cfba143ca8af3380e4d6c4caccf2ea1c80d25ff011c407c187e8",
+    "reuse_policy": "Reuse the exact frozen K200 Megatron bin/idx manifest. Do not resample, retokenize, alter language weights, or write under the immutable corpus root."
+  },
+  "training_contract": {
+    "trajectory": "fresh_from_initialization",
+    "checkpoint_reuse_from_historical_2e_4_run": false,
+    "optimizer": "Adam, beta1=0.9, beta2=0.95, eps=1e-8, weight_decay=0.1, clip_grad=1.0, FP32 main parameters and moments",
+    "schedule": "historical WSD schedule with 130M-token linear warmup, constant plateau, and final 20% cooldown",
+    "learning_rate_schedule": {
+      "initial_lr": 0.0,
+      "peak_lr": 0.00010017337354820424,
+      "warmup_target_tokens": 130000000,
+      "warmup_executable_tokens": 130023424,
+      "warmup_completes_during_gbs32": true,
+      "stable_lr_through_nominal_tokens": 54946011544,
+      "stable_trunk_executable_tokens": 54946168832,
+      "linear_decay_fraction": 0.2,
+      "linear_decay_final_executable_tokens": 68682776576,
+      "final_lr": 0.0
+    },
+    "batch_ramp": [
+      {
+        "start_tokens": 0,
+        "nominal_end_tokens": 500000000,
+        "executable_end_tokens": 500039680,
+        "global_batch_size": 32
+      },
+      {
+        "start_tokens": 500000000,
+        "nominal_end_tokens": 1000000000,
+        "executable_end_tokens": 1000079360,
+        "global_batch_size": 64
+      },
+      {
+        "start_tokens": 1000000000,
+        "nominal_end_tokens": 68682514430,
+        "executable_end_tokens": 68682776576,
+        "global_batch_size": 128
+      }
+    ],
+    "stable_trunk_nominal_end_tokens": 54946011544,
+    "final_cooldown_nominal_end_tokens": 68682514430,
+    "executable_final_tokens": 68682776576,
+    "independent_experimental_units": 1,
+    "nested_readouts_are_independent_replicates": false
+  },
+  "checkpoint_contract": {
+    "scientific_checkpoints": [
+      {
+        "label": "quarter_25",
+        "profile_readout_horizon_tokens": 17170614784,
+        "executable_consumed_tokens": 17170694144,
+        "expected_step": 73131
+      },
+      {
+        "label": "quarter_50",
+        "profile_readout_horizon_tokens": 34341308928,
+        "executable_consumed_tokens": 34341388288,
+        "expected_step": 138632
+      },
+      {
+        "label": "quarter_75",
+        "profile_readout_horizon_tokens": 51512003072,
+        "executable_consumed_tokens": 51512082432,
+        "expected_step": 204133
+      },
+      {
+        "label": "final_wsd",
+        "profile_readout_horizon_tokens": 68682514430,
+        "executable_consumed_tokens": 68682776576,
+        "expected_step": 269634
+      }
+    ],
+    "physical_500_h100_hour_checkpoint": {
+      "required": true,
+      "status": "selected_from_complete_calibration_receipt",
+      "target_h100_gpu_hours": 500.0,
+      "meter": "allocated H100 GPU-seconds while the production training allocation is active, excluding queue time and including calibrated startup plus synchronous full-checkpoint cost",
+      "historical_anchor_is_not_reused": true,
+      "profile_readout_horizon_tokens": 43579525633,
+      "executable_consumed_tokens": 43579867136,
+      "expected_step": 173874,
+      "completed_checkpoint_h100_gpu_hours": 499.997212498221,
+      "next_update_completed_checkpoint_h100_gpu_hours": 500.0001699407863,
+      "remaining_h100_gpu_seconds": 10.035006404388696,
+      "selection_tool": "python -m multilingual_megatron.experiments.scaling.stage1_l26_e32_production",
+      "calibration_receipt": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/calibration_receipt.json",
+      "calibration_receipt_sha256": "59d54547b8d855cfac7866c367952e29f4e908df50310233dfd1ca7b4f676ac2",
+      "selection_receipt": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/physical_500h_checkpoint_selection.json",
+      "selection_receipt_sha256": "c164dc07371d08c57086a3dd7614c34669e90bc22024409d349dcb21670ca9d6",
+      "calibration_source_commit": "snapshot-dc55f1000153b85a"
+    },
+    "format": "synchronous full optimizer, scheduler, RNG, dataloader, and model state; every continuation endpoint must pass checkpoint_state_audit"
+  },
+  "prelaunch_gates": [
+    {
+      "order": 1,
+      "gate": "materialized_profile_dry_runs",
+      "status": "accepted",
+      "evidence": "All eight profiles dry-ran from committed source snapshot-dc55f1000153b85a before calibration; amended trunk and cooldown must be dry-run again before launch.",
+      "acceptance": "All eight profiles resolve and dry-run; effective commands preserve the historical contract and end with optimizer.lr=0.00010017337354820424."
+    },
+    {
+      "order": 2,
+      "gate": "fresh_memory_and_health_smoke",
+      "profile": "stage1_l26_e32_k200_jointmoe_lr_smoke_v1",
+      "status": "accepted",
+      "evidence": "Slurm job 2757476 completed 0:0 with eight healthy updates, zero drops, and 8,970 MiB minimum observed GPU-memory headroom.",
+      "acceptance": "Eight updates complete with finite loss and gradients, zero skipped and NaN iterations, zero token drops, and safe H100 memory headroom."
+    },
+    {
+      "order": 3,
+      "gate": "two_independent_unprofiled_gbs128_confirmations",
+      "profiles": [
+        "stage1_l26_e32_k200_jointmoe_lr_confirm_r1_v1",
+        "stage1_l26_e32_k200_jointmoe_lr_confirm_r2_v1"
+      ],
+      "status": "accepted",
+      "evidence": "Slurm jobs 2757792 and 2757967 completed 0:0; final-128 aggregate rates were 196055.979882 and 197894.001802 tokens/s, a 0.933125% symmetric relative difference.",
+      "acceptance": "Each completes 512 updates on real K200 data with healthy training; aggregate throughput over the final 128 updates agrees within 3%. Historical throughput is context, not a hard pass threshold."
+    },
+    {
+      "order": 4,
+      "gate": "batch_ramp_and_checkpoint_calibration",
+      "profiles": [
+        "stage1_l26_e32_k200_jointmoe_lr_ramp_gbs32_v1",
+        "stage1_l26_e32_k200_jointmoe_lr_ramp_gbs64_v1",
+        "stage1_l26_e32_k200_jointmoe_lr_checkpoint_resume_v1"
+      ],
+      "status": "accepted",
+      "evidence": "Accepted Slurm jobs 2758394, 2758434, and 2758505 completed 0:0. Aggregate rates are GBS32=102637.549798, GBS64=152900.450575, GBS128=196974.990842 tokens/s; startup=1976.5856 and full-checkpoint=1175.776 H100 GPU-seconds. Both checkpoint audits and the parent resume audit are valid. Job 2758118 reached zero updates and is preserved as excluded failure evidence.",
+      "acceptance": "Record final-128-update aggregate GBS32, GBS64, and confirmed GBS128 rates plus startup and full-checkpoint H100 GPU-seconds; both checkpoint segments and the parent resume audit must pass."
+    },
+    {
+      "order": 5,
+      "gate": "freeze_physical_500h_anchor",
+      "status": "accepted",
+      "evidence": "Calibration receipt SHA-256 59d54547b8d855cfac7866c367952e29f4e908df50310233dfd1ca7b4f676ac2 and selection receipt SHA-256 c164dc07371d08c57086a3dd7614c34669e90bc22024409d349dcb21670ca9d6 select step 173874 at 43579867136 executable tokens.",
+      "acceptance": "Write and hash the complete calibration receipt, run the selector, insert its exact readout horizon in the trunk profile, update the cooldown parent segment, then dry-run and verify the selected step and consumed-token count."
+    },
+    {
+      "order": 6,
+      "gate": "immutable_inputs_and_fresh_namespace",
+      "status": "accepted_pending_final_post_commit_dry_run",
+      "evidence": "K200 manifest SHA-256 feb0a43aa5d8b9842d5fb2d3d41924cef5ed6a425c5a8a712522f76ca0a342f6 and tokenizer SHA-256 54a25a061df0cfba143ca8af3380e4d6c4caccf2ea1c80d25ff011c407c187e8 were reverified. The campaign trunk and cooldown contain only dry-run plans/logs and no checkpoints or completion sentinels.",
+      "acceptance": "Re-hash the 200-prefix manifest and tokenizer; require the new trunk and cooldown output roots not to contain prior checkpoints or completion sentinels."
+    },
+    {
+      "order": 7,
+      "gate": "manual_production_authorization",
+      "status": "accepted_for_trunk_after_amendment_commit",
+      "acceptance": "Record current allocation or submission capacity, holder ID when applicable, allocated nodes, chosen node subset, eight H100 GPUs, and separate explicit approval before production submission."
+    }
+  ],
+  "release_policy": {
+    "production_authorized": true,
+    "launch_condition": "Commit the profile, contract, runbook, and focused test amendment together; verify clean campaign paths; dry-run the amended trunk and cooldown; then source-seal the exact commit before submitting the trunk.",
+    "trunk_must_precede_cooldown_execution": true,
+    "cooldown_queue_submission_may_precede_trunk_completion": true,
+    "cooldown_pre_submission": {
+      "authorized": true,
+      "required_dependency_type": "afterok",
+      "execution_gate": "The sealed trunk Slurm job must exit 0 after the stable step-217233 full-state checkpoint audit passes.",
+      "parent_revalidation": "Before its first optimizer update, cooldown independently audits the exact parent at step 217233 and consumed_samples 26829184.",
+      "manual_intermediate_performance_gate_required": false,
+      "launch_contract": "configs/stage1/production/stage1_l26_e32_k200_jointmoe_lr_cooldown_launch_v1.json"
+    },
+    "cooldown_parent": "the audited stable endpoint from this fresh trunk only",
+    "historical_run_role": "prediction target and descriptive one-seed comparator; not a checkpoint parent and not an independent replicate of nested readouts"
+  }
+}

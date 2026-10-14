@@ -1,0 +1,10 @@
+# Developer integration: includes Bridge recipes and dependency checkout checks.
+tests.test_repo_maintenance
+tests.test_publication_tools
+tests.test_checkpoint_state
+tests.test_stage_data_prep_integration
+tests.test_fineweb_v2_data_policy
+tests.test_fineweb_v2_bootstrap
+tests.test_fineweb_v2_release_audit
+tests.test_training_pipeline
+tests.test_megatron_bridge_recipe_overrides

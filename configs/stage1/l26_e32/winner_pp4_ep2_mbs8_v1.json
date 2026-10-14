@@ -1,0 +1,65 @@
+{
+  "schema": "stage2_l26_e32_sealed_winner/v1",
+  "state": "sealed_systems_baseline_not_production_authorized",
+  "architecture_authority": "configs/stage1/l26_e32/architecture_stage1_l26_e32_v1.json",
+  "archived_source_systems_record": "snapshot-0e8c07b45c2d99c0",
+  "selected_system": {
+    "parallelism": "TP1 PP4 CP1 EP2 ETP1; dense-DP2; expert-DP1",
+    "pipeline_model_parallel_layout": "Et*6|t*7|t*7|t*6L",
+    "global_batch_size": 128,
+    "micro_batch_size": 8,
+    "gradient_accumulation_microbatches": 8,
+    "token_dispatcher": "alltoall",
+    "transformer_engine_operation_fuser": true,
+    "activation_recomputation": "selective core_attn only",
+    "cuda_graph_impl": "none",
+    "parameter_gather_overlap": false,
+    "gradient_reduce_overlap": false
+  },
+  "scientific_contract": {
+    "global_batch_size": 128
+  },
+  "systems_configuration": {
+    "micro_batch_size": 8
+  },
+  "overrides": {
+    "train.micro_batch_size": "8",
+    "model.tensor_model_parallel_size": "1",
+    "model.pipeline_model_parallel_size": "4",
+    "model.virtual_pipeline_model_parallel_size": "null",
+    "model.pipeline_model_parallel_layout": "Et*6|t*7|t*7|t*6L",
+    "model.context_parallel_size": "1",
+    "model.expert_model_parallel_size": "2",
+    "model.expert_tensor_parallel_size": "1",
+    "model.moe_token_dispatcher_type": "alltoall",
+    "model.overlap_moe_expert_parallel_comm": "false",
+    "model.delay_wgrad_compute": "false",
+    "model.use_transformer_engine_op_fuser": "true",
+    "model.use_te_activation_func": "true",
+    "model.recompute_granularity": "selective",
+    "model.recompute_modules": "['core_attn']",
+    "optimizer.overlap_param_gather": "false",
+    "ddp.overlap_param_gather": "false",
+    "ddp.overlap_grad_reduce": "false",
+    "model.cuda_graph_impl": "none"
+  },
+  "accepted_unprofiled_late_window": {
+    "phase": "stage3_to_stage2_layout_control768",
+    "iterations": "648-768",
+    "aggregate_tokens_per_second": 204920.0703537229,
+    "logical_6n_mfu_pct": 17.844492245583435,
+    "median_step_ms": 1279.25,
+    "late_window_spread_pct": 0.634555876170218,
+    "memory_headroom_gib": 9.976984375,
+    "health": "768 completed steps; finite loss and gradients; zero skipped iterations, NaNs, and token drops"
+  },
+  "receipt_integrity": {
+    "metrics_receipt": "outputs/pipeline_runs/h100_stage2_baseline_allocation_2349063_v1/iterative_mfu_v2/stage3_to_stage2_layout_control768/metrics.json",
+    "effective_phase_sha256": "e3667027bf3b434c1ecd6547265a216b5cfc959ee182d35e4b079bf78c069964",
+    "metrics_sha256": "a14cdbf6b1bf78b7640416ffbb6ac4f693d6db42f5ab958e5cffbd82583adc08"
+  },
+  "evidence_boundary": {
+    "not_a_production_confirmation": true,
+    "not_promoted_single_observation": "batch_p2p_sync=false"
+  }
+}

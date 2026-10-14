@@ -1,0 +1,53 @@
+{
+  "inherits": {
+    "spec_path": "study_spec_launched_20260723.json",
+    "spec_sha256": "bc6228d23db94fa5dfb0ddad1319e25811a51aed73785108af3acb33b3725d2b",
+    "historical_spec_sha256": "7529b3e9bee0935c633ede69c915ce3f16af9bd90ab0bb099b0b45dfe61ac04d"
+  },
+  "schema_version": 3,
+  "status_date": "2026-08-22",
+  "scope": "Clean Stage-1 D production rerun with the B-selected JointMoE x1 LR rule",
+  "training_policy": {
+    "peak_learning_rate": {
+      "__delete__": true
+    },
+    "replication_training_seeds": [
+      1234,
+      5678,
+      91011
+    ],
+    "replication_seed_scope": "workflow compatibility only; production uses seed 1234 and no seed-general claim",
+    "learning_rate_prescription": {
+      "source": "JointMoE paper arXiv:2502.05172, printed rounded-coefficient law",
+      "formula": "exp(8.39 - 0.81 * ln(N_act_nonembed) - 0.25 * ln(E))",
+      "intercept": 8.39,
+      "active_parameter_coefficient": -0.81,
+      "expert_coefficient": -0.25,
+      "parameter_count_basis": "paper-style active non-embedding parameter count N_act_nonembed",
+      "constant_across_K": true,
+      "released_code_full_precision_coefficients_used": false,
+      "per_cell_selection_allowed": false
+    }
+  },
+  "production_lr_decision": {
+    "status": "authorized_b_ladder_confirmation_only",
+    "selected_rule": "jointmoe_x1_aggregate_a_priori",
+    "decision_panel": "B ladder at 2B tokens on A100 and H100; six prescriptions over nine matched E/K cells",
+    "a_ladder_role": "post_decision_diagnostic_not_selection_evidence",
+    "target_ladder": "D",
+    "automatic_per_cell_lr_selection": false,
+    "c_or_d_lr_probe_required": false,
+    "inference_scope": "Prospective uniform JointMoE-x1 prescription for the clean C/D rerun; not a claim of per-cell, seed-general, long-horizon, or compute-optimal superiority",
+    "disclosed_boundary": "B/E1/K1 selected x4 on H100, and x1 versus x0.5 is not significant in the conservative two-sided Holm-corrected comparison"
+  },
+  "lr_analysis_evidence": {
+    "analysis_script_path": "result_analysis/stage1_lr_confirmation_analysis.py",
+    "analysis_script_sha256": "20eaa5648b2647524145e356d5e238f4e9e5149b3e040880dbe022a6c76d5b58",
+    "analysis_manifest_path": "result_analysis/stage1_lr_confirmation_h100_v1/analysis_manifest.json",
+    "analysis_manifest_sha256": "b8bd437a2b5f81d4cd34868efe26163dbe1ee40f7ace63ed3b19fda8b6765d17",
+    "statistical_script_path": "result_analysis/stage1_lr_confirmation_panel_statistics.py",
+    "statistical_script_sha256": "fe2b5edc8936fb029c013cbdf6513a236d089d96dcc86ec356264e4af9807243",
+    "comparison_summary_path": "result_analysis/stage1_lr_confirmation_h100_v1/comparison_summary.json",
+    "comparison_summary_sha256": "141e479adca5900ab0d50c47a07780c18c08a59e0852a092ef47fd94f8198c9b"
+  }
+}

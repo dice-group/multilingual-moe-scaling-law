@@ -1,0 +1,52 @@
+{
+  "inherits": {
+    "spec_path": "../multilingual_moe_ab_v2/study_spec_jointmoe_paper_lr_v1.json",
+    "spec_sha256": "2e68e2690fbbe6639df963c152a7ac61c5d7ef9d57c459fdea0988e16e6a643d",
+    "historical_spec_sha256": "16298630e3579671692dc0cf4f7555fc86673782b536fd799b055cbde21231f9"
+  },
+  "status_date": "2026-08-19",
+  "scope": "Stage-1 B-ladder JointMoE learning-rate confirmation on H100",
+  "lr_confirmation": {
+    "protocol": "stage1_jointmoe_lr_confirmation_v1",
+    "method_reference": "Bjorck et al. arXiv:2409.19913 adapted five-point logarithmic bracket",
+    "learning_rate_reference": "JointMoE arXiv:2502.05172 printed rounded-coefficient law",
+    "ladder": "B",
+    "N_act_nonembed": 92012544,
+    "experts": [
+      1,
+      16,
+      32
+    ],
+    "language_counts": [
+      1,
+      12,
+      200
+    ],
+    "jointmoe_multipliers": [
+      0.25,
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "historical_fixed_control_peak_lr": 0.0002,
+    "training_seed": 1234,
+    "corpus_seed": 42,
+    "nominal_horizon_tokens": 2000000000,
+    "stable_trunk_tokens": 1600000000,
+    "cooldown_tokens": 400000000,
+    "primary_metric": "equal_language_atlas_tao_adjusted_loss",
+    "negative_primary_values_are_valid": true,
+    "lower_is_better": true,
+    "selection_rule": {
+      "equal_weight_per_E_K_cell": true,
+      "x1_strictly_lowest_mean_regret": true,
+      "minimum_x1_cell_wins_or_ties": 5,
+      "x1_must_beat_fixed_2e4_in_aggregate": true,
+      "outer_boundary_best_or_tied_is_inconclusive": true,
+      "tie_absolute_tolerance": 1e-12
+    },
+    "automatic_production_submission": false,
+    "inference_scope": "short 2B-token confirmation of a transferable LR prescription; not a long-horizon optimum proof"
+  }
+}

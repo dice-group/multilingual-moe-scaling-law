@@ -1,0 +1,178 @@
+__pycache__/
+*.pyc
+.venv/
+.mypy_cache/
+.pytest_cache/
+outputs/*
+
+# Frozen composition evidence is retained locally at the paper-cited paths.
+# Version its generator, method note and receipt, not regenerable row tables.
+result_analysis/stage1_composition_coverage_20260920/*.csv
+logs/
+nemo_experiments/
+*.log
+_temp_eval_script.py
+configs/generated/
+.idea/
+lm_eval
+dist/
+
+# Local experiment dry-runs and generated calibration artifacts.
+tmp/
+
+# Local external checkouts used during H100/DeepEP diagnostics.
+data_prep/*_data_prep/
+scripts/eval/latest_checkpoint/lm-evaluation-harness/
+
+# One-off dated launch wrappers with local absolute paths.
+scripts/launch_h100_*_calibration_*.sh
+
+# Stage 1 A-D analysis releases: keep reproducibility metadata in Git, but not
+# generated tables, workbooks, plots, or other derived analysis artifacts.
+result_analysis/stage1_abcd_v1/*
+!result_analysis/stage1_abcd_v1/README.md
+!result_analysis/stage1_abcd_v1/release_manifest.json
+!result_analysis/stage1_abcd_v1/data_dictionary.json
+!result_analysis/stage1_abcd_v1/neurips_checklist.json
+!result_analysis/stage1_abcd_v1/excel_workbook_receipt.json
+!result_analysis/stage1_abcd_v1/receipts/
+result_analysis/stage1_abcd_v1/receipts/*
+!result_analysis/stage1_abcd_v1/receipts/validation_qa_summaries.json
+result_analysis/stage1_simplification_v1/*
+result_analysis/stage1_repetition_round_v1
+result_analysis/stage1_repetition_round_v2
+
+# Regenerable local outputs from Stage 1 analysis notebooks/workflows.
+result_analysis/stage1_abcd_analysis_outputs/
+result_analysis/stage1_ab_v2_per_language_candidate_ladder_v2.json
+result_analysis/stage1_abcd_deep_analysis_outputs/
+result_analysis/stage1_cd_analysis/
+result_analysis/stage1_scaling_fit_d1_d17_v1/
+result_analysis/stage1_scaling_fit_generalization_v1/
+result_analysis/stage1_confirmation_v1/
+
+# Regenerable JointMoE-x1 Stage 1 release and fitter outputs.
+result_analysis/.stage1_abcd_jointmoe_x1_v1.building-*/
+result_analysis/stage1_abcd_jointmoe_x1_v1/
+result_analysis/stage1_scaling_fit_jointmoe_x1_v1/
+result_analysis/stage1_routing_report_v*/
+result_analysis/stage1_scaling_fit_baseline_refit_v1/
+result_analysis/stage1_scaling_fit_baseline_recovery_v1/
+result_analysis/stage1_jointmoe_x1_interaction_diagnostics_v1/
+result_analysis/stage1_m2_k_interaction_v1/
+result_analysis/stage1_m15_interaction_ablation_v1/
+result_analysis/stage1_m3_m4_atlas_transfer_v1/
+result_analysis/stage1_m3_m4_continuous_v1/
+result_analysis/stage1_m4_tau_profile_v1/
+result_analysis/stage1_m4_tau_profile_expanded_v1/
+result_analysis/stage1_m5_m6_v1/
+result_analysis/stage1_m6_nested_v1/
+result_analysis/stage1_extrapolation_diagnostics_v1/
+result_analysis/stage1_m6_size_duration_v1/
+result_analysis/stage1_m6_size_duration_v2/
+result_analysis/stage1_m6_size_duration_v3/
+result_analysis/stage1_atlas_full_pilot_v*/
+result_analysis/stage1_atlas_comparison_v*/
+result_analysis/stage1_atlas_recovery_lab_v*/
+result_analysis/stage1_size_duration_ablations_v1/
+result_analysis/stage1_language_composition_v1*/
+
+# September paper-figure workflows: version generators, notes and JSON receipts;
+# retain regenerable numerical tables and rendered previews locally, outside Git.
+result_analysis/stage1_*_2026091[12]/*.csv
+result_analysis/stage1_*_2026091[12]/*.parquet
+result_analysis/stage1_*_2026091[12]/*.pdf
+result_analysis/stage1_*_2026091[12]/*.png
+result_analysis/stage1_main8_revision_20260912/analysis/*.csv
+# Standalone eight-page review copy duplicates the maintained scaling project.
+# It remains available locally; the revision patch and review notes stay visible.
+result_analysis/stage1_main8_revision_20260912/paper/
+
+# Frozen L26 diagnosis: retain compact manifests and source snapshots in Git.
+result_analysis/stage1_l26_e32_prediction_comparison_v[12]/*.csv
+result_analysis/stage1_l26_e32_prediction_comparison_v[12]/*.parquet
+result_analysis/stage1_l26_e32_prediction_diagnosis_v[12]/*.csv
+
+result_analysis/stage1_expert_coordinate_side_study_v*/
+!result_analysis/stage1_expert_coordinate_side_study_v1/
+result_analysis/stage1_expert_coordinate_side_study_v1/*
+!result_analysis/stage1_expert_coordinate_side_study_v1/completion.json
+
+# Compact, immutable final fitting evidence; bulk inputs/receipts stay external.
+!result_analysis/stage1_atlas_comparison_v10_consolidated/
+result_analysis/stage1_atlas_comparison_v10_consolidated/*
+!result_analysis/stage1_atlas_comparison_v10_consolidated/reports/
+result_analysis/stage1_atlas_comparison_v10_consolidated/reports/*
+!result_analysis/stage1_atlas_comparison_v10_consolidated/reports/report.json
+!result_analysis/stage1_atlas_comparison_v10_consolidated/reports/model_status.csv
+!result_analysis/stage1_atlas_recovery_lab_v6/
+result_analysis/stage1_atlas_recovery_lab_v6/*
+!result_analysis/stage1_atlas_recovery_lab_v6/completion.json
+!result_analysis/stage1_atlas_recovery_lab_v6/decision.json
+!result_analysis/stage1_atlas_recovery_lab_v6/slurm_accounting.json
+!result_analysis/stage1_atlas_recovery_lab_v6/post_completion_validation.json
+
+# Retired implementation recovery: small source bundle and provenance only.
+result_analysis/stage1_atlas_history_v1/*
+!result_analysis/stage1_atlas_history_v1/manifest.json
+!result_analysis/stage1_atlas_history_v1/retired_sources.tar.gz
+
+# Regenerable primary multilingual-pressure tables and figures.
+result_analysis/stage1_joint_story_v1/
+result_analysis/stage1_multilingual_pressure/outputs/
+result_analysis/capacity_response/outputs/
+result_analysis/compute_allocation/outputs/
+result_analysis/language_preservation/outputs/
+result_analysis/routing_analysis/outputs/
+result_analysis/scaling_law_fit/outputs/
+result_analysis/downstream_evaluations/outputs/
+
+# Historical reviewer export: retain provenance, not generated tables/binaries.
+result_analysis/stage1_reviewer_revision_v1/*
+!result_analysis/stage1_reviewer_revision_v1/manifest.json
+
+# Regenerable root-level Slurm stdout from local analysis arrays.
+/slurm-*.out
+
+# Regenerable binary mirrors and smoke-test outputs; keep their CSV/JSON
+# manifests and validation receipts as the durable Git records.
+result_analysis/stage1_checkpoint_registry_20260730/*.parquet
+result_analysis/stage1_ab_v2_per_language_candidate_ladder_v2_smoke.json
+
+build/lib.linux-x86_64-cpython-312
+
+# Submission hygiene: external evidence stays at its original local path.
+# Inventory and verified recovery archive: docs/submission_external_assets.json
+/docs/papers/scaling_laws/02_training_compute_optimal_llms.pdf
+/docs/papers/scaling_laws/ATLAS Adaptive Transfer Scaling Laws for Multilingual Pretraining, Finetuning, and Decoding the Curse of Multilinguality.pdf
+/docs/papers/scaling_laws/Joint MoE Scaling Laws.pdf
+/docs/papers/scaling_laws/SCALING LAWS FOR FINE-GRAINED.pdf
+/docs/papers/scaling_laws/Scaling Laws for Multilingual Language Models_ye_family_based.pdf
+/result_analysis/fit_input_validation_loss_joined.csv
+/result_analysis/stage1_abcd_deep_analysis_outputs/tables/language_count_exposure_matched.parquet
+/result_analysis/stage1_abcd_v1/tables/data_exposure.parquet
+/result_analysis/stage1_abcd_v1/tables/model_configs.parquet
+/result_analysis/stage1_abcd_v1/tables/validation_language.parquet
+/result_analysis/stage1_atlas_comparison_v10_consolidated/reports/model_status.csv
+/result_analysis/stage1_checkpoint_registry_20260730/checkpoint_root_catalog.csv
+/result_analysis/stage1_checkpoint_registry_20260730/current_ab_surviving_checkpoints.csv
+/result_analysis/stage1_checkpoint_registry_20260730/physical_checkpoint_inventory.csv
+/result_analysis/stage1_checkpoint_registry_20260730/readout_checkpoints.csv
+/result_analysis/stage1_checkpoint_registry_20260730/training_job_final_checkpoints.csv
+/result_analysis/stage1_lr_confirmation_h100_v1/boundary_e1_k1_diagnostics.csv
+/result_analysis/stage1_lr_confirmation_h100_v1/candidate_summary.csv
+/result_analysis/stage1_lr_confirmation_h100_v1/cell_winners.csv
+/result_analysis/stage1_lr_confirmation_h100_v1/cross_cluster_comparison.csv
+/result_analysis/stage1_lr_confirmation_h100_v1/h100_results.csv
+/result_analysis/stage1_lr_confirmation_h100_v1/*_reference.csv
+
+# Private research checkouts are preserved locally, outside the submission package.
+/external/research/*
+
+# Reviewer dependencies are distributed as anonymous source snapshots.
+/external/Megatron-Bridge/
+/external/lm-evaluation-harness/
+
+# Author-only anonymization rules contain identifying strings.
+/anonymize_artifact.py
+/result_analysis/stage1_atlas_history_v1/

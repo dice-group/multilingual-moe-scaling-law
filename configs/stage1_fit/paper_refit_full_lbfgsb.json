@@ -1,0 +1,30 @@
+{
+  "inputs": "../../outputs/paper_refit/full_20260926_inputs/manifest.json",
+  "output_root": "../../outputs/paper_refit/full_lbfgsb_20260926",
+  "python_executable": "/opt/conda/envs/bridge-train/bin/python",
+  "account": "research-project",
+  "partition": "normal",
+  "memory": "8G",
+  "grid_chunk_size": 12,
+  "starts_per_shard": 4,
+  "max_array_size": 20000,
+  "max_concurrent_cores": 128,
+  "concurrency": {
+    "grid": 1,
+    "native": 62,
+    "repetition": 64,
+    "shared": 1
+  },
+  "minutes": {
+    "grid": 180,
+    "native": 120,
+    "repetition": 240,
+    "shared": 720,
+    "certify": 720,
+    "report": 60
+  },
+  "max_reserved_core_hours": 30000,
+  "full_paper_policy": "lbfgsb_box",
+  "paired_controls": true,
+  "reference_predictions": "../../result_analysis/stage1_data_v1/fit_predictions.parquet"
+}

@@ -1,0 +1,60 @@
+{
+  "schema": "stage1_jointmoe_benchmark_slurm/v3",
+  "account": "research-project",
+  "partition": "gpu_a40",
+  "gpu_type": "a40",
+  "environment": {
+    "slurm_bin": "/opt/software/slurm/25.11.5-1/bin",
+    "tmp_root": "/scratch/shared_cache/tmp",
+    "module_init": "/etc/profile.d/z00_lmod.sh",
+    "gpu_modules": [
+      "toolchain/foss/2024a",
+      "system/CUDA/12.6.0",
+      "lib/NCCL/2.22.3-GCCcore-13.3.0-CUDA-12.6.0"
+    ]
+  },
+  "job_classes": {
+    "1": {
+      "nodes": 1,
+      "gpus_per_node": 1,
+      "cpus_per_task": 16,
+      "memory_per_node": "160G",
+      "time": "04:15:00",
+      "qos": "nocont",
+      "exclude_nodes": "fpga1710",
+      "srun_args": [
+        "--mpi=pmix",
+        "--cpu-bind=none",
+        "--gpu-bind=none"
+      ]
+    },
+    "2": {
+      "nodes": 1,
+      "gpus_per_node": 2,
+      "cpus_per_task": 32,
+      "memory_per_node": "160G",
+      "time": "04:15:00",
+      "qos": "nocont",
+      "exclude_nodes": "fpga1710",
+      "srun_args": [
+        "--mpi=pmix",
+        "--cpu-bind=none",
+        "--gpu-bind=none"
+      ]
+    },
+    "4": {
+      "nodes": 2,
+      "gpus_per_node": 2,
+      "cpus_per_task": 32,
+      "memory_per_node": "160G",
+      "time": "04:15:00",
+      "qos": "nocont",
+      "exclude_nodes": "fpga1710",
+      "srun_args": [
+        "--mpi=pmix",
+        "--cpu-bind=none",
+        "--gpu-bind=none"
+      ]
+    }
+  }
+}

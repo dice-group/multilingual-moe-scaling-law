@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "id": "stage1_l26_e32_v1",
+  "status": "preprofile_frozen",
+  "model": {
+    "family": "scaling_switch_moe",
+    "scale": "scaling_l26",
+    "layers": 26,
+    "hidden_size": 1664,
+    "attention_heads": 26,
+    "head_dim": 64,
+    "ffn_hidden_size": 4992,
+    "experts": 32,
+    "top_k": 1,
+    "vocab_size": 64000,
+    "sequence_length": 2048,
+    "active_parameters": 1148878848,
+    "total_parameters": 21234450432
+  },
+  "selection": {
+    "law": "M1 all-data Huber",
+    "common_logical_flops": 4.734506723209296e+20,
+    "continuous_active_parameters": 1205329346.9775608,
+    "continuous_total_tokens": 65466293992.33454,
+    "continuous_macro_adjusted_loss": -4.479569842644339,
+    "selected_total_tokens_provisional": 68682999538.36525,
+    "selected_macro_adjusted_loss": -4.479478656074872,
+    "loss_gap": 9.11865694668279e-05
+  },
+  "provenance": {
+    "candidate_report_sha256": "6ff11e39bdd316970df33aee5a6b830f2f769e72688ba70f3ee2271288b3bc30",
+    "m1_result_sha256": "f890e2ee3c6b1a5d565249d963169c604379107b62defb50930dfe7c3ad9c85b",
+    "fit_rows_content_sha256": "14e0ea701f6a144c1561de7f3e425f3e8442cfaea92fdccf7d9ecc4ea5c5511e",
+    "k200_mixture_file_sha256": "feb0a43aa5d8b9842d5fb2d3d41924cef5ed6a425c5a8a712522f76ca0a342f6"
+  },
+  "execution": {
+    "precision": "BF16 parameters/compute with ordinary FP32 Adam moments and FP32 main parameters; precision-aware optimizer disabled",
+    "fixed": "model geometry, E/top-k, K200 mixture, tokenizer, optimizer, schedule and evaluation semantics"
+  }
+}

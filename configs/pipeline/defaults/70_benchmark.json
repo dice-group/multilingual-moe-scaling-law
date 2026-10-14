@@ -1,0 +1,23 @@
+{
+  "benchmark": {
+    "allow_missing_lm_eval": true,
+    "batch_size": "1",
+    "backend": "bridge_artifacts",
+    "enabled": false,
+    "eval_script": "",
+    "extra_args": "",
+    "fail_if_no_tasks": false,
+    "flores_mode": "both",
+    "include_belebele": true,
+    "include_sib200": true,
+    "include_taxi1500": true,
+    "include_flores": true,
+    "lang_mode": "no_ids",
+    "lm_eval_bin": "lm_eval",
+    "output_dir": "outputs/pipeline_runs/default/benchmarks",
+    "tasks_file": "configs/lm_eval/lm_eval_tasks.txt",
+    "wandb_mode": "disabled",
+    "wandb_prefix": "eval/benchmark",
+    "wandb_project": "multilingual-megatron-study"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "release": "result_analysis/stage1_abcd_jointmoe_x1_v1",
+  "evidence": "/workspace/simpler_law/multi-moe-scaling-laws/outputs/paper_results/stage1_v2/evidence",
+  "seed_study": "outputs/pipeline_runs/stage1_b_seed_confirmation_v1",
+  "composition": "result_analysis/stage1_language_composition_v1/inputs",
+  "routing": "outputs/pipeline_runs/stage1_routing_repair_final_v3/analysis/routing_languages.parquet",
+  "lr_study": "result_analysis/stage1_lr_confirmation_h100_v1",
+  "output": "outputs/stage1_data_v1",
+  "benchmark_update": {
+    "path": "outputs/stage1_data_validation/h100_benchmark_refresh_20260926/receipt.json",
+    "sha256": "e5fbd1b46d8c0af0f208bc7e910c9a717edbd6151fc969e596b3083970b88899"
+  },
+  "fit_update": {
+    "path": "outputs/paper_refit/full_lbfgsb_20260926/paper_release_seal.json",
+    "sha256": "5d2246df945cd0ad08b146935bfdee9d752aca5e8f99522ca2c7508f42d69eb9",
+    "revision": "lbfgsb_20260926"
+  }
+}

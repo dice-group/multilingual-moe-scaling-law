@@ -1,0 +1,10 @@
+{
+  "base_evaluation": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/evaluation/retry1",
+  "previous_attempt": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/evaluation/parity_v1",
+  "accounting_start": "2026-09-12",
+  "output": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/evaluation/parity_v2",
+  "languages": ["eng_Latn", "nno_Latn"],
+  "raw_nll_absolute_tolerance": 0.0001,
+  "gpu_hours_cap": 4.0,
+  "time_limit": "00:26:00"
+}

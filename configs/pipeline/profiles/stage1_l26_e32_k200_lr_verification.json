@@ -1,0 +1,144 @@
+{
+  "stage1_l26_e32_k200_lr_smoke_v1": {
+    "extends": "stage1_l26_e32_k200_law_trunk_production_v1",
+    "output_root": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/smoke",
+    "logs_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/smoke/logs",
+    "run_naming": {
+      "experiment_tag": "stage1-l26-e32-k200-lr-smoke-v1",
+      "language_count_hint": 200
+    },
+    "executor": {
+      "time": "00:30:00",
+      "extra_sbatch_flags": [
+        "--export=NIL",
+        "--nodes=2-2",
+        "--ntasks-per-node=1",
+        "--account=research-project"
+      ]
+    },
+    "runtime": {
+      "env": {
+        "BRIDGE_MOE_TOKEN_DROP_METRICS": "1"
+      }
+    },
+    "sample": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/smoke/disabled_sample"
+    },
+    "tokenization": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/smoke/disabled_tokenization"
+    },
+    "training": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/smoke/runs",
+      "train": {
+        "global_batch_size": 128,
+        "micro_batch_size": 8,
+        "log_interval": 1,
+        "token_budget_tokens": 2097152,
+        "batch_policy": {
+          "enabled": false
+        }
+      },
+      "runs": [
+        {
+          "id": "stage1_l26_e32_k200_lr_verification",
+          "kind": "megatron_bridge",
+          "backend": "megatron_bridge",
+          "recipe": "scaling_switch_moe_scale_scaling_l26_pretrain_config",
+          "data_manifest": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenized/tiers/K200/megatron_data_manifest.json",
+          "data_manifest_sha256": "feb0a43aa5d8b9842d5fb2d3d41924cef5ed6a425c5a8a712522f76ca0a342f6",
+          "overrides": [
+            "optimizer.lr=0.00010017337354820424",
+            "logger.wandb_exp_name=stage1-l26-e32-k200-lr-smoke-v1",
+            "logger.wandb_save_dir=outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/smoke/wandb"
+          ]
+        }
+      ]
+    },
+    "benchmark": {
+      "enabled": false,
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/smoke/benchmarks"
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/smoke/summary.csv",
+      "gate_json": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/smoke/gate.json",
+      "min_relative_improvement": 0.0
+    }
+  },
+  "stage1_l26_e32_k200_lr_confirm_r1_v1": {
+    "extends": "stage1_l26_e32_k200_lr_smoke_v1",
+    "output_root": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r1",
+    "logs_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r1/logs",
+    "run_naming": {
+      "experiment_tag": "stage1-l26-e32-k200-lr-confirm-r1-v1",
+      "language_count_hint": 200
+    },
+    "executor": {
+      "time": "01:30:00"
+    },
+    "sample": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r1/disabled_sample"
+    },
+    "tokenization": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r1/disabled_tokenization"
+    },
+    "training": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r1/runs",
+      "train": {
+        "log_interval": 8,
+        "token_budget_tokens": 134217728
+      },
+      "runs": [
+        {
+          "id": "stage1_l26_e32_k200_lr_verification",
+          "overrides": [
+            "optimizer.lr=0.00010017337354820424",
+            "logger.wandb_exp_name=stage1-l26-e32-k200-lr-confirm-r1-v1",
+            "logger.wandb_save_dir=outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r1/wandb"
+          ]
+        }
+      ]
+    },
+    "benchmark": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r1/benchmarks"
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r1/summary.csv",
+      "gate_json": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r1/gate.json"
+    }
+  },
+  "stage1_l26_e32_k200_lr_confirm_r2_v1": {
+    "extends": "stage1_l26_e32_k200_lr_confirm_r1_v1",
+    "output_root": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r2",
+    "logs_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r2/logs",
+    "run_naming": {
+      "experiment_tag": "stage1-l26-e32-k200-lr-confirm-r2-v1",
+      "language_count_hint": 200
+    },
+    "sample": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r2/disabled_sample"
+    },
+    "tokenization": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r2/disabled_tokenization"
+    },
+    "training": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r2/runs",
+      "runs": [
+        {
+          "id": "stage1_l26_e32_k200_lr_verification",
+          "overrides": [
+            "optimizer.lr=0.00010017337354820424",
+            "logger.wandb_exp_name=stage1-l26-e32-k200-lr-confirm-r2-v1",
+            "logger.wandb_save_dir=outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r2/wandb"
+          ]
+        }
+      ]
+    },
+    "benchmark": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r2/benchmarks"
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r2/summary.csv",
+      "gate_json": "outputs/pipeline_runs/stage1_l26_e32_k200_lr_corrected_v1/verification/confirm_r2/gate.json"
+    }
+  }
+}

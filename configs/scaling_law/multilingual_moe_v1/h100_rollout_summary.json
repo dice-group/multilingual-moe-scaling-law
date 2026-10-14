@@ -1,0 +1,43 @@
+{
+  "assumed_h100_mfu": 0.35,
+  "effective_h100_flops_per_gpu_hour": 1.24677e+18,
+  "h100_peak_tflops_per_gpu": 989.5,
+  "partition_assumptions": {
+    "gpus_per_run": "1-4",
+    "partition": "gpu_h100",
+    "target_hardware": "H100 only"
+  },
+  "routing_gate": {
+    "max_dropped_assignment_rate": 0.05,
+    "min_capacity_factor": 1.0,
+    "require_zero_kept_tokens": true
+  },
+  "schema_version": 1,
+  "stage_summary": {
+    "dryrun": {
+      "estimated_h100_gpu_hours": 0.0,
+      "rows": 3
+    },
+    "h100_pilot_a_all_k": {
+      "estimated_h100_gpu_hours": 4.196,
+      "rows": 16
+    },
+    "h100_pilot_d_endpoints": {
+      "estimated_h100_gpu_hours": 10.502,
+      "rows": 6
+    },
+    "h100_routing_gate": {
+      "estimated_h100_gpu_hours": 10.879000000000001,
+      "rows": 12
+    },
+    "h100_shape_smoke": {
+      "estimated_h100_gpu_hours": 0.0,
+      "rows": 16
+    },
+    "metadata": {
+      "estimated_h100_gpu_hours": 0.0,
+      "rows": 1
+    }
+  },
+  "study_id": "multilingual_moe_v1"
+}

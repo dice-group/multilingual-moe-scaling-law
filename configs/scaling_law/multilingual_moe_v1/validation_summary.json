@@ -1,0 +1,14 @@
+{
+  "errors": [],
+  "num_checkpoint_observations": 400,
+  "num_runs": 64,
+  "outputs": [
+    "study_spec.json",
+    "language_sets.json",
+    "corpus_manifest.json",
+    "run_configs.jsonl",
+    "run_matrix.csv",
+    "checkpoint_observations.csv"
+  ],
+  "valid": true
+}

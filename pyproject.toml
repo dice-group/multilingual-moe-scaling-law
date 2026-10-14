@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multilingual-megatron-study"
+version = "0.1.0"
+description = "Orchestration pipeline for multilingual Megatron Bridge pretraining studies."
+requires-python = ">=3.10"
+dependencies = [
+  "omegaconf>=2.3.0,<3",
+  "PyYAML>=6.0.2,<7",
+]
+
+[project.optional-dependencies]
+analysis = [
+  "numpy==2.4.4",
+  "pandas==3.0.2",
+  "pyarrow==24.0.0",
+  "scipy==1.17.1",
+  "matplotlib==3.11.0",
+  "openpyxl==3.1.5",
+  "Jinja2==3.1.6",
+]
+
+[project.scripts]
+mms-pipeline = "multilingual_megatron.pipeline.cli:main"
+mms-config-validator = "multilingual_megatron.pipeline.config_validator:main"
+mms-validate-repo = "multilingual_megatron.devtools.validate_repo_config:main"
+mms-test-suite = "multilingual_megatron.devtools.run_test_suite:main"
+mms-reproduce-paper = "multilingual_megatron.devtools.reproduce_paper:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

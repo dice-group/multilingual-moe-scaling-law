@@ -1,0 +1,19 @@
+{
+  "tokenizer_training": {
+    "enabled": false,
+    "output_dir": "outputs/pipeline_runs/default/tokenizers",
+    "text_key": "text",
+    "max_samples": 0,
+    "max_sample_fraction": 0.0,
+    "vocab_size": 32000,
+    "mode": "train_bpe",
+    "normalizer": "nfkc",
+    "pre_tokenizer": "byte_level",
+    "min_frequency": 2,
+    "unk_token": "<unk>",
+    "bos_token": "<s>",
+    "eos_token": "</s>",
+    "pad_token": "<pad>",
+    "tokenizers": []
+  }
+}

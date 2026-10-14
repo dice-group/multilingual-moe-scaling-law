@@ -1,0 +1,99 @@
+{
+  "schema": "stage1_candidate_full_profile/v1",
+  "repo_root": "../..",
+  "coverage_audit": "outputs/benchmark_review/full_final_scaling_20260920_v2/candidate_audit_20260920",
+  "source_campaign": "outputs/stage1_benchmark_jointmoe/stage1_full_final_h100_20260920/campaign.json",
+  "python": "/opt/conda/envs/bridge-train-a40-cu126/bin/python",
+  "bridge_root": "external/Megatron-Bridge",
+  "harness_root": "external/lm-evaluation-harness",
+  "module_init": "/etc/profile.d/z00_lmod.sh",
+  "modules": [
+    "toolchain/foss/2024a",
+    "system/CUDA/12.6.0",
+    "lib/NCCL/2.22.3-GCCcore-13.3.0-CUDA-12.6.0"
+  ],
+  "selection": {
+    "all_final": true,
+    "expected_models": 82
+  },
+  "tokenizer": {
+    "model": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenizer/sp_unigram_64k/tokenizer.model",
+    "sha256": "54a25a061df0cfba143ca8af3380e4d6c4caccf2ea1c80d25ff011c407c187e8",
+    "context_token_id": 2,
+    "pad_token_id": 3,
+    "vocab_size": 64000
+  },
+  "protocol": {
+    "version": "stage1_candidate_likelihood_v1",
+    "scope": "All 82 final checkpoints, complete labeled splits in the same 66 supported K200 languages as the pilot; reuse 24 pilot results",
+    "multiblimp": "Empty context, unchanged complete sentences; strict raw log-probability preference and margin primary; token/byte normalization sensitivities",
+    "xcomps": "Direct complete-sentence probability comparison, strict preference and margin primary; token/byte normalization sensitivities; retain distractor categories",
+    "x_csqa": "Full 1000-item labeled validation per language; Question: {stem}\\nAnswer: plus space-prefixed option; PMI against Answer: plus the same option primary; raw/token/byte sensitivities",
+    "ties": "Minimal-pair ties are incorrect and counted explicitly; MCQ ties use first argmax",
+    "batching": "Fixed A40-tested batches; reuse length sorting and token caches. Earlier adaptive-batch trials changed predictions, so no automatic enlargement in the pilot",
+    "selection_rule": "Judge task validity and informativeness independently of the sign of expert or coverage effects; retain all pilot outcomes"
+  },
+  "batches": {
+    "A_E1": 64,
+    "A_E4": 64,
+    "A_E16": 64,
+    "A_E32": 64,
+    "B_E1": 64,
+    "B_E4": 64,
+    "B_E16": 64,
+    "B_E32": 32,
+    "C_E1": 16,
+    "C_E4": 32,
+    "C_E16": 16,
+    "C_E32": 8,
+    "D_E1": 16,
+    "D_E4": 16,
+    "D_E16": 8,
+    "D_E32": 8
+  },
+  "slurm": {
+    "bin": "/opt/software/slurm/25.11.5-1/bin",
+    "account": "research-project",
+    "partition": "gpu_a40",
+    "gpu_type": "a40",
+    "cpus_per_task": 16,
+    "memory": "96G",
+    "smoke_minutes": 20,
+    "minutes_by_ladder": {
+      "A": 45,
+      "B": 60,
+      "C": 90,
+      "D": 120
+    },
+    "aggregation": {
+      "partition": "normal",
+      "cpus_per_task": 4,
+      "memory": "48G",
+      "time": "02:00:00"
+    }
+  },
+  "environment": {
+    "BRIDGE_PREFER_VENV_CUDA_LIBS": "0",
+    "BRIDGE_SKIP_JIT_WARMUP": "1",
+    "PROOF_APPEND_LD_LIBRARY_PATH": "0",
+    "PROOF_ENABLE_BRIDGE_OPTIONAL_DEP_SHIMS": "1",
+    "PROOF_REQUIRE_REAL_MODELOPT": "1",
+    "PROOF_DATASET_BUILDER_THREADS": "1",
+    "PROOF_BIND_LOCAL_RANK_CPUS": "none",
+    "PROOF_INSPECT_TE_GROUPED_MLP": "1",
+    "PROOF_ISOLATE_TRITON_CACHE": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+    "CUDA_DEVICE_MAX_CONNECTIONS": "8",
+    "NCCL_GRAPH_REGISTER": "0",
+    "NVTE_FLASH_ATTN": "0",
+    "NVTE_FUSED_ATTN": "0",
+    "NVTE_UNFUSED_ATTN": "1",
+    "WANDB_MODE": "disabled",
+    "TRANSFORMERS_OFFLINE": "1",
+    "HF_HUB_OFFLINE": "1"
+  },
+  "reuse_campaign": "outputs/stage1_benchmark_jointmoe/stage1_candidate_a40_20260921/campaign.json",
+  "data_root": "outputs/stage1_benchmark_jointmoe/stage1_candidate_a40_20260921/data"
+}

@@ -1,0 +1,14 @@
+{
+  "checkpoint_conversion": {
+    "command": "",
+    "conversion_module": "multilingual_megatron.pipeline.backends.megatron_bridge.run_bridge_hf_export",
+    "enabled": false,
+    "hf_export_subdir": "hf",
+    "hf_reference_model": "",
+    "mode": "manifest",
+    "output_dir": "outputs/pipeline_runs/default/checkpoint_exports",
+    "require_training_complete": true,
+    "strict": true,
+    "trust_remote_code": false
+  }
+}

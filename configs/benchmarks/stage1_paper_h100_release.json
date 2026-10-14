@@ -1,0 +1,75 @@
+{
+  "batches_by_architecture": {
+    "A_e1": 256,
+    "A_e16": 256,
+    "A_e32": 128,
+    "A_e4": 256,
+    "B_e1": 256,
+    "B_e16": 128,
+    "B_e32": 128,
+    "B_e4": 128,
+    "C_e1": 128,
+    "C_e16": 128,
+    "C_e32": 128,
+    "C_e4": 128,
+    "D_e1": 128,
+    "D_e16": 128,
+    "D_e32": 64,
+    "D_e4": 128
+  },
+  "bridge_root": "external/Megatron-Bridge",
+  "driver_version": "595.71.05",
+  "environment": {
+    "BRIDGE_PREFER_VENV_CUDA_LIBS": "0",
+    "BRIDGE_SKIP_JIT_WARMUP": "1",
+    "CUDA_DEVICE_MAX_CONNECTIONS": "8",
+    "HF_HUB_OFFLINE": "1",
+    "NCCL_GRAPH_REGISTER": "0",
+    "NVTE_FLASH_ATTN": "0",
+    "NVTE_FUSED_ATTN": "0",
+    "NVTE_UNFUSED_ATTN": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "PROOF_APPEND_LD_LIBRARY_PATH": "0",
+    "PROOF_BIND_LOCAL_RANK_CPUS": "none",
+    "PROOF_DATASET_BUILDER_THREADS": "1",
+    "PROOF_ENABLE_BRIDGE_OPTIONAL_DEP_SHIMS": "1",
+    "PROOF_INSPECT_TE_GROUPED_MLP": "1",
+    "PROOF_ISOLATE_TRITON_CACHE": "1",
+    "PROOF_REQUIRE_REAL_MODELOPT": "1",
+    "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+    "TRANSFORMERS_OFFLINE": "1",
+    "WANDB_MODE": "disabled"
+  },
+  "gpu_memory_mib": 95830,
+  "gpu_name": "NVIDIA H100",
+  "harness_root": "external/lm-evaluation-harness",
+  "module_init": "/etc/profile.d/z00_lmod.sh",
+  "modules": [
+    "toolchain/foss/2024a",
+    "system/CUDA/12.6.0",
+    "lib/NCCL/2.22.3-GCCcore-13.3.0-CUDA-12.6.0"
+  ],
+  "python": "/opt/conda/envs/bridge-train/bin/python",
+  "repo_root": "../..",
+  "schema": "stage1_h100_paper_release_profile/v1",
+  "slurm": {
+    "account": "research-project",
+    "aggregation": {
+      "cpus_per_task": 4,
+      "memory": "96G",
+      "partition": "normal",
+      "time": "04:00:00"
+    },
+    "bin": "/opt/software/slurm/25.11.5-1/bin",
+    "cpus_per_task": 16,
+    "gpu_type": "h100",
+    "memory": "96G",
+    "partition": "gpu_h100"
+  },
+  "source_campaigns": {
+    "candidate": "outputs/stage1_benchmark_jointmoe/stage1_candidate_full_a40_20260921/campaign.json",
+    "extension": "outputs/stage1_benchmark_jointmoe/stage1_extension_full_a40_20260921_ready/campaign.json",
+    "main": "outputs/stage1_benchmark_jointmoe/stage1_full_final_h100_20260920/campaign.json"
+  }
+}

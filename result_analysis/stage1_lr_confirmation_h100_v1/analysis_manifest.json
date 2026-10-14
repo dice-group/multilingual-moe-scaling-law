@@ -1,0 +1,15 @@
+{
+  "artifacts": {
+    "boundary_e1_k1_diagnostics.csv": "96782b0f7ee2f7b4dc962088a06d629c068b8b439a6e29ee4cf3fcb4fa28363f",
+    "candidate_summary.csv": "f9f3f6828b4eaca5ba4ea81cc0d7107f6c4c2344d09e613121a14016cf8af752",
+    "cell_winners.csv": "51711be5866c9f402dd2c1df6ea40d1b611f3ef4a1b409652b8ecfad468e637a",
+    "comparison_summary.json": "141e479adca5900ab0d50c47a07780c18c08a59e0852a092ef47fd94f8198c9b",
+    "cross_cluster_comparison.csv": "3c0cf2d11e4c3b2d3b7f8a0024ff64231fc22f866054d2f93d3d12ea5b36de24",
+    "h100_results.csv": "655eb743dce12ac1b6784d508ef439e9b07655874307df544614d40fd5cb44d6",
+    "a100_reference.csv": "1888c6e1ac2e85eb9ccfbe1d2c21353fb8b8d7a08aa46ed7bcd87b7985377883"
+  },
+  "generator": "result_analysis/stage1_lr_confirmation_analysis.py",
+  "generator_sha256": "20eaa5648b2647524145e356d5e238f4e9e5149b3e040880dbe022a6c76d5b58",
+  "schema": "stage1_lr_confirmation_analysis_manifest/v1",
+  "status": "complete"
+}

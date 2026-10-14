@@ -1,0 +1,18 @@
+{
+  "protocol": "expert_transform_v1",
+  "workspace_root": "/workspace/simpler_law/multi-moe-scaling-laws",
+  "read_only_root": "/workspace/multi-moe-scaling-laws",
+  "output_root": "outputs/law_search/expert_transform_v1",
+  "parent_plan": "outputs/law_search/law_search_v1/plan.json",
+  "baseline_metrics": "outputs/law_search/result2_v1/assessment/metrics.csv",
+  "reference_sources": [],
+  "python_executable": "/opt/conda/envs/bridge-train/bin/python",
+  "account": "research-project",
+  "partition": "normal",
+  "memory": "4G",
+  "concurrency": 128,
+  "start_minutes": 480,
+  "certify_minutes": 480,
+  "analysis_minutes": 120,
+  "max_reserved_core_hours": 3400
+}

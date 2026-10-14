@@ -1,0 +1,42 @@
+{
+  "arm": "lbfgsb_box",
+  "exporter_sha256": "12b0d7a8f430b82bb3c10480700992a81e6c25b790de531c84f80e4ba27d49d8",
+  "files": {
+    "certification.json": "f5ab270cb734c0d2219b25697852491393f267b2ad88bc7ad913f8c924d20faf",
+    "coefficients.json": "c158c040eccea38a4ad899c09bf5044ec1653bf5ccfa61c70d85599a79cefbe9",
+    "comparison_lbfgsb_box.csv": "c64fdaf8b4d80bd96795bb97dde93076050409502572402b8b0a4316dc81d81f",
+    "composition/inputs.parquet": "8d6f21dce2bd423d5a6c15207f7889ada9742eb7202877e22702510706e142e9",
+    "composition/parent_coefficients.json": "031c936185c52d2f424aa5f47c5b10d5ae0c5d950053f0abfc3acfdc3b148bff",
+    "composition/parent_metrics.csv": "a3571fb89be93e1106edb46c24c8c99cafe940ac51c6b77e839cc16b4d005625",
+    "memberships.json": "5e20fcae83bc7bca3377d715fab5c0aa0cb6bda63d6f596aca98cb63302359cd",
+    "metrics.csv": "d57f3a12cb9a315a0b2bbe76da9325e8f496f61d9f5a4056d089230fb1747ae2",
+    "model_contract.json": "0e95abae13620afad51c38b0fc56f999ef346b83e6c6e8237a922af9a52ca120",
+    "predictions.parquet": "61663f58ac36ad1421837b31c8c951e7fd3110d8d0be38203288d55b55cb8cbc",
+    "scoring/endpoint.parquet": "ad7fa089eeaed99e8bc867970d6222f87112bbb6f6b0000446ed74a568c69ac6",
+    "scoring/grid.parquet": "a554dc50fb54ea41fbfbd70fd9ab795329c7d35f17c51831694a292acf42eb41"
+  },
+  "folds": [
+    "largest_N_act",
+    "E32",
+    "K200_common_languages",
+    "all_grid"
+  ],
+  "model": "RN12-stored-common-K",
+  "new_fitting": false,
+  "new_training": false,
+  "original_sources_sha256": {
+    "comparison_lbfgsb_box.csv": "c64fdaf8b4d80bd96795bb97dde93076050409502572402b8b0a4316dc81d81f",
+    "metrics.csv": "d57f3a12cb9a315a0b2bbe76da9325e8f496f61d9f5a4056d089230fb1747ae2",
+    "original_composition_inputs": "7eb1aa576ca35b218fd43c521cf0bc279b9905c3f5c546636d1097064f8e3f95",
+    "original_input_manifest": "a358196ff101f8246f32432f07e27d99dfce858ca09b5ab7bc273092603e6feb",
+    "original_parent_coefficients": "b1f668ebaecf08397c368ab02268baac1daf2e0f2cba02f83057e5320522f863",
+    "original_parent_composition_metrics": "a452fe44168075181759db12fbca95496f96c369bbc5b402a781c9f44d21adaf",
+    "original_plan": "11017fcc712d49a6681d4bd84a1d7d3d0339234d2f3156b37aac06aee6c824b8",
+    "original_selected_coefficients": "b30a113c82fd171981aa4b410b5ec293c03a4566b5de03a96fd23b39eb647fcf",
+    "predictions.parquet": "61663f58ac36ad1421837b31c8c951e7fd3110d8d0be38203288d55b55cb8cbc",
+    "scoring/endpoint.parquet": "ad7fa089eeaed99e8bc867970d6222f87112bbb6f6b0000446ed74a568c69ac6",
+    "scoring/grid.parquet": "a554dc50fb54ea41fbfbd70fd9ab795329c7d35f17c51831694a292acf42eb41"
+  },
+  "provenance": "Original source digests are lineage only; files binds the delivered numerical projection.",
+  "schema": "stage1-selected-law/v1"
+}

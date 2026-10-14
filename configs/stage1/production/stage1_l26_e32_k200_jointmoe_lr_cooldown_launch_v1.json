@@ -1,0 +1,194 @@
+{
+  "schema": "stage1_l26_e32_cooldown_launch/v1",
+  "schema_version": 1,
+  "id": "stage1_l26_e32_k200_jointmoe_lr_cooldown_launch_v1",
+  "status": "retry_authorized_with_submission_commit_snapshot",
+  "authorization": {
+    "mode": "terminal_parent_gated_postcompletion_submission",
+    "authorized_by_user": true,
+    "authorization_date": "2026-09-07",
+    "manual_intermediate_performance_gate_required": false
+  },
+  "trunk": {
+    "job_id": 2758779,
+    "source_commit": "snapshot-62c03f96aa1bb968",
+    "source_seal": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/production_launch_source_seal.json",
+    "required_terminal_state": "COMPLETED",
+    "required_exit_code": "0:0",
+    "stable_parent_checkpoint_root": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/trunk/runs/stage1_l26_e32_k200_jointmoe_lr_trunk/segments/06_gbs128/checkpoints",
+    "stable_parent_step": 217233,
+    "stable_parent_consumed_samples": 26829184,
+    "stable_parent_executable_tokens": 54946168832
+  },
+  "cooldown": {
+    "profile": "stage1_l26_e32_k200_jointmoe_lr_cooldown_production_v1",
+    "attempt_id": "20260907-jointmoe-lr-cooldown-retry2-verified-resume-v1",
+    "seed": 1234,
+    "global_batch_size": 128,
+    "micro_batch_size": 8,
+    "peak_learning_rate": 0.00010017337354820424,
+    "final_learning_rate": 0.0,
+    "expected_final_step": 269634,
+    "expected_final_consumed_samples": 33536512,
+    "nominal_final_tokens": 68682514430,
+    "executable_final_tokens": 68682776576,
+    "wandb_project": "stage1_scaling_laws"
+  },
+  "scheduler": {
+    "effective_dependency": null,
+    "authorized_presubmission_dependency": "afterok:2758779",
+    "parent_gate": {
+      "mode": "terminal_parent_verified_before_submission",
+      "job_id": 2758779,
+      "required_state": "COMPLETED",
+      "required_exit_code": "0:0",
+      "verified_at_every_submit": true
+    },
+    "partition": "gpu_h100",
+    "account": "research-project",
+    "nodes": 2,
+    "tasks_per_node": 1,
+    "h100_gpus_per_node": 4,
+    "h100_gpu_count": 8,
+    "cpus_per_task": 128,
+    "memory_per_node": "512G",
+    "time_limit": "48:00:00",
+    "reservation": null,
+    "requested_nodelist": null
+  },
+  "runtime_gates": {
+    "trunk_success_required_before_submission": true,
+    "cooldown_parent_full_state_reaudited_before_first_update": true,
+    "engine_load_pinned_to_absolute_audited_iteration": true,
+    "restored_step_samples_and_scheduler_verified_on_every_rank_before_first_update": true,
+    "source_and_data_hashes_rechecked_at_job_start": true,
+    "bridge_and_megatron_commits_materialized_from_their_git_objects": true,
+    "atomic_one_shot_submission_guard": true,
+    "execution_source_policy": "immutable snapshot materialized before submission from the recorded submission commit and pinned submodule commits",
+    "mutable_checkout_after_submission_is_executed": false,
+    "source_drift_policy": "later checkout changes cannot alter or block the snapshotted job",
+    "partial_checkpoint_policy": "resume only after the existing full-state audit passes"
+  },
+  "retry_history": {
+    "superseded_job_id": 2793367,
+    "terminal_state": "FAILED",
+    "exit_code": "2:0",
+    "started_at": "2026-09-04T12:36:36+02:00",
+    "ended_at": "2026-09-04T12:37:06+02:00",
+    "failure_stage": "pre_execution_source_gate",
+    "parent_checkpoint_untouched": true,
+    "excluded_scratch_restart": {
+      "job_id": 2857840,
+      "terminal_state": "CANCELLED",
+      "ended_at": "2026-09-07T12:59:36+02:00",
+      "allocated_h100_gpu_hours": 8.717777777777778,
+      "eligible_for_scientific_results": false,
+      "eligible_as_resume_parent": false,
+      "parent_checkpoint_untouched": true,
+      "preserved_artifacts": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/cooldown/excluded/job2857840"
+    },
+    "snapshot_retry_submission_rejection": {
+      "failed_at": "2026-09-04T14:50:40+02:00",
+      "slurm_job_created": false
+    }
+  },
+  "source_lock": {
+    "preparation_base_commit": "snapshot-cfec345867bd772a",
+    "retry_preparation_base_commit": "snapshot-39290ba46d23bf3a",
+    "terminal_gate_fix_base_commit": "snapshot-2662f8450f0b3a57",
+    "pipeline_python_tree_sha256": "14fdc0b7fc164f63b3efe3b15604c1a47ef3b03e2aa431a2addf5f670a314a46",
+    "pipeline_config_tree_sha256": "94d8f8bcf76d69849400d6176a398f1785875c8ddd9c091247d6509e9d57e875",
+    "historical_pipeline_config_tree_sha256": "438948ae5bb3f7fa1d8485cb7b2998c026838f8721d15460c6735fd3d046ef55",
+    "bridge_commit": "snapshot-f35ef541d8fbee40",
+    "megatron_lm_commit": "d0b3b775498a8ae6870075f1a5fc32bc260aa1b3",
+    "committed_paths": [
+      "scripts/slurm/submit_stage1_l26_e32_jointmoe_lr_cooldown.sh",
+      "configs/stage1/production/stage1_l26_e32_k200_jointmoe_lr_cooldown_launch_v1.json",
+      "configs/stage1/production/stage1_l26_e32_k200_jointmoe_lr_production_v1.json",
+      "configs/pipeline/profiles/stage1_l26_e32_k200_jointmoe_lr_production.json",
+      "configs/pipeline/profiles/stage1_l26_e32_k200_production.json",
+      "src/multilingual_megatron/repo.py",
+      "src/multilingual_megatron/pipeline",
+      "tests/test_megatron_bridge_runtime_env.py",
+      "tests/test_stage1_l26_e32_production_contract.py"
+    ],
+    "files": [
+      {
+        "path": "configs/pipeline/profiles/stage1_l26_e32_k200_jointmoe_lr_production.json",
+        "sha256": "17e028c5b116b03c486afc36bb1e938a49bd93a75d4f59494fc0bb5be8a08f18",
+        "role": "cooldown_profile",
+        "historical_sha256": "b57907d26c0514c1ebad34b9bbafd1d0479ff9249494f02a315aacbd3c0fc501"
+      },
+      {
+        "path": "configs/pipeline/profiles/stage1_l26_e32_k200_production.json",
+        "sha256": "6859c2dfce7da7250a8c52414c358480f07aa4142c154265f05f9a70aa1efb37",
+        "role": "frozen_production_recipe",
+        "historical_sha256": "149b7287d839cf55103654f4dd9761408ceb9775e8d220318cc68b97112b8120"
+      },
+      {
+        "path": "configs/stage1/production/stage1_l26_e32_k200_jointmoe_lr_production_v1.json",
+        "sha256": "9b89a8976a2649e2a40ca64fdab2700e2f619eefbc75ff3b2ea0d2e67395a077",
+        "role": "scientific_contract",
+        "historical_sha256": "451db2ec891f8efeb42e87e2d0a774609e2e95a685030053dd06ad29ec9d7457"
+      },
+      {
+        "path": "configs/stage1/architectures/stage1_l26_e32_v1.json",
+        "sha256": "addf4dd1411e4ca5b37eeeb017f95f5d60bc93dac74ba15470f2e2160d1eea07",
+        "role": "architecture_authority",
+        "historical_sha256": "5fafa18bd307a3b54abccf0371e9cf18a0fc638524bee06d9ddeda9ef13a8f13"
+      },
+      {
+        "path": "configs/stage1/l26_e32/winner_pp4_ep2_mbs8_v1.json",
+        "sha256": "7057969f0dbdab35af2b7242b848af54304a88f9c1d9b7b9dfe69655764cdfd3",
+        "role": "systems_authority",
+        "historical_sha256": "e4a10ea2202d7be7e4c6236f366232295c46a18509b366ac3cf3a8e278f895ea"
+      },
+      {
+        "path": "configs/language_groupings/200_languages_grouping.json",
+        "sha256": "44fdad625e7dda6f20bfc9dee1c8927044871e46229fc1ca487e23b453bedcdd",
+        "role": "language_inventory"
+      },
+      {
+        "path": "src/multilingual_megatron/repo.py",
+        "sha256": "322453dfe6d2353c45747b777a2f8aa8e475d39130b0e38a7602314c2c1cb183",
+        "role": "repository_root_resolution"
+      },
+      {
+        "path": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/production_launch_source_seal.json",
+        "sha256": "41b013d24be45ec0fe5490520f7743510f0bac6570ecbcb9a7f8d29cf80d64fc",
+        "role": "trunk_launch_authority"
+      },
+      {
+        "path": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenized/tiers/K200/megatron_data_manifest.json",
+        "sha256": "feb0a43aa5d8b9842d5fb2d3d41924cef5ed6a425c5a8a712522f76ca0a342f6",
+        "role": "frozen_k200_manifest"
+      },
+      {
+        "path": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenizer/sp_unigram_64k/tokenizer.model",
+        "sha256": "54a25a061df0cfba143ca8af3380e4d6c4caccf2ea1c80d25ff011c407c187e8",
+        "role": "frozen_tokenizer"
+      }
+    ],
+    "historical_pipeline_python_tree_sha256": "16a64e9bf2d0d23e44cea2adeea3a6b49aca272c6c4d0a878c47647036aa724a"
+  },
+  "security": {
+    "credential_transport": "Slurm named environment export",
+    "credentials_embedded_in_script_or_receipt": false,
+    "tracked_launcher_mode": "0755",
+    "environment_embedding_generated_batch_scripts_required_mode": "0600"
+  },
+  "observability": {
+    "slurm_log": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/cooldown/logs/attempts/20260904-jointmoe-lr-cooldown-retry1-commit-snapshot-v1/slurm/cooldown-%j.slurm.log",
+    "source_snapshot": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/source_snapshots/<submission_commit>/submission_source_manifest.json",
+    "submission_receipt": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/cooldown_submission_receipt_job<job_id>.json",
+    "start_receipt": "outputs/pipeline_runs/stage1_l26_e32_k200_jointmoe_lr_production_v1/preflight/cooldown_start_receipt_job<job_id>.json",
+    "credentials_recorded": false
+  },
+  "commands": {
+    "plan": "scripts/slurm/submit_stage1_l26_e32_jointmoe_lr_cooldown.sh plan",
+    "submit": "scripts/slurm/submit_stage1_l26_e32_jointmoe_lr_cooldown.sh submit"
+  },
+  "submission_source_relocation": {
+    "original_contract_sha256": "0b82a31459b3445760568a55d0d4817e7497ba9dc26add9eec7eb114d1b1801f"
+  }
+}

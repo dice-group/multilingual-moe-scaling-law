@@ -1,0 +1,20 @@
+{
+  "analysis_registry_paths": [
+    "result_analysis/stage1_lr_confirmation_h100_v1/analysis_manifest.json",
+    "result_analysis/stage1_lr_confirmation_h100_v1/comparison_summary.json"
+  ],
+  "cd_ledger": null,
+  "cd_source": "direct_final_summaries",
+  "corpus_manifest": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/release_32b/corpus_manifest.json",
+  "expected_duplicate_candidate_count": 0,
+  "expected_validation_candidate_count": 400,
+  "primary_root_names": {
+    "AB": "stage1_ab_jointmoe_x1_production_v1",
+    "C": "stage1_c_jointmoe_x1_production_v1",
+    "D": "stage1_d_jointmoe_x1_production_v1"
+  },
+  "release_name": "stage1_abcd_jointmoe_x1_v1",
+  "schema": "multilingual_megatron_stage1_release_build_spec/v1",
+  "scientific_scope": "Clean Stage-1 A-D rerun using the JointMoE x1 learning-rate prescription selected from the B-ladder confirmation before this rerun; this release does not claim per-cell, seed-general, compute-optimal, or universally optimal learning rates.",
+  "seed_confirmation_summary": "outputs/pipeline_runs/stage1_b_seed_confirmation_v1/control/seed_confirmation_summary.json"
+}

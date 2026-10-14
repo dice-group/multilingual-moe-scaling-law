@@ -1,0 +1,17 @@
+{
+  "inherits": {
+    "spec_path": "workflow_runtime.json",
+    "spec_sha256": "872e61b1870d03fe21a3941e4a9970df085fdbdd497a0fdb37709badce7394d8"
+  },
+  "output_root": "outputs/pipeline_runs/stage1_language_composition_data_v1",
+  "workflow_attempt_id": "stage1_language_composition_data_v1",
+  "workflow_job_prefix": "lcdata1",
+  "data": {
+    "mode": "adopt_k12_migration",
+    "sealed_corpus_root": {"__delete__": true},
+    "adoption_predecessor_root": "/workspace/multi-moe-scaling-laws/outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3",
+    "runtime_env": {
+      "TMPDIR": "/dev/shm"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schema": "stage2_l26_e32_architecture_preservation/v1",
+  "state": "frozen_scaling_law_baseline_not_production_authorized",
+  "source_authority": "configs/stage1/architectures/stage1_l26_e32_v1.json",
+  "recipe": "scaling_switch_moe_scale_scaling_l26_pretrain_config",
+  "frozen_model": {
+    "family": "scaling_switch_moe",
+    "scale": "scaling_l26",
+    "layers": 26,
+    "hidden_size": 1664,
+    "attention_heads": 26,
+    "head_dimension": 64,
+    "ffn_hidden_size": 4992,
+    "experts": 32,
+    "top_k": 1,
+    "vocab_size": 64000,
+    "sequence_length": 2048,
+    "active_parameters": 1148878848,
+    "total_parameters": 21234450432
+  },
+  "law_selected_point": {
+    "law": "M1 all-data Huber",
+    "raw_prediction_tokens": 68682999538.36525,
+    "execution_horizon_requires_production_contract": true
+  },
+  "scientific_invariants": [
+    "architecture and Top-1 routing",
+    "BF16 compute with ordinary FP32 Adam main parameters and moments",
+    "Stage-1 tokenizer and fixed K200 mixture",
+    "long-run schedule, evaluation, and checkpoint meaning"
+  ]
+}

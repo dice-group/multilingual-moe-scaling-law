@@ -1,0 +1,87 @@
+{
+  "allocation_predictor": "M6-ND (separate composition-aware law); no allocation is reassigned to RN12.",
+  "coordinate_equalities": [
+    [
+      6,
+      7
+    ],
+    [
+      8,
+      9
+    ]
+  ],
+  "evaluation": "configuration-balanced primary RMSE; separate equal-language L26 RMSE",
+  "evidence": "fixed-law reproduction; no new selection, independent seed, or blind L26 forecast",
+  "expanded_coordinate_order": [
+    "alpha_e1",
+    "alpha_e32",
+    "beta_e1",
+    "beta_e32",
+    "delta",
+    "omega",
+    "phi_e1",
+    "phi_e32",
+    "psi_e1",
+    "psi_e32",
+    "gamma_n",
+    "eta_family",
+    "eta_script",
+    "gamma_other",
+    "zeta",
+    "lambda_repetition",
+    "rho",
+    "kappa",
+    "chi"
+  ],
+  "language_coefficients": [
+    "L_inf",
+    "A",
+    "B"
+  ],
+  "model": "RN12-stored-common-K",
+  "normalization": {
+    "active_parameters": 100000000.0,
+    "expert_interpolation": "log(E)/log(32)",
+    "gK": "max(log(K/12), 0) / log(200/12)",
+    "total_parameters": 100000000.0,
+    "training_tokens": 1000000000.0
+  },
+  "numerical_contract": {
+    "acceptance": "training-only convergence, original-coordinate KKT, restart completeness, joint audit, independent equation replay",
+    "inner_solver": "conditioned convex Huber with IRLS fallback; powered-sum uses joint fitting",
+    "kkt_tolerance": 1e-08,
+    "lbfgsb": {
+      "ftol": 1e-15,
+      "gtol": 1e-05,
+      "maxcor": 20,
+      "maxiter": 20000,
+      "maxls": 50
+    },
+    "native_starts": [
+      16,
+      64
+    ],
+    "objective": "inherited fold-local weighted Huber and model-specific ridge; no log-loss change",
+    "objective_scale": 10000.0,
+    "optimizer": "L-BFGS-B",
+    "policy": "lbfgsb_box",
+    "positive_effective_exponents": false,
+    "positivity": "diagnostic only for box arms; negative optima retained and block automatic adoption, never censored",
+    "prediction_tolerance": 0.0001,
+    "recovery": "no outcome-driven restart escalation or hyperparameter tuning",
+    "relative_objective_tolerance": 1e-06,
+    "replay_tolerance": 1e-10,
+    "restart_change": "48 matched training-only shared starts replace historical heterogeneous grids; controls use identical starts",
+    "sealing": "archive every outcome; manuscript adoption is a separate complete-evidence review",
+    "seed": 2026092601,
+    "shared_starts": 48,
+    "slsqp": {
+      "ftol": 1e-12,
+      "maxiter": 4000
+    },
+    "version": "paper_full_refit_20260926_v1"
+  },
+  "report_scope": "three configuration-balanced holdouts and separate equal-language L26; fixed laws, no reselection",
+  "scope": "Saved fixed-law replay. Structured development holdouts; L26 is a developmental stress test.",
+  "shared_coefficients": 12
+}

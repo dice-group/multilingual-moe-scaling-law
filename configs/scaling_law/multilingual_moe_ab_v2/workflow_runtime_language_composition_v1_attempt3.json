@@ -1,0 +1,55 @@
+{
+  "inherits": {
+    "spec_path": "workflow_runtime_seed_confirmation_v1.json",
+    "spec_sha256": "bfd62239c6d542f776071a66c8918b836653786377853848ad48020aea021f9c"
+  },
+  "output_root": "outputs/pipeline_runs/stage1_language_composition_v1_attempt3",
+  "workflow_attempt_id": "stage1_language_composition_v1_attempt3",
+  "workflow_job_prefix": "lcomp1a3",
+  "data": {
+    "sealed_corpus_root": "/workspace/language_composition/outputs/pipeline_runs/stage1_language_composition_data_v1"
+  },
+  "performance_budget": {
+    "training_throughput_evidence": {
+      "GBS32": {
+        "report": "/workspace/multi-moe-scaling-laws/outputs/pipeline_runs/h100_ab_v2_performance_20260718_ramp32/analysis/long_performance_recheck.json"
+      },
+      "GBS64": {
+        "B/E32_report": "/workspace/multi-moe-scaling-laws/outputs/pipeline_runs/h100_ab_v2_performance_20260718_post_sentinel/analysis/long_performance_recheck.json"
+      },
+      "GBS128": {
+        "report": "/workspace/multi-moe-scaling-laws/outputs/pipeline_runs/h100_ab_v2_performance_20260718_post_sentinel/analysis/long_performance_recheck.json"
+      }
+    }
+  },
+  "storage": {
+    "enforcement": "fail_closed_wave_bound",
+    "retain_all_checkpoints": false,
+    "production_launch_policy": "one_arm_seed_wave_with_three_expert_trajectories",
+    "composition_non_checkpoint_reserve_bytes": 274877906944,
+    "composition_final_free_headroom_bytes": 1099511627776,
+    "composition_required_available_inodes": 200000
+  },
+  "language_composition": {
+    "diagnostic_source_manifest": "/workspace/language_composition/outputs/pipeline_runs/stage1_language_composition_v1_attempt2/control/launch_manifest.json",
+    "reference_sources": {
+      "primary_seed_root": "/workspace/multi-moe-scaling-laws/outputs/pipeline_runs/stage1_ab_jointmoe_x1_production_v1",
+      "primary_seed_launch_file_sha256": "e743d1ef772eef3be167a0c996a49dcf3af0860eae0d1b3560032696198a3d87",
+      "primary_seed_manifest_sha256": "188548a71e12a36d9878cf01f13c6a5f50d8be1142ac8a6671966844935bed34",
+      "replication_seed_root": "/workspace/multi-moe-scaling-laws/outputs/pipeline_runs/stage1_b_seed_confirmation_v1",
+      "replication_seed_launch_file_sha256": "3698c022db90b5c582dab1d639b3a53ee99ddbcbadf2290bfbccc77d2913cfd1",
+      "replication_seed_manifest_sha256": "84e5d4e1c8f64216143d075390450fb906f56083eded8f5c8ea656715052ef7d"
+    },
+    "smoke": {
+      "tokens": 134217728,
+      "global_batch_size": 32,
+      "seed": 1234,
+      "experts": [1, 32],
+      "steady_state_window_observations": 12,
+      "maximum_step_time_cv_pct": 5.0,
+      "minimum_reference_throughput_fraction": 0.85,
+      "reference_median_tokens_per_second": {"1": 329906.87, "32": 203559.56}
+    },
+    "production_authorization_file": "outputs/pipeline_runs/stage1_language_composition_v1_attempt3/control/production_authorization.json"
+  }
+}

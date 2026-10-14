@@ -1,0 +1,36 @@
+{
+  "inherits": {
+    "spec_path": "workflow_runtime.json",
+    "spec_sha256": "872e61b1870d03fe21a3941e4a9970df085fdbdd497a0fdb37709badce7394d8"
+  },
+  "schema_version": 2,
+  "output_root": "outputs/pipeline_runs/h100_ab_v2_jointmoe_paper_lr_v1",
+  "seeds": {
+    "__replace__": {
+      "data": 42,
+      "primary_training": 1234,
+      "replication_training": [1234, 5678, 91011]
+    }
+  },
+  "training": {
+    "optimizer": {
+      "__replace__": {
+        "adam_beta1": 0.9,
+        "adam_beta2": 0.95,
+        "adam_eps": 1e-8,
+        "weight_decay": 0.1,
+        "clip_grad": 1.0,
+        "minimum_learning_rate": 0.0
+      }
+    },
+    "learning_rate_diagnostics": {
+      "horizon_tokens": 2000000000,
+      "corner_experts": [1, 32],
+      "corner_language_counts": [1, 200],
+      "neighbor_ladders": ["B"],
+      "neighbor_multipliers": [0.5, 2.0],
+      "systematic_block_count": 3
+    }
+  },
+  "gpu_hour_limit": {"__delete__": true}
+}

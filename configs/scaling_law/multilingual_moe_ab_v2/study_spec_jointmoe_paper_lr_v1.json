@@ -1,0 +1,95 @@
+{
+  "inherits": {
+    "spec_path": "study_spec.json",
+    "spec_sha256": "fb7f389b36ac2d9f46b33897bc1579ed7ee038063e27aac667f990491f296711",
+    "historical_spec_sha256": "f629380f3afa48d1e06b5e04d01f7a6fc85c34601d3c3b9d5bcb3a4de0123028"
+  },
+  "schema_version": 3,
+  "status_date": "2026-08-13",
+  "scope": "A/B JointMoE-prescribed-LR confirmation",
+  "training_policy": {
+    "peak_learning_rate": {
+      "__delete__": true
+    },
+    "learning_rate_rule": {
+      "__delete__": true
+    },
+    "learning_rate_limitation": {
+      "__delete__": true
+    },
+    "fixed_learning_rate_verification": {
+      "__delete__": true
+    },
+    "replication_training_seeds": [
+      1234,
+      5678,
+      91011
+    ],
+    "replication_seed_scope": "each replication seed controls both model RNG and dataset ordering; corpus construction remains fixed at seed 42",
+    "learning_rate_prescription": {
+      "source": "JointMoE paper arXiv:2502.05172, printed rounded-coefficient law",
+      "formula": "exp(8.39 - 0.81 * ln(N_act_nonembed) - 0.25 * ln(E))",
+      "intercept": 8.39,
+      "active_parameter_coefficient": -0.81,
+      "expert_coefficient": -0.25,
+      "parameter_count_basis": "paper-style active non-embedding parameter count N_act_nonembed",
+      "constant_across_K": true,
+      "released_code_full_precision_coefficients_used": false,
+      "per_cell_selection_allowed": false
+    },
+    "prescribed_learning_rate_verification": {
+      "cells": [
+        "A/E1/K1",
+        "A/E1/K200",
+        "B/E32/K1",
+        "B/E32/K200"
+      ],
+      "total_tokens": 167772160,
+      "global_batch_sequences": 32,
+      "total_steps": 2560,
+      "warmup_actual_tokens": 130023424,
+      "warmup_steps": 1984,
+      "schedule": "linear warmup to each cell's prescribed peak learning rate, then constant peak learning rate",
+      "selection_or_mutation_allowed": false,
+      "fit_observation": false
+    },
+    "learning_rate_transfer_diagnostic": {
+      "horizon_tokens": 2000000000,
+      "cells": [
+        "B/E1/K1",
+        "B/E1/K200",
+        "B/E32/K1",
+        "B/E32/K200"
+      ],
+      "multipliers": [
+        0.5,
+        1.0,
+        2.0
+      ],
+      "comparison_seed": 1234,
+      "clear_improvement_threshold": "larger than the same cell's three-seed 1x primary-validation loss range",
+      "block_rule": "block if the same neighboring multiplier clearly improves at least three of four cells",
+      "automatic_learning_rate_mutation": false
+    },
+    "seed_replication_panel": {
+      "horizon_tokens": 2000000000,
+      "cells": [
+        "A/E1/K1",
+        "A/E1/K200",
+        "A/E32/K1",
+        "A/E32/K200",
+        "B/E1/K1",
+        "B/E1/K200",
+        "B/E32/K1",
+        "B/E32/K200"
+      ],
+      "training_seeds": [
+        1234,
+        5678,
+        91011
+      ],
+      "learning_rate_multiplier": 1.0,
+      "inference_scope": "descriptive A/B uncertainty reference; not a formal confidence interval or a C/D seed-variance estimate"
+    }
+  }
+}

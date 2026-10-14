@@ -1,0 +1,45 @@
+{
+  "training": {
+    "backend": "megatron_bridge",
+    "bridge_root": "external/Megatron-Bridge",
+    "dataset": "llm-pretrain",
+    "enabled": true,
+    "eval": {
+      "eval_interval": 10,
+      "eval_iters": 1
+    },
+    "launcher": "python",
+    "nproc_per_node": 1,
+    "output_dir": "outputs/pipeline_runs/default/runs",
+    "recipe": "vanilla_gpt_pretrain_config",
+    "seq_length": 512,
+    "calibration": {
+      "enabled": false,
+      "mode": "calibrate_then_train",
+      "candidate_micro_batch_sizes": [],
+      "max_micro_batch_size": 16,
+      "probe_train_iters": 50,
+      "warmup_iters": 10,
+      "memory_headroom_fraction": 0.1,
+      "throughput_drop_threshold": 0.03,
+      "gpu_memory_total_gb": 0,
+      "peak_tflops_per_gpu": 0,
+      "require_global_batch_divisibility": true,
+      "stop_after_first_oom": true,
+      "gpu_monitor_interval_seconds": 1
+    },
+    "runs": [
+      {
+        "id": "vanilla_gpt",
+        "kind": "megatron_bridge",
+        "backend": "megatron_bridge"
+      }
+    ],
+    "train": {
+      "global_batch_size": 4,
+      "log_interval": 1,
+      "micro_batch_size": 1,
+      "train_iters": 10
+    }
+  }
+}

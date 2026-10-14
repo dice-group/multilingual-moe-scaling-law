@@ -1,0 +1,3245 @@
+{
+  "corpus_manifest_id": "multilingual_moe_v1_hq_first_v0",
+  "fixed_policy": {
+    "data_is_not_an_experimental_axis": true,
+    "dedup_filters": "freeze before training; report manifest hash",
+    "language_sampling": "uniform over active K",
+    "quality_filters": "freeze before training; do not vary in phase 1",
+    "tokenizer": "64k multilingual SentencePiece"
+  },
+  "languages": [
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "eng_Latn",
+      "language_id": "eng_Latn",
+      "short_code": "eng",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "acm_Arab",
+      "language_id": "acm_Arab",
+      "short_code": "acm",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ady_Cyrl",
+      "language_id": "ady_Cyrl",
+      "short_code": "ady",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "aeb_Arab",
+      "language_id": "aeb_Arab",
+      "short_code": "aeb",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "afr_Latn",
+      "language_id": "afr_Latn",
+      "short_code": "afr",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "als_Latn",
+      "language_id": "als_Latn",
+      "short_code": "als",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "amh_Ethi",
+      "language_id": "amh_Ethi",
+      "short_code": "amh",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "apc_Arab",
+      "language_id": "apc_Arab",
+      "short_code": "apc",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "arb_Arab",
+      "language_id": "arb_Arab",
+      "short_code": "arb",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "arg_Latn",
+      "language_id": "arg_Latn",
+      "short_code": "arg",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ars_Arab",
+      "language_id": "ars_Arab",
+      "short_code": "ars",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ary_Arab",
+      "language_id": "ary_Arab",
+      "short_code": "ary",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "arz_Arab",
+      "language_id": "arz_Arab",
+      "short_code": "arz",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "asm_Beng",
+      "language_id": "asm_Beng",
+      "short_code": "asm",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ast_Latn",
+      "language_id": "ast_Latn",
+      "short_code": "ast",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ava_Cyrl",
+      "language_id": "ava_Cyrl",
+      "short_code": "ava",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "azb_Arab",
+      "language_id": "azb_Arab",
+      "short_code": "azb",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "bak_Cyrl",
+      "language_id": "bak_Cyrl",
+      "short_code": "bak",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ban_Latn",
+      "language_id": "ban_Latn",
+      "short_code": "ban",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "bar_Latn",
+      "language_id": "bar_Latn",
+      "short_code": "bar",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "bcl_Latn",
+      "language_id": "bcl_Latn",
+      "short_code": "bcl",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "bel_Cyrl",
+      "language_id": "bel_Cyrl",
+      "short_code": "bel",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ben_Beng",
+      "language_id": "ben_Beng",
+      "short_code": "ben",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "bew_Latn",
+      "language_id": "bew_Latn",
+      "short_code": "bew",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "bho_Deva",
+      "language_id": "bho_Deva",
+      "short_code": "bho",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "bod_Tibt",
+      "language_id": "bod_Tibt",
+      "short_code": "bod",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "bos_Latn",
+      "language_id": "bos_Latn",
+      "short_code": "bos",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "bre_Latn",
+      "language_id": "bre_Latn",
+      "short_code": "bre",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "bul_Cyrl",
+      "language_id": "bul_Cyrl",
+      "short_code": "bul",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "bxr_Cyrl",
+      "language_id": "bxr_Cyrl",
+      "short_code": "bxr",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "cat_Latn",
+      "language_id": "cat_Latn",
+      "short_code": "cat",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ceb_Latn",
+      "language_id": "ceb_Latn",
+      "short_code": "ceb",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ces_Latn",
+      "language_id": "ces_Latn",
+      "short_code": "ces",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "che_Cyrl",
+      "language_id": "che_Cyrl",
+      "short_code": "che",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "chv_Cyrl",
+      "language_id": "chv_Cyrl",
+      "short_code": "chv",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ckb_Arab",
+      "language_id": "ckb_Arab",
+      "short_code": "ckb",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "cos_Latn",
+      "language_id": "cos_Latn",
+      "short_code": "cos",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "crh_Cyrl",
+      "language_id": "crh_Cyrl",
+      "short_code": "crh",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "cym_Latn",
+      "language_id": "cym_Latn",
+      "short_code": "cym",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "dan_Latn",
+      "language_id": "dan_Latn",
+      "short_code": "dan",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "deu_Latn",
+      "language_id": "deu_Latn",
+      "short_code": "deu",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "diq_Latn",
+      "language_id": "diq_Latn",
+      "short_code": "diq",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "div_Thaa",
+      "language_id": "div_Thaa",
+      "short_code": "div",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "dsb_Latn",
+      "language_id": "dsb_Latn",
+      "short_code": "dsb",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "dzo_Tibt",
+      "language_id": "dzo_Tibt",
+      "short_code": "dzo",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ekk_Latn",
+      "language_id": "ekk_Latn",
+      "short_code": "ekk",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ell_Grek",
+      "language_id": "ell_Grek",
+      "short_code": "ell",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "epo_Latn",
+      "language_id": "epo_Latn",
+      "short_code": "epo",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "eus_Latn",
+      "language_id": "eus_Latn",
+      "short_code": "eus",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ewe_Latn",
+      "language_id": "ewe_Latn",
+      "short_code": "ewe",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "fao_Latn",
+      "language_id": "fao_Latn",
+      "short_code": "fao",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "fij_Latn",
+      "language_id": "fij_Latn",
+      "short_code": "fij",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "fin_Latn",
+      "language_id": "fin_Latn",
+      "short_code": "fin",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "fra_Latn",
+      "language_id": "fra_Latn",
+      "short_code": "fra",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "fry_Latn",
+      "language_id": "fry_Latn",
+      "short_code": "fry",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "fur_Latn",
+      "language_id": "fur_Latn",
+      "short_code": "fur",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "gaz_Latn",
+      "language_id": "gaz_Latn",
+      "short_code": "gaz",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "gla_Latn",
+      "language_id": "gla_Latn",
+      "short_code": "gla",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "gle_Latn",
+      "language_id": "gle_Latn",
+      "short_code": "gle",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "glg_Latn",
+      "language_id": "glg_Latn",
+      "short_code": "glg",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "glk_Arab",
+      "language_id": "glk_Arab",
+      "short_code": "glk",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "grc_Grek",
+      "language_id": "grc_Grek",
+      "short_code": "grc",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "gsw_Latn",
+      "language_id": "gsw_Latn",
+      "short_code": "gsw",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "guj_Gujr",
+      "language_id": "guj_Gujr",
+      "short_code": "guj",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "hat_Latn",
+      "language_id": "hat_Latn",
+      "short_code": "hat",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "haw_Latn",
+      "language_id": "haw_Latn",
+      "short_code": "haw",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "hbo_Hebr",
+      "language_id": "hbo_Hebr",
+      "short_code": "hbo",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "heb_Hebr",
+      "language_id": "heb_Hebr",
+      "short_code": "heb",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "hif_Latn",
+      "language_id": "hif_Latn",
+      "short_code": "hif",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "hil_Latn",
+      "language_id": "hil_Latn",
+      "short_code": "hil",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "hin_Deva",
+      "language_id": "hin_Deva",
+      "short_code": "hin",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "hne_Deva",
+      "language_id": "hne_Deva",
+      "short_code": "hne",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "hrv_Latn",
+      "language_id": "hrv_Latn",
+      "short_code": "hrv",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "hsb_Latn",
+      "language_id": "hsb_Latn",
+      "short_code": "hsb",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "hun_Latn",
+      "language_id": "hun_Latn",
+      "short_code": "hun",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "hye_Armn",
+      "language_id": "hye_Armn",
+      "short_code": "hye",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "iba_Latn",
+      "language_id": "iba_Latn",
+      "short_code": "iba",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ibo_Latn",
+      "language_id": "ibo_Latn",
+      "short_code": "ibo",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ido_Latn",
+      "language_id": "ido_Latn",
+      "short_code": "ido",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ilo_Latn",
+      "language_id": "ilo_Latn",
+      "short_code": "ilo",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ind_Latn",
+      "language_id": "ind_Latn",
+      "short_code": "ind",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "inh_Cyrl",
+      "language_id": "inh_Cyrl",
+      "short_code": "inh",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "isl_Latn",
+      "language_id": "isl_Latn",
+      "short_code": "isl",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ita_Latn",
+      "language_id": "ita_Latn",
+      "short_code": "ita",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "jav_Latn",
+      "language_id": "jav_Latn",
+      "short_code": "jav",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "jpn_Jpan",
+      "language_id": "jpn_Jpan",
+      "short_code": "jpn",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "kab_Latn",
+      "language_id": "kab_Latn",
+      "short_code": "kab",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "kac_Latn",
+      "language_id": "kac_Latn",
+      "short_code": "kac",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "kal_Latn",
+      "language_id": "kal_Latn",
+      "short_code": "kal",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "kan_Knda",
+      "language_id": "kan_Knda",
+      "short_code": "kan",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "kat_Geor",
+      "language_id": "kat_Geor",
+      "short_code": "kat",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "kaz_Cyrl",
+      "language_id": "kaz_Cyrl",
+      "short_code": "kaz",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "kbd_Cyrl",
+      "language_id": "kbd_Cyrl",
+      "short_code": "kbd",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "kha_Latn",
+      "language_id": "kha_Latn",
+      "short_code": "kha",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "khk_Cyrl",
+      "language_id": "khk_Cyrl",
+      "short_code": "khk",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "khm_Khmr",
+      "language_id": "khm_Khmr",
+      "short_code": "khm",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "kik_Latn",
+      "language_id": "kik_Latn",
+      "short_code": "kik",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "kin_Latn",
+      "language_id": "kin_Latn",
+      "short_code": "kin",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "kir_Cyrl",
+      "language_id": "kir_Cyrl",
+      "short_code": "kir",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "kmr_Cyrl",
+      "language_id": "kmr_Cyrl",
+      "short_code": "kmr",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "kor_Hang",
+      "language_id": "kor_Hang",
+      "short_code": "kor",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "kpv_Cyrl",
+      "language_id": "kpv_Cyrl",
+      "short_code": "kpv",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "lao_Laoo",
+      "language_id": "lao_Laoo",
+      "short_code": "lao",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "lat_Latn",
+      "language_id": "lat_Latn",
+      "short_code": "lat",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "lez_Cyrl",
+      "language_id": "lez_Cyrl",
+      "short_code": "lez",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "lim_Latn",
+      "language_id": "lim_Latn",
+      "short_code": "lim",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "lin_Latn",
+      "language_id": "lin_Latn",
+      "short_code": "lin",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "lit_Latn",
+      "language_id": "lit_Latn",
+      "short_code": "lit",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "lmo_Latn",
+      "language_id": "lmo_Latn",
+      "short_code": "lmo",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ltg_Latn",
+      "language_id": "ltg_Latn",
+      "short_code": "ltg",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ltz_Latn",
+      "language_id": "ltz_Latn",
+      "short_code": "ltz",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "lug_Latn",
+      "language_id": "lug_Latn",
+      "short_code": "lug",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "lus_Latn",
+      "language_id": "lus_Latn",
+      "short_code": "lus",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "mai_Deva",
+      "language_id": "mai_Deva",
+      "short_code": "mai",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "mal_Latn",
+      "language_id": "mal_Latn",
+      "short_code": "mal",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "mar_Deva",
+      "language_id": "mar_Deva",
+      "short_code": "mar",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "mfe_Latn",
+      "language_id": "mfe_Latn",
+      "short_code": "mfe",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "mhr_Cyrl",
+      "language_id": "mhr_Cyrl",
+      "short_code": "mhr",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "mkd_Cyrl",
+      "language_id": "mkd_Cyrl",
+      "short_code": "mkd",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "mlt_Latn",
+      "language_id": "mlt_Latn",
+      "short_code": "mlt",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "mri_Latn",
+      "language_id": "mri_Latn",
+      "short_code": "mri",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "mww_Latn",
+      "language_id": "mww_Latn",
+      "short_code": "mww",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "mya_Mymr",
+      "language_id": "mya_Mymr",
+      "short_code": "mya",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "myv_Cyrl",
+      "language_id": "myv_Cyrl",
+      "short_code": "myv",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "nap_Latn",
+      "language_id": "nap_Latn",
+      "short_code": "nap",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "nde_Latn",
+      "language_id": "nde_Latn",
+      "short_code": "nde",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ndo_Latn",
+      "language_id": "ndo_Latn",
+      "short_code": "ndo",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "nds_Latn",
+      "language_id": "nds_Latn",
+      "short_code": "nds",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "new_Deva",
+      "language_id": "new_Deva",
+      "short_code": "new",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "nld_Latn",
+      "language_id": "nld_Latn",
+      "short_code": "nld",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "nno_Latn",
+      "language_id": "nno_Latn",
+      "short_code": "nno",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "nob_Latn",
+      "language_id": "nob_Latn",
+      "short_code": "nob",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "npi_Deva",
+      "language_id": "npi_Deva",
+      "short_code": "npi",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "nrm_Latn",
+      "language_id": "nrm_Latn",
+      "short_code": "nrm",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "nya_Latn",
+      "language_id": "nya_Latn",
+      "short_code": "nya",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "oci_Latn",
+      "language_id": "oci_Latn",
+      "short_code": "oci",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ory_Latn",
+      "language_id": "ory_Latn",
+      "short_code": "ory",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "oss_Cyrl",
+      "language_id": "oss_Cyrl",
+      "short_code": "oss",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "pan_Guru",
+      "language_id": "pan_Guru",
+      "short_code": "pan",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "pap_Latn",
+      "language_id": "pap_Latn",
+      "short_code": "pap",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "pbt_Arab",
+      "language_id": "pbt_Arab",
+      "short_code": "pbt",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "plt_Latn",
+      "language_id": "plt_Latn",
+      "short_code": "plt",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "pms_Latn",
+      "language_id": "pms_Latn",
+      "short_code": "pms",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "pnb_Arab",
+      "language_id": "pnb_Arab",
+      "short_code": "pnb",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "pol_Latn",
+      "language_id": "pol_Latn",
+      "short_code": "pol",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "por_Latn",
+      "language_id": "por_Latn",
+      "short_code": "por",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "rmy_Cyrl",
+      "language_id": "rmy_Cyrl",
+      "short_code": "rmy",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "roh_Latn",
+      "language_id": "roh_Latn",
+      "short_code": "roh",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ron_Cyrl",
+      "language_id": "ron_Cyrl",
+      "short_code": "ron",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "rue_Cyrl",
+      "language_id": "rue_Cyrl",
+      "short_code": "rue",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "run_Latn",
+      "language_id": "run_Latn",
+      "short_code": "run",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "rus_Cyrl",
+      "language_id": "rus_Cyrl",
+      "short_code": "rus",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "sah_Cyrl",
+      "language_id": "sah_Cyrl",
+      "short_code": "sah",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "san_Deva",
+      "language_id": "san_Deva",
+      "short_code": "san",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "scn_Latn",
+      "language_id": "scn_Latn",
+      "short_code": "scn",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "sco_Latn",
+      "language_id": "sco_Latn",
+      "short_code": "sco",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "sdh_Arab",
+      "language_id": "sdh_Arab",
+      "short_code": "sdh",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "shn_Mymr",
+      "language_id": "shn_Mymr",
+      "short_code": "shn",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "sin_Sinh",
+      "language_id": "sin_Sinh",
+      "short_code": "sin",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "slk_Latn",
+      "language_id": "slk_Latn",
+      "short_code": "slk",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "slv_Latn",
+      "language_id": "slv_Latn",
+      "short_code": "slv",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "sme_Latn",
+      "language_id": "sme_Latn",
+      "short_code": "sme",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "smo_Latn",
+      "language_id": "smo_Latn",
+      "short_code": "smo",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "sna_Latn",
+      "language_id": "sna_Latn",
+      "short_code": "sna",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "snd_Arab",
+      "language_id": "snd_Arab",
+      "short_code": "snd",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "som_Latn",
+      "language_id": "som_Latn",
+      "short_code": "som",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "sot_Latn",
+      "language_id": "sot_Latn",
+      "short_code": "sot",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "spa_Latn",
+      "language_id": "spa_Latn",
+      "short_code": "spa",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "srd_Latn",
+      "language_id": "srd_Latn",
+      "short_code": "srd",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "srp_Cyrl",
+      "language_id": "srp_Cyrl",
+      "short_code": "srp",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "sun_Latn",
+      "language_id": "sun_Latn",
+      "short_code": "sun",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "swe_Latn",
+      "language_id": "swe_Latn",
+      "short_code": "swe",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "swh_Latn",
+      "language_id": "swh_Latn",
+      "short_code": "swh",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "tam_Latn",
+      "language_id": "tam_Latn",
+      "short_code": "tam",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "tat_Cyrl",
+      "language_id": "tat_Cyrl",
+      "short_code": "tat",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "tel_Latn",
+      "language_id": "tel_Latn",
+      "short_code": "tel",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "tgk_Cyrl",
+      "language_id": "tgk_Cyrl",
+      "short_code": "tgk",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "tha_Thai",
+      "language_id": "tha_Thai",
+      "short_code": "tha",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "tir_Ethi",
+      "language_id": "tir_Ethi",
+      "short_code": "tir",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ton_Latn",
+      "language_id": "ton_Latn",
+      "short_code": "ton",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "tso_Latn",
+      "language_id": "tso_Latn",
+      "short_code": "tso",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "tuk_Arab",
+      "language_id": "tuk_Arab",
+      "short_code": "tuk",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "tur_Latn",
+      "language_id": "tur_Latn",
+      "short_code": "tur",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "tyv_Cyrl",
+      "language_id": "tyv_Cyrl",
+      "short_code": "tyv",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "udm_Cyrl",
+      "language_id": "udm_Cyrl",
+      "short_code": "udm",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "uig_Arab",
+      "language_id": "uig_Arab",
+      "short_code": "uig",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ukr_Cyrl",
+      "language_id": "ukr_Cyrl",
+      "short_code": "ukr",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "urd_Arab",
+      "language_id": "urd_Arab",
+      "short_code": "urd",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "uzn_Cyrl",
+      "language_id": "uzn_Cyrl",
+      "short_code": "uzn",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "vie_Latn",
+      "language_id": "vie_Latn",
+      "short_code": "vie",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "vls_Latn",
+      "language_id": "vls_Latn",
+      "short_code": "vls",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "vro_Latn",
+      "language_id": "vro_Latn",
+      "short_code": "vro",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "wln_Latn",
+      "language_id": "wln_Latn",
+      "short_code": "wln",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "wol_Latn",
+      "language_id": "wol_Latn",
+      "short_code": "wol",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "xho_Latn",
+      "language_id": "xho_Latn",
+      "short_code": "xho",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "ydd_Hebr",
+      "language_id": "ydd_Hebr",
+      "short_code": "ydd",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "yor_Latn",
+      "language_id": "yor_Latn",
+      "short_code": "yor",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "zea_Latn",
+      "language_id": "zea_Latn",
+      "short_code": "zea",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "zsm_Arab",
+      "language_id": "zsm_Arab",
+      "short_code": "zsm",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    },
+    {
+      "fallback_sources": [],
+      "filters": [
+        "fixed_quality_filter_v0",
+        "fixed_dedup_filter_v0"
+      ],
+      "fineweb2_subset": "zul_Latn",
+      "language_id": "zul_Latn",
+      "short_code": "zul",
+      "source_selection": "priority_order",
+      "split": {
+        "train": "source_default_train",
+        "validation": "heldout_per_language"
+      },
+      "target_quota": "runtime_uniform_D_tot_over_K"
+    }
+  ],
+  "schema_version": 1,
+  "sources_priority": [
+    {
+      "priority": 1,
+      "role": "native_hq_if_available",
+      "source_id": "native_high_quality"
+    },
+    {
+      "priority": 2,
+      "role": "hq_web_for_supported_languages",
+      "source_id": "epfml/FineWeb2-HQ"
+    },
+    {
+      "priority": 3,
+      "role": "curated_native_floor",
+      "source_id": "wikimedia/wikipedia"
+    },
+    {
+      "priority": 4,
+      "role": "coverage_backbone",
+      "source_id": "HuggingFaceFW/fineweb-2"
+    },
+    {
+      "priority": 5,
+      "role": "english_zh_ja_ar_capability_mix",
+      "source_id": "capability_anchors"
+    }
+  ],
+  "status": "frozen_for_config_generation",
+  "study_id": "multilingual_moe_v1",
+  "target_quota_expression": "D_t = D_tot / K",
+  "target_quota_policy": "uniform_per_active_language_at_runtime",
+  "unit": "tokens"
+}

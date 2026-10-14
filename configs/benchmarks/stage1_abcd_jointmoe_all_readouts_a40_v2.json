@@ -1,0 +1,96 @@
+{
+  "schema": "stage1_jointmoe_benchmark_profile/v4",
+  "base_profile": "stage1_abcd_jointmoe_final_a40.json",
+  "base_profile_sha256": "365939690bd10a34142673bbf2807f7b6ab73b151f64d2ebb40ffe9487e4597d",
+  "campaign_id": "stage1_abcd_jointmoe_all_readouts_a40_v2",
+  "output_root": "../../outputs/stage1_benchmark_jointmoe/stage1_abcd_jointmoe_all_readouts_a40_v2",
+  "budget": {
+    "hardware": "A40",
+    "max_gpu_hours": 2592.0
+  },
+  "selection": {
+    "checkpoint_policy": "all_declared_readouts",
+    "canonical_release": {
+      "ladders": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "experts": [
+        1,
+        4,
+        16,
+        32
+      ],
+      "languages": [
+        1,
+        12,
+        50,
+        200
+      ],
+      "seed": 1234,
+      "nominal_tokens_by_ladder": {
+        "A": [
+          500000000,
+          1000000000,
+          2000000000,
+          4000000000,
+          8000000000
+        ],
+        "B": [
+          500000000,
+          1000000000,
+          2000000000,
+          4000000000,
+          8000000000,
+          16000000000
+        ],
+        "C": [
+          500000000,
+          1000000000,
+          2000000000,
+          4000000000,
+          8000000000,
+          16000000000,
+          32000000000
+        ],
+        "D": [
+          500000000,
+          1000000000,
+          2000000000,
+          4000000000,
+          8000000000,
+          16000000000,
+          32000000000
+        ]
+      }
+    },
+    "b_seed_replication": {
+      "ladder": "B",
+      "experts": [
+        1,
+        16,
+        32
+      ],
+      "languages": [
+        1,
+        12,
+        200
+      ],
+      "additional_seeds": [
+        5678,
+        91011
+      ],
+      "nominal_tokens": [
+        500000000,
+        1000000000,
+        2000000000,
+        4000000000,
+        8000000000,
+        16000000000
+      ],
+      "replication_role": "additional_independent_training_seed"
+    }
+  }
+}

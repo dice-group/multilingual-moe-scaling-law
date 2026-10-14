@@ -1,0 +1,2 @@
+# Delivered evidence and scoring integrity; no Git, GPU, corpus or private receipts.
+tests.test_submission_replay

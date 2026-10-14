@@ -1,0 +1,12 @@
+{
+  "campaign_plan": "outputs/law_search/coverage_exponents_v1/plan.json",
+  "output_root": "outputs/paper_results/allocation_doubling_v1",
+  "coverages": [12, 50, 200],
+  "forms": ["RN14-stored-reuse", "RN14-stored-data-exponent", "RN14-stored-shared-exponent", "RN15-stored-separate-exponents"],
+  "primary": "RN14-stored-reuse",
+  "cohort": "intersection across the three registered coverages",
+  "architecture_mapping": "piecewise linear stored count versus active count at fixed E; endpoint secant outside support, explicitly extrapolated",
+  "observed_check": "adjacent recorded architectures; match data-duration multiplier to active-size ratio; linear-log and PCHIP-log observation interpolation within support only",
+  "weights": "equal configurations within each K/regime/support, equal readouts within configuration, equal cohort languages within readout",
+  "near_tie_nats": 0.001
+}

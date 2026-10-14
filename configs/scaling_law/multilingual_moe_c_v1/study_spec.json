@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "study_id": "multilingual_moe_c_v1",
+  "inherits": {
+    "spec_path": "../multilingual_moe_ab_v2/study_spec.json",
+    "spec_sha256": "fb7f389b36ac2d9f46b33897bc1579ed7ee038063e27aac667f990491f296711",
+    "historical_spec_sha256": "f629380f3afa48d1e06b5e04d01f7a6fc85c34601d3c3b9d5bcb3a4de0123028"
+  },
+  "axes": {
+    "experts": [
+      1,
+      4,
+      16,
+      32
+    ],
+    "language_counts": [
+      1,
+      12,
+      50,
+      200
+    ],
+    "ladders": [
+      {
+        "id": "C",
+        "num_attention_heads": 16,
+        "num_layers": 16,
+        "hidden_size": 1024,
+        "ffn_hidden_size": 3072,
+        "N_act": 349175808,
+        "N_act_nonembed": 218103808,
+        "D_max_tokens": 32000000000
+      }
+    ]
+  },
+  "training_policy": {
+    "peak_learning_rate": 0.0002,
+    "warmup_tokens": 130000000,
+    "schedule": "warmup, stable, then linear decay to zero over the final 20% of D_max",
+    "checkpoint_horizons_tokens": {
+      "C": [
+        500000000,
+        1000000000,
+        2000000000,
+        4000000000,
+        8000000000,
+        16000000000,
+        32000000000
+      ]
+    }
+  },
+  "execution_policy": {
+    "E1_E4_E16": {
+      "nproc_per_node": 1,
+      "expert_model_parallel_size": 1,
+      "data_parallel_size": 1,
+      "moe_dispatcher": "allgather",
+      "cuda_graph_impl": "transformer_engine",
+      "cuda_graph_scope": "attn",
+      "cuda_graph_warmup_steps": 5,
+      "te_rng_tracker": true,
+      "nccl_graph_register": 0,
+      "optimizer_moments": "FP32 AdamW defaults"
+    },
+    "E32": {
+      "nproc_per_node": 2,
+      "expert_model_parallel_size": 2,
+      "data_parallel_size": 2,
+      "moe_dispatcher": "alltoall",
+      "overlap_moe_expert_parallel_comm": true,
+      "delay_wgrad_compute": true,
+      "distributed_optimizer": true,
+      "cuda_graph_impl": "transformer_engine",
+      "cuda_graph_scope": "attn",
+      "cuda_graph_warmup_steps": 5,
+      "te_rng_tracker": true,
+      "nccl_graph_register": 0,
+      "runtime_environment": {
+        "PROOF_BIND_LOCAL_RANK_CPUS": "socket",
+        "PROOF_ENABLE_MOE_A2A_CPU_SPLIT_LISTS": "1"
+      },
+      "optimizer_moments": "FP32 AdamW defaults"
+    }
+  },
+  "run_validity_policy": {
+    "invalid_if": [
+      "target token accounting is incomplete",
+      "required full-state checkpoint is missing or corrupt",
+      "loss or gradient is non-finite",
+      "any required per-language evaluation is missing",
+      "any token is dropped by MoE routing",
+      "configuration or artifact hashes differ from the frozen plan",
+      "expert-parallel routing replicas disagree during validation"
+    ]
+  }
+}

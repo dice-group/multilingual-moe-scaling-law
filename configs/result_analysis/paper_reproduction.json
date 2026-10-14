@@ -1,0 +1,155 @@
+{
+  "schema": "stage1-paper-reproduction/v1",
+  "baseline_commit": "snapshot-5c4286a39b16f04a",
+  "paper_commit": "snapshot-685d01a8deb12f3f",
+  "analysis": {
+    "version": "stage1-paper-v2",
+    "main_law": "RN14-stored-reuse",
+    "historical_inner_selected": "RN13-psi-tied",
+    "allocation_predictor": "M6-ND",
+    "main_table": [
+      {
+        "model": "Chinchilla-target-local"
+      },
+      {
+        "model": "JointMoE-JH-local"
+      },
+      {
+        "model": "ATLAS-full-active-positive-T100-L10"
+      },
+      {
+        "model": "ATLAS-full-total-positive-T100-L10"
+      },
+      {
+        "model": "J0"
+      },
+      {
+        "model": "M2"
+      },
+      {
+        "model": "M5-ND"
+      },
+      {
+        "model": "RN14-stored-reuse"
+      }
+    ],
+    "scope": "Five current paper results. No training, evaluation or nonlinear law refitting. Historical v1 remains unchanged."
+  },
+  "input_files": 195,
+  "input_profile": "configs/result_analysis/stage1_paper_v2.json",
+  "asset_source": "external/research/scaling/stage1_paper_naacl2027_scaling_laws",
+  "smoke": [
+    "capacity_response",
+    "scaling_law_fit"
+  ],
+  "full": [
+    "capacity_response",
+    "scaling_law_fit",
+    "compute_allocation",
+    "language_preservation",
+    "downstream_evaluations",
+    "routing_analysis",
+    "compute_allocation.inventory"
+  ],
+  "assets": [
+    {
+      "path": "figures/main/fig_compute_overview.pdf",
+      "sha256": "7adadaaaf94e74116e8747151a548d365c94cbf7dc731d0517e185eda1f3722b",
+      "placement": "main",
+      "owner": "compute_allocation.inventory",
+      "delivery": "retained_asset_verification"
+    },
+    {
+      "path": "figures/main/fig_joint_capacity_response.pdf",
+      "sha256": "2f99dc401c590af1f0d402c64656766cbba88f0845967051343cfb88aacf7c38",
+      "placement": "main",
+      "owner": "capacity_response",
+      "delivery": "retained_asset_verification"
+    },
+    {
+      "path": "tables/main/table_validation.tex",
+      "sha256": "d66eb8b5d0b0c319ece38c962802005d69e71feef6151521455532455978b39e",
+      "placement": "main",
+      "owner": "scaling_law_fit",
+      "delivery": "retained_asset_verification"
+    },
+    {
+      "path": "figures/main/fig_fitted_allocation_language_shift.pdf",
+      "sha256": "20ed3f0bf02a2835aed50b046c1e5f019847e5b8a81315562e9716c06309ac80",
+      "placement": "main",
+      "owner": "compute_allocation",
+      "delivery": "retained_asset_verification"
+    },
+    {
+      "path": "figures/appendix/fig_joint_story_pressure.pdf",
+      "sha256": "71cd66cbe7e224c0428260fd383aed9b9a74a041d412e3b5d10b31208d1332dc",
+      "placement": "appendix",
+      "owner": "capacity_response",
+      "delivery": "retained_asset_verification"
+    },
+    {
+      "path": "figures/appendix/fig_joint_story_duration.pdf",
+      "sha256": "895402154fad9c1eae89bc70c2ec45ea3166faabbd5099ad3440dca7e295c74b",
+      "placement": "appendix",
+      "owner": "scaling_law_fit",
+      "delivery": "retained_asset_verification"
+    },
+    {
+      "path": "figures/appendix/fig_fitted_allocation_language_shift.pdf",
+      "sha256": "9045031d1db94d75619e314bec43779190c5866192df4851a88b21546993fb24",
+      "placement": "appendix",
+      "owner": "compute_allocation",
+      "delivery": "retained_asset_verification"
+    },
+    {
+      "path": "figures/main/fig_joint_story_allocation.pdf",
+      "sha256": "7d1750e2d203a01f17302bd47abda06b31748cbb8329afbaff9b5bb77ba5b19f",
+      "placement": "appendix",
+      "owner": "language_preservation",
+      "delivery": "retained_asset_verification"
+    },
+    {
+      "path": "figures/appendix/fig_language_expansion_cost.pdf",
+      "sha256": "c78c8be72a3ff836f74ab3fed3e4ecd08925b7e850db03bc93fb8e80ae00161d",
+      "placement": "appendix",
+      "owner": "language_preservation",
+      "delivery": "retained_asset_verification"
+    },
+    {
+      "path": "tables/appendix/table_benchmark_coverage.tex",
+      "sha256": "f76b48b5fb24a5549273f6412e812047815573b9129b146a93295a90976d4fb9",
+      "placement": "appendix",
+      "owner": "downstream_evaluations",
+      "delivery": "retained_asset_verification"
+    },
+    {
+      "path": "figures/appendix/fig_benchmark_transfer.pdf",
+      "sha256": "57b87b7bf7b6b91503651e7ec1773d51d911e6f3a8e143f52819bd8966c77525",
+      "placement": "appendix",
+      "owner": "downstream_evaluations",
+      "delivery": "retained_asset_verification"
+    },
+    {
+      "path": "tables/appendix/table_benchmark_interactions.tex",
+      "sha256": "7521afe493977ba80bef4dbfd482e085e630354d4b509a3357d6959a63f2d0c7",
+      "placement": "appendix",
+      "owner": "downstream_evaluations",
+      "delivery": "retained_asset_verification"
+    },
+    {
+      "path": "figures/appendix/fig_benchmark_decisions.pdf",
+      "sha256": "57a041b7ca74d7f68f8d92d2c60f5cbf474ff688ff96ec11c45293f9b63be50f",
+      "placement": "appendix",
+      "owner": "downstream_evaluations",
+      "delivery": "retained_asset_verification"
+    },
+    {
+      "path": "figures/appendix/fig_routing_summary_inferno.pdf",
+      "sha256": "52e3058b543213abc5bdd8e876e8193e0816626222363fe726f6a828076f6448",
+      "placement": "appendix",
+      "owner": "routing_analysis",
+      "delivery": "retained_asset_verification"
+    }
+  ],
+  "replay_scope": "Numerical replay from observations, coefficients, predictions and retained summaries. No new training, GPU evaluation, optimizer fitting, raw-router replay or bootstrap resampling."
+}

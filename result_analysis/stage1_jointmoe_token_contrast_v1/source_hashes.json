@@ -1,0 +1,8 @@
+{
+  "outputs/paper_refit/full_lbfgsb_20260926/source/paper_fit_snapshot/atlas_comparison_workflow/model.py": "1ca8b461c782fb58631c344c5457230b68b59ffeb1455fc8b2fa2e2ff9fe2f07",
+  "outputs/paper_refit/full_lbfgsb_20260926/source/paper_fit_snapshot/atlas_comparison_workflow/numerics.py": "75b47a1bef46b8d64621fe664a52c969816c696eb07cd7669c4c58583cb0b5cf",
+  "outputs/paper_refit/full_lbfgsb_20260926/source/paper_fit_snapshot/atlas_comparison_workflow/recovery_numerics.py": "1e0ba3861aa4dae56054f5c7f25d79291c75632184b6dfb816029b447be6f7c4",
+  "outputs/paper_refit/full_lbfgsb_20260926/source/paper_fit_snapshot/paper_refit_workflow/inputs.py": "41113d396de66a47dd1eb040b6aef3ab7a5a8b44f6de98d8567106cb2a8a5eb1",
+  "outputs/paper_refit/full_lbfgsb_20260926/source/paper_fit_snapshot/fit.py": "9028f6bf9eedc30d07f726a3bef4907b720af8a555dcf3597660653b62a57ac2",
+  "outputs/paper_refit/full_lbfgsb_20260926/source/paper_fit_snapshot/scoring.py": "ee24240fd635c29e512859b7ebc96717b083f2510d7c1cdef193648fec48dfd7"
+}

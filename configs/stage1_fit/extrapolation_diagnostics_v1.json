@@ -1,0 +1,15 @@
+{
+  "schema_version": "stage1_extrapolation_diagnostics_profile/v1",
+  "output_root": "result_analysis/stage1_extrapolation_diagnostics_v1",
+  "preserved_m6_source_commit": "snapshot-d1deec69c23b00b9",
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 20260905,
+  "inputs": {
+    "recovery_plan": {"path": "result_analysis/stage1_scaling_fit_baseline_recovery_v1/control/recovery_plan.json", "file_sha256": "a5b5dc1ee43476d112a916520fcc0a46b0e9f6708215a7e0cf632c83abde3cc1"},
+    "comparison": {"path": "result_analysis/stage1_scaling_fit_baseline_recovery_v1/reports/primary_baseline_comparison.json", "file_sha256": "2d2b60b7fd6e39e61fa83321a39ae3095e06dd6e2ad3bc3a2d0cd3da461f3402"},
+    "m6_index": {"path": "result_analysis/stage1_m5_m6_v1/m5_m6/screen-8b73f5b43c52.json", "file_sha256": "e5f2dee558711efcc2cdc0fefabbcc0b96d18d50eaf0ba6edf10e407027b9696"},
+    "m6_report": {"path": "result_analysis/stage1_m5_m6_v1/reports/screen_report.json", "file_sha256": "b6a9cecd24817c9375565ed48b446e71d1e2f35be6b52d68504ee7ccd9739e61"},
+    "m6_audit": {"path": "result_analysis/stage1_m5_m6_v1/reports/screen_numerical_audit.json", "file_sha256": "fb32423499114a2966d2dd3e6f75277d18c128694b3134727866d8942e8c8289"},
+    "release_manifest": {"path": "result_analysis/stage1_abcd_jointmoe_x1_v1/release_manifest.json", "file_sha256": "807b2476ff15c71f1164b92b4c8c12136c7ca9f610ce85acc24ea4a99723e806"}
+  }
+}

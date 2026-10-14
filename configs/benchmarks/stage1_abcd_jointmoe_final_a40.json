@@ -1,0 +1,307 @@
+{
+  "schema": "stage1_jointmoe_benchmark_profile/v3",
+  "campaign_id": "stage1_abcd_jointmoe_final_a40_v1",
+  "repo_root": "../..",
+  "harness_root": "../../external/lm-evaluation-harness",
+  "harness_commit": "snapshot-665b6115b25df405",
+  "bridge_root": "../../external/Megatron-Bridge",
+  "bridge_commit": "snapshot-f35ef541d8fbee40",
+  "bridge_python": "/opt/conda/envs/bridge-train-a40-cu126/bin/python",
+  "lm_eval_python": "/opt/conda/envs/lm_eval/bin/python",
+  "hf_home": "/scratch/shared_cache/tmp/stage1_benchmark_hf_cache",
+  "output_root": "../../outputs/stage1_benchmark_jointmoe/stage1_abcd_jointmoe_final_a40_v1",
+  "source": {
+    "release_name": "stage1_abcd_jointmoe_x1_v1",
+    "release_status": "analysis_ready",
+    "release_manifest": "../../result_analysis/stage1_abcd_jointmoe_x1_v1/release_manifest.json",
+    "release_manifest_sha256": "807b2476ff15c71f1164b92b4c8c12136c7ca9f610ce85acc24ea4a99723e806"
+  },
+  "learning_rate_contract": {
+    "name": "jointmoe_x1",
+    "formula": "exp(8.39 - 0.81 * ln(N_act_nonembed) - 0.25 * ln(E))",
+    "relative_tolerance": 1e-12
+  },
+  "tokenizer": {
+    "type": "SentencePieceTokenizer",
+    "model": "../../outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenizer/sp_unigram_64k/tokenizer.model",
+    "sha256": "54a25a061df0cfba143ca8af3380e4d6c4caccf2ea1c80d25ff011c407c187e8",
+    "vocab_size": 64000,
+    "context_token_id": 2,
+    "pad_token_id": 3
+  },
+  "request_sets": {
+    "english": {
+      "pilot_id": "stage1_abcd_jointmoe_final_a40_v1_english",
+      "sampling": {
+        "seed": 20260828,
+        "examples_per_language": 100,
+        "shared_population": 500
+      },
+      "benchmarks": [
+        {
+          "id": "belebele_cloze",
+          "category": "reading_comprehension",
+          "selector": "belebele",
+          "languages_expected": 1,
+          "languages": [
+            "eng_Latn"
+          ],
+          "sampling": "parallel_shared_ids",
+          "shared_population": 500
+        },
+        {
+          "id": "okapi_hellaswag",
+          "category": "commonsense_reasoning",
+          "variant": "original_english",
+          "languages_expected": 1,
+          "languages": [
+            "en"
+          ],
+          "sampling": "parallel_shared_ids",
+          "shared_population": 500
+        },
+        {
+          "id": "xstorycloze",
+          "category": "narrative_reasoning",
+          "selector": "xstorycloze",
+          "languages_expected": 1,
+          "languages": [
+            "en"
+          ],
+          "sampling": "parallel_shared_ids",
+          "shared_population": 500
+        },
+        {
+          "id": "xcopa",
+          "category": "causal_reasoning",
+          "variant": "original_english",
+          "languages_expected": 1,
+          "languages": [
+            "en"
+          ],
+          "sampling": "parallel_shared_ids",
+          "shared_population": 100
+        },
+        {
+          "id": "uhura_arc_easy",
+          "category": "science_qa",
+          "languages_expected": 1,
+          "sampling": "parallel_shared_ids",
+          "shared_population": 300,
+          "dataset_configs": {
+            "en": "en_multiple_choice"
+          }
+        },
+        {
+          "id": "global_mmlu_cloze",
+          "category": "knowledge_qa",
+          "languages_expected": 1,
+          "sampling": "equal_stratified_domains",
+          "languages": [
+            "en"
+          ]
+        }
+      ]
+    },
+    "multilingual": {
+      "pilot_id": "stage1_abcd_jointmoe_final_a40_v1_multilingual",
+      "sampling": {
+        "seed": 20260828,
+        "examples_per_language": 100,
+        "shared_population": 500
+      },
+      "benchmarks": [
+        {
+          "id": "belebele_cloze",
+          "category": "reading_comprehension",
+          "selector": "belebele",
+          "languages_expected": 122,
+          "sampling": "parallel_shared_ids",
+          "shared_population": 500
+        },
+        {
+          "id": "okapi_hellaswag",
+          "category": "commonsense_reasoning",
+          "languages_expected": 30,
+          "sampling": "parallel_shared_ids",
+          "shared_population": 500,
+          "languages": [
+            "ar",
+            "bn",
+            "ca",
+            "da",
+            "de",
+            "es",
+            "eu",
+            "fr",
+            "gu",
+            "hi",
+            "hr",
+            "hu",
+            "hy",
+            "id",
+            "it",
+            "kn",
+            "ml",
+            "mr",
+            "ne",
+            "nl",
+            "pt",
+            "ro",
+            "ru",
+            "sk",
+            "sr",
+            "sv",
+            "ta",
+            "te",
+            "uk",
+            "vi"
+          ]
+        },
+        {
+          "id": "xstorycloze",
+          "category": "narrative_reasoning",
+          "selector": "xstorycloze",
+          "languages_expected": 11,
+          "sampling": "parallel_shared_ids",
+          "shared_population": 500
+        },
+        {
+          "id": "xcopa",
+          "category": "causal_reasoning",
+          "selector": "xcopa",
+          "languages_expected": 11,
+          "sampling": "parallel_shared_ids",
+          "shared_population": 500
+        },
+        {
+          "id": "uhura_arc_easy",
+          "category": "science_qa",
+          "languages_expected": 7,
+          "sampling": "parallel_shared_ids",
+          "shared_population": 300,
+          "dataset_configs": {
+            "am": "am_multiple_choice",
+            "en": "en_multiple_choice",
+            "ha": "ha_multiple_choice",
+            "nso": "nso_multiple_choice",
+            "sw": "sw_multiple_choice",
+            "yo": "yo_multiple_choice",
+            "zu": "zu_multiple_choice"
+          }
+        },
+        {
+          "id": "global_mmlu_cloze",
+          "category": "knowledge_qa",
+          "languages_expected": 15,
+          "sampling": "equal_stratified_domains",
+          "languages": [
+            "ar",
+            "bn",
+            "de",
+            "en",
+            "es",
+            "fr",
+            "hi",
+            "id",
+            "it",
+            "ja",
+            "ko",
+            "pt",
+            "sw",
+            "yo",
+            "zh"
+          ]
+        }
+      ]
+    }
+  },
+  "parity": {
+    "requests": 8,
+    "raw_nll_abs_tolerance": 1e-06,
+    "nll_sum_relative_tolerance": 1e-07
+  },
+  "budget": {
+    "hardware": "A40",
+    "max_gpu_hours": 408.0
+  },
+  "selection": {
+    "checkpoint_policy": "final_only",
+    "canonical_release": {
+      "ladders": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "experts": [
+        1,
+        4,
+        16,
+        32
+      ],
+      "languages": [
+        1,
+        12,
+        50,
+        200
+      ],
+      "seed": 1234
+    },
+    "b_seed_replication": {
+      "ladder": "B",
+      "experts": [
+        1,
+        16,
+        32
+      ],
+      "languages": [
+        1,
+        12,
+        200
+      ],
+      "additional_seeds": [
+        5678,
+        91011
+      ],
+      "replication_role": "additional_independent_training_seed"
+    }
+  },
+  "runtime_estimation": {
+    "policy": "largest_ladder_per_expert_and_request_set",
+    "ladder": "D",
+    "english_language_count": 1,
+    "multilingual_language_count": 12,
+    "safety_factor": 1.25
+  },
+  "evaluation_topology_by_world_size": {
+    "1": {
+      "nodes": 1,
+      "gpus_per_node": 1,
+      "max_gpu_hours": 4
+    },
+    "2": {
+      "nodes": 1,
+      "gpus_per_node": 2,
+      "max_gpu_hours": 8
+    },
+    "4": {
+      "nodes": 2,
+      "gpus_per_node": 2,
+      "max_gpu_hours": 16
+    }
+  },
+  "a40_model_override_policy": {
+    "base": {
+      "attention_backend": "unfused",
+      "masked_softmax_fusion": false
+    },
+    "moe": {
+      "use_transformer_engine_op_fuser": false
+    },
+    "expert_parallel": {
+      "delay_wgrad_compute": false,
+      "overlap_moe_expert_parallel_comm": false
+    }
+  }
+}

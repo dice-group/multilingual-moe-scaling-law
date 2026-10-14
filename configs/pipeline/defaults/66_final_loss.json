@@ -1,0 +1,10 @@
+{
+  "final_loss": {
+    "allow_missing": false,
+    "enabled": false,
+    "inject_train_results": true,
+    "log_globs": [],
+    "output_dir": "outputs/pipeline_runs/default/final_loss",
+    "require_training_complete": true
+  }
+}

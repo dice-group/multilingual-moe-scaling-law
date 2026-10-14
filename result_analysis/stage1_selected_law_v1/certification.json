@@ -1,0 +1,845 @@
+{
+  "fits": [
+    {
+      "arm": "lbfgsb_box",
+      "bounds": [
+        {
+          "expansions": 0,
+          "kind": "positive",
+          "lower": 0.01,
+          "name": "alpha_e1",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "positive",
+          "lower": 0.01,
+          "name": "alpha_e32",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "positive",
+          "lower": 0.01,
+          "name": "beta_e1",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "positive",
+          "lower": 0.01,
+          "name": "beta_e32",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "delta",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "omega",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "phi_e1",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "phi_e32",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "psi_e1",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "psi_e32",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "gamma_n",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "eta_family",
+          "upper": 0.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "eta_script",
+          "upper": 0.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "gamma_other",
+          "upper": 0.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "zeta",
+          "upper": 0.5
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "lambda_repetition",
+          "upper": 10.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -2.0,
+          "name": "rho",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "kappa",
+          "upper": 0.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "chi",
+          "upper": 0.0
+        }
+      ],
+      "certified": true,
+      "complete": true,
+      "delta": 0.13838697257407773,
+      "effective_exponents": {
+        "alpha_e1_K200": 0.2929265669547628,
+        "alpha_e32_K200": 0.39243628479279286,
+        "beta_e1_K200": 0.33855770585033484,
+        "beta_e32_K200": 0.3371059401463812
+      },
+      "equalities": [
+        [
+          6,
+          7
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "error": null,
+      "fold": "largest_N_act",
+      "heldout_scores_computed": false,
+      "independent_training_replay_max_gap": 1.7763568394002505e-15,
+      "initial_starts": 48,
+      "model": "RN12-stored-common-K",
+      "numerical_policy": {
+        "acceptance": "training-only convergence, original-coordinate KKT, restart completeness, joint audit, independent equation replay",
+        "inner_solver": "conditioned convex Huber with IRLS fallback; powered-sum uses joint fitting",
+        "kkt_tolerance": 1e-08,
+        "lbfgsb": {
+          "ftol": 1e-15,
+          "gtol": 1e-05,
+          "maxcor": 20,
+          "maxiter": 20000,
+          "maxls": 50
+        },
+        "native_starts": [
+          16,
+          64
+        ],
+        "objective": "inherited fold-local weighted Huber and model-specific ridge; no log-loss change",
+        "objective_scale": 10000.0,
+        "optimizer": "L-BFGS-B",
+        "policy": "lbfgsb_box",
+        "positive_effective_exponents": false,
+        "positivity": "diagnostic only for box arms; negative optima retained and block automatic adoption, never censored",
+        "prediction_tolerance": 0.0001,
+        "recovery": "no outcome-driven restart escalation or hyperparameter tuning",
+        "relative_objective_tolerance": 1e-06,
+        "replay_tolerance": 1e-10,
+        "restart_change": "48 matched training-only shared starts replace historical heterogeneous grids; controls use identical starts",
+        "sealing": "archive every outcome; manuscript adoption is a separate complete-evidence review",
+        "seed": 2026092601,
+        "shared_starts": 48,
+        "slsqp": {
+          "ftol": 1e-12,
+          "maxiter": 4000
+        },
+        "version": "paper_full_refit_20260926_v1"
+      },
+      "original_receipt_sha256": "7a516338009c6bf82dd61205e08d57932d47b5dd2ad5025221836601eede0e06",
+      "positive_effective_exponents": true,
+      "regularization": {
+        "gamma_n_scale": 0.1,
+        "m2_reference_objective": 0.00047497664598537386,
+        "phi_endpoint_scale": 0.05,
+        "psi_endpoint_scale": 0.05,
+        "schema_version": "stage1_m5_m6_ridge/v1",
+        "strength": 0.0
+      },
+      "selected_kkt": 3.934937852334604e-10,
+      "selected_objective": 0.00022273360744770932
+    },
+    {
+      "arm": "lbfgsb_box",
+      "bounds": [
+        {
+          "expansions": 0,
+          "kind": "positive",
+          "lower": 0.01,
+          "name": "alpha_e1",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "positive",
+          "lower": 0.01,
+          "name": "alpha_e32",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "positive",
+          "lower": 0.01,
+          "name": "beta_e1",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "positive",
+          "lower": 0.01,
+          "name": "beta_e32",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "delta",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "omega",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "phi_e1",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "phi_e32",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "psi_e1",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "psi_e32",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "gamma_n",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "eta_family",
+          "upper": 0.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "eta_script",
+          "upper": 0.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "gamma_other",
+          "upper": 0.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "zeta",
+          "upper": 0.5
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "lambda_repetition",
+          "upper": 10.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -2.0,
+          "name": "rho",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "kappa",
+          "upper": 0.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "chi",
+          "upper": 0.0
+        }
+      ],
+      "certified": true,
+      "complete": true,
+      "delta": 0.11678648586269935,
+      "effective_exponents": {
+        "alpha_e1_K200": 0.3094348004394491,
+        "alpha_e32_K200": 0.42070556226287165,
+        "beta_e1_K200": 0.31779308174056486,
+        "beta_e32_K200": 0.3191922626757772
+      },
+      "equalities": [
+        [
+          6,
+          7
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "error": null,
+      "fold": "E32",
+      "heldout_scores_computed": false,
+      "independent_training_replay_max_gap": 1.7763568394002505e-15,
+      "initial_starts": 48,
+      "model": "RN12-stored-common-K",
+      "numerical_policy": {
+        "acceptance": "training-only convergence, original-coordinate KKT, restart completeness, joint audit, independent equation replay",
+        "inner_solver": "conditioned convex Huber with IRLS fallback; powered-sum uses joint fitting",
+        "kkt_tolerance": 1e-08,
+        "lbfgsb": {
+          "ftol": 1e-15,
+          "gtol": 1e-05,
+          "maxcor": 20,
+          "maxiter": 20000,
+          "maxls": 50
+        },
+        "native_starts": [
+          16,
+          64
+        ],
+        "objective": "inherited fold-local weighted Huber and model-specific ridge; no log-loss change",
+        "objective_scale": 10000.0,
+        "optimizer": "L-BFGS-B",
+        "policy": "lbfgsb_box",
+        "positive_effective_exponents": false,
+        "positivity": "diagnostic only for box arms; negative optima retained and block automatic adoption, never censored",
+        "prediction_tolerance": 0.0001,
+        "recovery": "no outcome-driven restart escalation or hyperparameter tuning",
+        "relative_objective_tolerance": 1e-06,
+        "replay_tolerance": 1e-10,
+        "restart_change": "48 matched training-only shared starts replace historical heterogeneous grids; controls use identical starts",
+        "sealing": "archive every outcome; manuscript adoption is a separate complete-evidence review",
+        "seed": 2026092601,
+        "shared_starts": 48,
+        "slsqp": {
+          "ftol": 1e-12,
+          "maxiter": 4000
+        },
+        "version": "paper_full_refit_20260926_v1"
+      },
+      "original_receipt_sha256": "4309e66de6e24d460a6013d752ec476e067dc4260f2e99e0112c170bc1c45647",
+      "positive_effective_exponents": true,
+      "regularization": {
+        "gamma_n_scale": 0.1,
+        "m2_reference_objective": 0.0005617360108680335,
+        "phi_endpoint_scale": 0.05,
+        "psi_endpoint_scale": 0.05,
+        "schema_version": "stage1_m5_m6_ridge/v1",
+        "strength": 0.0
+      },
+      "selected_kkt": 3.2563964640497993e-09,
+      "selected_objective": 0.00023192424870068344
+    },
+    {
+      "arm": "lbfgsb_box",
+      "bounds": [
+        {
+          "expansions": 0,
+          "kind": "positive",
+          "lower": 0.01,
+          "name": "alpha_e1",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "positive",
+          "lower": 0.01,
+          "name": "alpha_e32",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "positive",
+          "lower": 0.01,
+          "name": "beta_e1",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "positive",
+          "lower": 0.01,
+          "name": "beta_e32",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "delta",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "omega",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "phi_e1",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "phi_e32",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "psi_e1",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "psi_e32",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "gamma_n",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "eta_family",
+          "upper": 0.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "eta_script",
+          "upper": 0.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "gamma_other",
+          "upper": 0.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "zeta",
+          "upper": 0.5
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "lambda_repetition",
+          "upper": 10.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -2.0,
+          "name": "rho",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "kappa",
+          "upper": 0.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "chi",
+          "upper": 0.0
+        }
+      ],
+      "certified": true,
+      "complete": true,
+      "delta": 0.12405712260216911,
+      "effective_exponents": {
+        "alpha_e1_K200": 0.2973813966491168,
+        "alpha_e32_K200": 0.40905004858896077,
+        "beta_e1_K200": 0.31358256516417315,
+        "beta_e32_K200": 0.3128300417540186
+      },
+      "equalities": [
+        [
+          6,
+          7
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "error": null,
+      "fold": "K200_common_languages",
+      "heldout_scores_computed": false,
+      "independent_training_replay_max_gap": 1.7763568394002505e-15,
+      "initial_starts": 48,
+      "model": "RN12-stored-common-K",
+      "numerical_policy": {
+        "acceptance": "training-only convergence, original-coordinate KKT, restart completeness, joint audit, independent equation replay",
+        "inner_solver": "conditioned convex Huber with IRLS fallback; powered-sum uses joint fitting",
+        "kkt_tolerance": 1e-08,
+        "lbfgsb": {
+          "ftol": 1e-15,
+          "gtol": 1e-05,
+          "maxcor": 20,
+          "maxiter": 20000,
+          "maxls": 50
+        },
+        "native_starts": [
+          16,
+          64
+        ],
+        "objective": "inherited fold-local weighted Huber and model-specific ridge; no log-loss change",
+        "objective_scale": 10000.0,
+        "optimizer": "L-BFGS-B",
+        "policy": "lbfgsb_box",
+        "positive_effective_exponents": false,
+        "positivity": "diagnostic only for box arms; negative optima retained and block automatic adoption, never censored",
+        "prediction_tolerance": 0.0001,
+        "recovery": "no outcome-driven restart escalation or hyperparameter tuning",
+        "relative_objective_tolerance": 1e-06,
+        "replay_tolerance": 1e-10,
+        "restart_change": "48 matched training-only shared starts replace historical heterogeneous grids; controls use identical starts",
+        "sealing": "archive every outcome; manuscript adoption is a separate complete-evidence review",
+        "seed": 2026092601,
+        "shared_starts": 48,
+        "slsqp": {
+          "ftol": 1e-12,
+          "maxiter": 4000
+        },
+        "version": "paper_full_refit_20260926_v1"
+      },
+      "original_receipt_sha256": "b7e0049911ec27da3e65731bbc1f337b37e8819652e28f686b120dfda6c5e7aa",
+      "positive_effective_exponents": true,
+      "regularization": {
+        "gamma_n_scale": 0.1,
+        "m2_reference_objective": 0.00048787109804343174,
+        "phi_endpoint_scale": 0.05,
+        "psi_endpoint_scale": 0.05,
+        "schema_version": "stage1_m5_m6_ridge/v1",
+        "strength": 0.0
+      },
+      "selected_kkt": 8.328917644083176e-11,
+      "selected_objective": 0.00016116746833891868
+    },
+    {
+      "arm": "lbfgsb_box",
+      "bounds": [
+        {
+          "expansions": 0,
+          "kind": "positive",
+          "lower": 0.01,
+          "name": "alpha_e1",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "positive",
+          "lower": 0.01,
+          "name": "alpha_e32",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "positive",
+          "lower": 0.01,
+          "name": "beta_e1",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "positive",
+          "lower": 0.01,
+          "name": "beta_e32",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "delta",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "omega",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "phi_e1",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "phi_e32",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "psi_e1",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "psi_e32",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -1.0,
+          "name": "gamma_n",
+          "upper": 1.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "eta_family",
+          "upper": 0.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "eta_script",
+          "upper": 0.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "gamma_other",
+          "upper": 0.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "zeta",
+          "upper": 0.5
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "lambda_repetition",
+          "upper": 10.0
+        },
+        {
+          "expansions": 0,
+          "kind": "signed",
+          "lower": -2.0,
+          "name": "rho",
+          "upper": 2.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "kappa",
+          "upper": 0.0
+        },
+        {
+          "expansions": 0,
+          "kind": "nonnegative",
+          "lower": 0.0,
+          "name": "chi",
+          "upper": 0.0
+        }
+      ],
+      "certified": true,
+      "complete": true,
+      "delta": 0.1299986822155394,
+      "effective_exponents": {
+        "alpha_e1_K200": 0.3155244562723537,
+        "alpha_e32_K200": 0.4283636609932541,
+        "beta_e1_K200": 0.3147694891379888,
+        "beta_e32_K200": 0.31460220668296734
+      },
+      "equalities": [
+        [
+          6,
+          7
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "error": null,
+      "fold": "all_grid",
+      "heldout_scores_computed": false,
+      "independent_training_replay_max_gap": 1.7763568394002505e-15,
+      "initial_starts": 48,
+      "model": "RN12-stored-common-K",
+      "numerical_policy": {
+        "acceptance": "training-only convergence, original-coordinate KKT, restart completeness, joint audit, independent equation replay",
+        "inner_solver": "conditioned convex Huber with IRLS fallback; powered-sum uses joint fitting",
+        "kkt_tolerance": 1e-08,
+        "lbfgsb": {
+          "ftol": 1e-15,
+          "gtol": 1e-05,
+          "maxcor": 20,
+          "maxiter": 20000,
+          "maxls": 50
+        },
+        "native_starts": [
+          16,
+          64
+        ],
+        "objective": "inherited fold-local weighted Huber and model-specific ridge; no log-loss change",
+        "objective_scale": 10000.0,
+        "optimizer": "L-BFGS-B",
+        "policy": "lbfgsb_box",
+        "positive_effective_exponents": false,
+        "positivity": "diagnostic only for box arms; negative optima retained and block automatic adoption, never censored",
+        "prediction_tolerance": 0.0001,
+        "recovery": "no outcome-driven restart escalation or hyperparameter tuning",
+        "relative_objective_tolerance": 1e-06,
+        "replay_tolerance": 1e-10,
+        "restart_change": "48 matched training-only shared starts replace historical heterogeneous grids; controls use identical starts",
+        "sealing": "archive every outcome; manuscript adoption is a separate complete-evidence review",
+        "seed": 2026092601,
+        "shared_starts": 48,
+        "slsqp": {
+          "ftol": 1e-12,
+          "maxiter": 4000
+        },
+        "version": "paper_full_refit_20260926_v1"
+      },
+      "original_receipt_sha256": "1838ea5b5a1e95b2f12e8a3d6dd6c7fad75c8d6dbb07375d01af0d494a936571",
+      "positive_effective_exponents": true,
+      "regularization": {
+        "gamma_n_scale": 0.1,
+        "m2_reference_objective": 0.0005799346879717269,
+        "phi_endpoint_scale": 0.05,
+        "psi_endpoint_scale": 0.05,
+        "schema_version": "stage1_m5_m6_ridge/v1",
+        "strength": 0.0
+      },
+      "selected_kkt": 4.3478510914432905e-10,
+      "selected_objective": 0.00024169230859008388
+    }
+  ],
+  "scope": "Extracted original numerical certification; no recertification or new fitting."
+}

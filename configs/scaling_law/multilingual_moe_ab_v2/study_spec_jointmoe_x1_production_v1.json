@@ -1,0 +1,18 @@
+{
+  "inherits": {
+    "spec_path": "study_spec_jointmoe_paper_lr_v1.json",
+    "spec_sha256": "2e68e2690fbbe6639df963c152a7ac61c5d7ef9d57c459fdea0988e16e6a643d",
+    "historical_spec_sha256": "16298630e3579671692dc0cf4f7555fc86673782b536fd799b055cbde21231f9"
+  },
+  "status_date": "2026-08-20",
+  "scope": "Clean Stage-1 A+B production rerun with the a-priori JointMoE x1 LR rule",
+  "production_lr_decision": {
+    "status": "authorized_with_disclosed_boundary",
+    "selected_rule": "jointmoe_x1_aggregate_a_priori",
+    "support": "B-ladder H100 confirmation: x1 is the aggregate leader and passes three positive checks",
+    "limitation": "B/E1/K1 selected x4, so the preregistered confirmation decision is inconclusive_boundary",
+    "deferred_boundary_cell": "B/E1/K1:x4",
+    "automatic_per_cell_lr_selection": false,
+    "inference_scope": "Prospective uniform LR-law choice for the clean A+B rerun; not a claim that x1 is optimal in every cell"
+  }
+}

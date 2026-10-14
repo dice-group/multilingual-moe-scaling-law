@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "fixture_fineweb2_proxy": {
+      "type": "local_jsonl",
+      "role": "multilingual_coverage_backbone",
+      "domain": "web",
+      "quality_tier": "fixture",
+      "license": "repo_fixture",
+      "language_column": "language",
+      "text_column": "text",
+      "files": [
+        "outputs/sample_data/fixtures/multilingual_4lang/arb_Arab.jsonl",
+        "outputs/sample_data/fixtures/multilingual_4lang/hun_Latn.jsonl",
+        "outputs/sample_data/fixtures/multilingual_4lang/xho_Latn.jsonl",
+        "outputs/sample_data/fixtures/multilingual_4lang/zul_Latn.jsonl"
+      ]
+    },
+    "fineweb2": {
+      "type": "datatrove_fineweb2",
+      "role": "multilingual_coverage_backbone",
+      "domain": "web",
+      "quality_tier": "curated_web",
+      "license": "source_specific",
+      "url": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-2",
+      "availability_file": "configs/data_sources/fineweb2-language-distribution.csv",
+      "availability_language_column": "subset",
+      "availability_documents_column": "documents",
+      "availability_tokens_column": "words",
+      "availability_split_column": "split",
+      "availability_split": "train",
+      "intended_stage": "stage1_multilingual_foundation",
+      "status": "planned"
+    }
+  }
+}

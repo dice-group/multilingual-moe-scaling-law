@@ -1,0 +1,8 @@
+{
+  "summary": {
+    "gate_json": "outputs/pipeline_runs/default/gate.json",
+    "min_relative_improvement": 0.02,
+    "primary_metric": "final_loss",
+    "summary_csv": "outputs/pipeline_runs/default/summary.csv"
+  }
+}

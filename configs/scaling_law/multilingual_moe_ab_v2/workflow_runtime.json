@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "study_id": "multilingual_moe_ab_v2",
+  "output_root": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_optimized_v3",
+  "python_executable": "python",
+  "bridge_python_executable": "/opt/conda/envs/bridge-train/bin/python",
+  "seeds": {
+    "data": 42,
+    "model": 1234
+  },
+  "resources": {
+    "cpu": {
+      "partition": "normal",
+      "gres": "none",
+      "cpus_per_task": 8,
+      "mem": "64G",
+      "time": "24:00:00",
+      "module_init": "/etc/profile.d/z00_lmod.sh",
+      "modules": [
+        "toolchain/foss/2024a"
+      ],
+      "conda_base": "/opt/software/cluster/EB-SW/software/Miniforge3/25.3.0-3",
+      "conda_env": "/opt/conda/envs/bridge-train",
+      "extra_sbatch_flags": ["--export=NIL"]
+    },
+    "cpu_largemem": {
+      "partition": "normal",
+      "gres": "none",
+      "cpus_per_task": 32,
+      "mem": "256G",
+      "time": "72:00:00",
+      "module_init": "/etc/profile.d/z00_lmod.sh",
+      "modules": [
+        "toolchain/foss/2024a"
+      ],
+      "conda_base": "/opt/software/cluster/EB-SW/software/Miniforge3/25.3.0-3",
+      "conda_env": "/opt/conda/envs/bridge-train",
+      "extra_sbatch_flags": ["--export=NIL"]
+    },
+    "cpu_streaming": {
+      "partition": "normal",
+      "gres": "none",
+      "cpus_per_task": 8,
+      "mem": "64G",
+      "time": "72:00:00",
+      "module_init": "/etc/profile.d/z00_lmod.sh",
+      "modules": [
+        "toolchain/foss/2024a"
+      ],
+      "conda_base": "/opt/software/cluster/EB-SW/software/Miniforge3/25.3.0-3",
+      "conda_env": "/opt/conda/envs/bridge-train",
+      "extra_sbatch_flags": ["--export=NIL"]
+    },
+    "cpu_tokenizer": {
+      "partition": "largemem",
+      "gres": "none",
+      "cpus_per_task": 32,
+      "mem": "768G",
+      "time": "72:00:00",
+      "module_init": "/etc/profile.d/z00_lmod.sh",
+      "modules": [
+        "toolchain/foss/2024a"
+      ],
+      "conda_base": "/opt/software/cluster/EB-SW/software/Miniforge3/25.3.0-3",
+      "conda_env": "/opt/conda/envs/bridge-train",
+      "extra_sbatch_flags": ["--export=NIL"]
+    },
+    "h100": {
+      "partition": "gpu_h100",
+      "gres": "gpu:h100:1",
+      "cpus_per_task": 32,
+      "mem": "128G",
+      "time": "72:00:00",
+      "module_init": "/etc/profile.d/z00_lmod.sh",
+      "modules": [
+        "toolchain/foss/2024a",
+        "system/CUDA/12.6.0",
+        "lib/NCCL/2.22.3-GCCcore-13.3.0-CUDA-12.6.0"
+      ],
+      "conda_base": "/opt/software/cluster/EB-SW/software/Miniforge3/25.3.0-3",
+      "conda_env": "/opt/conda/envs/bridge-train",
+      "extra_sbatch_flags": [
+        "--export=NIL",
+        "--nodes=1",
+        "--ntasks-per-node=1"
+      ]
+    }
+  },
+  "data": {
+    "mode": "reuse_sealed_k12",
+    "sealed_corpus_root": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3",
+    "runtime_env": {
+      "HF_HOME": "/scratch/shared_cache/huggingface",
+      "HF_DATASETS_CACHE": "/scratch/shared_cache/huggingface/datasets",
+      "TMPDIR": "/scratch/shared_cache/tmp",
+      "TMP": "/scratch/shared_cache/tmp",
+      "TEMP": "/scratch/shared_cache/tmp",
+      "TOKENIZERS_PARALLELISM": "false"
+    },
+    "language_array": "0-199%32",
+    "tokenization_array": "0-199%32",
+    "tokenization_array_ranks": 200,
+    "tokenization_plan_verification_workers": 32,
+    "tokenization_workers_per_rank": 8,
+    "tokenization_partitions_per_language": 1,
+    "bootstrap_target_unique_documents": 10000,
+    "bootstrap_target_utf8_bytes": 67108864,
+    "calibration_documents_per_language": 1000,
+    "validation_candidate_fraction": 0.3,
+    "validation_target_fraction": 0.2,
+    "production_safety_margin": 1.1,
+    "target_train_tokens_per_K": 32000000000,
+    "validation_cap_tokens_per_language": 20000000,
+    "alpha": 0.3,
+    "tokenizer_training_sentences": 100000000,
+    "tokenizer_threads": 32
+  },
+  "training": {
+    "context_length": 2048,
+    "runtime_env": {
+      "BRIDGE_LOG_THROUGHPUT": "1",
+      "BRIDGE_THROUGHPUT_WINDOW_SIZE": "12",
+      "BRIDGE_MOE_TOKEN_DROP_METRICS": "1",
+      "BRIDGE_PREFER_VENV_CUDA_LIBS": "0",
+      "PROOF_ENABLE_BRIDGE_OPTIONAL_DEP_SHIMS": "1",
+      "PROOF_REQUIRE_REAL_MODELOPT": "1",
+      "PROOF_GPU_MONITOR_INTERVAL_SECONDS": "10",
+      "PROOF_DATASET_BUILDER_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+      "CUDA_DEVICE_MAX_CONNECTIONS": "8",
+      "NVTE_FLASH_ATTN": "0",
+      "NVTE_FUSED_ATTN": "1",
+      "NVTE_UNFUSED_ATTN": "0",
+      "LD_LIBRARY_PATH": "${CONDA_PREFIX}/lib",
+      "TMPDIR": "/scratch/shared_cache/tmp",
+      "TMP": "/scratch/shared_cache/tmp",
+      "TEMP": "/scratch/shared_cache/tmp"
+    },
+    "experts": [1, 4, 16, 32],
+    "language_counts": [1, 12, 50, 200],
+    "micro_batch_size": {
+      "A": {"1": 64, "4": 64, "16": 64, "32": 64},
+      "B": {"1": 64, "4": 64, "16": 64, "32": 32}
+    },
+    "evaluation_micro_batch_size": {
+      "A": {"1": 64, "4": 288, "16": 288, "32": 288},
+      "B": {"1": 64, "4": 64, "16": 64, "32": 224}
+    },
+    "checkpoint_horizons_tokens": {
+      "A": [500000000, 1000000000, 2000000000, 4000000000, 8000000000],
+      "B": [500000000, 1000000000, 2000000000, 4000000000, 8000000000, 16000000000]
+    },
+    "sentinels": [
+      {"kind": "early_correctness", "ladder": "A", "experts": 1, "language_count": 50, "tokens": 16777216, "global_batch_size": 32},
+      {"kind": "early_correctness", "ladder": "A", "experts": 32, "language_count": 50, "tokens": 16777216, "global_batch_size": 32},
+      {"kind": "early_correctness", "ladder": "B", "experts": 16, "language_count": 50, "tokens": 16777216, "global_batch_size": 32},
+      {"kind": "early_correctness", "ladder": "B", "experts": 32, "language_count": 50, "tokens": 16777216, "global_batch_size": 32},
+      {"kind": "plateau_memory_perf", "ladder": "A", "experts": 32, "language_count": 50, "tokens": 16777216, "global_batch_size": 128},
+      {"kind": "plateau_memory_perf", "ladder": "B", "experts": 16, "language_count": 50, "tokens": 16777216, "global_batch_size": 128},
+      {"kind": "plateau_memory_perf", "ladder": "B", "experts": 32, "language_count": 50, "tokens": 16777216, "global_batch_size": 128},
+      {"kind": "mid_ramp_ga2", "ladder": "B", "experts": 32, "language_count": 50, "tokens": 16777216, "global_batch_size": 64}
+    ],
+    "optimizer": {
+      "peak_learning_rate": 0.0002,
+      "adam_beta1": 0.9,
+      "adam_beta2": 0.95,
+      "adam_eps": 1e-8,
+      "weight_decay": 0.1,
+      "clip_grad": 1.0,
+      "minimum_learning_rate": 0.0
+    }
+  },
+  "throughput_tokens_per_second": {
+    "A": {"1": 664244.27, "4": 575824.27, "16": 557634.55, "32": 495265.44},
+    "B": {"1": 341488.96, "4": 311020.94, "16": 293472.15, "32": 246491.77}
+  },
+  "training_throughput_tokens_per_second_by_global_batch_size": {
+    "32": {
+      "A": {"1": 633198.07, "4": 530226.54, "16": 462661.49, "32": 395868.32},
+      "B": {"1": 332501.27, "4": 282848.51, "16": 246052.19, "32": 209983.98}
+    },
+    "64": {
+      "A": {"1": 664244.27, "4": 575824.27, "16": 557634.55, "32": 495265.44},
+      "B": {"1": 341488.96, "4": 311020.94, "16": 293472.15, "32": 200815.08}
+    },
+    "128": {
+      "A": {"1": 664244.27, "4": 575824.27, "16": 557634.55, "32": 495265.44},
+      "B": {"1": 341488.96, "4": 311020.94, "16": 293472.15, "32": 246491.77}
+    }
+  },
+  "evaluation_throughput_tokens_per_second": {
+    "A": {"1": 1337486.454, "4": 992464.289, "16": 992464.289, "32": 884654.389},
+    "B": {"1": 825780.826, "4": 592165.547, "16": 592165.547, "32": 647487.751}
+  },
+  "performance_budget": {
+    "training_noncheckpoint_overhead_seconds_per_job": 90.0,
+    "checkpoint_overhead_seconds": {"A": 11.0, "B": 25.0},
+    "evaluation_setup_seconds": {"A": 3.1, "B": 3.7},
+    "evaluation_residual_seconds_per_language": {"A": 0.7, "B": 0.75},
+    "evidence": "2026-07-18 H100 long-run rechecks and Transformer Engine validation microbatch benchmarks",
+    "training_throughput_evidence": {
+      "GBS32": {
+        "report": "outputs/pipeline_runs/h100_ab_v2_performance_20260718_ramp32/analysis/long_performance_recheck.json",
+        "file_sha256": "eaff81bf55fcd24b72c81c86bf3969533512b469ffaa9a82b009c63999a53948",
+        "payload_sha256": "53f98d97e9643e1657acedfaf90ce64fa331edcc9d3d94567a18fe75b8203242",
+        "contract": "all eight production cells; 134,217,728 tokens each; final-window median; production MBS-capping rule"
+      },
+      "GBS64": {
+        "B/E32_report": "outputs/pipeline_runs/h100_ab_v2_performance_20260718_post_sentinel/analysis/long_performance_recheck.json",
+        "B/E32_value_source": "long_mid_ramp_b_e32, MBS32 and GA2",
+        "other_cells_rule": "GBS64 uses MBS64 and GA1 for every other cell; use its lower GBS128 long-run rate as a conservative bound rather than extrapolating an unmeasured gain"
+      },
+      "GBS128": {
+        "report": "outputs/pipeline_runs/h100_ab_v2_performance_20260718_post_sentinel/analysis/long_performance_recheck.json",
+        "file_sha256": "9f39dc356c7dedf2bb4774be7b6b4841e82a28bcefcbeb10d11993f4a9b9a15d",
+        "payload_sha256": "4f51332da4389547ab74796c51bfc1c4ecce4ba9023a3ecc39aa70007a559f3e",
+        "contract": "all eight production cells; 134,217,728 tokens each; final-window median"
+      }
+    }
+  },
+  "sentinel_throughput_safety_factor": 0.99,
+  "max_submit_slots_per_invocation": 500,
+  "storage": {
+    "checkpoint_bytes_per_parameter": 24,
+    "checkpoint_serialization_overhead_factor": 1.25,
+    "non_checkpoint_peak_reserve_bytes": 3298534883328,
+    "post_allocation_free_headroom_bytes": 3298534883328
+  },
+  "gpu_hour_limit": 500.0
+}

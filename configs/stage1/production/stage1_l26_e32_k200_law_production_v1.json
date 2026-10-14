@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "id": "stage1_l26_e32_k200_law_production_v1",
+  "status": "materialized_prelaunch_pending_calibration_and_confirmation",
+  "authorities": {
+    "architecture": "configs/stage1/architectures/stage1_l26_e32_v1.json",
+    "systems": "configs/stage1/l26_e32/winner_pp4_ep2_mbs8_v1.json",
+    "pipeline_profiles": [
+      "stage1_l26_e32_k200_law_trunk_production_v1",
+      "stage1_l26_e32_k200_law_cooldown_production_v1"
+    ]
+  },
+  "model": {
+    "recipe": "scaling_switch_moe_scale_scaling_l26_pretrain_config",
+    "layers": 26,
+    "hidden_size": 1664,
+    "attention_heads": 26,
+    "ffn_hidden_size": 4992,
+    "experts": 32,
+    "top_k": 1,
+    "active_parameters": 1148878848,
+    "total_parameters": 21234450432,
+    "sequence_length": 2048,
+    "global_batch_size": 128,
+    "micro_batch_size": 8,
+    "data_parallel_size": 2,
+    "seed": 1234
+  },
+  "data": {
+    "manifest": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenized/tiers/K200/megatron_data_manifest.json",
+    "manifest_file_sha256": "feb0a43aa5d8b9842d5fb2d3d41924cef5ed6a425c5a8a712522f76ca0a342f6",
+    "manifest_payload_sha256": "2b9274e417b45a000162e63fa3076d486d84cf8a3bd1b323373aa1852db243ef",
+    "languages": 200,
+    "physical_tokens_including_eod": 86889763655,
+    "tokenizer_model_sha256": "54a25a061df0cfba143ca8af3380e4d6c4caccf2ea1c80d25ff011c407c187e8",
+    "reuse_policy": "Reuse this exact fixed K200 Megatron bin/idx manifest. The weighted Megatron blend is an intentional deterministic replay/reuse mechanism for long-horizon exposure; do not resample, retokenize, or alter language weights."
+  },
+  "law_aligned_token_contract": {
+    "raw_m1_prediction_tokens": "68682999538.36525",
+    "planner_nominal_wsd_horizon_tokens": 68682514430,
+    "executable_final_tokens": 68682776576,
+    "raw_to_executable_delta_tokens": "-222962.36525",
+    "final_update_quantum_tokens": 262144,
+    "quarter_checkpoint_quantum_tokens": 1048576,
+    "rounding_rule": "Select the closest no-overrun legal endpoint that also aligns 25%, 50%, and 75% checkpoints to full GBS128 optimizer updates. The nominal WSD horizon is divisible by five so the 80/20 WSD split remains integral; the segmented planner records the executable consumed-token endpoint.",
+    "batch_policy": {
+      "planning_method": "joint_moe_full_state_wsd_v2",
+      "schedule": [
+        {"start_tokens": 0, "end_tokens": 500000000, "global_batch_size": 32},
+        {"start_tokens": 500000000, "end_tokens": 1000000000, "global_batch_size": 64},
+        {"start_tokens": 1000000000, "end_tokens": 0, "global_batch_size": 128}
+      ],
+      "warmup_tokens": 130000000,
+      "decay_fraction": 0.2,
+      "stable_trunk_nominal_end_tokens": 54946011544,
+      "final_cooldown_nominal_end_tokens": 68682514430
+    }
+  },
+  "checkpoint_contract": {
+    "checkpoint_horizons_tokens": [68682514430],
+    "readout_horizons_tokens": [17170614784, 34341308928, 45881412097, 51512003072],
+    "scientific_checkpoints": [
+      {"label": "quarter_25", "executable_consumed_tokens": 17170694144, "expected_step": 73131},
+      {"label": "quarter_50", "executable_consumed_tokens": 34341388288, "expected_step": 138632},
+      {"label": "quarter_75", "executable_consumed_tokens": 51512082432, "expected_step": 204133},
+      {"label": "final_wsd", "executable_consumed_tokens": 68682776576, "expected_step": 269634}
+    ],
+    "physical_500_h100_hour_checkpoint": {
+      "required": true,
+      "meter": "allocated H100 GPU-seconds while the production training allocation is active, excluding queue time; includes calibrated startup and synchronous full-checkpoint cost",
+      "status": "selected_from_complete_calibration_receipt",
+      "target_h100_gpu_hours": 500.0,
+      "profile_readout_horizon_tokens": 45881412097,
+      "executable_consumed_tokens": 45881753600,
+      "expected_step": 182655,
+      "completed_checkpoint_h100_gpu_hours": 499.99880901927656,
+      "next_step": 182656,
+      "next_step_completed_checkpoint_h100_gpu_hours": 500.1293010161654,
+      "calibration_receipt": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/preflight/calibration_receipt.json",
+      "calibration_receipt_sha256": "b4445571062b531d2aa079503ac167b91b65e24dc580a1e274f5081af577152e",
+      "selection_receipt": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/preflight/physical_500h_checkpoint_selection.json",
+      "selection_receipt_sha256": "3c0e732f1b137a887c8bb00b4d7559c0ab63f67023d805f0f567eb6de12e2940"
+    },
+    "checkpoint_format": "synchronous full optimizer, scheduler, RNG, dataloader, and model state; each endpoint must pass checkpoint_state_audit before continuation."
+  },
+  "cost_forecast": {
+    "accepted_gbs128_aggregate_tokens_per_second": 204920.0703537229,
+    "safety_factor": 0.9,
+    "conservative_gbs128_only_h100_hours": 827.5641975308641,
+    "gpu_count": 8,
+    "estimated_wall_hours_before_setup_checkpoint_and_validation": 103.44552469135802,
+    "allocation_request_walltime": {
+      "trunk": "96:00:00",
+      "cooldown": "48:00:00"
+    },
+    "budget_interpretation": "The 500-H100-hour point is a retained checkpoint milestone. The final law-aligned endpoint intentionally exceeds the historical 500-H100-hour final cap."
+  },
+  "release_gates": [
+    "Run the L26-only memory smoke and two independent unprofiled 512-step GBS128 confirmations; require finite loss and gradients, zero skipped iterations, NaNs, and token drops, sufficient memory headroom, and repeat agreement within 3%.",
+    "Measure accepted GBS32 and GBS64 ramp rates plus one production-shaped checkpoint-and-resume cycle; freeze the 500-H100-hour checkpoint token anchor and allocated-GPU-seconds accounting from that receipt.",
+    "Re-hash the K200 manifest and tokenizer immediately before submission; require exactly 200 prefixes and unchanged normalized blend weights.",
+    "Dry-run both materialized pipeline profiles. Verify the trunk checkpoints, then verify that the cooldown profile loads the audited trunk endpoint and produces the exact final executable token count.",
+    "Obtain a fresh Slurm allocation/capacity check and separate explicit approval before sbatch submission."
+  ]
+}

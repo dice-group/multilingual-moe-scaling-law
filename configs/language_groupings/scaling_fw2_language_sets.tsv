@@ -1,0 +1,201 @@
+language	name	family	resource_availability	source_group	k001	k016	k050	k200
+eng_Latn	English	Indo-European	HIGH	1	1	1	1	1
+acm_Arab	Mesopotamian Arabic	Afro-Asiatic	LOW	2	0	1	1	1
+ady_Cyrl	Adyghe	Abkhaz-Adyghe	LOW	10	0	1	1	1
+aeb_Arab	Tunisian Arabic	Afro-Asiatic	LOW	2	0	1	1	1
+afr_Latn	Afrikaans	Indo-European	LOW	1	0	1	1	1
+als_Latn	Tosk Albanian	Indo-European	LOW	1	0	1	1	1
+amh_Ethi	Amharic	Afro-Asiatic	LOW	2	0	1	1	1
+apc_Arab	Levantine Arabic	Afro-Asiatic	LOW	2	0	1	1	1
+arb_Arab	Standard Arabic	Afro-Asiatic	HIGH	2	0	1	1	1
+arg_Latn	Aragonese	Indo-European	LOW	1	0	1	1	1
+ars_Arab	Najdi Arabic	Afro-Asiatic	LOW	2	0	1	1	1
+ary_Arab	Moroccan Arabic	Afro-Asiatic	LOW	2	0	1	1	1
+arz_Arab	Egyptian Arabic	Afro-Asiatic	LOW	2	0	1	1	1
+asm_Beng	Assamese	Indo-European	LOW	1	0	1	1	1
+ast_Latn	Asturian	Indo-European	LOW	1	0	1	1	1
+ava_Cyrl	Avaric	Nakh-Daghestanian	LOW	4	0	1	1	1
+azb_Arab	South Azerbaijani	Turkic	LOW	8	0	0	1	1
+bak_Cyrl	Bashkir	Turkic	LOW	8	0	0	1	1
+ban_Latn	Balinese	Austronesian	LOW	6	0	0	1	1
+bar_Latn	Bavarian	Indo-European	LOW	1	0	0	1	1
+bcl_Latn	Central Bikol	Austronesian	LOW	6	0	0	1	1
+bel_Cyrl	Belarusian	Indo-European	MEDIUM	1	0	0	1	1
+ben_Beng	Bengali	Indo-European	MEDIUM	1	0	0	1	1
+bew_Latn	Betawi	Creole	LOW	6	0	0	1	1
+bho_Deva	Bhojpuri	Indo-European	LOW	1	0	0	1	1
+bod_Tibt	Tibetan	Sino-Tibetan	LOW	3	0	0	1	1
+bos_Latn	Bosnian	Indo-European	LOW	1	0	0	1	1
+bre_Latn	Breton	Indo-European	LOW	1	0	0	1	1
+bul_Cyrl	Bulgarian	Indo-European	HIGH	1	0	0	1	1
+bxr_Cyrl	Russia Buriat	Mongolic	LOW	10	0	0	1	1
+cat_Latn	Catalan	Indo-European	MEDIUM	1	0	0	1	1
+ceb_Latn	Cebuano	Austronesian	LOW	6	0	0	1	1
+ces_Latn	Czech	Indo-European	HIGH	1	0	0	1	1
+che_Cyrl	Chechen	Nakh-Daghestanian	LOW	4	0	0	1	1
+chv_Cyrl	Chuvash	Turkic	LOW	8	0	0	1	1
+ckb_Arab	Central Kurdish	Indo-European	LOW	1	0	0	1	1
+cos_Latn	Corsican	Indo-European	LOW	1	0	0	1	1
+crh_Cyrl	Crimean Tatar	Turkic	UNKNOWN	8	0	0	1	1
+cym_Latn	Welsh	Indo-European	LOW	1	0	0	1	1
+dan_Latn	Danish	Indo-European	HIGH	1	0	0	1	1
+deu_Latn	German	Indo-European	HIGH	1	0	0	1	1
+diq_Latn	Dimli (individual language)	Indo-European	LOW	1	0	0	1	1
+div_Thaa	Dhivehi	Indo-European	LOW	1	0	0	1	1
+dsb_Latn	Lower Sorbian	Indo-European	LOW	1	0	0	1	1
+dzo_Tibt	Dzongkha	Sino-Tibetan	LOW	3	0	0	1	1
+ekk_Latn	Standard Estonian	Uralic	LOW	0	0	0	1	1
+ell_Grek	Modern Greek (1453-)	Indo-European	HIGH	1	0	0	1	1
+epo_Latn	Esperanto	Constructed language	LOW	0	0	0	1	1
+eus_Latn	Basque	Language isolate	LOW	0	0	0	1	1
+ewe_Latn	Ewe	Niger-Congo	LOW	5	0	0	1	1
+fao_Latn	Faroese	Indo-European	LOW	1	0	0	0	1
+fij_Latn	Fijian	Austronesian	LOW	6	0	0	0	1
+fin_Latn	Finnish	Uralic	HIGH	7	0	0	0	1
+fra_Latn	French	Indo-European	HIGH	1	0	0	0	1
+fry_Latn	Western Frisian	Indo-European	LOW	1	0	0	0	1
+fur_Latn	Friulian	Indo-European	LOW	1	0	0	0	1
+gaz_Latn	West Central Oromo	Afro-Asiatic	LOW	2	0	0	0	1
+gla_Latn	Scottish Gaelic	Indo-European	LOW	1	0	0	0	1
+gle_Latn	Irish	Indo-European	LOW	1	0	0	0	1
+glg_Latn	Galician	Indo-European	LOW	1	0	0	0	1
+glk_Arab	Gilaki	Indo-European	LOW	1	0	0	0	1
+grc_Grek	Ancient Greek (to 1453)	Indo-European	LOW	1	0	0	0	1
+gsw_Latn	Swiss German	Indo-European	LOW	1	0	0	0	1
+guj_Gujr	Gujarati	Indo-European	LOW	1	0	0	0	1
+hat_Latn	Haitian	Creole	LOW	1	0	0	0	1
+haw_Latn	Hawaiian	Austronesian	LOW	6	0	0	0	1
+hbo_Hebr	Ancient Hebrew	Afro-Asiatic	LOW	2	0	0	0	1
+heb_Hebr	Hebrew	Afro-Asiatic	HIGH	2	0	0	0	1
+hif_Latn	Fiji Hindi	Indo-European	LOW	1	0	0	0	1
+hil_Latn	Hiligaynon	Austronesian	LOW	6	0	0	0	1
+hin_Deva	Hindi	Indo-European	MEDIUM	1	0	0	0	1
+hne_Deva	Chhattisgarhi	Indo-European	LOW	1	0	0	0	1
+hrv_Latn	Croatian	Indo-European	LOW	1	0	0	0	1
+hsb_Latn	Upper Sorbian	Indo-European	LOW	1	0	0	0	1
+hun_Latn	Hungarian	Uralic	HIGH	7	0	0	0	1
+hye_Armn	Armenian	Indo-European	MEDIUM	1	0	0	0	1
+iba_Latn	Iban	Austronesian	LOW	6	0	0	0	1
+ibo_Latn	Igbo	Niger-Congo	LOW	5	0	0	0	1
+ido_Latn	Ido	Artificial Language	LOW	10	0	0	0	1
+ilo_Latn	Iloko	Austronesian	LOW	6	0	0	0	1
+ind_Latn	Indonesian	Austronesian	HIGH	6	0	0	0	1
+inh_Cyrl	Ingush	Nakh-Daghestanian	LOW	4	0	0	0	1
+isl_Latn	Icelandic	Indo-European	LOW	1	0	0	0	1
+ita_Latn	Italian	Indo-European	HIGH	1	0	0	0	1
+jav_Latn	Javanese	Austronesian	LOW	6	0	0	0	1
+jpn_Jpan	Japanese	Japonic	HIGH	0	0	0	0	1
+kab_Latn	Kabyle	Afro-Asiatic	LOW	2	0	0	0	1
+kac_Latn	Kachin	Sino-Tibetan	LOW	3	0	0	0	1
+kal_Latn	Kalaallisut	Eskimo-Aleut	LOW	0	0	0	0	1
+kan_Knda	Kannada	Dravidian	LOW	0	0	0	0	1
+kat_Geor	Georgian	Kartvelian	MEDIUM	0	0	0	0	1
+kaz_Cyrl	Kazakh	Turkic	MEDIUM	8	0	0	0	1
+kbd_Cyrl	Kabardian	Abkhaz-Adyghe	LOW	10	0	0	0	1
+kha_Latn	Khasi	Austro-Asiatic	LOW	0	0	0	0	1
+khk_Cyrl	Halh Mongolian	Mongolic	LOW	10	0	0	0	1
+khm_Khmr	Khmer	Austro-Asiatic	LOW	0	0	0	0	1
+kik_Latn	Kikuyu	Niger-Congo	LOW	5	0	0	0	1
+kin_Latn	Kinyarwanda	Niger-Congo	LOW	5	0	0	0	1
+kir_Cyrl	Kirghiz	Turkic	LOW	8	0	0	0	1
+kmr_Cyrl	Northern Kurdish	Indo-European	UNKNOWN	1	0	0	0	1
+kor_Hang	Korean	Koreanic	HIGH	0	0	0	0	1
+kpv_Cyrl	Komi-Zyrian	Uralic	LOW	7	0	0	0	1
+lao_Laoo	Lao	Kra-Dai	LOW	9	0	0	0	1
+lat_Latn	Latin	Indo-European	LOW	1	0	0	0	1
+lez_Cyrl	Lezghian	Nakh-Daghestanian	LOW	4	0	0	0	1
+lim_Latn	Limburgan	Indo-European	LOW	1	0	0	0	1
+lin_Latn	Lingala	Niger-Congo	LOW	5	0	0	0	1
+lit_Latn	Lithuanian	Indo-European	MEDIUM	1	0	0	0	1
+lmo_Latn	Lombard	Indo-European	LOW	1	0	0	0	1
+ltg_Latn	Latgalian	Indo-European	LOW	10	0	0	0	1
+ltz_Latn	Luxembourgish	Indo-European	LOW	1	0	0	0	1
+lug_Latn	Ganda	Niger-Congo	LOW	5	0	0	0	1
+lus_Latn	Lushai	Sino-Tibetan	LOW	3	0	0	0	1
+mai_Deva	Maithili	Indo-European	LOW	1	0	0	0	1
+mal_Latn	Malayalam	Dravidian	UNKNOWN	0	0	0	0	1
+mar_Deva	Marathi	Indo-European	LOW	1	0	0	0	1
+mfe_Latn	Morisyen	Creole	LOW	1	0	0	0	1
+mhr_Cyrl	Eastern Mari	Uralic	LOW	7	0	0	0	1
+mkd_Cyrl	Macedonian	Indo-European	MEDIUM	1	0	0	0	1
+mlt_Latn	Maltese	Afro-Asiatic	LOW	2	0	0	0	1
+mri_Latn	Maori	Austronesian	LOW	6	0	0	0	1
+mww_Latn	Hmong Daw	Hmong-Mien	LOW	0	0	0	0	1
+mya_Mymr	Burmese	Sino-Tibetan	LOW	3	0	0	0	1
+myv_Cyrl	Erzya	Uralic	LOW	7	0	0	0	1
+nap_Latn	Neapolitan	Indo-European	LOW	1	0	0	0	1
+nde_Latn	North Ndebele	Niger-Congo	LOW	5	0	0	0	1
+ndo_Latn	Ndonga	Niger-Congo	LOW	5	0	0	0	1
+nds_Latn	Low German	Indo-European	LOW	1	0	0	0	1
+new_Deva	Newari	Sino-Tibetan	LOW	3	0	0	0	1
+nld_Latn	Dutch	Indo-European	HIGH	1	0	0	0	1
+nno_Latn	Norwegian Nynorsk	Indo-European	LOW	0	0	0	0	1
+nob_Latn	Norwegian Bokmål	Indo-European	MEDIUM	0	0	0	0	1
+npi_Deva	Nepali (individual language)	Indo-European	MEDIUM	1	0	0	0	1
+nrm_Latn	Narom	Austronesian	LOW	6	0	0	0	1
+nya_Latn	Nyanja	Niger-Congo	LOW	5	0	0	0	1
+oci_Latn	Occitan (post 1500)	Indo-European	LOW	1	0	0	0	1
+ory_Latn	Odia	Indo-European	UNKNOWN	1	0	0	0	1
+oss_Cyrl	Ossetian	Indo-European	LOW	1	0	0	0	1
+pan_Guru	Panjabi	Indo-European	LOW	1	0	0	0	1
+pap_Latn	Papiamento	Creole	LOW	1	0	0	0	1
+pbt_Arab	Southern Pashto	Indo-European	LOW	1	0	0	0	1
+plt_Latn	Plateau Malagasy	Austronesian	LOW	6	0	0	0	1
+pms_Latn	Piemontese	Indo-European	LOW	1	0	0	0	1
+pnb_Arab	Western Panjabi	Indo-European	LOW	1	0	0	0	1
+pol_Latn	Polish	Indo-European	HIGH	1	0	0	0	1
+por_Latn	Portuguese	Indo-European	HIGH	1	0	0	0	1
+rmy_Cyrl	Vlax Romani	Indo-European	LOW	1	0	0	0	1
+roh_Latn	Romansh	Indo-European	LOW	1	0	0	0	1
+ron_Cyrl	Romanian	Indo-European	LOW	1	0	0	0	1
+rue_Cyrl	Rusyn	Indo-European	LOW	1	0	0	0	1
+run_Latn	Rundi	Niger-Congo	LOW	5	0	0	0	1
+rus_Cyrl	Russian	Indo-European	HIGH	1	0	0	0	1
+sah_Cyrl	Yakut	Turkic	LOW	8	0	0	0	1
+san_Deva	Sanskrit	Indo-European	LOW	1	0	0	0	1
+scn_Latn	Sicilian	Indo-European	LOW	1	0	0	0	1
+sco_Latn	Scots	Indo-European	LOW	1	0	0	0	1
+sdh_Arab	Southern Kurdish	Indo-European	LOW	1	0	0	0	1
+shn_Mymr	Shan	Kra-Dai	LOW	9	0	0	0	1
+sin_Sinh	Sinhala	Indo-European	LOW	1	0	0	0	1
+slk_Latn	Slovak	Indo-European	MEDIUM	1	0	0	0	1
+slv_Latn	Slovenian	Indo-European	MEDIUM	1	0	0	0	1
+sme_Latn	Northern Sami	Uralic	LOW	7	0	0	0	1
+smo_Latn	Samoan	Austronesian	LOW	6	0	0	0	1
+sna_Latn	Shona	Niger-Congo	LOW	5	0	0	0	1
+snd_Arab	Sindhi	Indo-European	LOW	1	0	0	0	1
+som_Latn	Somali	Afro-Asiatic	LOW	2	0	0	0	1
+sot_Latn	Southern Sotho	Niger-Congo	LOW	5	0	0	0	1
+spa_Latn	Spanish	Indo-European	HIGH	1	0	0	0	1
+srd_Latn	Sardinian	Indo-European	LOW	10	0	0	0	1
+srp_Cyrl	Serbian	Indo-European	MEDIUM	1	0	0	0	1
+sun_Latn	Sundanese	Austronesian	LOW	6	0	0	0	1
+swe_Latn	Swedish	Indo-European	HIGH	1	0	0	0	1
+swh_Latn	Swahili (individual language)	Niger-Congo	LOW	5	0	0	0	1
+tam_Latn	Tamil	Dravidian	UNKNOWN	0	0	0	0	1
+tat_Cyrl	Tatar	Turkic	LOW	8	0	0	0	1
+tel_Latn	Telugu	Dravidian	UNKNOWN	0	0	0	0	1
+tgk_Cyrl	Tajik	Indo-European	LOW	1	0	0	0	1
+tha_Thai	Thai	Kra-Dai	HIGH	9	0	0	0	1
+tir_Ethi	Tigrinya	Afro-Asiatic	LOW	2	0	0	0	1
+ton_Latn	Tonga (Tonga Islands)	Austronesian	LOW	6	0	0	0	1
+tso_Latn	Tsonga	Niger-Congo	LOW	5	0	0	0	1
+tuk_Arab	Turkmen	Turkic	UNKNOWN	8	0	0	0	1
+tur_Latn	Turkish	Turkic	HIGH	8	0	0	0	1
+tyv_Cyrl	Tuvinian	Turkic	LOW	8	0	0	0	1
+udm_Cyrl	Udmurt	Uralic	LOW	7	0	0	0	1
+uig_Arab	Uighur	Turkic	LOW	8	0	0	0	1
+ukr_Cyrl	Ukrainian	Indo-European	HIGH	1	0	0	0	1
+urd_Arab	Urdu	Indo-European	MEDIUM	1	0	0	0	1
+uzn_Cyrl	Northern Uzbek	Turkic	UNKNOWN	8	0	0	0	1
+vie_Latn	Vietnamese	Austro-Asiatic	HIGH	0	0	0	0	1
+vls_Latn	Vlaams	Indo-European	LOW	1	0	0	0	1
+vro_Latn	Võro	Uralic	LOW	10	0	0	0	1
+wln_Latn	Walloon	Indo-European	LOW	1	0	0	0	1
+wol_Latn	Wolof	Niger-Congo	LOW	5	0	0	0	1
+xho_Latn	Xhosa	Niger-Congo	LOW	5	0	0	0	1
+ydd_Hebr	Eastern Yiddish	Indo-European	LOW	1	0	0	0	1
+yor_Latn	Yoruba	Niger-Congo	LOW	5	0	0	0	1
+zea_Latn	Zeeuws	Indo-European	LOW	1	0	0	0	1
+zsm_Arab	Standard Malay	Austronesian	UNKNOWN	6	0	0	0	1
+zul_Latn	Zulu	Niger-Congo	LOW	5	0	0	0	1

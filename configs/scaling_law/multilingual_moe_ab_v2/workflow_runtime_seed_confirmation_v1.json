@@ -1,0 +1,28 @@
+{
+  "inherits": {
+    "spec_path": "workflow_runtime_jointmoe_x1_production_v1.json",
+    "spec_sha256": "48c0b1e5179a23db106e73cc2f90d88f693669a9cbb6c2a2f19499bc8fe9f12c"
+  },
+  "output_root": "outputs/pipeline_runs/stage1_b_seed_confirmation_v1",
+  "workflow_attempt_id": "stage1_b_seed_confirmation_v1",
+  "workflow_job_prefix": "bseed1",
+  "scheduling": {
+    "mode": "ordinary_queue_forecast",
+    "predicted_time_multiplier": 1.35,
+    "additive_safety_hours": 1.0,
+    "minimum_job_hours": 2.0,
+    "maximum_job_hours": 24.0,
+    "walltime_rounding_minutes": 15,
+    "timing_evidence": "completed seed-1234 B trunks required 9.47-14.78 end-to-end hours; new limits retain at least 35 percent model margin plus one hour",
+    "retry_policy": {
+      "manual_only": true,
+      "maximum_infrastructure_retries": 2,
+      "scientific_or_contract_failures_retryable": false
+    }
+  },
+  "storage": {
+    "enforcement": "informational_soft_limit",
+    "retain_all_checkpoints": true,
+    "production_launch_policy": "all_18_new_seed_trunks_concurrently_eligible_after_synchronous_preflight"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "schema_version": 2,
+  "language_set_id": "multilingual_moe_ab_v2_K50",
+  "language_set_sha256": "c4afc84137c08ea89255f05008ab9970d9aa134aafb0cdad651c8dfaad7fdd64",
+  "0": {
+    "group": "k050",
+    "languages": [
+      "afr_Latn",
+      "arb_Arab",
+      "bak_Cyrl",
+      "bam_Latn",
+      "ben_Beng",
+      "cat_Latn",
+      "ckb_Arab",
+      "cym_Latn",
+      "deu_Latn",
+      "ewe_Latn",
+      "ell_Grek",
+      "eng_Latn",
+      "spa_Latn",
+      "fas_Arab",
+      "fil_Latn",
+      "fra_Latn",
+      "gug_Latn",
+      "guj_Gujr",
+      "hau_Latn",
+      "heb_Hebr",
+      "hin_Deva",
+      "hrv_Latn",
+      "ind_Latn",
+      "ita_Latn",
+      "jpn_Jpan",
+      "jav_Latn",
+      "kaz_Cyrl",
+      "kor_Hang",
+      "mar_Deva",
+      "zsm_Latn",
+      "mya_Mymr",
+      "nld_Latn",
+      "nob_Latn",
+      "gaz_Latn",
+      "pol_Latn",
+      "pbt_Arab",
+      "por_Latn",
+      "ron_Latn",
+      "rus_Cyrl",
+      "smo_Latn",
+      "swe_Latn",
+      "swh_Latn",
+      "tel_Telu",
+      "tha_Thai",
+      "tur_Latn",
+      "ukr_Cyrl",
+      "urd_Arab",
+      "vie_Latn",
+      "yor_Latn",
+      "cmn_Hani"
+    ],
+    "metadata": {
+      "hau_Latn": {
+        "atlas_code": "ha",
+        "source_status": "verified_in_pinned_release",
+        "source_lock": "configs/data_sources/fineweb2_v2_1_1_source_lock.json"
+      }
+    },
+    "selection_policy": {
+      "definition": "Exact ATLAS 50v0 language set",
+      "ordering": "ATLAS language order",
+      "source_constants": "multilingual_moe_scaling.K50_CODES",
+      "unresolved_mapping_policy": "fail validation; never substitute another language"
+    }
+  }
+}

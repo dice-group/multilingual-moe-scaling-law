@@ -1,0 +1,28 @@
+{
+  "schema_version": 2,
+  "language_set_id": "multilingual_moe_ab_v2_K12",
+  "language_set_sha256": "bbff51cc58457e0e22b228df8bfdc34aa05c91e17acebcd4bd64de981c35839d",
+  "0": {
+    "group": "k012",
+    "languages": [
+      "deu_Latn",
+      "eng_Latn",
+      "spa_Latn",
+      "fra_Latn",
+      "hin_Deva",
+      "ita_Latn",
+      "jpn_Jpan",
+      "pol_Latn",
+      "por_Latn",
+      "rus_Cyrl",
+      "vie_Latn",
+      "cmn_Hani"
+    ],
+    "selection_policy": {
+      "definition": "Exact ATLAS 12v0 language set",
+      "ordering": "ATLAS language order",
+      "source_constants": "multilingual_moe_scaling.K12_CODES",
+      "unresolved_mapping_policy": "fail validation; never substitute another language"
+    }
+  }
+}

@@ -1,0 +1,504 @@
+{
+  "candidate_frame": {
+    "availability_projection_sha256": "4853687f14a294122b9f4975667be9bfd064c8a56aaccf82eda4dcd136d08a4b",
+    "eligible_count": 196,
+    "eligible_language_set_sha256": "0841528a58843161ef02b0f8d7860c35557442de20b03e708d412e1b8c191c0f",
+    "excluded_before_metric_construction": [
+      "hyw_Armn",
+      "epo_Latn",
+      "ido_Latn",
+      "srd_Latn"
+    ],
+    "source_count": 200
+  },
+  "claim_boundary": {
+    "construct": "four-modality language-composition contrast, not pure intrinsic linguistic diversity",
+    "frame": "conditional extrema within the frozen eligible K196 frame",
+    "generalization": "selection evidence only; model-training conclusions require the separately frozen replicated experiment",
+    "sampling": "approximately exposure-matched under the frozen global alpha=0.3 sampler",
+    "unit": "FineWeb2 language-script configuration"
+  },
+  "distance_contract": {
+    "composite": "equal arithmetic mean of four normalized axes",
+    "matrix_sha256": {
+      "composite": "631b88fa7c2a43b36228ce566653c29961d124e6412124227b4d25f7cc3de001",
+      "genealogy": "448e5adf73175fcd609567eb992a63a4aa515fe1078c9ac3e106025e2d379e1d",
+      "geography": "c85d83731b542bce3a9992ccd4753e58553b3815cb387649ce7a0f0aa90bec00",
+      "script": "afc74844d534ba54d77384ad544142e7d6c0ddbc6cca9d2a9162bc4543722136",
+      "typology": "a5a67e2bdbe3f23948b0569308d86581d89aca8c9a67b589f07db6b31e7db0fd"
+    },
+    "normalization": "each complete K196 matrix divided by its observed maximum",
+    "raw_maxima": {
+      "genealogy": 0.9927385939890111,
+      "geography": 0.26136298826932153,
+      "script": 1.0,
+      "typology": 0.2362321089251269
+    }
+  },
+  "files": {
+    "compact_grouping": {
+      "path": "configs/language_groupings/scaling_fw2_v2_k012_compact.json",
+      "sha256": "7f433510b869ee6798f199d21bcca4b52593d4916c42758df79a8e899aeee8f6"
+    },
+    "diverse_grouping": {
+      "path": "configs/language_groupings/scaling_fw2_v2_k012_diverse.json",
+      "sha256": "041bdc23f55fddb57fb077b15765bd52ea15662d04802d1bff42c2252ad2058a"
+    }
+  },
+  "inputs": {
+    "availability_projection": {
+      "file_sha256": "4853687f14a294122b9f4975667be9bfd064c8a56aaccf82eda4dcd136d08a4b",
+      "path": "configs/scaling_law/multilingual_moe_ab_v2/language_composition_availability_v1.json",
+      "source_sampling_plan_sha256": "5ebe0760ee2868828c339760d7f14144a1ad036a0b992ee30775e4510f81b0dc"
+    },
+    "external_artifacts": {
+      "genetic_embeddings": {
+        "filename": "genetic_embeddings.csv",
+        "sha256": "c3cd8d4e52cf4be0cc2f88c6a71e4fea1996c0a200d758746cec427dc347f642"
+      },
+      "glottolog_languages": {
+        "filename": "glottolog-languages-v5.2.1.csv",
+        "sha256": "f4fb9cb64addfcde88bbae9ad9f8deb0e7515190beb48d2e0791b4337bd2d46f"
+      },
+      "latent_islands": {
+        "filename": "islands.pkl",
+        "sha256": "822f1b7922d91cdd8d6a14b1d60d6aa8ace4f07592148504ca9dada59d885f90"
+      },
+      "urielplus_geography": {
+        "filename": "geocoord_features.npz",
+        "sha256": "d7364bd05ecd2f7075755b8361aff6a6cda82519c11c98d7e88bda817bd353ab"
+      },
+      "urielplus_softimpute": {
+        "filename": "URIELPlus_Union_SoftImpute.csv",
+        "sha256": "6c713ed1889bcc26bb0c1e1190ae105712d5d1c5d99d00f2ff76e5ef563982c6"
+      }
+    },
+    "external_source_lock": {
+      "glottolog_cldf_commit": "5925ab13a3d568950ddd5301f1f1afc864258d34",
+      "glottolog_version": "5.2.1",
+      "modality_matching_commit": "27552ef0ff057cb94e72b8fc059179029c69ca50",
+      "modality_matching_repository": "https://github.com/Swithord/urielplus-modality-matters",
+      "urielplus_commit": "d094f343d00874371debec697cfb1a091d3f2995",
+      "urielplus_repository": "https://github.com/LeeLanguageLab/URIELPlus"
+    },
+    "glottocode_mapping_sha256": "879839475a0a45c1a96de43927c2ebddbe3c985cdca6beb6bd3de6310191e246",
+    "implementation": {
+      "aggregate_sha256": "f7cbdaec8904abc1ecfe78c17023d5136957ca6d22c23e1b304c21240b31ee49",
+      "environment": {
+        "numpy": "2.4.4",
+        "pandas": "3.0.2",
+        "python": "3.12.13",
+        "scipy": "1.17.1"
+      },
+      "source_sha256": {
+        "src/multilingual_megatron/experiments/scaling/language_composition/__init__.py": "b4627afa59d0c570722ad7463e77c3dcfc3d1169d74233d2469cb91fc596b2da",
+        "src/multilingual_megatron/experiments/scaling/language_composition/__main__.py": "ffa852457388a58a7bb3b220957b49fcaebb26dcc057ad9ce1f44adf920ecba1",
+        "src/multilingual_megatron/experiments/scaling/language_composition/cli.py": "7b11029c29aebbd7fe33e5ddf2e051df287a26641a4420ef3f0592ee36e753b1",
+        "src/multilingual_megatron/experiments/scaling/language_composition/common.py": "4abfca8c3c1f177f9809c4ecc8db1555ef5fa35c7b769989d024a606a31a576c",
+        "src/multilingual_megatron/experiments/scaling/language_composition/distances.py": "01742a01c447dd5a2bd7bd6f9bb03ad1501935e0bb5c06c484c5a25e014ffbad",
+        "src/multilingual_megatron/experiments/scaling/language_composition/optimization.py": "3c68421e011529ba863d0ed8c104d0dc49d6ecf8550e60e8c32badffc4fe3cd3",
+        "src/multilingual_megatron/experiments/scaling/language_composition/workflow.py": "2a4cc7b29b6ac96192a437246bb01d01a763c40da33fe8494162148809465feb"
+      }
+    },
+    "reference_arm": {
+      "file_sha256": "dfe0f7730bee84ab06f835e18894efe6da3e740aca90b70b0a213d3f6f531cc0",
+      "language_set_sha256": "bbff51cc58457e0e22b228df8bfdc34aa05c91e17acebcd4bd64de981c35839d",
+      "path": "configs/language_groupings/scaling_fw2_v2_k012.json"
+    },
+    "selection_spec": {
+      "path": "configs/scaling_law/multilingual_moe_ab_v2/language_composition_selection_v2.json",
+      "sha256": "f08a11bfd8edb5e9f7f1894fbdd88d7e0a11e91804fb3e104dad43954fd33681"
+    },
+    "source_frame": {
+      "file_sha256": "330d7044ff7cda9e2c3338b775608618375351f97b59bd8fc8b3a8e82dde7b60",
+      "language_set_sha256": "5e142af3e289e53120f458a051bcbe324905ff1454ceb5e3ee8376608d15df96",
+      "path": "configs/language_groupings/scaling_fw2_v2_k200.json"
+    }
+  },
+  "promotion_policy": {
+    "directional_gates": [
+      "composite",
+      "typology",
+      "genealogy",
+      "geography",
+      "script"
+    ],
+    "expected_language_set_sha256": {
+      "compact": "552d8faf4ce09a5999741c1632c9685560d3a53b7336202d081abb43d634d5f9",
+      "diverse": "4491080d0787499774ebe9a7c0132459b43c5c3de6c6430853da19297bba5591"
+    },
+    "manual_substitutions": "prohibited",
+    "rule": "compact < reference < diverse on the composite and every individual axis"
+  },
+  "receipt_sha256": "5fc70a27e15381cbaa04e800fcc4bb766f64289bd434c1c5e0e8f55652a80be8",
+  "runtime_audit": {
+    "source_sampling_plan_reverified": true
+  },
+  "schema": "language_composition_selection_receipt/v2",
+  "selection": {
+    "compact": {
+      "axis_scores": {
+        "genealogy": 0.5945050551572507,
+        "geography": 0.2088461559354751,
+        "script": 0.3181818181818182,
+        "typology": 0.5693585092078117
+      },
+      "composite_score": 0.422722884620589,
+      "language_set_sha256": "552d8faf4ce09a5999741c1632c9685560d3a53b7336202d081abb43d634d5f9",
+      "languages": [
+        "deu_Latn",
+        "eng_Latn",
+        "spa_Latn",
+        "fra_Latn",
+        "ita_Latn",
+        "nld_Latn",
+        "por_Latn",
+        "ron_Latn",
+        "rus_Cyrl",
+        "swe_Latn",
+        "cmn_Hani",
+        "dan_Latn"
+      ],
+      "name": "compact",
+      "resource_stats": {
+        "availability_tokens": {
+          "cmn_Hani": 4384143869097,
+          "dan_Latn": 333161619390,
+          "deu_Latn": 1106611889690,
+          "eng_Latn": 29650919275006,
+          "fra_Latn": 1016797106335,
+          "ita_Latn": 456372113848,
+          "nld_Latn": 876511098864,
+          "por_Latn": 1318698555332,
+          "ron_Latn": 435507929064,
+          "rus_Cyrl": 3881134264180,
+          "spa_Latn": 1417850961427,
+          "swe_Latn": 368621619671
+        },
+        "effective_language_count": 9.851069193613224,
+        "english_probability": 0.19677951010173414,
+        "maximum_exposure_to_availability_ratio": 0.004916543992779709,
+        "probabilities": {
+          "cmn_Hani": 0.11090059226746561,
+          "dan_Latn": 0.05118761745114576,
+          "deu_Latn": 0.07337819523451412,
+          "eng_Latn": 0.19677951010173414,
+          "fra_Latn": 0.07153831666834955,
+          "ita_Latn": 0.05625539210728863,
+          "nld_Latn": 0.06842198229022488,
+          "por_Latn": 0.07734141000768288,
+          "ron_Latn": 0.05547115979138524,
+          "rus_Cyrl": 0.1069192802115556,
+          "spa_Latn": 0.07904194180036782,
+          "swe_Latn": 0.052764602068285815
+        },
+        "target_exposure_tokens": {
+          "cmn_Hani": 3548818952.5588994,
+          "dan_Latn": 1638003758.4366643,
+          "deu_Latn": 2348102247.5044518,
+          "eng_Latn": 6296944323.255492,
+          "fra_Latn": 2289226133.3871856,
+          "ita_Latn": 1800172547.4332361,
+          "nld_Latn": 2189503433.287196,
+          "por_Latn": 2474925120.245852,
+          "ron_Latn": 1775077113.3243277,
+          "rus_Cyrl": 3421416966.769779,
+          "spa_Latn": 2529342137.61177,
+          "swe_Latn": 1688467266.185146
+        }
+      },
+      "resource_violations": []
+    },
+    "diverse": {
+      "axis_scores": {
+        "genealogy": 0.64336718042495,
+        "geography": 0.4042921092130396,
+        "script": 0.8484848484848485,
+        "typology": 0.645737829075564
+      },
+      "composite_score": 0.6354704917996005,
+      "language_set_sha256": "4491080d0787499774ebe9a7c0132459b43c5c3de6c6430853da19297bba5591",
+      "languages": [
+        "arb_Arab",
+        "deu_Latn",
+        "eng_Latn",
+        "spa_Latn",
+        "fra_Latn",
+        "hin_Deva",
+        "jpn_Jpan",
+        "kor_Hang",
+        "por_Latn",
+        "rus_Cyrl",
+        "tha_Thai",
+        "cmn_Hani"
+      ],
+      "name": "diverse",
+      "resource_stats": {
+        "availability_tokens": {
+          "arb_Arab": 283207725927,
+          "cmn_Hani": 4384143869097,
+          "deu_Latn": 1106611889690,
+          "eng_Latn": 29650919275006,
+          "fra_Latn": 1016797106335,
+          "hin_Deva": 92100553253,
+          "jpn_Jpan": 2418099957835,
+          "kor_Hang": 447497218370,
+          "por_Latn": 1318698555332,
+          "rus_Cyrl": 3881134264180,
+          "spa_Latn": 1417850961427,
+          "tha_Thai": 221795434545
+        },
+        "effective_language_count": 9.623333292752312,
+        "english_probability": 0.19807512307704211,
+        "maximum_exposure_to_availability_ratio": 0.012172643323026644,
+        "probabilities": {
+          "arb_Arab": 0.04907383685212033,
+          "cmn_Hani": 0.1116307711678846,
+          "deu_Latn": 0.07386132349213285,
+          "eng_Latn": 0.19807512307704211,
+          "fra_Latn": 0.07200933100952403,
+          "hin_Deva": 0.035034599518818446,
+          "jpn_Jpan": 0.09338148167579872,
+          "kor_Hang": 0.05629315473881782,
+          "por_Latn": 0.07785063240732583,
+          "rus_Cyrl": 0.10762324581590671,
+          "spa_Latn": 0.07956236064548615,
+          "tha_Thai": 0.04560413959914236
+        },
+        "target_exposure_tokens": {
+          "arb_Arab": 1570362779.2678504,
+          "cmn_Hani": 3572184677.3723073,
+          "deu_Latn": 2363562351.7482514,
+          "eng_Latn": 6338403938.465347,
+          "fra_Latn": 2304298592.304769,
+          "hin_Deva": 1121107184.6021903,
+          "jpn_Jpan": 2988207413.6255593,
+          "kor_Hang": 1801380951.6421702,
+          "por_Latn": 2491220237.0344267,
+          "rus_Cyrl": 3443943866.1090145,
+          "spa_Latn": 2545995540.6555567,
+          "tha_Thai": 1459332467.1725557
+        }
+      },
+      "resource_violations": []
+    },
+    "gates": {
+      "all_directional_gates_passed": true,
+      "directional": {
+        "composite": {
+          "compact": 0.422722884620589,
+          "compact_to_reference_margin": 0.13038924475015207,
+          "diverse": 0.6354704917996005,
+          "passed": true,
+          "reference": 0.5531121293707411,
+          "reference_to_diverse_margin": 0.08235836242885941
+        },
+        "genealogy": {
+          "compact": 0.5945050551572507,
+          "compact_to_reference_margin": 0.03413457221890481,
+          "diverse": 0.64336718042495,
+          "passed": true,
+          "reference": 0.6286396273761555,
+          "reference_to_diverse_margin": 0.014727553048794473
+        },
+        "geography": {
+          "compact": 0.2088461559354751,
+          "compact_to_reference_margin": 0.15681504076087896,
+          "diverse": 0.4042921092130396,
+          "passed": true,
+          "reference": 0.36566119669635405,
+          "reference_to_diverse_margin": 0.038630912516685545
+        },
+        "script": {
+          "compact": 0.3181818181818182,
+          "compact_to_reference_margin": 0.2575757575757576,
+          "diverse": 0.8484848484848485,
+          "passed": true,
+          "reference": 0.5757575757575758,
+          "reference_to_diverse_margin": 0.2727272727272727
+        },
+        "typology": {
+          "compact": 0.5693585092078117,
+          "compact_to_reference_margin": 0.07303160844506695,
+          "diverse": 0.645737829075564,
+          "passed": true,
+          "reference": 0.6423901176528787,
+          "reference_to_diverse_margin": 0.0033477114226853066
+        }
+      },
+      "expected_memberships": {
+        "compact": {
+          "expected": "552d8faf4ce09a5999741c1632c9685560d3a53b7336202d081abb43d634d5f9",
+          "observed": "552d8faf4ce09a5999741c1632c9685560d3a53b7336202d081abb43d634d5f9",
+          "passed": true
+        },
+        "diverse": {
+          "expected": "4491080d0787499774ebe9a7c0132459b43c5c3de6c6430853da19297bba5591",
+          "observed": "4491080d0787499774ebe9a7c0132459b43c5c3de6c6430853da19297bba5591",
+          "passed": true
+        }
+      },
+      "expected_memberships_passed": true,
+      "resource_constraints_passed": true,
+      "solver_optimality_passed": true
+    },
+    "method": {
+      "axes": [
+        "typology",
+        "genealogy",
+        "geography",
+        "script"
+      ],
+      "axis_weights": {
+        "genealogy": 0.25,
+        "geography": 0.25,
+        "script": 0.25,
+        "typology": 0.25
+      },
+      "compact": "independent exact minimum",
+      "diverse": "independent exact maximum",
+      "objective": "mean within-set pairwise composite distance",
+      "pair_count_per_arm": 66
+    },
+    "overlap": {
+      "changed_internal_pairs_per_arm": 45,
+      "jaccard": 0.4117647058823529,
+      "pair_count_per_arm": 66,
+      "shared_count": 7,
+      "shared_languages": [
+        "cmn_Hani",
+        "deu_Latn",
+        "eng_Latn",
+        "fra_Latn",
+        "por_Latn",
+        "rus_Cyrl",
+        "spa_Latn"
+      ],
+      "unchanged_internal_pairs": 21
+    },
+    "reference": {
+      "axis_scores": {
+        "genealogy": 0.6286396273761555,
+        "geography": 0.36566119669635405,
+        "script": 0.5757575757575758,
+        "typology": 0.6423901176528787
+      },
+      "composite_score": 0.5531121293707411,
+      "language_set_sha256": "bbff51cc58457e0e22b228df8bfdc34aa05c91e17acebcd4bd64de981c35839d",
+      "languages": [
+        "deu_Latn",
+        "eng_Latn",
+        "spa_Latn",
+        "fra_Latn",
+        "hin_Deva",
+        "ita_Latn",
+        "jpn_Jpan",
+        "pol_Latn",
+        "por_Latn",
+        "rus_Cyrl",
+        "vie_Latn",
+        "cmn_Hani"
+      ],
+      "name": "reference",
+      "resource_stats": {
+        "availability_tokens": {
+          "cmn_Hani": 4384143869097,
+          "deu_Latn": 1106611889690,
+          "eng_Latn": 29650919275006,
+          "fra_Latn": 1016797106335,
+          "hin_Deva": 92100553253,
+          "ita_Latn": 456372113848,
+          "jpn_Jpan": 2418099957835,
+          "pol_Latn": 602137602866,
+          "por_Latn": 1318698555332,
+          "rus_Cyrl": 3881134264180,
+          "spa_Latn": 1417850961427,
+          "vie_Latn": 415027629434
+        },
+        "effective_language_count": 9.83207687203093,
+        "english_probability": 0.19376848439088618,
+        "maximum_exposure_to_availability_ratio": 0.011907980220293978,
+        "probabilities": {
+          "cmn_Hani": 0.10920364457970602,
+          "deu_Latn": 0.07225539727474425,
+          "eng_Latn": 0.19376848439088618,
+          "fra_Latn": 0.07044367164820584,
+          "hin_Deva": 0.03427286145046426,
+          "ita_Latn": 0.055394599070852535,
+          "jpn_Jpan": 0.09135113937279718,
+          "pol_Latn": 0.06019777208985939,
+          "por_Latn": 0.07615796883575411,
+          "rus_Cyrl": 0.10528325265189804,
+          "spa_Latn": 0.07783247990632605,
+          "vie_Latn": 0.053838728728506126
+        },
+        "target_exposure_tokens": {
+          "cmn_Hani": 3494516626.550593,
+          "deu_Latn": 2312172712.791816,
+          "eng_Latn": 6200591500.508358,
+          "fra_Latn": 2254197492.7425866,
+          "hin_Deva": 1096731566.4148562,
+          "ita_Latn": 1772627170.267281,
+          "jpn_Jpan": 2923236459.9295096,
+          "pol_Latn": 1926328706.8755004,
+          "por_Latn": 2437055002.7441316,
+          "rus_Cyrl": 3369064084.8607373,
+          "spa_Latn": 2490639357.002434,
+          "vie_Latn": 1722839319.312196
+        }
+      },
+      "resource_violations": []
+    },
+    "status": "passed"
+  },
+  "selection_identity_sha256": "20671b754c795dc37fbaca5608a19c1175477a6d2c12b4f8a398ee991dc30319",
+  "selection_policy": {
+    "alpha": 0.3,
+    "effective_language_count_absolute_tolerance": 0.25,
+    "english_probability_absolute_tolerance": 0.005,
+    "no_additional_corpus_cycling": true,
+    "objective": "minimize/maximize mean within-set pairwise distance after an equal 0.25-weight average of the four normalized axes",
+    "required_language": "eng_Latn",
+    "set_size": 12,
+    "solver": "scipy.optimize.milp / HiGHS, mip_rel_gap=0; observed gap must be at most 1e-12 for floating-point certification",
+    "total_tokens": 32000000000
+  },
+  "solver_certificate": {
+    "backend": "HiGHS",
+    "independent_arm_solves": true,
+    "interface": "scipy.optimize.milp",
+    "mip_relative_gap_required": 0.0,
+    "observed_gap_numerical_tolerance": 1e-12,
+    "settings": {
+      "arm_workers": 2,
+      "show_progress": false,
+      "solver_threads": 1
+    },
+    "trace": [
+      {
+        "arm": "compact",
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "mip_gap": 0.0,
+        "mip_gap_numerical_tolerance": 1e-12,
+        "mip_node_count": 1,
+        "random_seed": 0,
+        "solver_objective": 0.42272288462058893,
+        "solver_threads": 1,
+        "status": 0
+      },
+      {
+        "arm": "diverse",
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "mip_gap": 0.0,
+        "mip_gap_numerical_tolerance": 1e-12,
+        "mip_node_count": 1,
+        "random_seed": 0,
+        "solver_objective": -0.6354704917996387,
+        "solver_threads": 1,
+        "status": 0
+      }
+    ]
+  },
+  "status": "passed",
+  "study_id": "multilingual_moe_ab_v2_language_composition_v2"
+}

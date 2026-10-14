@@ -1,0 +1,151 @@
+rank,subset,code,script,name,family,train_documents,train_words,resource_availability
+1,ces_Latn,ces,Latn,Czech,Indo-European,66067904,35479428809,HIGH
+2,hun_Latn,hun,Latn,Hungarian,Uralic,49935986,30919839164,HIGH
+3,dan_Latn,dan,Latn,Danish,Indo-European,45391655,28055948840,HIGH
+4,fin_Latn,fin,Latn,Finnish,Uralic,36710816,20343096672,HIGH
+5,slk_Latn,slk,Latn,Slovak,Indo-European,29991521,14808010769,MEDIUM
+6,bul_Cyrl,bul,Cyrl,Bulgarian,Indo-European,25994731,16074326712,HIGH
+7,bos_Latn,bos,Latn,Bosnian,Indo-European,21243255,9086837979,LOW
+8,lit_Latn,lit,Latn,Lithuanian,Indo-European,13471965,9132828961,MEDIUM
+9,slv_Latn,slv,Latn,Slovenian,Indo-European,12059130,7688373264,MEDIUM
+10,ekk_Latn,ekk,Latn,Standard Estonian,Uralic,10218587,6564292000,LOW
+11,als_Latn,als,Latn,Tosk Albanian,Indo-European,8597826,3454387059,LOW
+12,lvs_Latn,lvs,Latn,Standard Latvian,Indo-European,8030316,5371151279,
+13,azj_Latn,azj,Latn,North Azerbaijani,Turkic,7291231,3894255826,
+14,tam_Taml,tam,Taml,Tamil,Dravidian,5528854,1937150898,MEDIUM
+15,npi_Deva,npi,Deva,Nepali (individual language),Indo-European,4888163,1642856349,MEDIUM
+16,mkd_Cyrl,mkd,Cyrl,Macedonian,Indo-European,4150902,1611392841,MEDIUM
+17,srp_Cyrl,srp,Cyrl,Serbian,Indo-European,4146124,2858500314,MEDIUM
+18,kat_Geor,kat,Geor,Georgian,Kartvelian,3706659,1439572993,MEDIUM
+19,mal_Mlym,mal,Mlym,Malayalam,Dravidian,3322526,1054187581,LOW
+20,isl_Latn,isl,Latn,Icelandic,Indo-European,3014429,1696354360,LOW
+21,glg_Latn,glg,Latn,Galician,Indo-European,2522814,1236233473,LOW
+22,kan_Knda,kan,Knda,Kannada,Dravidian,2390982,748850327,LOW
+23,ary_Arab,ary,Arab,Moroccan Arabic,Afro-Asiatic,2365405,843523994,LOW
+24,bel_Cyrl,bel,Cyrl,Belarusian,Indo-European,2100873,1166541148,MEDIUM
+25,hye_Armn,hye,Armn,Armenian,Indo-European,1757415,634273060,MEDIUM
+26,khk_Cyrl,khk,Cyrl,Halh Mongolian,Mongolic,1622882,824211882,LOW
+27,khm_Khmr,khm,Khmr,Khmer,Austro-Asiatic,1586460,667495692,LOW
+28,eus_Latn,eus,Latn,Basque,Language isolate,1569434,711939889,LOW
+29,lat_Latn,lat,Latn,Latin,Indo-European,1473541,714764848,LOW
+30,ory_Orya,ory,Orya,Odia,Indo-European,1298188,333760951,LOW
+31,uzn_Latn,uzn,Latn,Northern Uzbek,Turkic,1233463,687002994,LOW
+32,nno_Latn,nno,Latn,Norwegian Nynorsk,Indo-European,1214870,522740774,LOW
+33,sin_Sinh,sin,Sinh,Sinhala,Indo-European,1185323,512453069,LOW
+34,som_Latn,som,Latn,Somali,Afro-Asiatic,1070384,368770065,LOW
+35,kir_Cyrl,kir,Cyrl,Kirghiz,Turkic,1069582,397449282,LOW
+36,pan_Guru,pan,Guru,Panjabi,Indo-European,944160,522788467,LOW
+37,arz_Arab,arz,Arab,Egyptian Arabic,Afro-Asiatic,853290,345040810,LOW
+38,nrm_Latn,nrm,Latn,Narom,Austronesian,822502,296301638,LOW
+39,tgk_Cyrl,tgk,Cyrl,Tajik,Indo-European,688384,396209383,LOW
+40,gle_Latn,gle,Latn,Irish,Indo-European,646842,415191949,LOW
+41,mlt_Latn,mlt,Latn,Maltese,Afro-Asiatic,489190,286548586,LOW
+42,kmr_Latn,kmr,Latn,Northern Kurdish,Indo-European,444677,221161002,LOW
+43,bew_Latn,bew,Latn,Betawi,Creole,442907,327075482,LOW
+44,amh_Ethi,amh,Ethi,Amharic,Afro-Asiatic,428373,239936286,LOW
+45,lao_Laoo,lao,Laoo,Lao,Kra-Dai,359623,189562362,LOW
+46,ltz_Latn,ltz,Latn,Luxembourgish,Indo-European,354553,179951556,LOW
+47,fry_Latn,fry,Latn,Western Frisian,Indo-European,349743,130312086,LOW
+48,div_Thaa,div,Thaa,Dhivehi,Indo-European,348727,91079452,LOW
+49,epo_Latn,epo,Latn,Esperanto,Constructed language,335993,239172962,LOW
+50,kin_Latn,kin,Latn,Kinyarwanda,Niger-Congo,326120,127575978,LOW
+51,yue_Hani,yue,Hani,Yue Chinese,Sino-Tibetan,314951,157119499,
+52,ars_Arab,ars,Arab,Najdi Arabic,Afro-Asiatic,298167,269942711,LOW
+53,fao_Latn,fao,Latn,Faroese,Indo-European,291151,101180563,LOW
+54,plt_Latn,plt,Latn,Plateau Malagasy,Austronesian,272871,164135353,LOW
+55,asm_Beng,asm,Beng,Assamese,Indo-European,267371,98018336,LOW
+56,snd_Arab,snd,Arab,Sindhi,Indo-European,257843,164645639,LOW
+57,xho_Latn,xho,Latn,Xhosa,Niger-Congo,254164,115932287,LOW
+58,tuk_Latn,tuk,Latn,Turkmen,Turkic,238155,97811483,LOW
+59,hat_Latn,hat,Latn,Haitian,Creole,224472,135191283,LOW
+60,gla_Latn,gla,Latn,Scottish Gaelic,Indo-European,222468,166633652,LOW
+61,ceb_Latn,ceb,Latn,Cebuano,Austronesian,204636,132571464,LOW
+62,pap_Latn,pap,Latn,Papiamento,Creole,181759,107697692,LOW
+63,mri_Latn,mri,Latn,Maori,Austronesian,166938,121260744,LOW
+64,uig_Arab,uig,Arab,Uighur,Turkic,165637,89713984,LOW
+65,tat_Cyrl,tat,Cyrl,Tatar,Turkic,161354,152282780,LOW
+66,bod_Tibt,bod,Tibt,Tibetan,Sino-Tibetan,161076,143822443,LOW
+67,mww_Latn,mww,Latn,Hmong Daw,Hmong-Mien,158808,130993837,LOW
+68,hyw_Armn,hyw,Armn,Western Armenian,Indo-European,151767,75954026,
+69,ydd_Hebr,ydd,Hebr,Eastern Yiddish,Indo-European,135116,93968521,LOW
+70,hif_Latn,hif,Latn,Fiji Hindi,Indo-European,132560,211649862,LOW
+71,zul_Latn,zul,Latn,Zulu,Niger-Congo,127335,71666844,LOW
+72,sdh_Arab,sdh,Arab,Southern Kurdish,Indo-European,113689,43133077,LOW
+73,cos_Latn,cos,Latn,Corsican,Indo-European,111036,79070865,LOW
+74,sun_Latn,sun,Latn,Sundanese,Austronesian,106542,73493619,LOW
+75,nya_Latn,nya,Latn,Nyanja,Niger-Congo,103045,62633421,LOW
+76,ibo_Latn,ibo,Latn,Igbo,Niger-Congo,98785,75573291,LOW
+77,haw_Latn,haw,Latn,Hawaiian,Austronesian,95507,75251668,LOW
+78,sot_Latn,sot,Latn,Southern Sotho,Niger-Congo,92492,79270815,LOW
+79,lus_Latn,lus,Latn,Lushai,Sino-Tibetan,90564,48966586,LOW
+80,gmh_Latn,gmh,Latn,Middle High German (ca. 1050-1500),Indo-European,84495,506396917,
+81,sna_Latn,sna,Latn,Shona,Niger-Congo,84381,51957005,LOW
+82,chv_Cyrl,chv,Cyrl,Chuvash,Turkic,81380,39205795,LOW
+83,azb_Arab,azb,Arab,South Azerbaijani,Turkic,79211,35478216,LOW
+84,roh_Latn,roh,Latn,Romansh,Indo-European,77664,23138605,LOW
+85,run_Latn,run,Latn,Rundi,Niger-Congo,74530,22367058,LOW
+86,sah_Cyrl,sah,Cyrl,Yakut,Turkic,72847,43001210,LOW
+87,tir_Ethi,tir,Ethi,Tigrinya,Afro-Asiatic,72033,35040995,LOW
+88,ast_Latn,ast,Latn,Asturian,Indo-European,71329,47574503,LOW
+89,apc_Arab,apc,Arab,Levantine Arabic,Afro-Asiatic,69740,19512279,LOW
+90,oci_Latn,oci,Latn,Occitan (post 1500),Indo-European,69376,36169698,LOW
+91,cnh_Latn,cnh,Latn,Hakha Chin,Sino-Tibetan,65805,31319810,
+92,sme_Latn,sme,Latn,Northern Sami,Uralic,65661,25341152,LOW
+93,nds_Latn,nds,Latn,Low German,Indo-European,64394,34122691,LOW
+94,oss_Cyrl,oss,Cyrl,Ossetian,Indo-European,63690,27690962,LOW
+95,bre_Latn,bre,Latn,Breton,Indo-European,59875,28082040,LOW
+96,gsw_Latn,gsw,Latn,Swiss German,Indo-European,58314,31979438,LOW
+97,anp_Deva,anp,Deva,Angika,Indo-European,57997,27873797,
+98,nap_Latn,nap,Latn,Neapolitan,Indo-European,45778,32210650,LOW
+99,hsb_Latn,hsb,Latn,Upper Sorbian,Indo-European,44293,15291814,LOW
+100,hil_Latn,hil,Latn,Hiligaynon,Austronesian,43810,24304680,LOW
+101,kal_Latn,kal,Latn,Kalaallisut,Eskimo-Aleut,40164,14916751,LOW
+102,rue_Cyrl,rue,Cyrl,Rusyn,Indo-European,39923,21271349,LOW
+103,hbo_Hebr,hbo,Hebr,Ancient Hebrew,Afro-Asiatic,39619,34616981,LOW
+104,lim_Latn,lim,Latn,Limburgan,Indo-European,37165,16257384,LOW
+105,bar_Latn,bar,Latn,Bavarian,Indo-European,37025,20917214,LOW
+106,lug_Latn,lug,Latn,Ganda,Niger-Congo,35503,12318633,LOW
+107,crh_Latn,crh,Latn,Crimean Tatar,Turkic,31873,14963410,LOW
+108,kha_Latn,kha,Latn,Khasi,Austro-Asiatic,29993,13071578,LOW
+109,grc_Grek,grc,Grek,Ancient Greek (to 1453),Indo-European,28539,33850484,LOW
+110,udm_Cyrl,udm,Cyrl,Udmurt,Uralic,27979,15980185,LOW
+111,mhr_Cyrl,mhr,Cyrl,Eastern Mari,Uralic,27830,14628260,LOW
+112,arg_Latn,arg,Latn,Aragonese,Indo-European,26250,10175742,LOW
+113,srd_Latn,srd,Latn,Sardinian,Indo-European,26072,12753682,LOW
+114,kiu_Latn,kiu,Latn,Kirmanjki (individual language),Indo-European,25532,15002106,
+115,fur_Latn,fur,Latn,Friulian,Indo-European,22921,13349171,LOW
+116,mai_Deva,mai,Deva,Maithili,Indo-European,22787,14026766,LOW
+117,nde_Latn,nde,Latn,North Ndebele,Niger-Congo,22657,6503145,LOW
+118,che_Cyrl,che,Cyrl,Chechen,Nakh-Daghestanian,22345,12803288,LOW
+119,lin_Latn,lin,Latn,Lingala,Niger-Congo,21473,11233848,LOW
+120,san_Deva,san,Deva,Sanskrit,Indo-European,21453,16945617,LOW
+121,ilo_Latn,ilo,Latn,Iloko,Austronesian,21304,9434558,LOW
+122,pnb_Arab,pnb,Arab,Western Panjabi,Indo-European,20767,13082148,LOW
+123,aeb_Arab,aeb,Arab,Tunisian Arabic,Afro-Asiatic,19979,9889783,LOW
+124,dzo_Tibt,dzo,Tibt,Dzongkha,Sino-Tibetan,19239,9948273,LOW
+125,shn_Mymr,shn,Mymr,Shan,Kra-Dai,19218,3981060,LOW
+126,bho_Deva,bho,Deva,Bhojpuri,Indo-European,18467,8036065,LOW
+127,pms_Latn,pms,Latn,Piemontese,Indo-European,18338,7499528,LOW
+128,iba_Latn,iba,Latn,Iban,Austronesian,17703,8845019,LOW
+129,new_Deva,new,Deva,Newari,Sino-Tibetan,17464,9095000,LOW
+130,tyv_Cyrl,tyv,Cyrl,Tuvinian,Turkic,16328,10017001,LOW
+131,hac_Arab,hac,Arab,Gurani,Indo-European,16201,11183520,
+132,wln_Latn,wln,Latn,Walloon,Indo-European,15586,7541374,LOW
+133,fij_Latn,fij,Latn,Fijian,Austronesian,15331,10933833,LOW
+134,lmo_Latn,lmo,Latn,Lombard,Indo-European,15040,11839181,LOW
+135,scn_Latn,scn,Latn,Sicilian,Indo-European,13216,5733435,LOW
+136,uzs_Arab,uzs,Arab,Southern Uzbek,Turkic,13061,4181446,
+137,hne_Deva,hne,Deva,Chhattisgarhi,Indo-European,12826,7630943,LOW
+138,glk_Arab,glk,Arab,Gilaki,Indo-European,12300,5693363,LOW
+139,wuu_Hani,wuu,Hani,Wu Chinese,Sino-Tibetan,11739,3441825,
+140,rmy_Latn,rmy,Latn,Vlax Romani,Indo-European,11613,9083030,LOW
+141,kab_Latn,kab,Latn,Kabyle,Afro-Asiatic,11541,5946346,LOW
+142,bxr_Cyrl,bxr,Cyrl,Russia Buriat,Mongolic,11441,6660099,LOW
+143,sco_Latn,sco,Latn,Scots,Indo-European,11372,5811098,LOW
+144,cfm_Latn,cfm,Latn,Falam Chin,Sino-Tibetan,11364,5422255,
+145,rmn_Latn,rmn,Latn,Balkan Romani,Indo-European,11022,7739484,
+146,kaa_Cyrl,kaa,Cyrl,Kara-Kalpak,Turkic,10881,4195486,
+147,ido_Latn,ido,Latn,Ido,Artificial Language,10640,4326238,LOW
+148,ltg_Latn,ltg,Latn,Latgalian,Indo-European,10010,5252618,LOW
+149,ban_Latn,ban,Latn,Balinese,Austronesian,9233,9946735,LOW
+150,zea_Latn,zea,Latn,Zeeuws,Indo-European,9003,12144517,LOW

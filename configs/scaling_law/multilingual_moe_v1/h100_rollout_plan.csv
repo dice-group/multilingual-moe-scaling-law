@@ -1,0 +1,55 @@
+stage,run_id,purpose,ladder,E,K,target_tokens,target_checkpoint,h100_gpus,tensor_parallel,expert_parallel,estimated_h100_gpu_hours,max_dropped_assignment_rate,require_zero_kept_tokens,min_capacity_factor,notes
+metadata,all_64,generate and validate all H100 study configs without GPU,all,all,all,0,,0,0,0,0.000,0.05,True,1.0,python generator and validator only
+dryrun,multilingual_moe_v1_LA_E1_K1,render Bridge command and metadata,A,1,1,0,,1,1,1,0.000,0.05,True,1.0,dense baseline/control
+dryrun,multilingual_moe_v1_LA_E32_K200,render Bridge command and metadata,A,32,200,0,,1,1,1,0.000,0.05,True,1.0,try one H100 first; route diagnostics decide whether EP2 is needed
+dryrun,multilingual_moe_v1_LD_E32_K200,render Bridge command and metadata,D,32,200,0,,4,1,4,0.000,0.05,True,1.0,four-H100 EP4 candidate for largest E32 shape
+h100_shape_smoke,multilingual_moe_v1_LA_E1_K1,probe the one systems shape reused by all K variants,A,1,1,0,,1,1,1,0.000,0.05,True,1.0,dense baseline/control
+h100_shape_smoke,multilingual_moe_v1_LA_E4_K1,probe the one systems shape reused by all K variants,A,4,1,0,,1,1,1,0.000,0.05,True,1.0,single-H100 Switch-MoE baseline before EP tuning
+h100_shape_smoke,multilingual_moe_v1_LA_E16_K1,probe the one systems shape reused by all K variants,A,16,1,0,,1,1,1,0.000,0.05,True,1.0,try one H100 first; promote to EP2 if memory or MFU gate fails
+h100_shape_smoke,multilingual_moe_v1_LA_E32_K1,probe the one systems shape reused by all K variants,A,32,1,0,,1,1,1,0.000,0.05,True,1.0,try one H100 first; route diagnostics decide whether EP2 is needed
+h100_shape_smoke,multilingual_moe_v1_LB_E1_K1,probe the one systems shape reused by all K variants,B,1,1,0,,1,1,1,0.000,0.05,True,1.0,dense baseline/control
+h100_shape_smoke,multilingual_moe_v1_LB_E4_K1,probe the one systems shape reused by all K variants,B,4,1,0,,1,1,1,0.000,0.05,True,1.0,single-H100 Switch-MoE baseline before EP tuning
+h100_shape_smoke,multilingual_moe_v1_LB_E16_K1,probe the one systems shape reused by all K variants,B,16,1,0,,1,1,1,0.000,0.05,True,1.0,try one H100 first; promote to EP2 if memory or MFU gate fails
+h100_shape_smoke,multilingual_moe_v1_LB_E32_K1,probe the one systems shape reused by all K variants,B,32,1,0,,2,1,2,0.000,0.05,True,1.0,two-H100 EP2 candidate for E32
+h100_shape_smoke,multilingual_moe_v1_LC_E1_K1,probe the one systems shape reused by all K variants,C,1,1,0,,1,1,1,0.000,0.05,True,1.0,dense baseline/control
+h100_shape_smoke,multilingual_moe_v1_LC_E4_K1,probe the one systems shape reused by all K variants,C,4,1,0,,1,1,1,0.000,0.05,True,1.0,single-H100 Switch-MoE baseline before EP tuning
+h100_shape_smoke,multilingual_moe_v1_LC_E16_K1,probe the one systems shape reused by all K variants,C,16,1,0,,2,1,2,0.000,0.05,True,1.0,two-H100 expert parallel candidate for larger active scales
+h100_shape_smoke,multilingual_moe_v1_LC_E32_K1,probe the one systems shape reused by all K variants,C,32,1,0,,2,1,2,0.000,0.05,True,1.0,two-H100 EP2 candidate for E32
+h100_shape_smoke,multilingual_moe_v1_LD_E1_K1,probe the one systems shape reused by all K variants,D,1,1,0,,1,1,1,0.000,0.05,True,1.0,dense baseline/control
+h100_shape_smoke,multilingual_moe_v1_LD_E4_K1,probe the one systems shape reused by all K variants,D,4,1,0,,1,1,1,0.000,0.05,True,1.0,single-H100 Switch-MoE baseline before EP tuning
+h100_shape_smoke,multilingual_moe_v1_LD_E16_K1,probe the one systems shape reused by all K variants,D,16,1,0,,2,1,2,0.000,0.05,True,1.0,two-H100 expert parallel candidate for larger active scales
+h100_shape_smoke,multilingual_moe_v1_LD_E32_K1,probe the one systems shape reused by all K variants,D,32,1,0,,4,1,4,0.000,0.05,True,1.0,four-H100 EP4 candidate for largest E32 shape
+h100_routing_gate,multilingual_moe_v1_LA_E4_K200,confirm small-drop gate on the largest language set,A,4,200,500000000,500000000,1,1,1,0.246,0.05,True,1.0,single-H100 Switch-MoE baseline before EP tuning
+h100_routing_gate,multilingual_moe_v1_LA_E16_K200,confirm small-drop gate on the largest language set,A,16,200,500000000,500000000,1,1,1,0.279,0.05,True,1.0,try one H100 first; promote to EP2 if memory or MFU gate fails
+h100_routing_gate,multilingual_moe_v1_LA_E32_K200,confirm small-drop gate on the largest language set,A,32,200,500000000,500000000,1,1,1,0.301,0.05,True,1.0,try one H100 first; route diagnostics decide whether EP2 is needed
+h100_routing_gate,multilingual_moe_v1_LB_E4_K200,confirm small-drop gate on the largest language set,B,4,200,500000000,500000000,1,1,1,0.504,0.05,True,1.0,single-H100 Switch-MoE baseline before EP tuning
+h100_routing_gate,multilingual_moe_v1_LB_E16_K200,confirm small-drop gate on the largest language set,B,16,200,500000000,500000000,1,1,1,0.572,0.05,True,1.0,try one H100 first; promote to EP2 if memory or MFU gate fails
+h100_routing_gate,multilingual_moe_v1_LB_E32_K200,confirm small-drop gate on the largest language set,B,32,200,500000000,500000000,2,1,2,0.618,0.05,True,1.0,two-H100 EP2 candidate for E32
+h100_routing_gate,multilingual_moe_v1_LC_E4_K200,confirm small-drop gate on the largest language set,C,4,200,500000000,500000000,1,1,1,0.924,0.05,True,1.0,single-H100 Switch-MoE baseline before EP tuning
+h100_routing_gate,multilingual_moe_v1_LC_E16_K200,confirm small-drop gate on the largest language set,C,16,200,500000000,500000000,2,1,2,1.050,0.05,True,1.0,two-H100 expert parallel candidate for larger active scales
+h100_routing_gate,multilingual_moe_v1_LC_E32_K200,confirm small-drop gate on the largest language set,C,32,200,500000000,500000000,2,1,2,1.134,0.05,True,1.0,two-H100 EP2 candidate for E32
+h100_routing_gate,multilingual_moe_v1_LD_E4_K200,confirm small-drop gate on the largest language set,D,4,200,500000000,500000000,1,1,1,1.561,0.05,True,1.0,single-H100 Switch-MoE baseline before EP tuning
+h100_routing_gate,multilingual_moe_v1_LD_E16_K200,confirm small-drop gate on the largest language set,D,16,200,500000000,500000000,2,1,2,1.774,0.05,True,1.0,two-H100 expert parallel candidate for larger active scales
+h100_routing_gate,multilingual_moe_v1_LD_E32_K200,confirm small-drop gate on the largest language set,D,32,200,500000000,500000000,4,1,4,1.916,0.05,True,1.0,four-H100 EP4 candidate for largest E32 shape
+h100_pilot_a_all_k,multilingual_moe_v1_LA_E1_K1,first real checkpoint across all K on the smallest scale,A,1,1,500000000,500000000,1,1,1,0.223,0.05,True,1.0,dense baseline/control
+h100_pilot_a_all_k,multilingual_moe_v1_LA_E1_K16,first real checkpoint across all K on the smallest scale,A,1,16,500000000,500000000,1,1,1,0.223,0.05,True,1.0,dense baseline/control
+h100_pilot_a_all_k,multilingual_moe_v1_LA_E1_K50,first real checkpoint across all K on the smallest scale,A,1,50,500000000,500000000,1,1,1,0.223,0.05,True,1.0,dense baseline/control
+h100_pilot_a_all_k,multilingual_moe_v1_LA_E1_K200,first real checkpoint across all K on the smallest scale,A,1,200,500000000,500000000,1,1,1,0.223,0.05,True,1.0,dense baseline/control
+h100_pilot_a_all_k,multilingual_moe_v1_LA_E4_K1,first real checkpoint across all K on the smallest scale,A,4,1,500000000,500000000,1,1,1,0.246,0.05,True,1.0,single-H100 Switch-MoE baseline before EP tuning
+h100_pilot_a_all_k,multilingual_moe_v1_LA_E4_K16,first real checkpoint across all K on the smallest scale,A,4,16,500000000,500000000,1,1,1,0.246,0.05,True,1.0,single-H100 Switch-MoE baseline before EP tuning
+h100_pilot_a_all_k,multilingual_moe_v1_LA_E4_K50,first real checkpoint across all K on the smallest scale,A,4,50,500000000,500000000,1,1,1,0.246,0.05,True,1.0,single-H100 Switch-MoE baseline before EP tuning
+h100_pilot_a_all_k,multilingual_moe_v1_LA_E4_K200,first real checkpoint across all K on the smallest scale,A,4,200,500000000,500000000,1,1,1,0.246,0.05,True,1.0,single-H100 Switch-MoE baseline before EP tuning
+h100_pilot_a_all_k,multilingual_moe_v1_LA_E16_K1,first real checkpoint across all K on the smallest scale,A,16,1,500000000,500000000,1,1,1,0.279,0.05,True,1.0,try one H100 first; promote to EP2 if memory or MFU gate fails
+h100_pilot_a_all_k,multilingual_moe_v1_LA_E16_K16,first real checkpoint across all K on the smallest scale,A,16,16,500000000,500000000,1,1,1,0.279,0.05,True,1.0,try one H100 first; promote to EP2 if memory or MFU gate fails
+h100_pilot_a_all_k,multilingual_moe_v1_LA_E16_K50,first real checkpoint across all K on the smallest scale,A,16,50,500000000,500000000,1,1,1,0.279,0.05,True,1.0,try one H100 first; promote to EP2 if memory or MFU gate fails
+h100_pilot_a_all_k,multilingual_moe_v1_LA_E16_K200,first real checkpoint across all K on the smallest scale,A,16,200,500000000,500000000,1,1,1,0.279,0.05,True,1.0,try one H100 first; promote to EP2 if memory or MFU gate fails
+h100_pilot_a_all_k,multilingual_moe_v1_LA_E32_K1,first real checkpoint across all K on the smallest scale,A,32,1,500000000,500000000,1,1,1,0.301,0.05,True,1.0,try one H100 first; route diagnostics decide whether EP2 is needed
+h100_pilot_a_all_k,multilingual_moe_v1_LA_E32_K16,first real checkpoint across all K on the smallest scale,A,32,16,500000000,500000000,1,1,1,0.301,0.05,True,1.0,try one H100 first; route diagnostics decide whether EP2 is needed
+h100_pilot_a_all_k,multilingual_moe_v1_LA_E32_K50,first real checkpoint across all K on the smallest scale,A,32,50,500000000,500000000,1,1,1,0.301,0.05,True,1.0,try one H100 first; route diagnostics decide whether EP2 is needed
+h100_pilot_a_all_k,multilingual_moe_v1_LA_E32_K200,first real checkpoint across all K on the smallest scale,A,32,200,500000000,500000000,1,1,1,0.301,0.05,True,1.0,try one H100 first; route diagnostics decide whether EP2 is needed
+h100_pilot_d_endpoints,multilingual_moe_v1_LD_E4_K1,largest active scale endpoint check before full trajectories,D,4,1,500000000,500000000,1,1,1,1.561,0.05,True,1.0,single-H100 Switch-MoE baseline before EP tuning
+h100_pilot_d_endpoints,multilingual_moe_v1_LD_E4_K200,largest active scale endpoint check before full trajectories,D,4,200,500000000,500000000,1,1,1,1.561,0.05,True,1.0,single-H100 Switch-MoE baseline before EP tuning
+h100_pilot_d_endpoints,multilingual_moe_v1_LD_E16_K1,largest active scale endpoint check before full trajectories,D,16,1,500000000,500000000,2,1,2,1.774,0.05,True,1.0,two-H100 expert parallel candidate for larger active scales
+h100_pilot_d_endpoints,multilingual_moe_v1_LD_E16_K200,largest active scale endpoint check before full trajectories,D,16,200,500000000,500000000,2,1,2,1.774,0.05,True,1.0,two-H100 expert parallel candidate for larger active scales
+h100_pilot_d_endpoints,multilingual_moe_v1_LD_E32_K1,largest active scale endpoint check before full trajectories,D,32,1,500000000,500000000,4,1,4,1.916,0.05,True,1.0,four-H100 EP4 candidate for largest E32 shape
+h100_pilot_d_endpoints,multilingual_moe_v1_LD_E32_K200,largest active scale endpoint check before full trajectories,D,32,200,500000000,500000000,4,1,4,1.916,0.05,True,1.0,four-H100 EP4 candidate for largest E32 shape

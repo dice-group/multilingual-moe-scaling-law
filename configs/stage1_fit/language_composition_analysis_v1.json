@@ -1,0 +1,26 @@
+{
+  "schema": "language_composition_analysis/v1",
+  "study_manifest": "outputs/pipeline_runs/stage1_language_composition_v1_release1/control/launch_manifest.json",
+  "study_manifest_sha256": "c197a3c7418c9ef9ad2c1bde52c8b7908db334fd8fc5eaee5b18d42427fa2c1c",
+  "models": ["M6-ND", "M5-ND", "M6", "J0-ND", "J0", "C0", "M0", "M1"],
+  "folds": ["largest_N_act", "E32", "K200_common_languages"],
+  "shared_languages": ["cmn_Hani", "deu_Latn", "eng_Latn", "fra_Latn", "por_Latn", "rus_Cyrl", "spa_Latn"],
+  "primary_horizon": 16000000000,
+  "primary_empirical": "unseen_177: (E1-E32)_diverse - (E1-E32)_compact",
+  "primary_prediction": "RMSE of diverse-minus-compact loss contrasts across common7 and E1/E16/E32 at 16B",
+  "primary_model_comparison": ["M6-ND", "M5-ND"],
+  "aggregation": "equal language/expert weights within seed and fit; equal mean of three fixed-fit scores within seed; report three seeds with mean/sample SD/range",
+  "prediction_analysis_status": "secondary analysis specified after aggregate empirical outcomes were inspected; existing fits only; no refitting or model selection",
+  "historical_prediction_tolerance": 1e-10,
+  "reference_raw_loss_tolerance": 0.0001,
+  "summary_tolerance": 1e-12,
+  "inputs": {
+    "nd_plan": "result_analysis/stage1_m6_size_duration_v3/plan.json",
+    "nd_reduction": "result_analysis/stage1_m6_size_duration_v3/reduction.json",
+    "ablation_root": "result_analysis/stage1_size_duration_ablations_v1",
+    "baseline_report": "result_analysis/stage1_scaling_fit_baseline_recovery_v1/reports/primary_baseline_comparison.json",
+    "historical_predictions": "result_analysis/stage1_size_duration_ablations_v1/predictions.parquet",
+    "historical_validation": "result_analysis/stage1_abcd_jointmoe_x1_v1/tables/validation_language.parquet",
+    "component_receipt": "result_analysis/stage1_m5_m6_v1/input/component_receipt.json"
+  }
+}

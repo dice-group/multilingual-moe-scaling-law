@@ -1,0 +1,308 @@
+{
+  "stage1_l26_e32_k200_law_trunk_production_v1": {
+    "output_root": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/trunk",
+    "logs_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/trunk/logs",
+    "language_map_path": "configs/language_groupings/200_languages_grouping.json",
+    "run_naming": {
+      "experiment_tag": "stage1-l26-e32-k200-law-trunk-v1",
+      "language_count_hint": 200
+    },
+    "executor": {
+      "type": "slurm",
+      "partition": "gpu_h100",
+      "gres": "gpu:h100:4",
+      "cpus_per_task": 128,
+      "mem": "512G",
+      "time": "96:00:00",
+      "module_init": "/etc/profile.d/z00_lmod.sh",
+      "modules": [
+        "toolchain/foss/2024a",
+        "system/CUDA/12.6.0",
+        "lib/NCCL/2.22.3-GCCcore-13.3.0-CUDA-12.6.0"
+      ],
+      "conda_base": "/opt/software/cluster/EB-SW/software/Miniforge3/25.3.0-3",
+      "conda_env": "/opt/conda/envs/bridge-train",
+      "poll_interval_seconds": 60,
+      "extra_sbatch_flags": [
+        "--export=NIL",
+        "--nodes=2-2",
+        "--ntasks-per-node=1",
+        "--account=research-project",
+        "--signal=TERM@1800"
+      ]
+    },
+    "runtime": {
+      "env": {
+        "BRIDGE_LOG_THROUGHPUT": "1",
+        "BRIDGE_THROUGHPUT_WINDOW_SIZE": "32",
+        "BRIDGE_MOE_TOKEN_DROP_METRICS": "0",
+        "BRIDGE_PREFER_VENV_CUDA_LIBS": "0",
+        "BRIDGE_SKIP_JIT_WARMUP": "1",
+        "PROOF_APPEND_LD_LIBRARY_PATH": "0",
+        "PROOF_ENABLE_BRIDGE_OPTIONAL_DEP_SHIMS": "1",
+        "PROOF_REQUIRE_REAL_MODELOPT": "1",
+        "PROOF_DATASET_BUILDER_THREADS": "1",
+        "PROOF_BIND_LOCAL_RANK_CPUS": "socket",
+        "PROOF_ENABLE_MOE_A2A_CPU_SPLIT_LISTS": "1",
+        "PROOF_INSPECT_TE_GROUPED_MLP": "1",
+        "PROOF_REQUIRE_TE_GROUPED_MLP_FUSED": "1",
+        "PROOF_GPU_MONITOR_INTERVAL_SECONDS": "60",
+        "OMP_NUM_THREADS": "1",
+        "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
+        "CUDA_DEVICE_MAX_CONNECTIONS": "8",
+        "NCCL_GRAPH_REGISTER": "0",
+        "NVTE_FLASH_ATTN": "0",
+        "NVTE_FUSED_ATTN": "1",
+        "NVTE_UNFUSED_ATTN": "0",
+        "WANDB_MODE": "online",
+        "WANDB_DISABLE_GIT": "true",
+        "PROOF_SLURM_BIN_DIR": "/opt/software/slurm/25.11.5-1/bin",
+        "TRANSFORMERS_OFFLINE": "1",
+        "HF_HUB_OFFLINE": "1"
+      }
+    },
+    "wandb": {
+      "enabled": true,
+      "entity": "",
+      "mode": "online",
+      "project": "multilingual-megatron-study",
+      "train_prefix": "train"
+    },
+    "wandb_mode": "online",
+    "sample": {
+      "enabled": false,
+      "source_type": "json",
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/trunk/disabled_sample"
+    },
+    "tokenization": {
+      "enabled": false,
+      "backend": "megatron_gpt",
+      "model_name": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenizer/sp_unigram_64k/tokenizer.model",
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/trunk/disabled_tokenization"
+    },
+    "training": {
+      "enabled": true,
+      "backend": "megatron_bridge",
+      "bridge_root": "external/Megatron-Bridge",
+      "dataset": "llm-pretrain",
+      "recipe": "scaling_switch_moe_scale_scaling_l26_pretrain_config",
+      "launcher": "python",
+      "python_executable": "/opt/conda/envs/bridge-train/bin/python",
+      "nproc_per_node": 4,
+      "nnodes": 2,
+      "seq_length": 2048,
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/trunk/runs",
+      "eval": {
+        "eval_interval": 1000000000,
+        "eval_iters": 0
+      },
+      "launch": {
+        "preflight_cuda": true
+      },
+      "overrides": [
+        "mixed_precision=bf16_mixed",
+        "model.transformer_impl=transformer_engine",
+        "model.attention_backend=auto",
+        "model.cuda_graph_impl=none",
+        "model.sequence_parallel=false",
+        "model.tensor_model_parallel_size=1",
+        "model.pipeline_model_parallel_size=4",
+        "model.pipeline_model_parallel_layout=Et*6|t*7|t*7|t*6L",
+        "model.context_parallel_size=1",
+        "model.expert_model_parallel_size=2",
+        "model.expert_tensor_parallel_size=1",
+        "model.virtual_pipeline_model_parallel_size=null",
+        "model.gradient_accumulation_fusion=true",
+        "model.cross_entropy_loss_fusion=true",
+        "model.cross_entropy_fusion_impl=te",
+        "model.apply_rope_fusion=true",
+        "model.bias_dropout_fusion=true",
+        "model.persist_layer_norm=true",
+        "model.masked_softmax_fusion=true",
+        "model.share_embeddings_and_output_weights=false",
+        "model.should_pad_vocab=false",
+        "model.num_moe_experts=32",
+        "model.moe_router_topk=1",
+        "model.moe_router_pre_softmax=true",
+        "model.moe_router_load_balancing_type=aux_loss",
+        "model.moe_aux_loss_coeff=0.01",
+        "model.moe_z_loss_coeff=0.001",
+        "model.moe_router_dtype=fp32",
+        "model.moe_expert_capacity_factor=null",
+        "model.moe_pad_expert_input_to_capacity=false",
+        "model.moe_grouped_gemm=true",
+        "model.moe_permute_fusion=true",
+        "model.moe_router_fusion=true",
+        "model.moe_shared_expert_overlap=false",
+        "model.moe_token_dispatcher_type=alltoall",
+        "model.overlap_moe_expert_parallel_comm=false",
+        "model.delay_wgrad_compute=false",
+        "model.recompute_granularity=selective",
+        "model.recompute_modules=['core_attn']",
+        "model.use_transformer_engine_op_fuser=true",
+        "model.use_te_activation_func=true",
+        "model.use_te_rng_tracker=true",
+        "rng.te_rng_tracker=true",
+        "rng.seed=1234",
+        "optimizer.optimizer=adam",
+        "optimizer.lr=0.0002",
+        "optimizer.min_lr=0.0",
+        "optimizer.adam_beta1=0.9",
+        "optimizer.adam_beta2=0.95",
+        "optimizer.adam_eps=1e-8",
+        "optimizer.weight_decay=0.1",
+        "optimizer.clip_grad=1.0",
+        "logger.wandb_project=multilingual-megatron-study",
+        "logger.wandb_exp_name=stage1-l26-e32-k200-production-v1",
+        "logger.wandb_save_dir=outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/trunk/wandb",
+        "optimizer.bf16=true",
+        "optimizer.fp16=false",
+        "optimizer.use_precision_aware_optimizer=false",
+        "optimizer.main_params_dtype=fp32",
+        "optimizer.main_grads_dtype=fp32",
+        "optimizer.exp_avg_dtype=fp32",
+        "optimizer.exp_avg_sq_dtype=fp32",
+        "optimizer.use_distributed_optimizer=true",
+        "ddp.use_distributed_optimizer=true",
+        "optimizer.overlap_param_gather=false",
+        "ddp.overlap_param_gather=false",
+        "ddp.overlap_grad_reduce=false",
+        "scheduler.start_weight_decay=0.1",
+        "scheduler.end_weight_decay=0.1",
+        "scheduler.weight_decay_incr_style=constant",
+        "dist.distributed_backend=nccl",
+        "profiling.record_memory_history=false",
+        "profiling.use_pytorch_profiler=false",
+        "profiling.use_nsys_profiler=false",
+        "checkpoint.async_save=false",
+        "checkpoint.ckpt_assume_constant_structure=true",
+        "checkpoint.dist_ckpt_strictness=log_all",
+        "train.exit_signal_handler=true",
+        "train.exit_signal_handler_for_dataloader=true",
+        "tokenizer.tokenizer_type=SentencePieceTokenizer",
+        "tokenizer.tokenizer_model=outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenizer/sp_unigram_64k/tokenizer.model",
+        "tokenizer.vocab_size=64000",
+        "model.vocab_size=64000",
+        "dataset.split=100,0,0",
+        "dataset.num_dataset_builder_threads=2",
+        "dataset.num_workers=2",
+        "dataset.persistent_workers=true",
+        "dataset.pin_memory=true",
+        "validation.eval_iters=0"
+      ],
+      "train": {
+        "global_batch_size": 128,
+        "micro_batch_size": 8,
+        "log_interval": 10,
+        "token_budget_tokens": 54946011544,
+        "batch_policy": {
+          "enabled": true,
+          "mode": "token_ramp",
+          "planning_method": "joint_moe_full_state_wsd_v2",
+          "target_global_batch_size": 128,
+          "schedule": [
+            {
+              "start_tokens": 0,
+              "end_tokens": 500000000,
+              "global_batch_size": 32
+            },
+            {
+              "start_tokens": 500000000,
+              "end_tokens": 1000000000,
+              "global_batch_size": 64
+            },
+            {
+              "start_tokens": 1000000000,
+              "end_tokens": 0,
+              "global_batch_size": 128
+            }
+          ],
+          "warmup_tokens": 130000000,
+          "decay_fraction": 0.2,
+          "dataset_horizon_tokens": 68682514430,
+          "checkpoint_horizons_tokens": [
+            68682514430
+          ],
+          "readout_horizons_tokens": [
+            17170614784,
+            34341308928,
+            45881412097,
+            51512003072
+          ],
+          "plan_role": "trunk",
+          "seq_length": 2048,
+          "data_parallel_size": 2
+        }
+      },
+      "runs": [
+        {
+          "id": "stage1_l26_e32_k200_law_trunk",
+          "kind": "megatron_bridge",
+          "backend": "megatron_bridge",
+          "recipe": "scaling_switch_moe_scale_scaling_l26_pretrain_config",
+          "data_manifest": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenized/tiers/K200/megatron_data_manifest.json",
+          "data_manifest_sha256": "feb0a43aa5d8b9842d5fb2d3d41924cef5ed6a425c5a8a712522f76ca0a342f6"
+        }
+      ]
+    },
+    "benchmark": {
+      "enabled": false,
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/trunk/benchmarks"
+    },
+    "baseline_eval": {
+      "enabled": false
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/trunk/summary.csv",
+      "gate_json": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/trunk/gate.json",
+      "min_relative_improvement": 0.0
+    }
+  },
+  "stage1_l26_e32_k200_law_cooldown_production_v1": {
+    "extends": "stage1_l26_e32_k200_law_trunk_production_v1",
+    "output_root": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/cooldown",
+    "logs_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/cooldown/logs",
+    "run_naming": {
+      "experiment_tag": "stage1-l26-e32-k200-law-cooldown-v1",
+      "language_count_hint": 200
+    },
+    "executor": {
+      "time": "48:00:00"
+    },
+    "sample": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/cooldown/disabled_sample"
+    },
+    "tokenization": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/cooldown/disabled_tokenization"
+    },
+    "training": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/cooldown/runs",
+      "train": {
+        "token_budget_tokens": 68682514430,
+        "batch_policy": {
+          "plan_role": "branch",
+          "branch_target_tokens": 68682514430,
+          "branch_parent_checkpoint_root": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/trunk/runs/stage1_l26_e32_k200_law_trunk/segments/06_gbs128/checkpoints"
+        }
+      },
+      "runs": [
+        {
+          "id": "stage1_l26_e32_k200_law_cooldown",
+          "kind": "megatron_bridge",
+          "backend": "megatron_bridge",
+          "recipe": "scaling_switch_moe_scale_scaling_l26_pretrain_config",
+          "data_manifest": "outputs/pipeline_runs/h100_ab_v2_k12_fixed_lr_attempt3/corpus/tokenized/tiers/K200/megatron_data_manifest.json",
+          "data_manifest_sha256": "feb0a43aa5d8b9842d5fb2d3d41924cef5ed6a425c5a8a712522f76ca0a342f6"
+        }
+      ]
+    },
+    "benchmark": {
+      "output_dir": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/cooldown/benchmarks"
+    },
+    "summary": {
+      "summary_csv": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/cooldown/summary.csv",
+      "gate_json": "outputs/pipeline_runs/stage1_l26_e32_k200_law_production_v1/cooldown/gate.json",
+      "min_relative_improvement": 0.0
+    }
+  }
+}

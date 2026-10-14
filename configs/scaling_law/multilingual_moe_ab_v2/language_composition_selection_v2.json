@@ -1,0 +1,87 @@
+{
+  "schema": "language_composition_selection/v2",
+  "study_id": "multilingual_moe_ab_v2_language_composition_v2",
+  "source_frame": {
+    "path": "configs/language_groupings/scaling_fw2_v2_k200.json",
+    "file_sha256": "330d7044ff7cda9e2c3338b775608618375351f97b59bd8fc8b3a8e82dde7b60",
+    "language_set_sha256": "5e142af3e289e53120f458a051bcbe324905ff1454ceb5e3ee8376608d15df96"
+  },
+  "reference_arm": {
+    "path": "configs/language_groupings/scaling_fw2_v2_k012.json",
+    "file_sha256": "dfe0f7730bee84ab06f835e18894efe6da3e740aca90b70b0a213d3f6f531cc0",
+    "language_set_sha256": "bbff51cc58457e0e22b228df8bfdc34aa05c91e17acebcd4bd64de981c35839d"
+  },
+  "availability_projection": {
+    "path": "configs/scaling_law/multilingual_moe_ab_v2/language_composition_availability_v1.json",
+    "file_sha256": "4853687f14a294122b9f4975667be9bfd064c8a56aaccf82eda4dcd136d08a4b"
+  },
+  "eligibility": {
+    "source_frame_size": 200,
+    "eligible_frame_size": 196,
+    "eligible_language_set_sha256": "0841528a58843161ef02b0f8d7860c35557442de20b03e708d412e1b8c191c0f",
+    "exclude_before_metric_construction": [
+      "hyw_Armn",
+      "epo_Latn",
+      "ido_Latn",
+      "srd_Latn"
+    ],
+    "rule": "one-to-one Glottolog ISO-639-3 mapping plus complete primary-metric coverage; no manual substitute"
+  },
+  "mapping_exceptions": {
+    "fas_Arab": {
+      "glottocode": "west2369",
+      "glottolog_iso": "pes",
+      "rule": "FineWeb Persian macro-code fas is mapped to Western Farsi pes; retain fas_Arab as the corpus identifier"
+    }
+  },
+  "external_source_lock": {
+    "urielplus_repository": "https://github.com/LeeLanguageLab/URIELPlus",
+    "urielplus_commit": "d094f343d00874371debec697cfb1a091d3f2995",
+    "modality_matching_repository": "https://github.com/Swithord/urielplus-modality-matters",
+    "modality_matching_commit": "27552ef0ff057cb94e72b8fc059179029c69ca50",
+    "glottolog_version": "5.2.1",
+    "glottolog_cldf_commit": "5925ab13a3d568950ddd5301f1f1afc864258d34"
+  },
+  "external_artifacts": {
+    "urielplus_softimpute": {"filename": "URIELPlus_Union_SoftImpute.csv", "sha256": "6c713ed1889bcc26bb0c1e1190ae105712d5d1c5d99d00f2ff76e5ef563982c6"},
+    "latent_islands": {"filename": "islands.pkl", "sha256": "822f1b7922d91cdd8d6a14b1d60d6aa8ace4f07592148504ca9dada59d885f90"},
+    "genetic_embeddings": {"filename": "genetic_embeddings.csv", "sha256": "c3cd8d4e52cf4be0cc2f88c6a71e4fea1996c0a200d758746cec427dc347f642"},
+    "urielplus_geography": {"filename": "geocoord_features.npz", "sha256": "d7364bd05ecd2f7075755b8361aff6a6cda82519c11c98d7e88bda817bd353ab"},
+    "glottolog_languages": {"filename": "glottolog-languages-v5.2.1.csv", "sha256": "f4fb9cb64addfcde88bbae9ad9f8deb0e7515190beb48d2e0791b4337bd2d46f"}
+  },
+  "metric_policy": {
+    "primary_axes": ["typology", "genealogy", "geography", "script"],
+    "normalization": "divide every K196 candidate-frame distance matrix by its frozen observed maximum before averaging",
+    "typology": "paper-faithful latent-island [P(z=0),P(z=1)] vector with angular distance normalized to [0,1]",
+    "genealogy": "released normalized hyperbolic Glottolog embedding",
+    "geography": "official URIEL+ 299-feature geocoord vector with angular distance normalized to [0,1]",
+    "script": "same/different FineWeb2 language-identifier script suffix"
+  },
+  "selection_policy": {
+    "set_size": 12,
+    "required_language": "eng_Latn",
+    "alpha": 0.3,
+    "total_tokens": 32000000000,
+    "english_probability_absolute_tolerance": 0.005,
+    "effective_language_count_absolute_tolerance": 0.25,
+    "objective": "minimize/maximize mean within-set pairwise distance after an equal 0.25-weight average of the four normalized axes",
+    "no_additional_corpus_cycling": true,
+    "solver": "scipy.optimize.milp / HiGHS, mip_rel_gap=0; observed gap must be at most 1e-12 for floating-point certification"
+  },
+  "promotion_policy": {
+    "directional_gates": ["composite", "typology", "genealogy", "geography", "script"],
+    "rule": "compact < reference < diverse on the composite and every individual axis",
+    "expected_language_set_sha256": {
+      "compact": "552d8faf4ce09a5999741c1632c9685560d3a53b7336202d081abb43d634d5f9",
+      "diverse": "4491080d0787499774ebe9a7c0132459b43c5c3de6c6430853da19297bba5591"
+    },
+    "manual_substitutions": "prohibited"
+  },
+  "claim_boundary": {
+    "unit": "FineWeb2 language-script configuration",
+    "frame": "conditional extrema within the frozen eligible K196 frame",
+    "construct": "four-modality language-composition contrast, not pure intrinsic linguistic diversity",
+    "sampling": "approximately exposure-matched under the frozen global alpha=0.3 sampler",
+    "generalization": "selection evidence only; model-training conclusions require the separately frozen replicated experiment"
+  }
+}

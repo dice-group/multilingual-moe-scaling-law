@@ -1,0 +1,34 @@
+{
+  "0": {
+    "group": "k012_diverse_v2",
+    "languages": [
+      "arb_Arab",
+      "deu_Latn",
+      "eng_Latn",
+      "spa_Latn",
+      "fra_Latn",
+      "hin_Deva",
+      "jpn_Jpan",
+      "kor_Hang",
+      "por_Latn",
+      "rus_Cyrl",
+      "tha_Thai",
+      "cmn_Hani"
+    ],
+    "selection_policy": {
+      "alpha": 0.3,
+      "candidate_frame": "frozen K196 order derived from scaling_fw2_v2_k200",
+      "definition": "Exact resource-feasible K12 maximum of the frozen equal-weight URIEL+ four-axis composite",
+      "effective_language_count_absolute_tolerance": 0.25,
+      "english_probability_absolute_tolerance": 0.005,
+      "manual_substitutions": "prohibited",
+      "method_id": "urielplus_k196_four_axis_minsum_maxsum_v2",
+      "required_language": "eng_Latn",
+      "selection_identity_sha256": "20671b754c795dc37fbaca5608a19c1175477a6d2c12b4f8a398ee991dc30319",
+      "selection_manifest": "result_analysis/language_composition_selection_v2/selection_manifest.json"
+    }
+  },
+  "language_set_id": "scaling_fw2_v2_k012_diverse",
+  "language_set_sha256": "4491080d0787499774ebe9a7c0132459b43c5c3de6c6430853da19297bba5591",
+  "schema_version": 2
+}

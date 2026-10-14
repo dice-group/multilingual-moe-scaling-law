@@ -1,0 +1,75 @@
+{
+  "inherits": {
+    "spec_path": "workflow_runtime_seed_confirmation_v1.json",
+    "spec_sha256": "bfd62239c6d542f776071a66c8918b836653786377853848ad48020aea021f9c"
+  },
+  "output_root": "outputs/pipeline_runs/stage1_language_composition_v1_release1",
+  "workflow_attempt_id": "stage1_language_composition_v1_release1",
+  "workflow_job_prefix": "lcomp1r1",
+  "data": {
+    "sealed_corpus_root": "/workspace/language_composition/outputs/pipeline_runs/stage1_language_composition_data_v1"
+  },
+  "performance_budget": {
+    "training_throughput_evidence": {
+      "GBS32": {
+        "report": "/workspace/multi-moe-scaling-laws/outputs/pipeline_runs/h100_ab_v2_performance_20260718_ramp32/analysis/long_performance_recheck.json"
+      },
+      "GBS64": {
+        "B/E32_report": "/workspace/multi-moe-scaling-laws/outputs/pipeline_runs/h100_ab_v2_performance_20260718_post_sentinel/analysis/long_performance_recheck.json"
+      },
+      "GBS128": {
+        "report": "/workspace/multi-moe-scaling-laws/outputs/pipeline_runs/h100_ab_v2_performance_20260718_post_sentinel/analysis/long_performance_recheck.json"
+      }
+    }
+  },
+  "storage": {
+    "enforcement": "fail_closed_wave_bound",
+    "retain_all_checkpoints": false,
+    "production_launch_policy": "one_arm_seed_wave_with_three_expert_trajectories",
+    "composition_non_checkpoint_reserve_bytes": 274877906944,
+    "composition_final_free_headroom_bytes": 1099511627776,
+    "composition_required_available_inodes": 200000
+  },
+  "language_composition": {
+    "reference_sources": {
+      "primary_seed_root": "/workspace/multi-moe-scaling-laws/outputs/pipeline_runs/stage1_ab_jointmoe_x1_production_v1",
+      "primary_seed_launch_file_sha256": "e743d1ef772eef3be167a0c996a49dcf3af0860eae0d1b3560032696198a3d87",
+      "primary_seed_manifest_sha256": "188548a71e12a36d9878cf01f13c6a5f50d8be1142ac8a6671966844935bed34",
+      "replication_seed_root": "/workspace/multi-moe-scaling-laws/outputs/pipeline_runs/stage1_b_seed_confirmation_v1",
+      "replication_seed_launch_file_sha256": "3698c022db90b5c582dab1d639b3a53ee99ddbcbadf2290bfbccc77d2913cfd1",
+      "replication_seed_manifest_sha256": "84e5d4e1c8f64216143d075390450fb906f56083eded8f5c8ea656715052ef7d"
+    },
+    "smoke": {
+      "tokens": 134217728,
+      "global_batch_size": 32,
+      "seed": 1234,
+      "experts": [
+        1,
+        32
+      ],
+      "steady_state_window_observations": 12,
+      "maximum_step_time_cv_pct": 5.0,
+      "minimum_reference_throughput_fraction": 0.85,
+      "reference_median_tokens_per_second": {
+        "1": 329906.87,
+        "32": 203559.56
+      }
+    },
+    "production_smoke_evidence": {
+      "source_manifest": "/workspace/multi-moe-scaling-laws/outputs/pipeline_runs/stage1_language_composition_v1_attempt3/control/launch_manifest.json",
+      "source_manifest_file_sha256": "bc88e9854e67cbd751da1e8b9ef13b34fdad18fe9bad12f19ca054fbab6d9313",
+      "source_manifest_payload_sha256": "9a53dce7d9e42f8fd518b0aabfe29b31ce32f0ace719cfa1d9153ab8fa62089a",
+      "source_smoke_gate": "/workspace/multi-moe-scaling-laws/outputs/pipeline_runs/stage1_language_composition_v1_attempt3/control/language_composition_smoke_gate.json",
+      "source_smoke_gate_file_sha256": "bd43a776847d6a2de2d266c34339fb6ad4c4e35c808f69b66aa61ebacd4fa0cd",
+      "source_smoke_gate_payload_sha256": "b212c02c93569a81ec668e5260383bff64f8182cb1a8f0d2b8492cf22dc1d4d4",
+      "decision": "authorized_with_disclosed_boundary",
+      "waived_errors": [
+        "smoke_diverse_b_e1_s1234: steady-state stability"
+      ],
+      "rationale": "All four long real-data smokes completed with valid full-state checkpoints, finite loss and gradients, zero skips and NaNs, and healthy MoE routing. The explicit release decision accepts only the isolated diverse/E1 late-window timing-CV boundary; its median throughput remained at 99.1 percent of the matched reference.",
+      "authorized_by": "study authors",
+      "authorized_at_utc": "2026-09-03T22:19:41Z"
+    },
+    "production_authorization_file": "outputs/pipeline_runs/stage1_language_composition_v1_release1/control/production_authorization.json"
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "inherits": {
+    "spec_path": "../multilingual_moe_ab_v2/workflow_runtime_jointmoe_paper_lr_v1.json",
+    "spec_sha256": "92d6a9d3e0c1c0aef736d284704aa64c4892eaf1bcf7cb75ae31ac54bce1ad70"
+  },
+  "schema_version": 2,
+  "study_id": "multilingual_moe_d_v1",
+  "output_root": "outputs/pipeline_runs/stage1_d_jointmoe_x1_production_v1",
+  "workflow_profile_name": "stage1_d_jointmoe_x1_production_v1",
+  "workflow_attempt_id": "stage1_d_jointmoe_x1_production_v1",
+  "workflow_tag": "stage1-d-jointmoe-x1-production-v1",
+  "workflow_job_prefix": "djm1",
+  "seeds": {
+    "__replace__": {
+      "data": 42,
+      "primary_training": 1234,
+      "replication_training": [1234, 5678, 91011]
+    }
+  },
+  "resources": {
+    "cpu": {
+      "extra_sbatch_flags": {"__replace__": ["--export=NIL", "--account=research-project"]}
+    },
+    "cpu_largemem": {
+      "extra_sbatch_flags": {"__replace__": ["--export=NIL", "--account=research-project"]}
+    },
+    "cpu_streaming": {
+      "extra_sbatch_flags": {"__replace__": ["--export=NIL", "--account=research-project"]}
+    },
+    "cpu_tokenizer": {
+      "extra_sbatch_flags": {"__replace__": ["--export=NIL", "--account=research-project"]}
+    },
+    "h100": {
+      "extra_sbatch_flags": {
+        "__replace__": ["--export=NIL", "--nodes=1", "--ntasks-per-node=1", "--account=research-project"]
+      }
+    },
+    "h100_2": {
+      "partition": "gpu_h100",
+      "gres": "gpu:h100:2",
+      "cpus_per_task": 32,
+      "mem": "128G",
+      "time": "7-00:00:00",
+      "module_init": "/etc/profile.d/z00_lmod.sh",
+      "modules": [
+        "toolchain/foss/2024a",
+        "system/CUDA/12.6.0",
+        "lib/NCCL/2.22.3-GCCcore-13.3.0-CUDA-12.6.0"
+      ],
+      "conda_base": "/opt/software/cluster/EB-SW/software/Miniforge3/25.3.0-3",
+      "conda_env": "/opt/conda/envs/bridge-train",
+      "extra_sbatch_flags": ["--export=NIL", "--nodes=1", "--ntasks-per-node=1", "--account=research-project"]
+    },
+    "h100_4": {
+      "partition": "gpu_h100",
+      "gres": "gpu:h100:4",
+      "cpus_per_task": 64,
+      "mem": "256G",
+      "time": "7-00:00:00",
+      "module_init": "/etc/profile.d/z00_lmod.sh",
+      "modules": [
+        "toolchain/foss/2024a",
+        "system/CUDA/12.6.0",
+        "lib/NCCL/2.22.3-GCCcore-13.3.0-CUDA-12.6.0"
+      ],
+      "conda_base": "/opt/software/cluster/EB-SW/software/Miniforge3/25.3.0-3",
+      "conda_env": "/opt/conda/envs/bridge-train",
+      "extra_sbatch_flags": ["--export=NIL", "--nodes=1", "--ntasks-per-node=1", "--account=research-project"]
+    }
+  },
+  "training": {
+    "runtime_env": {
+      "BRIDGE_THROUGHPUT_WINDOW_SIZE": "32",
+      "NCCL_GRAPH_REGISTER": "0"
+    },
+    "micro_batch_size": {
+      "__replace__": {"D": {"1": 16, "4": 16, "16": 8, "32": 8}}
+    },
+    "evaluation_micro_batch_size": {
+      "__replace__": {"D": {"1": 16, "4": 16, "16": 8, "32": 8}}
+    },
+    "checkpoint_horizons_tokens": {
+      "__replace__": {"D": [500000000, 1000000000, 2000000000, 4000000000, 8000000000, 16000000000, 32000000000]}
+    },
+    "data_parallel_size_by_ladder_and_experts": {
+      "__replace__": {"D": {"1": 1, "4": 1, "16": 2, "32": 4}}
+    },
+    "cuda_graph_impl_by_experts": {
+      "__replace__": {"1": "none", "4": "none", "16": "none", "32": "none"}
+    },
+    "sentinels": {"__replace__": []},
+    "integration_sentinel_cells": {"__replace__": []},
+    "learning_rate_diagnostics": {"__delete__": true},
+    "production_lr_evidence": {
+      "source_gate_path": "outputs/pipeline_runs/stage1_lr_confirmation_h100_v1/control/lr_confirmation_gate.json",
+      "source_gate_file_sha256": "d039f107198f9eceed53ddfee1c34f386d7954d3e3fcea3fc291d7bafc96297e",
+      "source_gate_payload_sha256": "28fc9ff3d31a6af060d14a7ef020a8956fbd9aab576b3a775dc8e479e9a02a41",
+      "source_recovery_path": "outputs/pipeline_runs/stage1_lr_confirmation_h100_v1/control/recovery/lr_confirmation_gate_analysis_recovery.json",
+      "source_recovery_file_sha256": "59f721944ce0b31e24a5074ffc8043635fcf3fab280b8eebb8f9faed61bdbb99",
+      "source_manifest_sha256": "0eaa0bdb1d939db04ecb5983a7d375f8b1ace74c01983909f100063cb84c605a",
+      "observed_decision": "inconclusive_boundary",
+      "authorization_decision": "authorized_with_disclosed_boundary",
+      "selected_rule": "jointmoe_x1_aggregate_a_priori",
+      "deferred_boundary_cell": "B/E1/K1:x4"
+    }
+  },
+  "throughput_tokens_per_second": {
+    "__replace__": {"D": {"1": 116322.33, "4": 104292.34, "16": 93899.53, "32": 168510.91}}
+  },
+  "training_throughput_tokens_per_second_by_global_batch_size": {
+    "__replace__": {
+      "32": {"D": {"1": 114453.37, "4": 98446.75, "16": 138715.21, "32": 232975.47}},
+      "64": {"D": {"1": 116606.91, "4": 101847.0, "16": 113782.72, "32": 276144.53}},
+      "128": {"D": {"1": 116322.33, "4": 104292.34, "16": 93899.53, "32": 168510.91}}
+    }
+  },
+  "evaluation_throughput_tokens_per_second": {
+    "__replace__": {"D": {"1": 322329.3201646296, "4": 271455.7315824387, "16": 296435.0399900031, "32": 419649.8635001624}}
+  },
+  "performance_budget": {
+    "__replace__": {
+      "training_noncheckpoint_overhead_seconds_per_job": 120.0,
+      "checkpoint_overhead_seconds": {"D": 90.0},
+      "evaluation_setup_seconds": {"D": 7.857537845993647},
+      "evaluation_residual_seconds_per_language": {"D": 0.8528309630055446},
+      "evidence": "D-specific Study phase-1 systems measurements only; no inference about JointMoE-x1 numerical validity",
+      "training_throughput_evidence": {
+        "GBS32": {
+          "report": "outputs/pipeline_runs/h100_d_v1_full_study_phase1_20260723/control/throughput/d_gbs32_long_report.json",
+          "file_sha256": "65b951de89892d53203691944266b2ea301934c56a3829735ef9e54ea2f46d71",
+          "payload_sha256": "87da66041639a679f9860511a90e7eedb3d283ad14302ffece896ca728d48965",
+          "contract": "all four D cells; GBS32; 134,217,728 tokens; 32-step final window; ordinary FP32 optimizer moments"
+        },
+        "GBS64": {
+          "report": "outputs/pipeline_runs/h100_d_v1_full_study_phase1_20260723/control/throughput/d_gbs64_long_report.json",
+          "file_sha256": "cf334c74c48441d49fa217194743a925a763e93bf3476de70b35b77649d30dcb",
+          "payload_sha256": "d56e08498ffbe5772aedb2e1bc059062a179c60fad013819e4bf49092ff14571",
+          "contract": "all four D cells; GBS64; 134,217,728 tokens; 32-step final window; ordinary FP32 optimizer moments"
+        },
+        "GBS128": {
+          "report": "outputs/pipeline_runs/h100_d_v1_full_study_phase1_20260723/control/throughput/d_gbs128_long_report.json",
+          "file_sha256": "946590c8567a147d49db7860d7504967d94d16edc18c68b4323a557fc91369cc",
+          "payload_sha256": "8af0465297cdb16d9e1490d48857f6b87594873d66605a1e3365a588f8346b5f",
+          "contract": "all four D cells; GBS128; 134,217,728 tokens; 32-step final window; ordinary FP32 optimizer moments"
+        }
+      }
+    }
+  },
+  "systems_evidence_adoption": {
+    "source_runtime_path": "outputs/pipeline_runs/h100_d_v1_full_study_phase1_20260723/control/workflow_runtime_measured.json",
+    "source_runtime_sha256": "ead3c73c6c056c2b114db91eeb029acd2ca7674495aecb945acd04472d2855df",
+    "promotion_receipt_path": "outputs/pipeline_runs/h100_d_v1_full_study_phase1_20260723/control/runtime_promotion_cost_amended.json",
+    "promotion_receipt_sha256": "94e8c38e261a4f7513fb44b8ef6529c50cdae387f8aaa7df9faafbafffe2cbe4",
+    "scope": "topology, memory, throughput, evaluation rate, and walltime only; not LR validity"
+  },
+  "sentinel_throughput_safety_factor": 0.9,
+  "gpu_hour_limit": 3200.0,
+  "scheduling": {
+    "mode": "ordinary_queue_forecast",
+    "predicted_time_multiplier": 2.0,
+    "additive_safety_hours": 12.0,
+    "minimum_job_hours": 2.0,
+    "maximum_job_hours": 168.0,
+    "walltime_rounding_minutes": 15,
+    "submit_ready_only": false,
+    "retry_policy": {
+      "manual_only": true,
+      "maximum_infrastructure_retries": 2,
+      "scientific_or_contract_failures_retryable": false
+    }
+  },
+  "storage": {
+    "enforcement": "informational_soft_limit",
+    "retain_all_checkpoints": true,
+    "production_launch_policy": "all_16_trunks_concurrently_eligible_after_advisory_capacity_observation"
+  }
+}

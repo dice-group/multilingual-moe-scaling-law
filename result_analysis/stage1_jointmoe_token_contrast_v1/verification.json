@@ -1,0 +1,12 @@
+{
+  "certified": 1300,
+  "total": 1300,
+  "historical_D_rmse_difference": {
+    "largest_N_act": 1.3877787807814457e-17,
+    "E32": 5.551115123125783e-17,
+    "K200_common_languages": 2.7755575615628914e-17,
+    "all_grid": 5.551115123125783e-17
+  },
+  "elapsed_seconds": 54.40198397496715,
+  "manuscript_changed": false
+}

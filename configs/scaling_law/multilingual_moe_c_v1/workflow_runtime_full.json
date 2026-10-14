@@ -1,0 +1,39 @@
+{
+  "inherits": "workflow_runtime.json",
+  "schema_version": 1,
+  "study_id": "multilingual_moe_c_v1",
+  "output_root": "outputs/pipeline_runs/h100_c_v1_full",
+  "workflow_profile_name": "c_v1_job",
+  "workflow_attempt_id": "c_v1",
+  "workflow_tag": "multilingual-moe-c-v1-20260723",
+  "workflow_job_prefix": "cv1p1",
+  "scheduling": {
+    "account": "research-project",
+    "partition_max_time": "7-00:00:00",
+    "desired_walltime_safety_margin_hours": 96.0,
+    "training_time_min_safety_margin_hours": 24.0,
+    "evaluation_time_min_safety_margin_hours": 6.0,
+    "walltime_rounding_minutes": 15,
+    "completion_tail_buffer_hours": 0.0,
+    "submit_ready_only": false,
+    "policy": "submit each authorized dependency DAG in full; use checkpoint and resume rather than shorten the frozen recipe"
+  },
+  "resources": {
+    "h100": {
+      "extra_sbatch_flags": [
+        "--export=NIL",
+        "--nodes=1",
+        "--ntasks-per-node=1",
+        "--account=research-project"
+      ]
+    },
+    "h100_2": {
+      "extra_sbatch_flags": [
+        "--export=NIL",
+        "--nodes=1",
+        "--ntasks-per-node=1",
+        "--account=research-project"
+      ]
+    }
+  }
+}

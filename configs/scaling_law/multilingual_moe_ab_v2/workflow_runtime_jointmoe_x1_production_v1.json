@@ -1,0 +1,41 @@
+{
+  "inherits": {
+    "spec_path": "workflow_runtime_jointmoe_paper_lr_v1.json",
+    "spec_sha256": "92d6a9d3e0c1c0aef736d284704aa64c4892eaf1bcf7cb75ae31ac54bce1ad70"
+  },
+  "output_root": "outputs/pipeline_runs/stage1_ab_jointmoe_x1_production_v1",
+  "workflow_attempt_id": "stage1_ab_jointmoe_x1_production_v1",
+  "training": {
+    "learning_rate_diagnostics": {"__delete__": true},
+    "production_lr_evidence": {
+      "source_gate_path": "outputs/pipeline_runs/stage1_lr_confirmation_h100_v1/control/lr_confirmation_gate.json",
+      "source_gate_file_sha256": "d039f107198f9eceed53ddfee1c34f386d7954d3e3fcea3fc291d7bafc96297e",
+      "source_gate_payload_sha256": "28fc9ff3d31a6af060d14a7ef020a8956fbd9aab576b3a775dc8e479e9a02a41",
+      "source_recovery_path": "outputs/pipeline_runs/stage1_lr_confirmation_h100_v1/control/recovery/lr_confirmation_gate_analysis_recovery.json",
+      "source_recovery_file_sha256": "59f721944ce0b31e24a5074ffc8043635fcf3fab280b8eebb8f9faed61bdbb99",
+      "source_manifest_sha256": "0eaa0bdb1d939db04ecb5983a7d375f8b1ace74c01983909f100063cb84c605a",
+      "observed_decision": "inconclusive_boundary",
+      "authorization_decision": "authorized_with_disclosed_boundary",
+      "selected_rule": "jointmoe_x1_aggregate_a_priori",
+      "deferred_boundary_cell": "B/E1/K1:x4"
+    }
+  },
+  "scheduling": {
+    "mode": "ordinary_queue_forecast",
+    "predicted_time_multiplier": 2.0,
+    "additive_safety_hours": 1.0,
+    "minimum_job_hours": 2.0,
+    "maximum_job_hours": 7.0,
+    "walltime_rounding_minutes": 15,
+    "retry_policy": {
+      "manual_only": true,
+      "maximum_infrastructure_retries": 2,
+      "scientific_or_contract_failures_retryable": false
+    }
+  },
+  "storage": {
+    "enforcement": "informational_soft_limit",
+    "retain_all_checkpoints": true,
+    "production_launch_policy": "all_32_trunks_concurrently_eligible_after_gates"
+  }
+}

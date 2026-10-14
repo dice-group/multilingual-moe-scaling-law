@@ -1,0 +1,159 @@
+{
+  "bridge_smoke_local": {
+    "output_root": "outputs/pipeline_runs/bridge_smoke_local",
+    "language_map_path": "configs/language_groupings/bridge_smoke_4lang.json",
+    "executor": {
+      "type": "local",
+      "cuda_visible_devices": "0",
+      "conda_env": "bridge-train"
+    },
+    "runtime": {
+      "env": {
+        "STRAGGLER_DET_SKIP_CUPTI_EXT_BUILD": "1",
+        "BRIDGE_SKIP_JIT_WARMUP": "1",
+        "TMPDIR": "outputs/.cache",
+        "TMP": "outputs/.cache",
+        "TEMP": "outputs/.cache",
+        "HF_HOME": "outputs/.cache/huggingface",
+        "HF_DATASETS_CACHE": "outputs/.cache/huggingface/datasets",
+        "TRANSFORMERS_CACHE": "outputs/.cache/huggingface/hub"
+      }
+    },
+    "sample": {
+      "enabled": true,
+      "output_dir": "outputs/pipeline_runs/bridge_smoke_local/sampled",
+      "source_type": "json",
+      "data_files": "outputs/sample_data/fixtures/multilingual_4lang/arb_Arab.jsonl,outputs/sample_data/fixtures/multilingual_4lang/hun_Latn.jsonl,outputs/sample_data/fixtures/multilingual_4lang/xho_Latn.jsonl,outputs/sample_data/fixtures/multilingual_4lang/zul_Latn.jsonl",
+      "languages": [
+        "arb_Arab",
+        "hun_Latn",
+        "xho_Latn",
+        "zul_Latn"
+      ],
+      "sampling_mode": "equal_documents",
+      "per_language_target": 4096,
+      "max_scan": 10000,
+      "allow_upsample": true,
+      "fail_on_missing": true
+    },
+    "tokenization": {
+      "enabled": true,
+      "backend": "megatron_gpt",
+      "output_dir": "outputs/pipeline_runs/bridge_smoke_local/tokenized_megatron",
+      "model_name": "hf-internal-testing/tiny-random-LlamaForCausalLM",
+      "tokenizer_type": "HuggingFaceTokenizer",
+      "launcher": "python",
+      "num_proc": 2,
+      "workers": 2,
+      "max_length": 128,
+      "append_eod": true,
+      "blend_weight_policy": "equal"
+    },
+    "audit": {
+      "enabled": true
+    },
+    "training": {
+      "enabled": true,
+      "backend": "megatron_bridge",
+      "bridge_root": "external/Megatron-Bridge",
+      "output_dir": "outputs/pipeline_runs/bridge_smoke_local/runs",
+      "dataset": "llm-pretrain",
+      "seq_length": 128,
+      "nproc_per_node": 1,
+      "launcher": "python",
+      "runs": [
+        {
+          "id": "dense_gpt_tiny",
+          "kind": "megatron_bridge",
+          "backend": "megatron_bridge",
+          "recipe": "vanilla_gpt_pretrain_config",
+          "train": {
+            "train_iters": 5,
+            "global_batch_size": 4,
+            "micro_batch_size": 1,
+            "log_interval": 1
+          },
+          "eval": {
+            "eval_interval": 10,
+            "eval_iters": 1
+          },
+          "overrides": [
+            "model.num_layers=2",
+            "model.hidden_size=128",
+            "model.num_attention_heads=4",
+            "model.ffn_hidden_size=512",
+            "model.vocab_size=32000",
+            "mixed_precision=null",
+            "model.bf16=false",
+            "optimizer.bf16=false",
+            "model.params_dtype=float32",
+            "optimizer.params_dtype=float32",
+            "model.cuda_graph_impl=none",
+            "dist.distributed_backend=nccl",
+            "profiling.record_memory_history=false",
+            "tokenizer.tokenizer_type=HuggingFaceTokenizer",
+            "tokenizer.tokenizer_model=hf-internal-testing/tiny-random-LlamaForCausalLM",
+            "ddp.use_distributed_optimizer=false",
+            "optimizer.use_distributed_optimizer=false"
+          ]
+        },
+        {
+          "id": "moe_gpt_tiny_top1",
+          "kind": "megatron_bridge",
+          "backend": "megatron_bridge",
+          "recipe": "vanilla_gpt_pretrain_config",
+          "train": {
+            "train_iters": 5,
+            "global_batch_size": 4,
+            "micro_batch_size": 1,
+            "log_interval": 1
+          },
+          "eval": {
+            "eval_interval": 10,
+            "eval_iters": 1
+          },
+          "overrides": [
+            "model.num_layers=2",
+            "model.hidden_size=128",
+            "model.num_attention_heads=4",
+            "model.ffn_hidden_size=512",
+            "model.vocab_size=32000",
+            "mixed_precision=null",
+            "model.bf16=false",
+            "optimizer.bf16=false",
+            "model.params_dtype=float32",
+            "optimizer.params_dtype=float32",
+            "model.cuda_graph_impl=none",
+            "dist.distributed_backend=nccl",
+            "profiling.record_memory_history=false",
+            "model.num_moe_experts=4",
+            "model.add_bias_linear=false",
+            "model.moe_router_topk=1",
+            "model.moe_router_pre_softmax=true",
+            "model.moe_layer_freq=1",
+            "model.moe_aux_loss_coeff=0.01",
+            "model.moe_token_dispatcher_type=allgather",
+            "tokenizer.tokenizer_type=HuggingFaceTokenizer",
+            "tokenizer.tokenizer_model=hf-internal-testing/tiny-random-LlamaForCausalLM",
+            "ddp.use_distributed_optimizer=false",
+            "optimizer.use_distributed_optimizer=false"
+          ]
+        }
+      ]
+    },
+    "benchmark": {
+      "enabled": true,
+      "backend": "bridge_artifacts",
+      "output_dir": "outputs/pipeline_runs/bridge_smoke_local/benchmarks"
+    },
+    "baseline_eval": {
+      "enabled": false
+    },
+    "summary": {
+      "baseline_id": "dense_gpt_tiny",
+      "primary_metric": "train_runtime",
+      "summary_csv": "outputs/pipeline_runs/bridge_smoke_local/summary.csv",
+      "gate_json": "outputs/pipeline_runs/bridge_smoke_local/gate.json"
+    }
+  }
+}

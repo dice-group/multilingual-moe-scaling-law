@@ -1,0 +1,276 @@
+{
+  "inherits": {
+    "spec_path": "../multilingual_moe_ab_v2/workflow_runtime_jointmoe_paper_lr_v1.json",
+    "spec_sha256": "92d6a9d3e0c1c0aef736d284704aa64c4892eaf1bcf7cb75ae31ac54bce1ad70"
+  },
+  "schema_version": 2,
+  "study_id": "multilingual_moe_c_v1",
+  "output_root": "outputs/pipeline_runs/stage1_c_jointmoe_x1_production_v1",
+  "workflow_profile_name": "stage1_c_jointmoe_x1_production_v1",
+  "workflow_attempt_id": "stage1_c_jointmoe_x1_production_v1",
+  "workflow_tag": "stage1-c-jointmoe-x1-production-v1",
+  "workflow_job_prefix": "cjm1",
+  "seeds": {
+    "__replace__": {
+      "data": 42,
+      "primary_training": 1234,
+      "replication_training": [
+        1234,
+        5678,
+        91011
+      ]
+    }
+  },
+  "resources": {
+    "cpu": {
+      "extra_sbatch_flags": {
+        "__replace__": [
+          "--export=NIL",
+          "--account=research-project"
+        ]
+      }
+    },
+    "cpu_largemem": {
+      "extra_sbatch_flags": {
+        "__replace__": [
+          "--export=NIL",
+          "--account=research-project"
+        ]
+      }
+    },
+    "cpu_streaming": {
+      "extra_sbatch_flags": {
+        "__replace__": [
+          "--export=NIL",
+          "--account=research-project"
+        ]
+      }
+    },
+    "cpu_tokenizer": {
+      "extra_sbatch_flags": {
+        "__replace__": [
+          "--export=NIL",
+          "--account=research-project"
+        ]
+      }
+    },
+    "h100": {
+      "extra_sbatch_flags": {
+        "__replace__": [
+          "--export=NIL",
+          "--nodes=1",
+          "--ntasks-per-node=1",
+          "--account=research-project"
+        ]
+      }
+    },
+    "h100_2": {
+      "partition": "gpu_h100",
+      "gres": "gpu:h100:2",
+      "cpus_per_task": 32,
+      "mem": "128G",
+      "time": "7-00:00:00",
+      "module_init": "/etc/profile.d/z00_lmod.sh",
+      "modules": [
+        "toolchain/foss/2024a",
+        "system/CUDA/12.6.0",
+        "lib/NCCL/2.22.3-GCCcore-13.3.0-CUDA-12.6.0"
+      ],
+      "conda_base": "/opt/software/cluster/EB-SW/software/Miniforge3/25.3.0-3",
+      "conda_env": "/opt/conda/envs/bridge-train",
+      "extra_sbatch_flags": [
+        "--export=NIL",
+        "--nodes=1",
+        "--ntasks-per-node=1",
+        "--account=research-project"
+      ]
+    }
+  },
+  "training": {
+    "runtime_env": {
+      "NCCL_GRAPH_REGISTER": "0"
+    },
+    "micro_batch_size": {
+      "__replace__": {
+        "C": {
+          "1": 16,
+          "4": 32,
+          "16": 16,
+          "32": 8
+        }
+      }
+    },
+    "evaluation_micro_batch_size": {
+      "__replace__": {
+        "C": {
+          "1": 16,
+          "4": 32,
+          "16": 16,
+          "32": 8
+        }
+      }
+    },
+    "checkpoint_horizons_tokens": {
+      "__replace__": {
+        "C": [
+          500000000,
+          1000000000,
+          2000000000,
+          4000000000,
+          8000000000,
+          16000000000,
+          32000000000
+        ]
+      }
+    },
+    "data_parallel_size_by_ladder_and_experts": {
+      "__replace__": {
+        "C": {
+          "1": 1,
+          "4": 1,
+          "16": 1,
+          "32": 2
+        }
+      }
+    },
+    "cuda_graph_impl_by_experts": {
+      "__replace__": {
+        "1": "transformer_engine",
+        "4": "transformer_engine",
+        "16": "transformer_engine",
+        "32": "transformer_engine"
+      }
+    },
+    "sentinels": {
+      "__replace__": []
+    },
+    "integration_sentinel_cells": {
+      "__replace__": []
+    },
+    "learning_rate_diagnostics": {
+      "__delete__": true
+    },
+    "production_lr_evidence": {
+      "source_gate_path": "outputs/pipeline_runs/stage1_lr_confirmation_h100_v1/control/lr_confirmation_gate.json",
+      "source_gate_file_sha256": "d039f107198f9eceed53ddfee1c34f386d7954d3e3fcea3fc291d7bafc96297e",
+      "source_gate_payload_sha256": "28fc9ff3d31a6af060d14a7ef020a8956fbd9aab576b3a775dc8e479e9a02a41",
+      "source_recovery_path": "outputs/pipeline_runs/stage1_lr_confirmation_h100_v1/control/recovery/lr_confirmation_gate_analysis_recovery.json",
+      "source_recovery_file_sha256": "59f721944ce0b31e24a5074ffc8043635fcf3fab280b8eebb8f9faed61bdbb99",
+      "source_manifest_sha256": "0eaa0bdb1d939db04ecb5983a7d375f8b1ace74c01983909f100063cb84c605a",
+      "observed_decision": "inconclusive_boundary",
+      "authorization_decision": "authorized_with_disclosed_boundary",
+      "selected_rule": "jointmoe_x1_aggregate_a_priori",
+      "deferred_boundary_cell": "B/E1/K1:x4"
+    }
+  },
+  "throughput_tokens_per_second": {
+    "__replace__": {
+      "C": {
+        "1": 210819.9,
+        "4": 154474.96,
+        "16": 131410.38,
+        "32": 201540.71
+      }
+    }
+  },
+  "training_throughput_tokens_per_second_by_global_batch_size": {
+    "__replace__": {
+      "32": {
+        "C": {
+          "1": 206055.65,
+          "4": 143782.36,
+          "16": 109035.85,
+          "32": 172417.78
+        }
+      },
+      "64": {
+        "C": {
+          "1": 211816.42,
+          "4": 152029.23,
+          "16": 131466.4,
+          "32": 199865.81
+        }
+      },
+      "128": {
+        "C": {
+          "1": 210819.9,
+          "4": 154474.96,
+          "16": 131410.38,
+          "32": 201540.71
+        }
+      }
+    }
+  },
+  "evaluation_throughput_tokens_per_second": {
+    "__replace__": {
+      "C": {
+        "1": 350000.0,
+        "4": 220000.0,
+        "16": 180000.0,
+        "32": 180000.0
+      }
+    }
+  },
+  "performance_budget": {
+    "__replace__": {
+      "training_noncheckpoint_overhead_seconds_per_job": 90.0,
+      "checkpoint_overhead_seconds": {
+        "C": 45.0
+      },
+      "evaluation_setup_seconds": {
+        "C": 5.0
+      },
+      "evaluation_residual_seconds_per_language": {
+        "C": 1.0
+      },
+      "evidence": "2026-07-19 C systems measurements only; no inference about JointMoE-x1 numerical validity",
+      "training_throughput_evidence": {
+        "GBS32": {
+          "report": "outputs/pipeline_runs/h100_c_v1_performance/analysis/gbs32_long_performance_recheck.json",
+          "file_sha256": "93ce0c9dab286ae63d21120b8548baa3cdea4df3dff86b98625615936146d5bd",
+          "payload_sha256": "86f42845205657c5cd92d329279abdd98a6144c90fe88cb156546b2b703eedd3",
+          "contract": "all four C cells; 134,217,728 tokens; exact final iteration; final-window median; verified graph execution"
+        },
+        "GBS64": {
+          "report": "outputs/pipeline_runs/h100_c_v1_performance/analysis/gbs64_long_performance_recheck.json",
+          "file_sha256": "1064a3419171ecc1176e573b25364ee18a7b7383b2a7ff353052b4b6735f0f33",
+          "payload_sha256": "f103f144f894e748113c6ab6c01054bfc25fb8a2f620728137b67e9caccc3495",
+          "contract": "all four C cells; 134,217,728 tokens; exact final iteration; final-window median; verified graph execution"
+        },
+        "GBS128": {
+          "report": "outputs/pipeline_runs/h100_c_v1_performance/analysis/gbs128_long_performance_recheck.json",
+          "file_sha256": "d248effbe49fd0bccb60795c5c0fd44474c843eeae8a3695082d4d4d0631daa1",
+          "payload_sha256": "4a56eb925b750cb18f0818146ff0937da546c7e1b2123caf15dd8fd7d37f646c",
+          "contract": "all four C cells; 134,217,728 tokens; exact final iteration; final-window median; verified graph execution"
+        }
+      }
+    }
+  },
+  "systems_evidence_adoption": {
+    "source_runtime_path": "configs/scaling_law/multilingual_moe_c_v1/workflow_runtime.json",
+    "source_runtime_sha256": "e025b3eb3bb32462ce9c9297a80e03b445bd019a28f372159915f5853a6f8ecb",
+    "scope": "topology, memory, throughput, evaluation rate, and walltime only; not LR validity"
+  },
+  "sentinel_throughput_safety_factor": 0.99,
+  "gpu_hour_limit": 2000.0,
+  "scheduling": {
+    "mode": "ordinary_queue_forecast",
+    "predicted_time_multiplier": 2.0,
+    "additive_safety_hours": 12.0,
+    "minimum_job_hours": 2.0,
+    "maximum_job_hours": 168.0,
+    "walltime_rounding_minutes": 15,
+    "submit_ready_only": false,
+    "retry_policy": {
+      "manual_only": true,
+      "maximum_infrastructure_retries": 2,
+      "scientific_or_contract_failures_retryable": false
+    }
+  },
+  "storage": {
+    "enforcement": "informational_soft_limit",
+    "retain_all_checkpoints": true,
+    "production_launch_policy": "all_16_trunks_concurrently_eligible_after_advisory_capacity_observation"
+  },
+  "historical_source_runtime_sha256": "96b4385ffd19683e0e2abefb82f600dc3bbf44777810db405ba7919560337979"
+}

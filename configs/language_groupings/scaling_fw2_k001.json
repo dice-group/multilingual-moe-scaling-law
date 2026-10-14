@@ -1,0 +1,21 @@
+{
+  "0": {
+    "group": "k001",
+    "languages": [
+      "eng_Latn"
+    ],
+    "metadata": {
+      "eng_Latn": {
+        "family": "Indo-European",
+        "name": "English",
+        "resource_availability": "HIGH",
+        "subset": "eng_Latn"
+      }
+    },
+    "selection_policy": {
+      "anchor_language": "eng_Latn",
+      "ordering": "anchor first, then lexicographic language code",
+      "source_map": "configs/language_groupings/200_languages_grouping.json"
+    }
+  }
+}
